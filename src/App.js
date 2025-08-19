@@ -21,7 +21,7 @@ function App() {
       setError(null);
       
       // Fetch from local JSON file (updated daily by GitHub Actions)
-      const response = await fetch(`${process.env.PUBLIC_URL}/data/metrics.json`);
+      const response = await fetch(`${process.env.PUBLIC_URL || ''}/data/metrics.json`);
       
       if (!response.ok) {
         throw new Error(`Failed to load data: ${response.status}`);
