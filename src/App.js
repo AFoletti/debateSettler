@@ -379,30 +379,30 @@ function App() {
             className="md:col-span-2 xl:col-span-1"
           />
 
-          {/* Commute Back Home Stats */}
+          {/* Back Home Times */}
           <MetricCard
             icon={HomeIcon}
             title="Back Home Times"
-            value={metrics?.commute_back_home_stats?.count || 0}
-            subtitle="Commute sessions analyzed"
+            value={metrics?.back_home_stats?.count || 0}
+            subtitle="Days with tracked entries"
             className="md:col-span-1 xl:col-span-2"
           >
             <div className="stats-grid">
               <StatItem 
                 label="Average" 
-                value={metrics?.commute_back_home_stats?.mean} 
+                value={metrics?.back_home_stats?.mean} 
               />
               <StatItem 
                 label="Median" 
-                value={metrics?.commute_back_home_stats?.median} 
+                value={metrics?.back_home_stats?.median} 
               />
               <StatItem 
                 label="Earliest" 
-                value={metrics?.commute_back_home_stats?.earliest} 
+                value={metrics?.back_home_stats?.earliest} 
               />
               <StatItem 
                 label="Latest" 
-                value={metrics?.commute_back_home_stats?.latest} 
+                value={metrics?.back_home_stats?.latest} 
               />
             </div>
           </MetricCard>
