@@ -417,10 +417,73 @@ function App() {
     </div>
   );
 
-  const StatItem = ({ label, value }) => (
-    <div className="stat-item">
-      <div className="stat-label">{label}</div>
-      <div className="stat-value">{value || 'N/A'}</div>
+  const TrendIcon = ({ trend }) => {
+    const baseClass = "w-5 h-5 mr-2";
+    switch(trend) {
+      case 'up':
+        return <span className={`${baseClass} text-red-500`}>↗️</span>;
+      case 'down': 
+        return <span className={`${baseClass} text-green-500`}>↘️</span>;
+      case 'stable':
+      default:
+        return <span className={`${baseClass} text-gray-500`}>→</span>;
+    }
+  };
+
+  const TrendCard = ({ title, billableHoursTrend, backHomeTrend }) => (
+    <div className="metric-card">
+      <div className="flex items-center mb-4">
+        <ChartBarIcon className="metric-icon" />
+        <div className="ml-4 flex-1">
+          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        </div>
+      </div>
+      
+      <div className="space-y-4">
+        {/* Working Hours Trend */}
+        <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+          <div className="flex items-center">
+            <TrendIcon trend={billableHoursTrend.trend} />
+            <span className="text-sm font-medium text-gray-700">Working Hours</span>
+          </div>
+          <div className="text-right">
+            <div className="text-sm text-gray-600">
+              {billableHoursTrend.trend === 'up' && 'Longer'}
+              {billableHoursTrend.trend === 'down' && 'Shorter'}  
+              {billableHoursTrend.trend === 'stable' && 'Same'}
+            </div>
+            {Math.abs(billableHoursTrend.difference) > 0 && (
+              <div className="text-xs text-gray-500">
+                {billableHoursTrend.difference > 0 ? '+' : ''}{(billableHoursTrend.difference * 60).toFixed(0)}min
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Back Home Trend */}
+        <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+          <div className="flex items-center">
+            <TrendIcon trend={backHomeTrend.trend} />
+            <span className="text-sm font-medium text-gray-700">Back Home</span>
+          </div>
+          <div className="text-right">
+            <div className="text-sm text-gray-600">
+              {backHomeTrend.trend === 'up' && 'Later'}
+              {backHomeTrend.trend === 'down' && 'Earlier'}  
+              {backHomeTrend.trend === 'stable' && 'Same'}
+            </div>
+            {Math.abs(backHomeTrend.difference) > 0 && (
+              <div className="text-xs text-gray-500">
+                {backHomeTrend.difference > 0 ? '+' : ''}{backHomeTrend.difference.toFixed(0)}min
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="text-xs text-gray-500 text-center pt-2 border-t border-gray-200">
+          7-day vs 30-day averages
+        </div>
+      </div>
     </div>
   );
 
