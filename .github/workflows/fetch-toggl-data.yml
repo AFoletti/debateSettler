@@ -38,5 +38,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data/raw_data.json
+        # Also copy to public directory for static serving
+        mkdir -p public/data
+        cp data/raw_data.json public/data/raw_data.json
+        git add public/data/raw_data.json
         git diff --staged --quiet || git commit -m "Update Toggl raw data - $(date)"
         git push
