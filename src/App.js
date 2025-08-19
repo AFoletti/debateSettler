@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   ClockIcon,
   HomeIcon,
   MapPinIcon,
   CalendarIcon,
   ChartBarIcon,
-  ExclamationTriangleIcon,
-  ArrowPathIcon
+  ExclamationTriangleIcon
 } from '@heroicons/react/24/outline';
 import './App.css';
+
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
 
 function App() {
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   const fetchMetrics = async () => {
     try {
       setLoading(true);
       setError(null);
-      
-      // Fetch from local JSON file (updated daily by GitHub Actions)
-      const response = await fetch('./data/metrics.json');
-      
-      if (!response.ok) {
-        throw new Error(`Failed to load data: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      setMetrics(data);
+      const response = await axios.get(`${API_BASE_URL}/api/dashboard-metrics`);
+      setMetrics(response.data);
+      setLastUpdated(new Date());
     } catch (err) {
-      setError(`Failed to load dashboard data: ${err.message}`);
+      setError(err.response?.data?.detail || 'Failed to fetch metrics');
       console.error('Error fetching metrics:', err);
     } finally {
       setLoading(false);
@@ -39,6 +35,9 @@ function App() {
 
   useEffect(() => {
     fetchMetrics();
+    // Auto-refresh every 5 minutes
+    const interval = setInterval(fetchMetrics, 5 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const MetricCard = ({ icon: Icon, title, value, subtitle, children, className = "" }) => (
@@ -66,28 +65,12 @@ function App() {
     </div>
   );
 
-  const formatLastUpdated = (isoString) => {
-    try {
-      const date = new Date(isoString);
-      return date.toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZoneName: 'short'
-      });
-    } catch {
-      return 'Unknown';
-    }
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="loading-spinner w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading your Toggl dashboard...</p>
+          <p className="mt-4 text-gray-600">Loading your Toggl data...</p>
         </div>
       </div>
     );
@@ -102,9 +85,8 @@ function App() {
           <p className="text-gray-600 mb-4">{error}</p>
           <button
             onClick={fetchMetrics}
-            className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors inline-flex items-center"
+            className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
           >
-            <ArrowPathIcon className="w-4 h-4 mr-2" />
             Try Again
           </button>
         </div>
@@ -131,29 +113,18 @@ function App() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Data Status */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <CalendarIcon className="w-5 h-5 text-blue-600 mr-3" />
-              <div>
-                <p className="text-sm font-medium text-blue-900">
-                  Data automatically updated daily at 6:00 AM UTC
-                </p>
-                <p className="text-xs text-blue-600 mt-1">
-                  Last updated: {metrics?.last_updated ? formatLastUpdated(metrics.last_updated) : 'Unknown'}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={fetchMetrics}
-              disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-3 rounded-lg transition-colors inline-flex items-center text-sm"
-            >
-              <ArrowPathIcon className="w-4 h-4 mr-1" />
-              Refresh
-            </button>
+        {/* Refresh Button */}
+        <div className="flex justify-between items-center mb-6">
+          <div className="text-sm text-gray-500">
+            {lastUpdated && `Last updated: ${lastUpdated.toLocaleTimeString()}`}
           </div>
+          <button
+            onClick={fetchMetrics}
+            disabled={loading}
+            className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-300 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+          >
+            Refresh Data
+          </button>
         </div>
 
         {/* Metrics Grid */}
@@ -266,18 +237,12 @@ function App() {
           </div>
         </div>
 
-        {/* GitHub Pages Notice */}
-        <div className="mt-8 bg-gray-100 rounded-xl p-6 border border-gray-200">
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">🚀 Hosted on GitHub Pages</h3>
-            <p className="text-sm text-gray-600 mb-1">
-              Data is automatically fetched daily from Toggl Track API via GitHub Actions
-            </p>
-            <p className="text-xs text-gray-500">
-              Workspace: {metrics?.workspace_name || 'DRE-P'} • 
-              ArgumentSettler helps you win debates with data, not emotions 📊
-            </p>
-          </div>
+        {/* Footer */}
+        <div className="mt-8 text-center text-sm text-gray-500">
+          <p>Data sourced from Toggl Track • Workspace: DRE-P</p>
+          <p className="mt-1">
+            ArgumentSettler helps you win debates with data, not emotions 📊
+          </p>
         </div>
       </div>
     </div>
