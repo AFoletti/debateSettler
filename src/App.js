@@ -430,12 +430,12 @@ function App() {
     const baseClass = "w-5 h-5 mr-2";
     switch(trend) {
       case 'up':
-        return <span className={`${baseClass} text-red-500`}>↗️</span>;
+        return <span className={`${baseClass} trend-up`}>↗️</span>;
       case 'down': 
-        return <span className={`${baseClass} text-green-500`}>↘️</span>;
+        return <span className={`${baseClass} trend-down`}>↘️</span>;
       case 'stable':
       default:
-        return <span className={`${baseClass} text-gray-500`}>→</span>;
+        return <span className={`${baseClass} trend-stable`}>→</span>;
     }
   };
 
