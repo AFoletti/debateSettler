@@ -41,9 +41,11 @@ function cleanFilenames() {
     const indexPath = path.join(buildDir, 'index.html');
     let indexContent = fs.readFileSync(indexPath, 'utf8');
     
-    // Replace hashed filenames with clean ones
-    indexContent = indexContent.replace(/\/argumentSettler\/static\/js\/main\.[^"]+\.js/g, '/argumentSettler/static/js/main.js');
-    indexContent = indexContent.replace(/\/argumentSettler\/static\/css\/main\.[^"]+\.css/g, '/argumentSettler/static/css/main.css');
+    // Replace hashed filenames with clean ones for both absolute and relative paths
+    indexContent = indexContent.replace(/\/argumentSettler\/static\/js\/main\.[^"]+\.js/g, './static/js/main.js');
+    indexContent = indexContent.replace(/\/argumentSettler\/static\/css\/main\.[^"]+\.css/g, './static/css/main.css');
+    indexContent = indexContent.replace(/\.\/static\/js\/main\.[^"]+\.js/g, './static/js/main.js');
+    indexContent = indexContent.replace(/\.\/static\/css\/main\.[^"]+\.css/g, './static/css/main.css');
     
     fs.writeFileSync(indexPath, indexContent);
     console.log('✅ Updated index.html with clean filenames');
@@ -52,8 +54,8 @@ function cleanFilenames() {
     const manifestPath = path.join(buildDir, 'asset-manifest.json');
     if (fs.existsSync(manifestPath)) {
       let manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-      manifest.files['main.css'] = '/argumentSettler/static/css/main.css';
-      manifest.files['main.js'] = '/argumentSettler/static/js/main.js';
+      manifest.files['main.css'] = './static/css/main.css';
+      manifest.files['main.js'] = './static/js/main.js';
       manifest.entrypoints = ['static/css/main.css', 'static/js/main.js'];
       fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
       console.log('✅ Updated asset-manifest.json with clean filenames');
