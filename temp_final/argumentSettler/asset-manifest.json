@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.css": "/argumentSettler/static/css/main.css",
+    "main.js": "/argumentSettler/static/js/main.js",
+    "index.html": "/argumentSettler/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.css",
+    "static/js/main.js"
+  ]
+}
