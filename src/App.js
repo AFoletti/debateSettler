@@ -358,6 +358,7 @@ function App() {
             title="Total Billable Hours"
             value={`${metrics?.billable_hours || 0}h`}
             subtitle="Last 30 days"
+            dailyAvg={`${metrics?.daily_billable_avg || 0}h`}
           />
 
           {/* Absent from Home */}
@@ -365,7 +366,8 @@ function App() {
             icon={MapPinIcon}
             title="Time Away from Home"
             value={`${metrics?.absent_from_home_hours || 0}h`}
-            subtitle="Non-HomeOffice hours (billable + non-billable)"
+            subtitle="Non-HomeOffice hours"
+            dailyAvg={`${metrics?.daily_away_avg || 0}h`}
           />
 
           {/* Late Work Frequency */}
