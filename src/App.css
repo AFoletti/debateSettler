@@ -187,11 +187,6 @@ body {
   }
 }
 
-/* Focus states for accessibility */
-.metric-card:focus-within {
-  @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-dark-50;
-}
-
 /* Loading state enhancements */
 .loading-container {
   @apply min-h-screen bg-dark-50 flex items-center justify-center;
