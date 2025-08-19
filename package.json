@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build && npm run rename-assets",
+    "rename-assets": "cd build/static/js && for file in main.*.js; do mv \"$file\" main.js 2>/dev/null || true; done && cd ../css && for file in main.*.css; do mv \"$file\" main.css 2>/dev/null || true; done",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
