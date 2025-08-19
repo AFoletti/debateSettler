@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Calculations</title>
+</head>
+<body>
+    <h1>Testing Raw Data Processing</h1>
+    <div id="output">Loading...</div>
+
+    <script>
+    async function test() {
+        try {
+            console.log("Fetching raw data...");
+            const response = await fetch('/data/raw_data.json');
+            const rawData = await response.json();
+            console.log("Raw data loaded:", rawData.total_entries, "entries");
+            
+            const entries = rawData.raw_entries || [];
+            console.log("Processing entries...");
+            
+            // Filter entries from last 30 days
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            const recentEntries = entries.filter(entry => {
+                const startTime = new Date(entry.start.replace("Z", "+00:00"));
+                return startTime && startTime >= thirtyDaysAgo && entry.duration > 0;
+            });
+            
+            console.log("Recent entries (30 days):", recentEntries.length);
+            
+            // Calculate billable hours
+            let totalBillableSeconds = 0;
+            recentEntries.forEach(entry => {
+                if (entry.billable && entry.duration > 0) {
+                    totalBillableSeconds += entry.duration;
+                }
+            });
+            
+            const billableHours = totalBillableSeconds / 3600;
+            console.log("Billable hours:", billableHours);
+            
+            document.getElementById('output').innerHTML = `
+                <p>✅ Success!</p>
+                <p>Total entries: ${rawData.total_entries}</p>
+                <p>Recent entries (30 days): ${recentEntries.length}</p>
+                <p>Billable hours: ${billableHours.toFixed(2)}h</p>
+            `;
+            
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById('output').innerHTML = `❌ Error: ${error.message}`;
+        }
+    }
+    
+    test();
+    </script>
+</body>
+</html>
