@@ -4,9 +4,9 @@ import {
   ClockIcon,
   HomeIcon,
   MapPinIcon,
-  CalendarIcon,
   ChartBarIcon,
-  ExclamationTriangleIcon
+  ExclamationTriangleIcon,
+  ArrowPathIcon
 } from '@heroicons/react/24/outline';
 import './App.css';
 
