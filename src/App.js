@@ -270,6 +270,10 @@ function App() {
       .map(entryData => entryData.endTime.getHours() * 60 + entryData.endTime.getMinutes());
     
     const homeOfficeStats = calculateStats(homeOfficeEndTimes);
+    
+    // Debug logging
+    console.log(`🏠 Valid HomeOffice days found: ${Object.keys(validHomeOfficeDays).length}`);
+    console.log(`🚪 Back home times calculated for: ${backHomeTimes.length} days`);
 
     // 5. Calculate late work frequency (after 20:00)
     const workDays = new Set();
