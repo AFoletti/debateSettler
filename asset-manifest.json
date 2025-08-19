@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/argumentSettler/static/css/main.0c8af8a7.css",
+    "main.js": "/argumentSettler/static/js/main.2d9cce37.js",
+    "index.html": "/argumentSettler/index.html",
+    "main.0c8af8a7.css.map": "/argumentSettler/static/css/main.0c8af8a7.css.map",
+    "main.2d9cce37.js.map": "/argumentSettler/static/js/main.2d9cce37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c8af8a7.css",
+    "static/js/main.2d9cce37.js"
+  ]
+}
