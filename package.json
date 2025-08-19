@@ -9,6 +9,9 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18"
   },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
