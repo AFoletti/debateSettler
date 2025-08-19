@@ -1,0 +1,46 @@
+name: Fetch Toggl Data Daily
+
+on:
+  schedule:
+    # Run daily at 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to push to repository
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests python-dateutil
+
+    - name: Fetch Toggl data
+      env:
+        TOGGL_API_TOKEN: ${{ secrets.TOGGL_API_TOKEN }}
+        TOGGL_WORKSPACE: DRE-P
+      run: |
+        python scripts/fetch-toggl-data.py
+
+    - name: Commit and push data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/raw_data.json
+        # Also copy to public directory for static serving
+        mkdir -p public/data
+        cp data/raw_data.json public/data/raw_data.json
+        git add public/data/raw_data.json
+        git diff --staged --quiet || git commit -m "Update Toggl raw data - $(date)"
+        git push
