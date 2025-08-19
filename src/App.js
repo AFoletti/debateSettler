@@ -11,37 +11,221 @@ import {
 import './App.css';
 
 function App() {
+  const [rawData, setRawData] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchMetrics = async () => {
+  // Helper function to parse datetime with timezone handling
+  const parseDateTime = (dateTimeStr) => {
+    if (!dateTimeStr) return null;
+    return new Date(dateTimeStr.replace("Z", "+00:00"));
+  };
+
+  // Helper function to format time as HH:MM
+  const formatTime = (date) => {
+    if (!date) return null;
+    return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+  };
+
+  // Helper function to convert minutes to HH:MM format
+  const minutesToTime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+  };
+
+  // Calculate statistics (mean, median, min, max)
+  const calculateStats = (values) => {
+    if (values.length === 0) {
+      return { mean: null, median: null, earliest: null, latest: null, count: 0 };
+    }
+
+    const sorted = [...values].sort((a, b) => a - b);
+    const mean = values.reduce((sum, val) => sum + val, 0) / values.length;
+    const median = sorted.length % 2 === 0 
+      ? (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2
+      : sorted[Math.floor(sorted.length / 2)];
+
+    return {
+      mean: minutesToTime(mean),
+      median: minutesToTime(median),
+      earliest: minutesToTime(Math.min(...values)),
+      latest: minutesToTime(Math.max(...values)),
+      count: values.length
+    };
+  };
+
+  // Process raw data and calculate all metrics
+  const processRawData = (rawData) => {
+    const entries = rawData.raw_entries || [];
+    
+    // Filter entries from last 30 days for calculations
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    
+    const recentEntries = entries.filter(entry => {
+      const startTime = parseDateTime(entry.start);
+      return startTime && startTime >= thirtyDaysAgo && entry.duration > 0;
+    });
+
+    // 1. Calculate billable hours (total and daily average)
+    let totalBillableSeconds = 0;
+    const dailyBillableHours = {};
+    
+    recentEntries.forEach(entry => {
+      if (entry.billable && entry.duration > 0) {
+        totalBillableSeconds += entry.duration;
+        
+        const date = parseDateTime(entry.start).toISOString().split('T')[0];
+        if (!dailyBillableHours[date]) dailyBillableHours[date] = 0;
+        dailyBillableHours[date] += entry.duration / 3600;
+      }
+    });
+    
+    const billableHours = totalBillableSeconds / 3600;
+    const billableDays = Object.keys(dailyBillableHours).length;
+    const dailyBillableAvg = billableDays > 0 ? billableHours / billableDays : 0;
+
+    // 2. Calculate time away from home (total and daily average)
+    let totalAwaySeconds = 0;
+    const dailyAwayHours = {};
+    
+    recentEntries.forEach(entry => {
+      const tags = entry.tags || [];
+      if (!tags.includes("HomeOffice") && entry.duration > 0) {
+        totalAwaySeconds += entry.duration;
+        
+        const date = parseDateTime(entry.start).toISOString().split('T')[0];
+        if (!dailyAwayHours[date]) dailyAwayHours[date] = 0;
+        dailyAwayHours[date] += entry.duration / 3600;
+      }
+    });
+    
+    const awayFromHomeHours = totalAwaySeconds / 3600;
+    const awayDays = Object.keys(dailyAwayHours).length;
+    const dailyAwayAvg = awayDays > 0 ? awayFromHomeHours / awayDays : 0;
+
+    // 3. Calculate back home times (when last daily entry ends - ANY entry)
+    const dailyLastEntries = {};
+    
+    recentEntries.forEach(entry => {
+      const startTime = parseDateTime(entry.start);
+      const endTime = parseDateTime(entry.stop);
+      if (!startTime || !endTime) return;
+      
+      const date = startTime.toISOString().split('T')[0];
+      
+      // Keep track of the latest ending entry for each day
+      if (!dailyLastEntries[date] || endTime > dailyLastEntries[date].endTime) {
+        dailyLastEntries[date] = {
+          endTime: endTime,
+          entry: entry
+        };
+      }
+    });
+    
+    const backHomeTimes = Object.values(dailyLastEntries)
+      .map(dayData => dayData.endTime.getHours() * 60 + dayData.endTime.getMinutes());
+    
+    const backHomeStats = calculateStats(backHomeTimes);
+
+    // 4. Calculate HomeOffice end times (when last daily HomeOffice entry ends)
+    const dailyHomeOfficeEntries = {};
+    
+    recentEntries.forEach(entry => {
+      const tags = entry.tags || [];
+      if (tags.includes("HomeOffice")) {
+        const startTime = parseDateTime(entry.start);
+        const endTime = parseDateTime(entry.stop);
+        if (!startTime || !endTime) return;
+        
+        const date = startTime.toISOString().split('T')[0];
+        
+        // Keep track of the latest ending HomeOffice entry for each day
+        if (!dailyHomeOfficeEntries[date] || endTime > dailyHomeOfficeEntries[date].endTime) {
+          dailyHomeOfficeEntries[date] = {
+            endTime: endTime,
+            entry: entry
+          };
+        }
+      }
+    });
+    
+    const homeOfficeEndTimes = Object.values(dailyHomeOfficeEntries)
+      .map(dayData => dayData.endTime.getHours() * 60 + dayData.endTime.getMinutes());
+    
+    const homeOfficeStats = calculateStats(homeOfficeEndTimes);
+
+    // 5. Calculate late work frequency (after 20:00)
+    const workDays = new Set();
+    const lateWorkDays = new Set();
+    
+    recentEntries.forEach(entry => {
+      const startTime = parseDateTime(entry.start);
+      const endTime = parseDateTime(entry.stop);
+      if (!startTime) return;
+      
+      const date = startTime.toISOString().split('T')[0];
+      workDays.add(date);
+      
+      // Check if work started after 20:00 or ended after 20:00
+      if ((startTime.getHours() >= 20) || (endTime && endTime.getHours() >= 20)) {
+        lateWorkDays.add(date);
+      }
+    });
+    
+    const lateWorkPercentage = workDays.size > 0 ? (lateWorkDays.size / workDays.size * 100) : 0;
+
+    return {
+      billable_hours: Math.round(billableHours * 100) / 100,
+      daily_billable_avg: Math.round(dailyBillableAvg * 100) / 100,
+      absent_from_home_hours: Math.round(awayFromHomeHours * 100) / 100,
+      daily_away_avg: Math.round(dailyAwayAvg * 100) / 100,
+      back_home_stats: backHomeStats,
+      home_office_end_stats: homeOfficeStats,
+      late_work_frequency: {
+        late_work_days: lateWorkDays.size,
+        total_work_days: workDays.size,
+        percentage: Math.round(lateWorkPercentage * 10) / 10
+      },
+      total_entries: recentEntries.length,
+      date_range: {
+        start: thirtyDaysAgo.toISOString().split('T')[0],
+        end: new Date().toISOString().split('T')[0]
+      }
+    };
+  };
+
+  const fetchData = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      // Fetch from local JSON file (updated daily by GitHub Actions)
-      const response = await fetch(`${process.env.PUBLIC_URL || ''}/data/metrics.json`);
+      // Fetch raw data from GitHub Pages
+      const response = await fetch(`${process.env.PUBLIC_URL || ''}/data/raw_data.json`);
       
       if (!response.ok) {
         throw new Error(`Failed to load data: ${response.status}`);
       }
       
       const data = await response.json();
-      setMetrics(data);
+      setRawData(data);
+      
+      // Process raw data to calculate metrics
+      const calculatedMetrics = processRawData(data);
+      setMetrics(calculatedMetrics);
+      
     } catch (err) {
       setError(`Failed to load dashboard data: ${err.message}`);
-      console.error('Error fetching metrics:', err);
+      console.error('Error fetching data:', err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchMetrics();
-    // Auto-refresh every 5 minutes
-    const interval = setInterval(fetchMetrics, 5 * 60 * 1000);
-    return () => clearInterval(interval);
+    fetchData();
   }, []);
 
   const MetricCard = ({ icon: Icon, title, value, subtitle, children, className = "" }) => (
