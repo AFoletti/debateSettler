@@ -243,8 +243,8 @@ async def get_dashboard_metrics():
         start_date = end_date - timedelta(days=30)
         
         # Format dates for Toggl API (ISO format)
-        start_date_str = start_date.strftime("%Y-%m-%dT00:00:00Z")
-        end_date_str = end_date.strftime("%Y-%m-%dT23:59:59Z")
+        start_date_str = start_date.strftime("%Y-%m-%dT00:00:00.000Z")
+        end_date_str = end_date.strftime("%Y-%m-%dT23:59:59.999Z")
         
         # Fetch time entries from Toggl
         time_entries = toggl_service.get_time_entries(start_date_str, end_date_str)
