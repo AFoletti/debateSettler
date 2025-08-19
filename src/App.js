@@ -624,8 +624,8 @@ function App() {
             icon={HomeIcon}
             title="Back Home Times"
             value={metrics?.back_home_stats?.count || 0}
-            subtitle="Days with tracked entries"
-            className="md:col-span-1 xl:col-span-2"
+            subtitle="Days with commuting tracked"
+            className="xl:col-span-1"
           >
             <div className="stats-grid">
               <StatItem 
@@ -652,8 +652,8 @@ function App() {
             icon={ChartBarIcon}
             title="HomeOffice End Times"
             value={metrics?.home_office_end_stats?.count || 0}
-            subtitle="HomeOffice days analyzed"
-            className="md:col-span-2 xl:col-span-1"
+            subtitle="Pure HomeOffice days analyzed"
+            className="xl:col-span-1"
           >
             <div className="stats-grid">
               <StatItem 
@@ -674,6 +674,15 @@ function App() {
               />
             </div>
           </MetricCard>
+
+          {/* Trends Card */}
+          {metrics?.trends && (
+            <TrendCard
+              title="Recent Trends"
+              billableHoursTrend={metrics.trends.billable_hours}
+              backHomeTrend={metrics.trends.back_home_time}
+            />
+          )}
         </div>
 
         {/* Summary Stats */}
