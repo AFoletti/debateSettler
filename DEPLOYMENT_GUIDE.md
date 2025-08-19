@@ -9,7 +9,7 @@ git clone https://github.com/yourusername/argumentsettler-dashboard.git
 cd argumentsettler-dashboard
 
 # Update homepage in package.json to match your repository
-# Replace "yourusername" with your GitHub username
+# Replace "yourusername" with your actual GitHub username
 ```
 
 ### 2. Configure GitHub Secrets
@@ -28,11 +28,69 @@ cd argumentsettler-dashboard
 # Install dependencies
 npm install
 
+# Update the homepage URL in package.json
+# Change: "homepage": "https://yourusername.github.io/argumentsettler-dashboard"
+# To:     "homepage": "https://YOUR-ACTUAL-USERNAME.github.io/argumentsettler-dashboard"
+
 # Build the project
 npm run build
 
 # Deploy to GitHub Pages (creates/updates gh-pages branch)
 npm run deploy
+```
+
+## 🔧 Troubleshooting
+
+### Issue 1: Favicon Not Found
+**Fixed** ✅ - We've added a proper favicon.ico file to the public folder.
+
+### Issue 2: GitHub Action 403 Error
+**Fixed** ✅ - The workflow now includes proper permissions:
+```yaml
+permissions:
+  contents: write  # Required to push to repository
+```
+
+### Common Issues:
+
+#### GitHub Action Still Failing?
+1. **Check Repository Visibility**: If your repo is private, make sure GitHub Actions are enabled
+2. **Verify API Token**: Ensure `TOGGL_API_TOKEN` secret is set correctly in repository settings
+3. **Branch Permissions**: Make sure the default branch allows Actions to write
+
+#### Data Not Updating?
+1. Check the **Actions** tab for workflow run status
+2. Verify the API token has access to your Toggl workspace
+3. Check if the workflow is scheduled properly (should run daily at 6 AM UTC)
+
+#### Deployment Issues?
+1. Update the `homepage` field in `package.json` to match your repository URL exactly
+2. Make sure GitHub Pages is enabled and set to deploy from `gh-pages` branch
+3. Check the **Actions** tab to see if deployment succeeded
+
+## 🔄 Manual Testing
+
+### Test GitHub Action Locally:
+```bash
+# Set environment variables
+export TOGGL_API_TOKEN="your_token_here"
+export TOGGL_WORKSPACE="DRE-P"
+
+# Run the data fetch script
+python scripts/fetch-toggl-data.py
+```
+
+### Test Static Site Locally:
+```bash
+# Build the project
+npm run build
+
+# Copy data to build folder
+cp -r data build/
+
+# Serve locally
+cd build && python3 -m http.server 8080
+# Visit: http://localhost:8080
 ```
 
 ## 🔄 Automatic Data Updates
