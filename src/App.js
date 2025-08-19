@@ -544,19 +544,19 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-dark-50">
       {/* Header */}
-      <div className="gradient-bg shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="gradient-bg shadow-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white">ArgumentSettler Dashboard</h1>
-            <p className="mt-2 text-xl text-white opacity-90">
-              Your Toggl Track Data - Last 30 Days
+            <h1 className="text-5xl font-bold text-white mb-3 tracking-tight">ArgumentSettler Dashboard</h1>
+            <p className="text-xl text-white/90 font-medium mb-2">
+              Your Toggl Track Analytics - Last 30 Working Days
             </p>
-            <p className="mt-1 text-sm text-white opacity-75">
+            <p className="text-sm text-white/75 font-medium">
               {metrics?.working_days_analyzed ? 
-                `Last ${metrics.working_days_analyzed} working days: ${metrics.date_range.start} to ${metrics.date_range.end}` :
-                'Loading data range...'}
+                `${metrics.working_days_analyzed} working days analyzed: ${metrics.date_range.start} to ${metrics.date_range.end}` :
+                'Loading analytics...'}
             </p>
           </div>
         </div>
@@ -565,18 +565,18 @@ function App() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Data Status */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <div className="flex items-center justify-between">
+        <div className="status-indicator">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center">
-              <CalendarIcon className="w-5 h-5 text-blue-600 mr-3" />
+              <CalendarIcon className="w-6 h-6 text-primary-400 mr-4" />
               <div>
-                <p className="text-sm font-medium text-blue-900">
+                <p className="text-base font-semibold text-dark-800">
                   Data automatically updated daily at 6:00 AM UTC
                 </p>
-                <p className="text-xs text-blue-600 mt-1">
+                <p className="text-sm text-primary-400 mt-1 font-medium">
                   Last updated: {rawData?.fetched_at ? formatLastUpdated(rawData.fetched_at) : 'Unknown'}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-dark-500 mt-1">
                   Raw data from {rawData?.date_range?.days || 60} days • Statistics from last {metrics?.working_days_analyzed || 30} working days • Client-side calculations
                 </p>
               </div>
@@ -584,23 +584,23 @@ function App() {
             <button
               onClick={fetchData}
               disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-3 rounded-lg transition-colors inline-flex items-center text-sm"
+              className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center text-sm"
             >
-              <ArrowPathIcon className="w-4 h-4 mr-1" />
-              Refresh
+              <ArrowPathIcon className="w-4 h-4 mr-2" />
+              Refresh Data
             </button>
           </div>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
           
           {/* Billable Hours */}
           <MetricCard
             icon={ClockIcon}
             title="Total Billable Hours"
             value={`${metrics?.billable_hours || 0}h`}
-            subtitle="Last 30 days"
+            subtitle="Last 30 working days"
             dailyAvg={`${metrics?.daily_billable_avg || 0}h`}
           />
 
@@ -619,7 +619,7 @@ function App() {
             title="Late Work Frequency"
             value={`${metrics?.late_work_frequency?.percentage || 0}%`}
             subtitle={`${metrics?.late_work_frequency?.late_work_days || 0} out of ${metrics?.late_work_frequency?.total_work_days || 0} work days after 20:00`}
-            className="md:col-span-2 xl:col-span-1"
+            className="lg:col-span-2 xl:col-span-1"
           />
 
           {/* Back Home Times */}
@@ -689,42 +689,40 @@ function App() {
         </div>
 
         {/* Summary Stats */}
-        <div className="mt-8 bg-white rounded-xl shadow-card p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Data Summary</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600">
+        <div className="data-summary mb-8">
+          <h2 className="text-xl font-bold text-dark-800 mb-6">Data Summary</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="summary-stat">
+              <div className="summary-value">
                 {metrics?.total_entries || 0}
               </div>
-              <div className="text-sm text-gray-600">Time Entries (30 days)</div>
+              <div className="summary-label">Time Entries (30 days)</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600">
+            <div className="summary-stat">
+              <div className="summary-value">
                 {rawData?.total_entries || 0}
               </div>
-              <div className="text-sm text-gray-600">Total Raw Entries (60 days)</div>
+              <div className="summary-label">Total Raw Entries (60 days)</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600">
+            <div className="summary-stat">
+              <div className="summary-value">
                 {metrics?.working_days_analyzed || 0}
               </div>
-              <div className="text-sm text-gray-600">Working Days Analyzed</div>
+              <div className="summary-label">Working Days Analyzed</div>
             </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="mt-8 bg-gray-100 rounded-xl p-6 border border-gray-200">
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">🚀 Enhanced ArgumentSettler</h3>
-            <p className="text-sm text-gray-600 mb-1">
-              Raw data (60 days) fetched daily • Calculations performed in your browser
-            </p>
-            <p className="text-xs text-gray-500">
-              Workspace: {rawData?.workspace_name || 'DRE-P'} • 
-              ArgumentSettler helps you win debates with data, not emotions 📊
-            </p>
-          </div>
+        <div className="footer-section">
+          <h3 className="text-lg font-bold text-dark-800 mb-3">🚀 Enhanced ArgumentSettler</h3>
+          <p className="text-sm text-dark-600 mb-2 leading-relaxed">
+            Raw data (60 days) fetched daily • All calculations performed in your browser for privacy
+          </p>
+          <p className="text-xs text-dark-500">
+            Workspace: <span className="text-primary-400 font-medium">{rawData?.workspace_name || 'DRE-P'}</span> • 
+            ArgumentSettler helps you win debates with data, not emotions 📊
+          </p>
         </div>
       </div>
     </div>
