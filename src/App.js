@@ -160,20 +160,17 @@ function App() {
         }
       });
       
-      // Find the latest entry that should count for "back home" time
-      // This excludes HomeOffice entries that come AFTER the last Commuting entry
-      let validLastEntry = null;
-      
+      // IMPORTANT: Only days with commuting should have "back home" times
+      // Pure HomeOffice days should not contribute to back home statistics
       if (lastCommutingEntry) {
-        // If there was commuting, use the last commuting entry as back home time
-        // and ignore any HomeOffice entries after it
-        validLastEntry = lastCommutingEntry;
+        // Use the last commuting entry as back home time
+        // Ignore any HomeOffice entries after it (evening work from home)
+        dayData.lastOverallEntry = lastCommutingEntry;
       } else {
-        // If no commuting, use the actual last entry of the day
-        validLastEntry = dayData.entries[dayData.entries.length - 1];
+        // No commuting = no "back home" concept applies
+        // This day should not contribute to back home statistics
+        dayData.lastOverallEntry = null;
       }
-      
-      dayData.lastOverallEntry = validLastEntry;
     });
     
     const backHomeTimes = Object.values(dailyLastEntries)
