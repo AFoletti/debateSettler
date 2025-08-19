@@ -70,6 +70,8 @@ function App() {
     const oldestWorkingDay = last30WorkingDays[last30WorkingDays.length - 1];
     
     console.log(`📊 Using last 30 working days: ${last30WorkingDays.length} days from ${oldestWorkingDay} to ${last30WorkingDays[0]}`);
+    console.log(`🏠 Valid HomeOffice days found: ${Object.keys(validHomeOfficeDays).length}`);
+    console.log(`🚪 Back home times calculated for: ${backHomeTimes.length} days`);
     
     // Filter entries to only include those from the last 30 working days
     const recentEntries = entries.filter(entry => {
