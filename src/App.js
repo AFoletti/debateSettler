@@ -468,9 +468,9 @@ function App() {
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary-600">
-                Client-side
+                {metrics?.working_days_analyzed || 0}
               </div>
-              <div className="text-sm text-gray-600">Calculations</div>
+              <div className="text-sm text-gray-600">Working Days Analyzed</div>
             </div>
           </div>
         </div>
