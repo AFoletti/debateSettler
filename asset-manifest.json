@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/argumentSettler/static/css/main.0c8af8a7.css",
-    "main.js": "/argumentSettler/static/js/main.2d9cce37.js",
+    "main.css": "/argumentSettler/static/css/main.8ae2f3f8.css",
+    "main.js": "/argumentSettler/static/js/main.7b349b2c.js",
     "index.html": "/argumentSettler/index.html",
-    "main.0c8af8a7.css.map": "/argumentSettler/static/css/main.0c8af8a7.css.map",
-    "main.2d9cce37.js.map": "/argumentSettler/static/js/main.2d9cce37.js.map"
+    "main.8ae2f3f8.css.map": "/argumentSettler/static/css/main.8ae2f3f8.css.map",
+    "main.7b349b2c.js.map": "/argumentSettler/static/js/main.7b349b2c.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c8af8a7.css",
-    "static/js/main.2d9cce37.js"
+    "static/css/main.8ae2f3f8.css",
+    "static/js/main.7b349b2c.js"
   ]
 }
