@@ -440,29 +440,29 @@ function App() {
   };
 
   const TrendCard = ({ title, billableHoursTrend, backHomeTrend }) => (
-    <div className="metric-card">
-      <div className="flex items-center mb-4">
+    <div className="metric-card glow-on-hover">
+      <div className="flex items-center mb-6">
         <ChartBarIcon className="metric-icon" />
         <div className="ml-4 flex-1">
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 className="text-lg font-semibold text-dark-800">{title}</h3>
         </div>
       </div>
       
       <div className="space-y-4">
         {/* Working Hours Trend */}
-        <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-          <div className="flex items-center">
+        <div className="trend-section">
+          <div className="trend-info">
             <TrendIcon trend={billableHoursTrend.trend} />
-            <span className="text-sm font-medium text-gray-700">Working Hours</span>
+            <span className="trend-text">Working Hours</span>
           </div>
-          <div className="text-right">
-            <div className="text-sm text-gray-600">
+          <div className="trend-details">
+            <div className="trend-text">
               {billableHoursTrend.trend === 'up' && 'Longer'}
               {billableHoursTrend.trend === 'down' && 'Shorter'}  
               {billableHoursTrend.trend === 'stable' && 'Same'}
             </div>
             {Math.abs(billableHoursTrend.difference) > 0 && (
-              <div className="text-xs text-gray-500">
+              <div className="trend-diff">
                 {billableHoursTrend.difference > 0 ? '+' : ''}{(billableHoursTrend.difference * 60).toFixed(0)}min
               </div>
             )}
@@ -470,26 +470,26 @@ function App() {
         </div>
 
         {/* Back Home Trend */}
-        <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-          <div className="flex items-center">
+        <div className="trend-section">
+          <div className="trend-info">
             <TrendIcon trend={backHomeTrend.trend} />
-            <span className="text-sm font-medium text-gray-700">Back Home</span>
+            <span className="trend-text">Back Home</span>
           </div>
-          <div className="text-right">
-            <div className="text-sm text-gray-600">
+          <div className="trend-details">
+            <div className="trend-text">
               {backHomeTrend.trend === 'up' && 'Later'}
               {backHomeTrend.trend === 'down' && 'Earlier'}  
               {backHomeTrend.trend === 'stable' && 'Same'}
             </div>
             {Math.abs(backHomeTrend.difference) > 0 && (
-              <div className="text-xs text-gray-500">
+              <div className="trend-diff">
                 {backHomeTrend.difference > 0 ? '+' : ''}{backHomeTrend.difference.toFixed(0)}min
               </div>
             )}
           </div>
         </div>
 
-        <div className="text-xs text-gray-500 text-center pt-2 border-t border-gray-200">
+        <div className="text-xs text-dark-400 text-center pt-3 border-t border-dark-200 font-medium">
           7-day vs 30-day averages
         </div>
       </div>
