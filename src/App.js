@@ -118,6 +118,7 @@ function App() {
     const dailyAwayAvg = awayDays > 0 ? awayFromHomeHours / awayDays : 0;
 
     // 3. Calculate back home times (when last daily entry ends - ANY entry)
+    // BUT exclude HomeOffice entries that come AFTER the last Commuting entry
     const dailyLastEntries = {};
     
     recentEntries.forEach(entry => {
@@ -127,44 +128,146 @@ function App() {
       
       const date = startTime.toISOString().split('T')[0];
       
-      // Keep track of the latest ending entry for each day
-      if (!dailyLastEntries[date] || endTime > dailyLastEntries[date].endTime) {
+      if (!dailyLastEntries[date]) {
         dailyLastEntries[date] = {
-          endTime: endTime,
-          entry: entry
+          entries: [],
+          lastCommutingTime: null,
+          lastOverallEntry: null
         };
       }
+      
+      // Track all entries for this date
+      dailyLastEntries[date].entries.push({
+        startTime,
+        endTime,
+        tags: entry.tags || [],
+        entry
+      });
+    });
+    
+    // Process each day to find the correct "back home" time
+    Object.keys(dailyLastEntries).forEach(date => {
+      const dayData = dailyLastEntries[date];
+      
+      // Sort entries by start time
+      dayData.entries.sort((a, b) => a.startTime - b.startTime);
+      
+      // Find the last Commuting entry
+      let lastCommutingEntry = null;
+      dayData.entries.forEach(entryData => {
+        if (entryData.tags.includes("Commuting")) {
+          lastCommutingEntry = entryData;
+        }
+      });
+      
+      // Find the latest entry that should count for "back home" time
+      // This excludes HomeOffice entries that come AFTER the last Commuting entry
+      let validLastEntry = null;
+      
+      if (lastCommutingEntry) {
+        // If there was commuting, use the last commuting entry as back home time
+        // and ignore any HomeOffice entries after it
+        validLastEntry = lastCommutingEntry;
+      } else {
+        // If no commuting, use the actual last entry of the day
+        validLastEntry = dayData.entries[dayData.entries.length - 1];
+      }
+      
+      dayData.lastOverallEntry = validLastEntry;
     });
     
     const backHomeTimes = Object.values(dailyLastEntries)
-      .map(dayData => dayData.endTime.getHours() * 60 + dayData.endTime.getMinutes());
+      .filter(dayData => dayData.lastOverallEntry)
+      .map(dayData => dayData.lastOverallEntry.endTime.getHours() * 60 + dayData.lastOverallEntry.endTime.getMinutes());
     
     const backHomeStats = calculateStats(backHomeTimes);
 
     // 4. Calculate HomeOffice end times (when last daily HomeOffice entry ends)
+    // BUT only for days that END with HomeOffice work (not mixed days)
     const dailyHomeOfficeEntries = {};
     
     recentEntries.forEach(entry => {
       const tags = entry.tags || [];
+      const startTime = parseDateTime(entry.start);
+      const endTime = parseDateTime(entry.stop);
+      if (!startTime || !endTime) return;
+      
+      const date = startTime.toISOString().split('T')[0];
+      
+      if (!dailyHomeOfficeEntries[date]) {
+        dailyHomeOfficeEntries[date] = {
+          homeOfficeEntries: [],
+          allEntries: []
+        };
+      }
+      
+      // Track all entries for this date
+      dailyHomeOfficeEntries[date].allEntries.push({
+        startTime,
+        endTime,
+        tags,
+        isHomeOffice: tags.includes("HomeOffice"),
+        entry
+      });
+      
+      // Track HomeOffice entries
       if (tags.includes("HomeOffice")) {
-        const startTime = parseDateTime(entry.start);
-        const endTime = parseDateTime(entry.stop);
-        if (!startTime || !endTime) return;
-        
-        const date = startTime.toISOString().split('T')[0];
-        
-        // Keep track of the latest ending HomeOffice entry for each day
-        if (!dailyHomeOfficeEntries[date] || endTime > dailyHomeOfficeEntries[date].endTime) {
-          dailyHomeOfficeEntries[date] = {
-            endTime: endTime,
-            entry: entry
-          };
-        }
+        dailyHomeOfficeEntries[date].homeOfficeEntries.push({
+          startTime,
+          endTime,
+          tags,
+          entry
+        });
       }
     });
     
-    const homeOfficeEndTimes = Object.values(dailyHomeOfficeEntries)
-      .map(dayData => dayData.endTime.getHours() * 60 + dayData.endTime.getMinutes());
+    // Process each day to determine if it's a valid "HomeOffice day"
+    const validHomeOfficeDays = {};
+    
+    Object.keys(dailyHomeOfficeEntries).forEach(date => {
+      const dayData = dailyHomeOfficeEntries[date];
+      
+      // Sort all entries by start time
+      dayData.allEntries.sort((a, b) => a.startTime - b.startTime);
+      dayData.homeOfficeEntries.sort((a, b) => a.startTime - b.startTime);
+      
+      if (dayData.homeOfficeEntries.length === 0) return;
+      
+      // Find the last entry of the day (any type)
+      const lastEntryOfDay = dayData.allEntries[dayData.allEntries.length - 1];
+      
+      // Find the last HomeOffice entry
+      const lastHomeOfficeEntry = dayData.homeOfficeEntries[dayData.homeOfficeEntries.length - 1];
+      
+      // Find the last Commuting entry
+      const commutingEntries = dayData.allEntries.filter(e => e.tags.includes("Commuting"));
+      const lastCommutingEntry = commutingEntries.length > 0 ? commutingEntries[commutingEntries.length - 1] : null;
+      
+      // Rule 1: If there's HomeOffice AFTER the last Commuting entry, ignore it for end-of-day calculations
+      if (lastCommutingEntry && lastHomeOfficeEntry.startTime > lastCommutingEntry.endTime) {
+        // HomeOffice after commuting - don't count for end-of-day
+        return;
+      }
+      
+      // Rule 2: Check if this is a "mixed day" (HomeOffice followed by non-HomeOffice)
+      // Find all entries after the last HomeOffice entry
+      const entriesAfterLastHomeOffice = dayData.allEntries.filter(e => 
+        e.startTime > lastHomeOfficeEntry.endTime && !e.isHomeOffice
+      );
+      
+      if (entriesAfterLastHomeOffice.length > 0) {
+        // This is a mixed day (HomeOffice → Office) - don't count for HomeOffice end times
+        return;
+      }
+      
+      // Rule 3: Only count if the last entry of the day is HomeOffice
+      if (lastEntryOfDay.isHomeOffice) {
+        validHomeOfficeDays[date] = lastHomeOfficeEntry;
+      }
+    });
+    
+    const homeOfficeEndTimes = Object.values(validHomeOfficeDays)
+      .map(entryData => entryData.endTime.getHours() * 60 + entryData.endTime.getMinutes());
     
     const homeOfficeStats = calculateStats(homeOfficeEndTimes);
 
