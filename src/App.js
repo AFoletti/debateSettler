@@ -370,8 +370,11 @@ function App() {
       setLoading(true);
       setError(null);
       
-      // Fetch raw data from GitHub Pages
-      const response = await fetch(`${process.env.PUBLIC_URL || ''}/data/raw_data.json`);
+      // Fetch raw data from GitHub Pages with proper path handling
+      const publicUrl = process.env.PUBLIC_URL || '';
+      const dataUrl = `${publicUrl}/data/raw_data.json`;
+      console.log('Fetching data from:', dataUrl);
+      const response = await fetch(dataUrl);
       
       if (!response.ok) {
         throw new Error(`Failed to load data: ${response.status}`);
