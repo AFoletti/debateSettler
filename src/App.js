@@ -22,12 +22,6 @@ function App() {
     return new Date(dateTimeStr.replace("Z", "+00:00"));
   };
 
-  // Helper function to format time as HH:MM
-  const formatTime = (date) => {
-    if (!date) return null;
-    return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-  };
-
   // Helper function to convert minutes to HH:MM format
   const minutesToTime = (minutes) => {
     const hours = Math.floor(minutes / 60);
