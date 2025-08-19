@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/argumentSettler/static/css/main.4f724a3b.css",
+    "main.js": "/argumentSettler/static/js/main.302a9809.js",
+    "index.html": "/argumentSettler/index.html",
+    "main.4f724a3b.css.map": "/argumentSettler/static/css/main.4f724a3b.css.map",
+    "main.302a9809.js.map": "/argumentSettler/static/js/main.302a9809.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f724a3b.css",
+    "static/js/main.302a9809.js"
+  ]
+}
