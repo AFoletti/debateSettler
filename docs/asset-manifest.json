@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/argumentSettler/static/css/main.css",
-    "main.js": "/argumentSettler/static/js/main.js",
+    "main.css": "./static/css/main.css",
+    "main.js": "./static/js/main.js",
     "index.html": "./index.html"
   },
   "entrypoints": [
