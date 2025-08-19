@@ -348,7 +348,7 @@ function App() {
                   Last updated: {rawData?.fetched_at ? formatLastUpdated(rawData.fetched_at) : 'Unknown'}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  Raw data from {rawData?.date_range?.days || 60} days • Calculations performed client-side
+                  Raw data from {rawData?.date_range?.days || 60} days • Statistics from last {metrics?.working_days_analyzed || 30} working days • Client-side calculations
                 </p>
               </div>
             </div>
