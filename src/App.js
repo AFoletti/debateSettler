@@ -291,9 +291,10 @@ function App() {
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Dashboard</h2>
           <p className="text-gray-600 mb-4">{error}</p>
           <button
-            onClick={fetchMetrics}
-            className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            onClick={fetchData}
+            className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors inline-flex items-center"
           >
+            <ArrowPathIcon className="w-4 h-4 mr-2" />
             Try Again
           </button>
         </div>
