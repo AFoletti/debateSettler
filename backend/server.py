@@ -189,8 +189,8 @@ class MetricsCalculator:
         
         # Convert back to time format
         def minutes_to_time(minutes):
-            hours = minutes // 60
-            mins = minutes % 60
+            hours = int(minutes // 60)
+            mins = int(minutes % 60)
             return f"{hours:02d}:{mins:02d}"
         
         return {
