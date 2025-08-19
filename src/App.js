@@ -4,6 +4,7 @@ import {
   ClockIcon,
   HomeIcon,
   MapPinIcon,
+  CalendarIcon,
   ChartBarIcon,
   ExclamationTriangleIcon,
   ArrowPathIcon
