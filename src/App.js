@@ -412,7 +412,7 @@ function App() {
             icon={ChartBarIcon}
             title="HomeOffice End Times"
             value={metrics?.home_office_end_stats?.count || 0}
-            subtitle="HomeOffice sessions analyzed"
+            subtitle="HomeOffice days analyzed"
             className="md:col-span-2 xl:col-span-1"
           >
             <div className="stats-grid">
