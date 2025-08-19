@@ -1,7 +1,7 @@
 {
   "name": "argumentsettler-dashboard",
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/argumentsettler-dashboard",
+  "homepage": "https://afoletti.github.io/argumentSettler",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
