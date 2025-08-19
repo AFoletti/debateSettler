@@ -75,7 +75,7 @@ class TogglDataFetcher:
         start_date_str = start_date.strftime("%Y-%m-%dT00:00:00.000Z")
         end_date_str = end_date.strftime("%Y-%m-%dT23:59:59.999Z")
         
-        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (60 days)")
+        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (60 days, excluding today)")
         
         # Fetch time entries - RAW DATA ONLY
         time_entries = self.get_time_entries(start_date_str, end_date_str)
