@@ -325,7 +325,9 @@ function App() {
               Your Toggl Track Data - Last 30 Days
             </p>
             <p className="mt-1 text-sm text-white opacity-75">
-              {metrics?.date_range && `${metrics.date_range.start} to ${metrics.date_range.end}`}
+              {metrics?.working_days_analyzed ? 
+                `Last ${metrics.working_days_analyzed} working days: ${metrics.date_range.start} to ${metrics.date_range.end}` :
+                'Loading data range...'}
             </p>
           </div>
         </div>
