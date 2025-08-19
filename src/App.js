@@ -397,20 +397,22 @@ function App() {
   }, []);
 
   const MetricCard = ({ icon: Icon, title, value, subtitle, dailyAvg, children, className = "" }) => (
-    <div className={`metric-card ${className}`}>
-      <div className="flex items-center">
+    <div className={`metric-card glow-on-hover ${className}`}>
+      <div className="flex items-center mb-4">
         <div className="flex-shrink-0">
           <Icon className="metric-icon" />
         </div>
         <div className="ml-4 flex-1">
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 className="text-lg font-semibold text-dark-800">{title}</h3>
         </div>
       </div>
-      <div className="mt-4">
+      <div>
         <div className="metric-value">{value}</div>
         <div className="metric-label">{subtitle}</div>
         {dailyAvg && (
-          <div className="text-sm text-gray-500 mt-1">Daily average: {dailyAvg}</div>
+          <div className="text-sm text-dark-400 mt-2 font-medium">
+            Daily average: <span className="text-primary-400">{dailyAvg}</span>
+          </div>
         )}
         {children}
       </div>
