@@ -27,13 +27,14 @@ body {
 
 /* Metric cards with dark theme */
 .metric-card {
-  @apply bg-dark-100 rounded-xl p-6 shadow-card-dark border border-dark-200 
-         hover:shadow-card-hover-dark hover:border-primary-500/50 
-         transition-all duration-300 animate-slide-up;
+  @apply bg-dark-100 rounded-xl p-6 border border-dark-200 
+         hover:border-primary-500/50 transition-all duration-300;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .metric-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
 /* Metric icons with enhanced styling */
