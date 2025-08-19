@@ -36,7 +36,7 @@ A sophisticated **static web dashboard** that transforms your Toggl Track time l
 ### 1. Repository Setup
 ```bash
 # Fork or clone this repository
-git clone https://github.com/yourusername/argumentsettler-dashboard
+git clone https://github.com/yourusername/argumentsettler
 cd argumentsettler-dashboard
 ```
 
@@ -49,7 +49,7 @@ cd argumentsettler-dashboard
 ```json
 // package.json
 {
-  "homepage": "https://yourusername.github.io/argumentsettler-dashboard"
+  "homepage": "https://yourusername.github.io/argumentsettler"
 }
 ```
 
@@ -188,6 +188,6 @@ The dashboard provides insights into:
 ---
 
 ## 🎉 **ArgumentSettler** 
-*Because when you need to prove you're working hard, data is your best friend!* 
+*Because when you need to prove your loved ones you're not working too much, data is your best friend!* 
 
-**Built with**: React • Tailwind CSS • GitHub Actions • Toggl Track API • ❤️
+**Built with**: React • Tailwind CSS • GitHub Actions • Toggl Track API
