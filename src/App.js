@@ -444,19 +444,19 @@ function App() {
               <div className="text-2xl font-bold text-primary-600">
                 {metrics?.total_entries || 0}
               </div>
-              <div className="text-sm text-gray-600">Total Time Entries</div>
+              <div className="text-sm text-gray-600">Time Entries (30 days)</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary-600">
-                {metrics?.date_range ? '30' : '0'}
+                {rawData?.total_entries || 0}
               </div>
-              <div className="text-sm text-gray-600">Days Analyzed</div>
+              <div className="text-sm text-gray-600">Total Raw Entries (60 days)</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary-600">
-                {((metrics?.billable_hours || 0) + (metrics?.absent_from_home_hours || 0)).toFixed(1)}h
+                Client-side
               </div>
-              <div className="text-sm text-gray-600">Total Tracked Time</div>
+              <div className="text-sm text-gray-600">Calculations</div>
             </div>
           </div>
         </div>
