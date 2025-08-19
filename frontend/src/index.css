@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .metric-card {
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200 p-6 border border-gray-200;
+  }
+  
+  .metric-value {
+    @apply text-3xl font-bold text-gray-900;
+  }
+  
+  .metric-label {
+    @apply text-sm font-medium text-gray-600 mt-2;
+  }
+  
+  .metric-subtitle {
+    @apply text-xs text-gray-500 mt-1;
+  }
+  
+  .stats-grid {
+    @apply grid grid-cols-2 gap-4 mt-4;
+  }
+  
+  .stat-item {
+    @apply bg-gray-50 rounded-lg p-3;
+  }
+  
+  .stat-label {
+    @apply text-xs font-medium text-gray-500 uppercase tracking-wide;
+  }
+  
+  .stat-value {
+    @apply text-lg font-semibold text-gray-900 mt-1;
+  }
+}
