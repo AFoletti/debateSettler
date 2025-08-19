@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import {
   ClockIcon,
   HomeIcon,
@@ -11,23 +10,27 @@ import {
 } from '@heroicons/react/24/outline';
 import './App.css';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
-
 function App() {
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [lastUpdated, setLastUpdated] = useState(null);
 
   const fetchMetrics = async () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(`${API_BASE_URL}/api/dashboard-metrics`);
-      setMetrics(response.data);
-      setLastUpdated(new Date());
+      
+      // Fetch from local JSON file (updated daily by GitHub Actions)
+      const response = await fetch(`${process.env.PUBLIC_URL}/data/metrics.json`);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to load data: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      setMetrics(data);
     } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to fetch metrics');
+      setError(`Failed to load dashboard data: ${err.message}`);
       console.error('Error fetching metrics:', err);
     } finally {
       setLoading(false);
