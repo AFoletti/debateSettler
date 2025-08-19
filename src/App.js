@@ -417,6 +417,13 @@ function App() {
     </div>
   );
 
+  const StatItem = ({ label, value }) => (
+    <div className="stat-item">
+      <div className="stat-label">{label}</div>
+      <div className="stat-value">{value || 'N/A'}</div>
+    </div>
+  );
+
   const TrendIcon = ({ trend }) => {
     const baseClass = "w-5 h-5 mr-2";
     switch(trend) {
