@@ -331,12 +331,15 @@ function App() {
                   Data automatically updated daily at 6:00 AM UTC
                 </p>
                 <p className="text-xs text-blue-600 mt-1">
-                  Last updated: {metrics?.last_updated ? formatLastUpdated(metrics.last_updated) : 'Unknown'}
+                  Last updated: {rawData?.fetched_at ? formatLastUpdated(rawData.fetched_at) : 'Unknown'}
+                </p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Raw data from {rawData?.date_range?.days || 60} days • Calculations performed client-side
                 </p>
               </div>
             </div>
             <button
-              onClick={fetchMetrics}
+              onClick={fetchData}
               disabled={loading}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-3 rounded-lg transition-colors inline-flex items-center text-sm"
             >
