@@ -462,11 +462,17 @@ function App() {
         </div>
 
         {/* Footer */}
-        <div className="mt-8 text-center text-sm text-gray-500">
-          <p>Data sourced from Toggl Track • Workspace: DRE-P</p>
-          <p className="mt-1">
-            ArgumentSettler helps you win debates with data, not emotions 📊
-          </p>
+        <div className="mt-8 bg-gray-100 rounded-xl p-6 border border-gray-200">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">🚀 Enhanced ArgumentSettler</h3>
+            <p className="text-sm text-gray-600 mb-1">
+              Raw data (60 days) fetched daily • Calculations performed in your browser
+            </p>
+            <p className="text-xs text-gray-500">
+              Workspace: {rawData?.workspace_name || 'DRE-P'} • 
+              ArgumentSettler helps you win debates with data, not emotions 📊
+            </p>
+          </div>
         </div>
       </div>
     </div>
