@@ -54,13 +54,30 @@ function App() {
   const processRawData = (rawData) => {
     const entries = rawData.raw_entries || [];
     
-    // Filter entries from last 30 days for calculations
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    // Get all unique dates that have entries, sorted by date (most recent first)
+    const datesWithEntries = [...new Set(
+      entries
+        .filter(entry => entry.duration > 0)
+        .map(entry => {
+          const startTime = parseDateTime(entry.start);
+          return startTime ? startTime.toISOString().split('T')[0] : null;
+        })
+        .filter(date => date !== null)
+    )].sort().reverse(); // Most recent first
     
+    // Take the last 30 days that actually have entries
+    const last30WorkingDays = datesWithEntries.slice(0, 30);
+    const oldestWorkingDay = last30WorkingDays[last30WorkingDays.length - 1];
+    
+    console.log(`📊 Using last 30 working days: ${last30WorkingDays.length} days from ${oldestWorkingDay} to ${last30WorkingDays[0]}`);
+    
+    // Filter entries to only include those from the last 30 working days
     const recentEntries = entries.filter(entry => {
       const startTime = parseDateTime(entry.start);
-      return startTime && startTime >= thirtyDaysAgo && entry.duration > 0;
+      if (!startTime || entry.duration <= 0) return false;
+      
+      const date = startTime.toISOString().split('T')[0];
+      return last30WorkingDays.includes(date);
     });
 
     // 1. Calculate billable hours (total and daily average)
@@ -184,9 +201,10 @@ function App() {
         percentage: Math.round(lateWorkPercentage * 10) / 10
       },
       total_entries: recentEntries.length,
+      working_days_analyzed: last30WorkingDays.length,
       date_range: {
-        start: thirtyDaysAgo.toISOString().split('T')[0],
-        end: new Date().toISOString().split('T')[0]
+        start: oldestWorkingDay || 'N/A',
+        end: last30WorkingDays[0] || 'N/A'
       }
     };
   };
