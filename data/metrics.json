@@ -1,6 +1,6 @@
 {
   "billable_hours": 88.97,
-  "absent_from_home_hours": 55.51,
+  "absent_from_home_hours": 56.19,
   "commute_back_home_stats": {
     "mean": "16:29",
     "median": "16:32",
@@ -24,7 +24,7 @@
     "start": "2025-07-20",
     "end": "2025-08-19"
   },
-  "total_entries": 151,
-  "last_updated": "2025-08-19T07:43:23.320282",
+  "total_entries": 152,
+  "last_updated": "2025-08-19T08:28:56.541985",
   "workspace_name": "DRE-P"
 }
