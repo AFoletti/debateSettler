@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build && node scripts/build-clean.js",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build && node scripts/build-clean.js && npm run copy-to-docs",
+    "copy-to-docs": "rm -rf docs && cp -r build docs && mkdir -p docs/data && cp public/data/raw_data.json docs/data/raw_data.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
