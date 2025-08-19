@@ -117,18 +117,29 @@ function App() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Refresh Button */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-sm text-gray-500">
-            {lastUpdated && `Last updated: ${lastUpdated.toLocaleTimeString()}`}
+        {/* Data Status */}
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <CalendarIcon className="w-5 h-5 text-blue-600 mr-3" />
+              <div>
+                <p className="text-sm font-medium text-blue-900">
+                  Data automatically updated daily at 6:00 AM UTC
+                </p>
+                <p className="text-xs text-blue-600 mt-1">
+                  Last updated: {metrics?.last_updated ? formatLastUpdated(metrics.last_updated) : 'Unknown'}
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={fetchMetrics}
+              disabled={loading}
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-3 rounded-lg transition-colors inline-flex items-center text-sm"
+            >
+              <ArrowPathIcon className="w-4 h-4 mr-1" />
+              Refresh
+            </button>
           </div>
-          <button
-            onClick={fetchMetrics}
-            disabled={loading}
-            className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-300 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-          >
-            Refresh Data
-          </button>
         </div>
 
         {/* Metrics Grid */}
