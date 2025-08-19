@@ -270,7 +270,8 @@ function App() {
     
     // Debug logging
     console.log(`🏠 Valid HomeOffice days found: ${Object.keys(validHomeOfficeDays).length}`);
-    console.log(`🚪 Back home times calculated for: ${backHomeTimes.length} days`);
+    console.log(`🚪 Back home times calculated for: ${backHomeTimes.length} days (only days with commuting)`);
+    console.log(`📊 Pure HomeOffice days excluded from back home calculations`);
 
     // 5. Calculate late work frequency (after 20:00)
     const workDays = new Set();
