@@ -228,7 +228,7 @@ function App() {
     fetchData();
   }, []);
 
-  const MetricCard = ({ icon: Icon, title, value, subtitle, children, className = "" }) => (
+  const MetricCard = ({ icon: Icon, title, value, subtitle, dailyAvg, children, className = "" }) => (
     <div className={`metric-card ${className}`}>
       <div className="flex items-center">
         <div className="flex-shrink-0">
@@ -241,6 +241,9 @@ function App() {
       <div className="mt-4">
         <div className="metric-value">{value}</div>
         <div className="metric-label">{subtitle}</div>
+        {dailyAvg && (
+          <div className="text-sm text-gray-500 mt-1">Daily average: {dailyAvg}</div>
+        )}
         {children}
       </div>
     </div>
