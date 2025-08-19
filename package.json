@@ -1,7 +1,6 @@
 {
   "name": "toggl-dashboard-frontend",
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/argumentsettler-dashboard",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
