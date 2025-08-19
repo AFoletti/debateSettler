@@ -526,16 +526,16 @@ function App() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto p-6">
-          <ExclamationTriangleIcon className="w-12 h-12 text-red-500 mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Dashboard</h2>
-          <p className="text-gray-600 mb-4">{error}</p>
+      <div className="error-container">
+        <div className="error-content">
+          <ExclamationTriangleIcon className="w-16 h-16 text-danger-500 mx-auto mb-6" />
+          <h2 className="text-xl font-bold text-dark-800 mb-4">Error Loading Dashboard</h2>
+          <p className="text-dark-600 mb-6 leading-relaxed">{error}</p>
           <button
             onClick={fetchData}
-            className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors inline-flex items-center"
+            className="btn-primary inline-flex items-center"
           >
-            <ArrowPathIcon className="w-4 h-4 mr-2" />
+            <ArrowPathIcon className="w-5 h-5 mr-2" />
             Try Again
           </button>
         </div>
