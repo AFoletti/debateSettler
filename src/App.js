@@ -553,9 +553,9 @@ function App() {
       <div className="gradient-bg shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-white mb-3 tracking-tight">ArgumentSettler Dashboard</h1>
+            <h1 className="text-5xl font-bold text-white mb-3 tracking-tight">ArgumentSettler</h1>
             <p className="text-xl text-white/90 font-medium mb-2">
-              Your Toggl Track Analytics - Last 30 Working Days
+              Win debates with data, not emotions 📊
             </p>
             <p className="text-sm text-white/75 font-medium">
               {metrics?.working_days_analyzed ? 
