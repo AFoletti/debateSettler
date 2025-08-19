@@ -514,10 +514,11 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="loading-spinner w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full mx-auto"></div>
-          <p className="mt-4 text-gray-600">Processing your Toggl data...</p>
+      <div className="loading-container">
+        <div className="loading-content">
+          <div className="loading-spinner w-12 h-12 border-4 border-primary-200 border-t-primary-600 rounded-full mx-auto mb-4"></div>
+          <p className="text-lg text-dark-600 font-medium">Processing your Toggl data...</p>
+          <p className="text-sm text-dark-400 mt-2">Analyzing trends and calculating statistics</p>
         </div>
       </div>
     );
