@@ -1,14 +1,312 @@
 {
-  "fetched_at": "2025-08-21T06:43:00.567686",
+  "fetched_at": "2025-08-22T03:02:55.596335",
   "date_range": {
-    "start": "2025-06-22",
-    "end": "2025-08-20",
+    "start": "2025-06-23",
+    "end": "2025-08-21",
     "days": 60
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 513,
+  "total_entries": 525,
   "raw_entries": [
+    {
+      "id": 4063670027,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 237693728,
+      "billable": true,
+      "start": "2025-08-21T12:59:19+00:00",
+      "stop": "2025-08-21T13:34:44+00:00",
+      "duration": 2125,
+      "description": "DDM Coordiantion meeting",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T13:34:45.013232Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 237693728
+    },
+    {
+      "id": 4063587829,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237693535,
+      "billable": true,
+      "start": "2025-08-21T12:07:32+00:00",
+      "stop": "2025-08-21T12:59:19+00:00",
+      "duration": 3107,
+      "description": "Strategy and planning",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.103436Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237693535
+    },
+    {
+      "id": 4063539640,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-21T11:33:40+00:00",
+      "stop": "2025-08-21T12:07:32+00:00",
+      "duration": 2032,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.117771Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4063493284,
+      "workspace_id": 4536519,
+      "project_id": 213130697,
+      "task_id": 237809566,
+      "billable": true,
+      "start": "2025-08-21T10:59:18+00:00",
+      "stop": "2025-08-21T11:33:35+00:00",
+      "duration": 2057,
+      "description": "Current Data Delivery for RE",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.123852Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 213130697,
+      "tid": 237809566
+    },
+    {
+      "id": 4063463851,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237693535,
+      "billable": true,
+      "start": "2025-08-21T10:36:06+00:00",
+      "stop": "2025-08-21T10:59:18+00:00",
+      "duration": 1392,
+      "description": "Strategy and planning",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.129701Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237693535
+    },
+    {
+      "id": 4063372026,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-08-21T09:25:26+00:00",
+      "stop": "2025-08-21T10:36:06+00:00",
+      "duration": 4240,
+      "description": "Lunch",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.136075Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4063264455,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237693535,
+      "billable": true,
+      "start": "2025-08-21T08:08:42+00:00",
+      "stop": "2025-08-21T09:25:25+00:00",
+      "duration": 4603,
+      "description": "Strategy and planning",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.143982Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237693535
+    },
+    {
+      "id": 4063241615,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": true,
+      "start": "2025-08-21T07:54:06+00:00",
+      "stop": "2025-08-21T08:08:42+00:00",
+      "duration": 876,
+      "description": "Break",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.150775Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4063185240,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 237725204,
+      "billable": true,
+      "start": "2025-08-21T07:12:24+00:00",
+      "stop": "2025-08-21T07:53:50+00:00",
+      "duration": 2486,
+      "description": "Catch up on the data quality initiative",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.157316Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 237725204
+    },
+    {
+      "id": 4063132202,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 236747018,
+      "billable": true,
+      "start": "2025-08-21T06:30:09+00:00",
+      "stop": "2025-08-21T07:12:24+00:00",
+      "duration": 2535,
+      "description": "Bila Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.163603Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 236747018
+    },
+    {
+      "id": 4063028368,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 237725204,
+      "billable": true,
+      "start": "2025-08-21T04:13:04+00:00",
+      "stop": "2025-08-21T06:30:09+00:00",
+      "duration": 8225,
+      "description": "Catch up on the data quality initiative",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.169591Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 237725204
+    },
+    {
+      "id": 4063019648,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-21T03:58:10+00:00",
+      "stop": "2025-08-21T04:13:04+00:00",
+      "duration": 894,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-21T12:59:38.175964Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
     {
       "id": 4062244417,
       "workspace_id": 4536519,
