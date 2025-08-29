@@ -1,14 +1,364 @@
 {
-  "fetched_at": "2025-08-28T00:41:27.907948",
+  "fetched_at": "2025-08-29T00:41:34.186749",
   "date_range": {
-    "start": "2025-06-29",
-    "end": "2025-08-27",
+    "start": "2025-06-30",
+    "end": "2025-08-28",
     "days": 60
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 532,
+  "total_entries": 546,
   "raw_entries": [
+    {
+      "id": 4072672546,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237854717,
+      "billable": true,
+      "start": "2025-08-28T13:15:00+00:00",
+      "stop": "2025-08-28T13:49:00+00:00",
+      "duration": 2040,
+      "description": "Q4 Planning II",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.428922Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237854717
+    },
+    {
+      "id": 4072618050,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": true,
+      "start": "2025-08-28T13:07:00+00:00",
+      "stop": "2025-08-28T13:15:00+00:00",
+      "duration": 480,
+      "description": "Break",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.435774Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4072503123,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237854717,
+      "billable": true,
+      "start": "2025-08-28T12:00:02+00:00",
+      "stop": "2025-08-28T13:07:48+00:00",
+      "duration": 4066,
+      "description": "Q4 Planning II",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.442548Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237854717
+    },
+    {
+      "id": 4072462941,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238037446,
+      "billable": true,
+      "start": "2025-08-28T11:32:06+00:00",
+      "stop": "2025-08-28T12:00:02+00:00",
+      "duration": 1676,
+      "description": "Discussion deliverables EXPO with Andreas",
+      "tags": [
+        "Fastlane",
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18515361,
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:24.979635Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238037446
+    },
+    {
+      "id": 4072417252,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 237854703,
+      "billable": true,
+      "start": "2025-08-28T10:59:25+00:00",
+      "stop": "2025-08-28T11:32:06+00:00",
+      "duration": 1961,
+      "description": "Intro Corneluis",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.455734Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 237854703
+    },
+    {
+      "id": 4072398302,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-28T10:45:15+00:00",
+      "stop": "2025-08-28T10:59:25+00:00",
+      "duration": 850,
+      "description": "Various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.463255Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4072329635,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-08-28T09:53:10+00:00",
+      "stop": "2025-08-28T10:45:15+00:00",
+      "duration": 3125,
+      "description": "Lunch",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.470656Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4072250448,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238028625,
+      "billable": true,
+      "start": "2025-08-28T08:57:12+00:00",
+      "stop": "2025-08-28T09:52:59+00:00",
+      "duration": 3347,
+      "description": "Various prep works",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.477107Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238028625
+    },
+    {
+      "id": 4072226056,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 238024491,
+      "billable": true,
+      "start": "2025-08-28T08:40:31+00:00",
+      "stop": "2025-08-28T08:57:12+00:00",
+      "duration": 1001,
+      "description": "Quick exchange",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.483775Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 238024491
+    },
+    {
+      "id": 4072162711,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 237854693,
+      "billable": true,
+      "start": "2025-08-28T07:59:04+00:00",
+      "stop": "2025-08-28T08:40:26+00:00",
+      "duration": 2482,
+      "description": "DRE Jour Fixe",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.490509Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 237854693
+    },
+    {
+      "id": 4071992325,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237986779,
+      "billable": true,
+      "start": "2025-08-28T05:44:54+00:00",
+      "stop": "2025-08-28T07:59:04+00:00",
+      "duration": 8050,
+      "description": "Fix plan slides",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.497084Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237986779
+    },
+    {
+      "id": 4071969930,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-28T05:15:18+00:00",
+      "stop": "2025-08-28T05:44:54+00:00",
+      "duration": 1776,
+      "description": "Various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.503276Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4071945174,
+      "workspace_id": 4536519,
+      "project_id": 211758189,
+      "task_id": 237994115,
+      "billable": true,
+      "start": "2025-08-28T04:36:34+00:00",
+      "stop": "2025-08-28T05:14:55+00:00",
+      "duration": 2301,
+      "description": "JIRA works",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.510454Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211758189,
+      "tid": 237994115
+    },
+    {
+      "id": 4071934431,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-28T04:17:25+00:00",
+      "stop": "2025-08-28T04:36:34+00:00",
+      "duration": 1149,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-28T13:38:16.518302Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
     {
       "id": 4071253917,
       "workspace_id": 4536519,
