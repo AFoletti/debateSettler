@@ -1,14 +1,387 @@
 {
-  "fetched_at": "2025-08-29T00:41:34.186749",
+  "fetched_at": "2025-08-30T02:09:32.288252",
   "date_range": {
-    "start": "2025-06-30",
-    "end": "2025-08-28",
+    "start": "2025-07-01",
+    "end": "2025-08-29",
     "days": 60
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 546,
+  "total_entries": 548,
   "raw_entries": [
+    {
+      "id": 4074293061,
+      "workspace_id": 4536519,
+      "project_id": 211755764,
+      "task_id": 237856200,
+      "billable": true,
+      "start": "2025-08-29T13:20:39+00:00",
+      "stop": "2025-08-29T13:48:26+00:00",
+      "duration": 1667,
+      "description": "Knowledge Graphs for RAG",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:48:26.775461Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755764,
+      "tid": 237856200
+    },
+    {
+      "id": 4074252721,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 237854734,
+      "billable": true,
+      "start": "2025-08-29T12:57:22+00:00",
+      "stop": "2025-08-29T13:17:22+00:00",
+      "duration": 1200,
+      "description": "Sector Renaming catch-up",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.392966Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 237854734
+    },
+    {
+      "id": 4074143096,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 237957547,
+      "billable": true,
+      "start": "2025-08-29T11:42:28+00:00",
+      "stop": "2025-08-29T12:57:22+00:00",
+      "duration": 4494,
+      "description": "Follow-up Property master data",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.412198Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 237957547
+    },
+    {
+      "id": 4074084694,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 237854719,
+      "billable": true,
+      "start": "2025-08-29T10:57:08+00:00",
+      "stop": "2025-08-29T11:42:28+00:00",
+      "duration": 2720,
+      "description": "Data Bila",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.418927Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 237854719
+    },
+    {
+      "id": 4074053417,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-29T10:31:37+00:00",
+      "stop": "2025-08-29T10:57:08+00:00",
+      "duration": 1531,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.425408Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4073986656,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-08-29T09:37:50+00:00",
+      "stop": "2025-08-29T10:31:37+00:00",
+      "duration": 3227,
+      "description": "Lunch",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.431751Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4073963410,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 238065550,
+      "billable": true,
+      "start": "2025-08-29T09:20:19+00:00",
+      "stop": "2025-08-29T09:37:49+00:00",
+      "duration": 1050,
+      "description": "Prepare data bila",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.442804Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 238065550
+    },
+    {
+      "id": 4073893393,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238064764,
+      "billable": true,
+      "start": "2025-08-29T08:30:13+00:00",
+      "stop": "2025-08-29T09:20:05+00:00",
+      "duration": 2992,
+      "description": "MC RE updates",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.450872Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238064764
+    },
+    {
+      "id": 4073870107,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 238065550,
+      "billable": true,
+      "start": "2025-08-29T08:13:32+00:00",
+      "stop": "2025-08-29T08:30:13+00:00",
+      "duration": 1001,
+      "description": "Prepare data bila",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.458842Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 238065550
+    },
+    {
+      "id": 4073852449,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-29T08:01:23+00:00",
+      "stop": "2025-08-29T08:13:32+00:00",
+      "duration": 729,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.466702Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4073809358,
+      "workspace_id": 4536519,
+      "project_id": 213130697,
+      "task_id": 237854718,
+      "billable": true,
+      "start": "2025-08-29T07:30:09+00:00",
+      "stop": "2025-08-29T08:01:23+00:00",
+      "duration": 1874,
+      "description": "NFR Deadline day",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.479884Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 213130697,
+      "tid": 237854718
+    },
+    {
+      "id": 4073763591,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 236790881,
+      "billable": true,
+      "start": "2025-08-29T06:56:33+00:00",
+      "stop": "2025-08-29T07:30:09+00:00",
+      "duration": 2016,
+      "description": "Daily planning and various",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.488482Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 236790881
+    },
+    {
+      "id": 4073737136,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": true,
+      "start": "2025-08-29T06:32:25+00:00",
+      "stop": "2025-08-29T06:56:33+00:00",
+      "duration": 1448,
+      "description": "Break",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.495202Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4073682133,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 237931148,
+      "billable": true,
+      "start": "2025-08-29T05:34:27+00:00",
+      "stop": "2025-08-29T06:31:51+00:00",
+      "duration": 3444,
+      "description": "Tor Risk",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.501492Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 237931148
+    },
+    {
+      "id": 4073624302,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 238039360,
+      "billable": true,
+      "start": "2025-08-29T03:59:31+00:00",
+      "stop": "2025-08-29T05:34:19+00:00",
+      "duration": 5688,
+      "description": "Fix notes into Tana",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-08-29T13:17:30.50668Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 238039360
+    },
     {
       "id": 4072672546,
       "workspace_id": 4536519,
@@ -12342,328 +12715,6 @@
       "uid": 548836,
       "wid": 4536519,
       "pid": 211755753
-    },
-    {
-      "id": 3995909283,
-      "workspace_id": 4536519,
-      "project_id": 211755736,
-      "task_id": 236893292,
-      "billable": true,
-      "start": "2025-06-30T10:49:29+00:00",
-      "stop": "2025-06-30T12:48:16+00:00",
-      "duration": 7127,
-      "description": "Create an unified must-have Excel",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T12:48:16.808326Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755736,
-      "tid": 236893292
-    },
-    {
-      "id": 3995843043,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": 236790881,
-      "billable": true,
-      "start": "2025-06-30T10:05:39+00:00",
-      "stop": "2025-06-30T10:49:29+00:00",
-      "duration": 2630,
-      "description": "Daily planning and various",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T10:49:29.99555Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804,
-      "tid": 236790881
-    },
-    {
-      "id": 3995773433,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-06-30T09:24:02+00:00",
-      "stop": "2025-06-30T10:05:38+00:00",
-      "duration": 2496,
-      "description": "Lunch",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T10:05:39.523822Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 3995758318,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": 236790881,
-      "billable": true,
-      "start": "2025-06-30T09:14:53+00:00",
-      "stop": "2025-06-30T09:24:01+00:00",
-      "duration": 548,
-      "description": "Daily planning and various",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T09:24:02.061409Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804,
-      "tid": 236790881
-    },
-    {
-      "id": 3995553184,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 236943246,
-      "billable": true,
-      "start": "2025-06-30T07:22:37+00:00",
-      "stop": "2025-06-30T09:14:42+00:00",
-      "duration": 6725,
-      "description": "Fix presentation according to Erich's input",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T09:14:43.203383Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 236943246
-    },
-    {
-      "id": 3995529005,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-06-30T07:08:09+00:00",
-      "stop": "2025-06-30T07:22:37+00:00",
-      "duration": 868,
-      "description": "Break",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T07:22:37.481169Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 3995481225,
-      "workspace_id": 4536519,
-      "project_id": 211755736,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-06-30T06:38:40+00:00",
-      "stop": "2025-06-30T07:08:08+00:00",
-      "duration": 1768,
-      "description": "Set up Partner Lifecycle kickoff meeting",
-      "tags": [
-        "Fastlane",
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18515361,
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T07:30:05.904975Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755736
-    },
-    {
-      "id": 3995405540,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 236943246,
-      "billable": true,
-      "start": "2025-06-30T05:34:59+00:00",
-      "stop": "2025-06-30T06:38:14+00:00",
-      "duration": 3795,
-      "description": "Fix presentation according to Erich's input",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T07:30:12.182967Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 236943246
-    },
-    {
-      "id": 3995386892,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 236875949,
-      "billable": true,
-      "start": "2025-06-30T05:12:14+00:00",
-      "stop": "2025-06-30T05:34:59+00:00",
-      "duration": 1365,
-      "description": "Draft Data Entity and Data Domain Ontology",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T05:34:59.449598Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 236875949
-    },
-    {
-      "id": 3995370559,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-06-30T04:51:30+00:00",
-      "stop": "2025-06-30T05:12:13+00:00",
-      "duration": 1243,
-      "description": "Breakfast with family",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T05:12:14.410866Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 3995363336,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 236875949,
-      "billable": true,
-      "start": "2025-06-30T04:40:04+00:00",
-      "stop": "2025-06-30T04:51:30+00:00",
-      "duration": 686,
-      "description": "Draft Data Entity and Data Domain Ontology",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T04:51:31.493228Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 236875949
-    },
-    {
-      "id": 3995336619,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": 236701070,
-      "billable": true,
-      "start": "2025-06-30T03:56:57+00:00",
-      "stop": "2025-06-30T04:40:04+00:00",
-      "duration": 2587,
-      "description": "Organize next week",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T07:22:44.408053Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804,
-      "tid": 236701070
-    },
-    {
-      "id": 3995363609,
-      "workspace_id": 4536519,
-      "project_id": 211755813,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-06-30T03:32:00+00:00",
-      "stop": "2025-06-30T03:56:00+00:00",
-      "duration": 1440,
-      "description": "Confluence catch-up",
-      "tags": [
-        "HomeOffice"
-      ],
-      "tag_ids": [
-        18307839
-      ],
-      "duronly": true,
-      "at": "2025-06-30T04:41:04.788189Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755813
     }
   ]
 }
