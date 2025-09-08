@@ -139,6 +139,12 @@ body {
     align-items: center;
 }
 
+.status-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
 .status-icon {
     width: 1.5rem;
     height: 1.5rem;
