@@ -582,9 +582,9 @@ async function fetchData() {
         loading = false;
         error = `Failed to load dashboard data: ${err.message}`;
         console.error('Error fetching data:', err);
+    } finally {
+        updateUI();
     }
-    
-    updateUI();
 }
 
 // Event listeners
