@@ -15,6 +15,7 @@ const errorContainer = document.getElementById('error-container');
 const mainDashboard = document.getElementById('main-dashboard');
 const retryButton = document.getElementById('retry-button');
 const refreshButton = document.getElementById('refresh-button');
+const githubActionsLink = document.getElementById('github-actions-link');
 
 // Helper function to parse datetime with timezone handling
 function parseDateTime(dateTimeStr) {
