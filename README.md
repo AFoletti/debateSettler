@@ -183,6 +183,20 @@ GitHub Actions → Python script → Toggl API → Update JSON → Your browser 
 - ✅ **GitHub Integration**: Auto-detects GitHub Pages and shows appropriate buttons
 - ✅ **Tooltips**: Hover over buttons for detailed explanations
 
+## 🔄 Automated Workflow
+
+The GitHub Action runs daily and:
+1. **Fetches Raw Data** (60 days, excluding today)
+2. **Updates JSON File** (`data/raw_data.json`)
+3. **Commits Changes** automatically
+4. **Data is Live** immediately (no build step!)
+
+### **Manual Trigger Options**
+- **GitHub Actions Tab** → "Fetch Toggl Data Daily" → "Run workflow"
+- **"Fetch New Data" Button** → Auto-opens GitHub Actions page *(GitHub Pages only)*
+- **API Call**: Trigger via GitHub API for custom schedules
+- **Local Testing**: Run `python scripts/fetch-toggl-data.py` with API token
+
 ## 🔒 Security & Privacy
 
 - ✅ **API Token Security**: Stored in GitHub Secrets, never exposed
