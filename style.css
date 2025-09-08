@@ -187,6 +187,7 @@ body {
     display: inline-flex;
     align-items: center;
     font-size: 0.875rem;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -198,6 +199,33 @@ body {
 .btn-primary:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-400);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-400);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-400);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-small {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
 }
 
 .btn-icon, .retry-icon {
