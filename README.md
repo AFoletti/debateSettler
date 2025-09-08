@@ -147,18 +147,41 @@ Edit the CSS variables in `style.css`:
 3. Add calculation logic in `script.js` in the `processRawData` function
 4. Update the `updateUI` function to display your new metric
 
-## 🔄 Automated Workflow
+## 🔄 Data Refresh Functionality - FIXED! ✅
 
-The GitHub Action runs daily and:
-1. **Fetches Raw Data** (60 days, excluding today)
-2. **Updates JSON File** (`data/raw_data.json`)
-3. **Commits Changes** automatically
-4. **Data is Live** immediately (no build step!)
+### **Two Types of Data Updates:**
 
-### **Manual Trigger Options**
-- **GitHub Actions Tab** → "Fetch Toggl Data Daily" → "Run workflow"
-- **API Call**: Trigger via GitHub API for custom schedules
-- **Local Testing**: Run `python scripts/fetch-toggl-data.py` with API token
+#### 1. **"Refresh Display" Button** 🔄
+- **What it does**: Re-processes the existing `data/raw_data.json` file and refreshes all calculations
+- **When to use**: 
+  - After making changes to the JavaScript calculations
+  - To refresh the display without waiting for new data
+  - To ensure all metrics are up-to-date with the current data file
+- **Visual feedback**: Button shows "Refreshing..." and is disabled during processing
+- **Speed**: Instant (client-side processing only)
+
+#### 2. **"Fetch New Data" Button** 📥 *(GitHub Pages only)*
+- **What it does**: Opens GitHub Actions page where you can manually trigger fresh data fetching from Toggl API
+- **When to use**: When you want brand new data from Toggl Track (not just re-processing existing data)
+- **Availability**: Only appears when hosted on GitHub Pages
+- **Process**: Click → GitHub Actions page → "Run workflow" button → Wait 1-2 minutes → Refresh page
+
+### **How Data Refresh Works:**
+
+```javascript
+// 1. "Refresh Display" - Client-side processing
+fetchData() → fetch('./data/raw_data.json') → processRawData() → updateUI()
+
+// 2. "Fetch New Data" - Server-side + Client-side  
+GitHub Actions → Python script → Toggl API → Update JSON → Your browser refreshes
+```
+
+### **Fixed Issues:**
+- ✅ **Button Visual Feedback**: Now shows "Refreshing..." and disables during processing
+- ✅ **Promise Handling**: Proper async/await with error handling  
+- ✅ **Clear Labeling**: "Refresh Display" vs "Fetch New Data" for clarity
+- ✅ **GitHub Integration**: Auto-detects GitHub Pages and shows appropriate buttons
+- ✅ **Tooltips**: Hover over buttons for detailed explanations
 
 ## 🔒 Security & Privacy
 
