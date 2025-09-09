@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2025-09-09T02:13:48.590075",
+  "fetched_at": "2025-09-09T05:22:43.755030",
   "date_range": {
     "start": "2025-07-11",
     "end": "2025-09-08",
@@ -18,7 +18,6 @@
       "start": "2025-09-08T13:21:37+00:00",
       "stop": "2025-09-08T14:28:40+00:00",
       "duration": 4023,
-      "description": "Dashboard f\u00fcr Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -43,7 +42,6 @@
       "start": "2025-09-08T12:43:51+00:00",
       "stop": "2025-09-08T13:21:37+00:00",
       "duration": 2266,
-      "description": "Operational Exposure in CH",
       "tags": [
         "HomeOffice"
       ],
@@ -68,7 +66,6 @@
       "start": "2025-09-08T12:12:00+00:00",
       "stop": "2025-09-08T12:43:00+00:00",
       "duration": 1860,
-      "description": "Dashboard f\u00fcr Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -93,7 +90,6 @@
       "start": "2025-09-08T11:28:00+00:00",
       "stop": "2025-09-08T12:12:00+00:00",
       "duration": 2640,
-      "description": "Data Domains meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -118,7 +114,6 @@
       "start": "2025-09-08T10:45:04+00:00",
       "stop": "2025-09-08T11:28:49+00:00",
       "duration": 2625,
-      "description": "Dashboard f\u00fcr Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -143,7 +138,6 @@
       "start": "2025-09-08T09:54:11+00:00",
       "stop": "2025-09-08T10:45:04+00:00",
       "duration": 3053,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -167,7 +161,6 @@
       "start": "2025-09-08T09:00:20+00:00",
       "stop": "2025-09-08T09:54:11+00:00",
       "duration": 3231,
-      "description": "REPDAB Meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -192,7 +185,6 @@
       "start": "2025-09-08T08:08:55+00:00",
       "stop": "2025-09-08T09:00:20+00:00",
       "duration": 3085,
-      "description": "Prepare REPDAB",
       "tags": [
         "HomeOffice"
       ],
@@ -217,7 +209,6 @@
       "start": "2025-09-08T06:58:08+00:00",
       "stop": "2025-09-08T08:08:55+00:00",
       "duration": 4247,
-      "description": "Meeting Sanitas",
       "tags": [
         "HomeOffice"
       ],
@@ -242,7 +233,6 @@
       "start": "2025-09-08T04:39:48+00:00",
       "stop": "2025-09-08T06:58:08+00:00",
       "duration": 8300,
-      "description": "Dashboard f\u00fcr Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -267,7 +257,6 @@
       "start": "2025-09-08T04:05:53+00:00",
       "stop": "2025-09-08T04:39:48+00:00",
       "duration": 2035,
-      "description": "Breakfast with family",
       "tags": [
         "HomeOffice"
       ],
@@ -291,7 +280,6 @@
       "start": "2025-09-08T03:56:00+00:00",
       "stop": "2025-09-08T04:05:53+00:00",
       "duration": 593,
-      "description": "Dashboard f\u00fcr Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -316,7 +304,6 @@
       "start": "2025-09-08T03:40:44+00:00",
       "stop": "2025-09-08T03:56:00+00:00",
       "duration": 916,
-      "description": "Daily planning",
       "tags": [
         "HomeOffice"
       ],
@@ -341,7 +328,6 @@
       "start": "2025-09-05T08:57:16+00:00",
       "stop": "2025-09-05T09:33:24+00:00",
       "duration": 2168,
-      "description": "Valuation DG and DD",
       "tags": [
         "HomeOffice"
       ],
@@ -366,7 +352,6 @@
       "start": "2025-09-05T08:27:23+00:00",
       "stop": "2025-09-05T08:57:16+00:00",
       "duration": 1793,
-      "description": "Bila Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -391,7 +376,6 @@
       "start": "2025-09-05T07:59:58+00:00",
       "stop": "2025-09-05T08:27:14+00:00",
       "duration": 1636,
-      "description": "NFR meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -416,7 +400,6 @@
       "start": "2025-09-05T07:28:13+00:00",
       "stop": "2025-09-05T07:59:59+00:00",
       "duration": 1906,
-      "description": "Notes",
       "tags": [
         "HomeOffice"
       ],
@@ -441,7 +424,6 @@
       "start": "2025-09-05T07:17:22+00:00",
       "stop": "2025-09-05T07:28:13+00:00",
       "duration": 651,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -465,7 +447,6 @@
       "start": "2025-09-05T04:38:47+00:00",
       "stop": "2025-09-05T07:17:21+00:00",
       "duration": 9514,
-      "description": "Notes",
       "tags": [
         "HomeOffice"
       ],
@@ -490,7 +471,6 @@
       "start": "2025-09-05T03:53:00+00:00",
       "stop": "2025-09-05T04:38:00+00:00",
       "duration": 2700,
-      "description": "Viz tests",
       "tags": [
         "HomeOffice"
       ],
@@ -515,7 +495,6 @@
       "start": "2025-09-05T03:42:00+00:00",
       "stop": "2025-09-05T03:53:00+00:00",
       "duration": 660,
-      "description": "Daily planning",
       "tags": [
         "HomeOffice"
       ],
@@ -540,7 +519,6 @@
       "start": "2025-09-04T13:33:10+00:00",
       "stop": "2025-09-04T14:07:28+00:00",
       "duration": 2058,
-      "description": "Onboarding working package ESG",
       "tags": [
         "HomeOffice"
       ],
@@ -565,7 +543,6 @@
       "start": "2025-09-04T12:27:44+00:00",
       "stop": "2025-09-04T13:33:09+00:00",
       "duration": 3925,
-      "description": "Prepare a plan",
       "tags": [
         "HomeOffice"
       ],
@@ -590,7 +567,6 @@
       "start": "2025-09-04T11:57:32+00:00",
       "stop": "2025-09-04T12:27:44+00:00",
       "duration": 1812,
-      "description": "Onboarding working package ESG",
       "tags": [
         "HomeOffice"
       ],
@@ -615,7 +591,6 @@
       "start": "2025-09-04T11:42:33+00:00",
       "stop": "2025-09-04T11:57:32+00:00",
       "duration": 899,
-      "description": "Prepare a plan",
       "tags": [
         "HomeOffice"
       ],
@@ -640,7 +615,6 @@
       "start": "2025-09-04T10:41:17+00:00",
       "stop": "2025-09-04T11:42:33+00:00",
       "duration": 3676,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -665,7 +639,6 @@
       "start": "2025-09-04T10:40:05+00:00",
       "stop": "2025-09-04T10:41:17+00:00",
       "duration": 72,
-      "description": "Prepare a plan",
       "tags": [
         "HomeOffice"
       ],
@@ -690,7 +663,6 @@
       "start": "2025-09-04T09:49:36+00:00",
       "stop": "2025-09-04T10:40:05+00:00",
       "duration": 3029,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -714,7 +686,6 @@
       "start": "2025-09-04T09:15:44+00:00",
       "stop": "2025-09-04T09:49:28+00:00",
       "duration": 2024,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -739,7 +710,6 @@
       "start": "2025-09-04T09:00:49+00:00",
       "stop": "2025-09-04T09:15:44+00:00",
       "duration": 895,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -763,7 +733,6 @@
       "start": "2025-09-04T07:58:26+00:00",
       "stop": "2025-09-04T09:00:40+00:00",
       "duration": 3734,
-      "description": "BI with Antti",
       "tags": [
         "HomeOffice"
       ],
@@ -788,7 +757,6 @@
       "start": "2025-09-04T06:01:12+00:00",
       "stop": "2025-09-04T07:58:24+00:00",
       "duration": 7032,
-      "description": "Prepare Valuation meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -813,7 +781,6 @@
       "start": "2025-09-04T05:34:37+00:00",
       "stop": "2025-09-04T06:01:12+00:00",
       "duration": 1595,
-      "description": "Daily planning",
       "tags": [
         "HomeOffice"
       ],
@@ -838,7 +805,6 @@
       "start": "2025-09-04T04:05:53+00:00",
       "stop": "2025-09-04T05:34:37+00:00",
       "duration": 5324,
-      "description": "Breakfast with family",
       "tags": [
         "HomeOffice"
       ],
@@ -862,7 +828,6 @@
       "start": "2025-09-04T03:37:30+00:00",
       "stop": "2025-09-04T04:05:16+00:00",
       "duration": 1666,
-      "description": "Send incomplete list to Pascal",
       "tags": [
         "HomeOffice"
       ],
@@ -887,7 +852,6 @@
       "start": "2025-09-03T14:45:18+00:00",
       "stop": "2025-09-03T16:21:33+00:00",
       "duration": 5775,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -911,7 +875,6 @@
       "start": "2025-09-03T14:29:42+00:00",
       "stop": "2025-09-03T14:45:12+00:00",
       "duration": 930,
-      "description": "Prepare a plan",
       "tags": [
         "Commuting"
       ],
@@ -936,7 +899,6 @@
       "start": "2025-09-03T14:06:17+00:00",
       "stop": "2025-09-03T14:29:42+00:00",
       "duration": 1405,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -960,7 +922,6 @@
       "start": "2025-09-03T13:57:00+00:00",
       "stop": "2025-09-03T14:06:00+00:00",
       "duration": 540,
-      "description": "Various mails and management",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -981,7 +942,6 @@
       "start": "2025-09-03T13:54:00+00:00",
       "stop": "2025-09-03T13:57:00+00:00",
       "duration": 180,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1001,7 +961,6 @@
       "start": "2025-09-03T13:45:30+00:00",
       "stop": "2025-09-03T13:54:42+00:00",
       "duration": 552,
-      "description": "Various mails and management",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1022,7 +981,6 @@
       "start": "2025-09-03T13:28:04+00:00",
       "stop": "2025-09-03T13:45:30+00:00",
       "duration": 1046,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1043,7 +1001,6 @@
       "start": "2025-09-03T12:14:59+00:00",
       "stop": "2025-09-03T13:28:04+00:00",
       "duration": 4385,
-      "description": "RentRoll past initiatives",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1064,7 +1021,6 @@
       "start": "2025-09-03T11:48:58+00:00",
       "stop": "2025-09-03T12:14:59+00:00",
       "duration": 1561,
-      "description": "Send incomplete list to Pascal",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1085,7 +1041,6 @@
       "start": "2025-09-03T11:00:27+00:00",
       "stop": "2025-09-03T11:48:58+00:00",
       "duration": 2911,
-      "description": "Prepare a plan",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1106,7 +1061,6 @@
       "start": "2025-09-03T09:01:47+00:00",
       "stop": "2025-09-03T11:00:27+00:00",
       "duration": 7120,
-      "description": "Unihockey",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1126,7 +1080,6 @@
       "start": "2025-09-03T08:28:20+00:00",
       "stop": "2025-09-03T09:01:28+00:00",
       "duration": 1988,
-      "description": "Dev status",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1147,7 +1100,6 @@
       "start": "2025-09-03T07:58:10+00:00",
       "stop": "2025-09-03T08:22:21+00:00",
       "duration": 1451,
-      "description": "NFR Weekly",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1168,7 +1120,6 @@
       "start": "2025-09-03T07:48:37+00:00",
       "stop": "2025-09-03T07:58:10+00:00",
       "duration": 573,
-      "description": "Prepare a plan",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1189,7 +1140,6 @@
       "start": "2025-09-03T07:09:34+00:00",
       "stop": "2025-09-03T07:48:33+00:00",
       "duration": 2339,
-      "description": "Various mails and management",
       "tags": [
         "Fastlane"
       ],
@@ -1214,7 +1164,6 @@
       "start": "2025-09-03T07:06:57+00:00",
       "stop": "2025-09-03T07:09:34+00:00",
       "duration": 157,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1234,7 +1183,6 @@
       "start": "2025-09-03T06:53:04+00:00",
       "stop": "2025-09-03T07:06:56+00:00",
       "duration": 832,
-      "description": "Date of change of ownership def meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1255,7 +1203,6 @@
       "start": "2025-09-03T06:17:51+00:00",
       "stop": "2025-09-03T06:53:04+00:00",
       "duration": 2113,
-      "description": "Various mails and management",
       "tags": [
         "Fastlane"
       ],
@@ -1280,7 +1227,6 @@
       "start": "2025-09-03T05:30:21+00:00",
       "stop": "2025-09-03T06:17:33+00:00",
       "duration": 2832,
-      "description": "Try Sankey",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1301,7 +1247,6 @@
       "start": "2025-09-03T05:18:03+00:00",
       "stop": "2025-09-03T05:30:21+00:00",
       "duration": 738,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1322,7 +1267,6 @@
       "start": "2025-09-03T04:30:32+00:00",
       "stop": "2025-09-03T05:18:03+00:00",
       "duration": 2851,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -1346,7 +1290,6 @@
       "start": "2025-09-03T04:13:05+00:00",
       "stop": "2025-09-03T04:30:27+00:00",
       "duration": 1042,
-      "description": "Try Sankey",
       "tags": [
         "Commuting"
       ],
@@ -1371,7 +1314,6 @@
       "start": "2025-09-03T04:02:23+00:00",
       "stop": "2025-09-03T04:13:05+00:00",
       "duration": 642,
-      "description": "Daily planning",
       "tags": [
         "Commuting"
       ],
@@ -1396,7 +1338,6 @@
       "start": "2025-09-03T03:07:00+00:00",
       "stop": "2025-09-03T04:02:00+00:00",
       "duration": 3300,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -1420,7 +1361,6 @@
       "start": "2025-09-02T14:09:03+00:00",
       "stop": "2025-09-02T16:33:00+00:00",
       "duration": 8637,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -1444,7 +1384,6 @@
       "start": "2025-09-02T13:20:40+00:00",
       "stop": "2025-09-02T14:09:00+00:00",
       "duration": 2900,
-      "description": "Q4 Planning III",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1465,7 +1404,6 @@
       "start": "2025-09-02T13:15:28+00:00",
       "stop": "2025-09-02T13:20:39+00:00",
       "duration": 311,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1485,7 +1423,6 @@
       "start": "2025-09-02T11:58:35+00:00",
       "stop": "2025-09-02T13:15:27+00:00",
       "duration": 4612,
-      "description": "Q4 Planning III",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1506,7 +1443,6 @@
       "start": "2025-09-02T11:20:30+00:00",
       "stop": "2025-09-02T11:58:35+00:00",
       "duration": 2285,
-      "description": "Check for onboarding processes",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1527,7 +1463,6 @@
       "start": "2025-09-02T10:52:03+00:00",
       "stop": "2025-09-02T11:20:30+00:00",
       "duration": 1707,
-      "description": "Implement NFR in the JIRA planning",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1548,7 +1483,6 @@
       "start": "2025-09-02T10:09:12+00:00",
       "stop": "2025-09-02T10:52:03+00:00",
       "duration": 2571,
-      "description": "Check for onboarding processes",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1569,7 +1503,6 @@
       "start": "2025-09-02T09:30:49+00:00",
       "stop": "2025-09-02T10:09:12+00:00",
       "duration": 2303,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1589,7 +1522,6 @@
       "start": "2025-09-02T08:50:45+00:00",
       "stop": "2025-09-02T09:30:49+00:00",
       "duration": 2404,
-      "description": "Help Gian-Luca",
       "tags": [
         "Fastlane"
       ],
@@ -1614,7 +1546,6 @@
       "start": "2025-09-02T08:38:11+00:00",
       "stop": "2025-09-02T08:50:46+00:00",
       "duration": 755,
-      "description": "Adapt plan",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1635,7 +1566,6 @@
       "start": "2025-09-02T07:58:43+00:00",
       "stop": "2025-09-02T08:38:11+00:00",
       "duration": 2368,
-      "description": "Check for onboarding processes",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1656,7 +1586,6 @@
       "start": "2025-09-02T07:49:00+00:00",
       "stop": "2025-09-02T07:58:00+00:00",
       "duration": 540,
-      "description": "Organize data definition with Alex",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1677,7 +1606,6 @@
       "start": "2025-09-02T07:34:14+00:00",
       "stop": "2025-09-02T07:49:50+00:00",
       "duration": 936,
-      "description": "Organize Valuation meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1698,7 +1626,6 @@
       "start": "2025-09-02T07:02:44+00:00",
       "stop": "2025-09-02T07:34:03+00:00",
       "duration": 1879,
-      "description": "Check projects ToDos",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1719,7 +1646,6 @@
       "start": "2025-09-02T05:50:10+00:00",
       "stop": "2025-09-02T07:02:44+00:00",
       "duration": 4354,
-      "description": "Adapt plan",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1740,7 +1666,6 @@
       "start": "2025-09-02T05:39:35+00:00",
       "stop": "2025-09-02T05:50:11+00:00",
       "duration": 636,
-      "description": "Daily planning",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1761,7 +1686,6 @@
       "start": "2025-09-02T05:19:17+00:00",
       "stop": "2025-09-02T05:39:35+00:00",
       "duration": 1218,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -1782,7 +1706,6 @@
       "start": "2025-09-02T04:15:38+00:00",
       "stop": "2025-09-02T05:19:17+00:00",
       "duration": 3819,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -1806,7 +1729,6 @@
       "start": "2025-09-02T03:58:59+00:00",
       "stop": "2025-09-02T04:15:34+00:00",
       "duration": 995,
-      "description": "Daily planning",
       "tags": [
         "Commuting"
       ],
@@ -1831,7 +1753,6 @@
       "start": "2025-09-02T03:08:00+00:00",
       "stop": "2025-09-02T03:58:00+00:00",
       "duration": 3000,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -1855,7 +1776,6 @@
       "start": "2025-09-01T14:29:43+00:00",
       "stop": "2025-09-01T14:57:50+00:00",
       "duration": 1687,
-      "description": "Focus call",
       "tags": [
         "HomeOffice"
       ],
@@ -1880,7 +1800,6 @@
       "start": "2025-09-01T13:59:52+00:00",
       "stop": "2025-09-01T14:29:43+00:00",
       "duration": 1791,
-      "description": "Contact Valuation",
       "tags": [
         "HomeOffice"
       ],
@@ -1905,7 +1824,6 @@
       "start": "2025-09-01T13:51:41+00:00",
       "stop": "2025-09-01T13:59:52+00:00",
       "duration": 491,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -1929,7 +1847,6 @@
       "start": "2025-09-01T13:29:42+00:00",
       "stop": "2025-09-01T13:51:40+00:00",
       "duration": 1318,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -1954,7 +1871,6 @@
       "start": "2025-09-01T13:00:21+00:00",
       "stop": "2025-09-01T13:29:42+00:00",
       "duration": 1761,
-      "description": "Trila Risk",
       "tags": [
         "HomeOffice"
       ],
@@ -1979,7 +1895,6 @@
       "start": "2025-09-01T12:27:54+00:00",
       "stop": "2025-09-01T13:00:21+00:00",
       "duration": 1947,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -2004,7 +1919,6 @@
       "start": "2025-09-01T12:20:27+00:00",
       "stop": "2025-09-01T12:27:54+00:00",
       "duration": 447,
-      "description": "Data Domains definition",
       "tags": [
         "HomeOffice"
       ],
@@ -2029,7 +1943,6 @@
       "start": "2025-09-01T12:04:58+00:00",
       "stop": "2025-09-01T12:20:27+00:00",
       "duration": 929,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -2053,7 +1966,6 @@
       "start": "2025-09-01T10:50:05+00:00",
       "stop": "2025-09-01T12:04:58+00:00",
       "duration": 4493,
-      "description": "Data Domains definition",
       "tags": [
         "HomeOffice"
       ],
@@ -2078,7 +1990,6 @@
       "start": "2025-09-01T09:50:38+00:00",
       "stop": "2025-09-01T10:50:05+00:00",
       "duration": 3567,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -2102,7 +2013,6 @@
       "start": "2025-09-01T07:39:01+00:00",
       "stop": "2025-09-01T09:50:34+00:00",
       "duration": 7893,
-      "description": "Data Domains definition",
       "tags": [
         "HomeOffice"
       ],
@@ -2127,7 +2037,6 @@
       "start": "2025-09-01T07:24:19+00:00",
       "stop": "2025-09-01T07:39:01+00:00",
       "duration": 882,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -2151,7 +2060,6 @@
       "start": "2025-09-01T06:26:00+00:00",
       "stop": "2025-09-01T07:24:00+00:00",
       "duration": 3480,
-      "description": "Property master data meeting minutes",
       "tags": [
         "HomeOffice"
       ],
@@ -2176,7 +2084,6 @@
       "start": "2025-09-01T05:59:16+00:00",
       "stop": "2025-09-01T06:26:47+00:00",
       "duration": 1651,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -2201,7 +2108,6 @@
       "start": "2025-09-01T05:33:53+00:00",
       "stop": "2025-09-01T05:59:12+00:00",
       "duration": 1519,
-      "description": "Prepare focus call",
       "tags": [
         "HomeOffice"
       ],
@@ -2226,7 +2132,6 @@
       "start": "2025-09-01T04:21:32+00:00",
       "stop": "2025-09-01T05:33:53+00:00",
       "duration": 4341,
-      "description": "Property master data meeting minutes",
       "tags": [
         "HomeOffice"
       ],
@@ -2251,7 +2156,6 @@
       "start": "2025-09-01T03:50:34+00:00",
       "stop": "2025-09-01T04:21:32+00:00",
       "duration": 1858,
-      "description": "Prepare week",
       "tags": [
         "HomeOffice"
       ],
@@ -2276,7 +2180,6 @@
       "start": "2025-08-29T13:20:39+00:00",
       "stop": "2025-08-29T13:48:26+00:00",
       "duration": 1667,
-      "description": "Knowledge Graphs for RAG",
       "tags": [
         "HomeOffice"
       ],
@@ -2301,7 +2204,6 @@
       "start": "2025-08-29T12:57:22+00:00",
       "stop": "2025-08-29T13:17:22+00:00",
       "duration": 1200,
-      "description": "Sector Renaming catch-up",
       "tags": [
         "HomeOffice"
       ],
@@ -2326,7 +2228,6 @@
       "start": "2025-08-29T11:42:28+00:00",
       "stop": "2025-08-29T12:57:22+00:00",
       "duration": 4494,
-      "description": "Follow-up Property master data",
       "tags": [
         "HomeOffice"
       ],
@@ -2351,7 +2252,6 @@
       "start": "2025-08-29T10:57:08+00:00",
       "stop": "2025-08-29T11:42:28+00:00",
       "duration": 2720,
-      "description": "Data Bila",
       "tags": [
         "HomeOffice"
       ],
@@ -2376,7 +2276,6 @@
       "start": "2025-08-29T10:31:37+00:00",
       "stop": "2025-08-29T10:57:08+00:00",
       "duration": 1531,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -2401,7 +2300,6 @@
       "start": "2025-08-29T09:37:50+00:00",
       "stop": "2025-08-29T10:31:37+00:00",
       "duration": 3227,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -2425,7 +2323,6 @@
       "start": "2025-08-29T09:20:19+00:00",
       "stop": "2025-08-29T09:37:49+00:00",
       "duration": 1050,
-      "description": "Prepare data bila",
       "tags": [
         "HomeOffice"
       ],
@@ -2450,7 +2347,6 @@
       "start": "2025-08-29T08:30:13+00:00",
       "stop": "2025-08-29T09:20:05+00:00",
       "duration": 2992,
-      "description": "MC RE updates",
       "tags": [
         "HomeOffice"
       ],
@@ -2475,7 +2371,6 @@
       "start": "2025-08-29T08:13:32+00:00",
       "stop": "2025-08-29T08:30:13+00:00",
       "duration": 1001,
-      "description": "Prepare data bila",
       "tags": [
         "HomeOffice"
       ],
@@ -2500,7 +2395,6 @@
       "start": "2025-08-29T08:01:23+00:00",
       "stop": "2025-08-29T08:13:32+00:00",
       "duration": 729,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -2525,7 +2419,6 @@
       "start": "2025-08-29T07:30:09+00:00",
       "stop": "2025-08-29T08:01:23+00:00",
       "duration": 1874,
-      "description": "NFR Deadline day",
       "tags": [
         "HomeOffice"
       ],
@@ -2550,7 +2443,6 @@
       "start": "2025-08-29T06:56:33+00:00",
       "stop": "2025-08-29T07:30:09+00:00",
       "duration": 2016,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -2575,7 +2467,6 @@
       "start": "2025-08-29T06:32:25+00:00",
       "stop": "2025-08-29T06:56:33+00:00",
       "duration": 1448,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -2599,7 +2490,6 @@
       "start": "2025-08-29T05:34:27+00:00",
       "stop": "2025-08-29T06:31:51+00:00",
       "duration": 3444,
-      "description": "Tor Risk",
       "tags": [
         "HomeOffice"
       ],
@@ -2624,7 +2514,6 @@
       "start": "2025-08-29T03:59:31+00:00",
       "stop": "2025-08-29T05:34:19+00:00",
       "duration": 5688,
-      "description": "Fix notes into Tana",
       "tags": [
         "HomeOffice"
       ],
@@ -2649,7 +2538,6 @@
       "start": "2025-08-28T13:15:00+00:00",
       "stop": "2025-08-28T13:49:00+00:00",
       "duration": 2040,
-      "description": "Q4 Planning II",
       "tags": [
         "HomeOffice"
       ],
@@ -2674,7 +2562,6 @@
       "start": "2025-08-28T13:07:00+00:00",
       "stop": "2025-08-28T13:15:00+00:00",
       "duration": 480,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -2698,7 +2585,6 @@
       "start": "2025-08-28T12:00:02+00:00",
       "stop": "2025-08-28T13:07:48+00:00",
       "duration": 4066,
-      "description": "Q4 Planning II",
       "tags": [
         "HomeOffice"
       ],
@@ -2723,7 +2609,6 @@
       "start": "2025-08-28T11:32:06+00:00",
       "stop": "2025-08-28T12:00:02+00:00",
       "duration": 1676,
-      "description": "Discussion deliverables EXPO with Andreas",
       "tags": [
         "Fastlane",
         "HomeOffice"
@@ -2750,7 +2635,6 @@
       "start": "2025-08-28T10:59:25+00:00",
       "stop": "2025-08-28T11:32:06+00:00",
       "duration": 1961,
-      "description": "Intro Corneluis",
       "tags": [
         "HomeOffice"
       ],
@@ -2775,7 +2659,6 @@
       "start": "2025-08-28T10:45:15+00:00",
       "stop": "2025-08-28T10:59:25+00:00",
       "duration": 850,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -2800,7 +2683,6 @@
       "start": "2025-08-28T09:53:10+00:00",
       "stop": "2025-08-28T10:45:15+00:00",
       "duration": 3125,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -2824,7 +2706,6 @@
       "start": "2025-08-28T08:57:12+00:00",
       "stop": "2025-08-28T09:52:59+00:00",
       "duration": 3347,
-      "description": "Various prep works",
       "tags": [
         "HomeOffice"
       ],
@@ -2849,7 +2730,6 @@
       "start": "2025-08-28T08:40:31+00:00",
       "stop": "2025-08-28T08:57:12+00:00",
       "duration": 1001,
-      "description": "Quick exchange",
       "tags": [
         "HomeOffice"
       ],
@@ -2874,7 +2754,6 @@
       "start": "2025-08-28T07:59:04+00:00",
       "stop": "2025-08-28T08:40:26+00:00",
       "duration": 2482,
-      "description": "DRE Jour Fixe",
       "tags": [
         "HomeOffice"
       ],
@@ -2899,7 +2778,6 @@
       "start": "2025-08-28T05:44:54+00:00",
       "stop": "2025-08-28T07:59:04+00:00",
       "duration": 8050,
-      "description": "Fix plan slides",
       "tags": [
         "HomeOffice"
       ],
@@ -2924,7 +2802,6 @@
       "start": "2025-08-28T05:15:18+00:00",
       "stop": "2025-08-28T05:44:54+00:00",
       "duration": 1776,
-      "description": "Various",
       "tags": [
         "HomeOffice"
       ],
@@ -2949,7 +2826,6 @@
       "start": "2025-08-28T04:36:34+00:00",
       "stop": "2025-08-28T05:14:55+00:00",
       "duration": 2301,
-      "description": "JIRA works",
       "tags": [
         "HomeOffice"
       ],
@@ -2974,7 +2850,6 @@
       "start": "2025-08-28T04:17:25+00:00",
       "stop": "2025-08-28T04:36:34+00:00",
       "duration": 1149,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -2999,7 +2874,6 @@
       "start": "2025-08-27T16:00:18+00:00",
       "stop": "2025-08-27T18:21:52+00:00",
       "duration": 8494,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -3023,7 +2897,6 @@
       "start": "2025-08-27T15:31:05+00:00",
       "stop": "2025-08-27T16:00:02+00:00",
       "duration": 1737,
-      "description": "FR call",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3044,7 +2917,6 @@
       "start": "2025-08-27T15:18:44+00:00",
       "stop": "2025-08-27T15:31:05+00:00",
       "duration": 741,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3065,7 +2937,6 @@
       "start": "2025-08-27T14:28:45+00:00",
       "stop": "2025-08-27T15:18:44+00:00",
       "duration": 2999,
-      "description": "DRE CAB Meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3086,7 +2957,6 @@
       "start": "2025-08-27T14:00:47+00:00",
       "stop": "2025-08-27T14:28:45+00:00",
       "duration": 1678,
-      "description": "NFR weekly",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3107,7 +2977,6 @@
       "start": "2025-08-27T12:21:51+00:00",
       "stop": "2025-08-27T14:00:47+00:00",
       "duration": 5936,
-      "description": "Review data and prepare for meetings",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3128,7 +2997,6 @@
       "start": "2025-08-27T12:03:46+00:00",
       "stop": "2025-08-27T12:21:51+00:00",
       "duration": 1085,
-      "description": "Discussion with Comm",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3148,7 +3016,6 @@
       "start": "2025-08-27T12:00:43+00:00",
       "stop": "2025-08-27T12:03:24+00:00",
       "duration": 161,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3169,7 +3036,6 @@
       "start": "2025-08-27T11:35:08+00:00",
       "stop": "2025-08-27T12:00:16+00:00",
       "duration": 1508,
-      "description": "Handover with J\u00fcrg",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3190,7 +3056,6 @@
       "start": "2025-08-27T10:56:03+00:00",
       "stop": "2025-08-27T11:35:08+00:00",
       "duration": 2345,
-      "description": "Bila Erich",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3211,7 +3076,6 @@
       "start": "2025-08-27T09:55:00+00:00",
       "stop": "2025-08-27T10:56:00+00:00",
       "duration": 3660,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3231,7 +3095,6 @@
       "start": "2025-08-27T09:00:24+00:00",
       "stop": "2025-08-27T09:54:12+00:00",
       "duration": 3228,
-      "description": "D&D bi-monthly",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3252,7 +3115,6 @@
       "start": "2025-08-27T08:44:36+00:00",
       "stop": "2025-08-27T09:00:25+00:00",
       "duration": 949,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3273,7 +3135,6 @@
       "start": "2025-08-27T08:36:59+00:00",
       "stop": "2025-08-27T08:44:35+00:00",
       "duration": 456,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3293,7 +3154,6 @@
       "start": "2025-08-27T08:01:42+00:00",
       "stop": "2025-08-27T08:36:51+00:00",
       "duration": 2109,
-      "description": "Golden Dataset migration",
       "tags": [
         "Fastlane"
       ],
@@ -3318,7 +3178,6 @@
       "start": "2025-08-27T07:33:44+00:00",
       "stop": "2025-08-27T08:01:42+00:00",
       "duration": 1678,
-      "description": "Bila Erich",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3339,7 +3198,6 @@
       "start": "2025-08-27T06:58:09+00:00",
       "stop": "2025-08-27T07:33:44+00:00",
       "duration": 2135,
-      "description": "Focus call",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3360,7 +3218,6 @@
       "start": "2025-08-27T06:35:19+00:00",
       "stop": "2025-08-27T06:58:10+00:00",
       "duration": 1371,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3381,7 +3238,6 @@
       "start": "2025-08-27T06:07:22+00:00",
       "stop": "2025-08-27T06:34:56+00:00",
       "duration": 1654,
-      "description": "NFR cashout",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3402,7 +3258,6 @@
       "start": "2025-08-27T05:23:49+00:00",
       "stop": "2025-08-27T06:07:12+00:00",
       "duration": 2603,
-      "description": "JIRA works",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3423,7 +3278,6 @@
       "start": "2025-08-27T05:20:09+00:00",
       "stop": "2025-08-27T05:23:49+00:00",
       "duration": 220,
-      "description": "Day setup",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3443,7 +3297,6 @@
       "start": "2025-08-27T04:44:06+00:00",
       "stop": "2025-08-27T05:20:09+00:00",
       "duration": 2163,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -3467,7 +3320,6 @@
       "start": "2025-08-27T04:13:18+00:00",
       "stop": "2025-08-27T04:44:06+00:00",
       "duration": 1848,
-      "description": "Prepare Focus call",
       "tags": [
         "Commuting"
       ],
@@ -3492,7 +3344,6 @@
       "start": "2025-08-27T04:02:58+00:00",
       "stop": "2025-08-27T04:13:19+00:00",
       "duration": 621,
-      "description": "Day setup",
       "tags": [
         "Commuting"
       ],
@@ -3516,7 +3367,6 @@
       "start": "2025-08-27T03:08:12+00:00",
       "stop": "2025-08-27T04:02:58+00:00",
       "duration": 3286,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -3540,7 +3390,6 @@
       "start": "2025-08-26T14:20:00+00:00",
       "stop": "2025-08-26T14:54:00+00:00",
       "duration": 2040,
-      "description": "Q4 Planning I",
       "tags": [
         "HomeOffice"
       ],
@@ -3565,7 +3414,6 @@
       "start": "2025-08-26T14:12:00+00:00",
       "stop": "2025-08-26T14:20:00+00:00",
       "duration": 480,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -3589,7 +3437,6 @@
       "start": "2025-08-26T13:13:00+00:00",
       "stop": "2025-08-26T14:12:22+00:00",
       "duration": 3562,
-      "description": "Q4 Planning I",
       "tags": [
         "HomeOffice"
       ],
@@ -3614,7 +3461,6 @@
       "start": "2025-08-26T12:30:23+00:00",
       "stop": "2025-08-26T13:13:00+00:00",
       "duration": 2557,
-      "description": "KPI Testing",
       "tags": [
         "HomeOffice"
       ],
@@ -3639,7 +3485,6 @@
       "start": "2025-08-26T12:16:31+00:00",
       "stop": "2025-08-26T12:30:23+00:00",
       "duration": 832,
-      "description": "Prepare KPI meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -3664,7 +3509,6 @@
       "start": "2025-08-26T11:28:25+00:00",
       "stop": "2025-08-26T12:16:31+00:00",
       "duration": 2886,
-      "description": "Catch-up and next steps",
       "tags": [
         "HomeOffice"
       ],
@@ -3689,7 +3533,6 @@
       "start": "2025-08-26T11:06:14+00:00",
       "stop": "2025-08-26T11:28:25+00:00",
       "duration": 1331,
-      "description": "NFR effort estimation",
       "tags": [
         "HomeOffice"
       ],
@@ -3713,7 +3556,6 @@
       "start": "2025-08-26T11:04:21+00:00",
       "stop": "2025-08-26T11:06:04+00:00",
       "duration": 103,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -3738,7 +3580,6 @@
       "start": "2025-08-26T09:36:24+00:00",
       "stop": "2025-08-26T11:04:20+00:00",
       "duration": 5276,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -3762,7 +3603,6 @@
       "start": "2025-08-26T08:56:46+00:00",
       "stop": "2025-08-26T09:36:23+00:00",
       "duration": 2377,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -3787,7 +3627,6 @@
       "start": "2025-08-26T08:48:56+00:00",
       "stop": "2025-08-26T08:56:46+00:00",
       "duration": 470,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -3811,7 +3650,6 @@
       "start": "2025-08-26T07:27:19+00:00",
       "stop": "2025-08-26T08:48:56+00:00",
       "duration": 4897,
-      "description": "NFR/AuM TPAM completeness",
       "tags": [
         "HomeOffice"
       ],
@@ -3836,7 +3674,6 @@
       "start": "2025-08-26T06:57:31+00:00",
       "stop": "2025-08-26T07:26:53+00:00",
       "duration": 1762,
-      "description": "NFE Coordination",
       "tags": [
         "HomeOffice"
       ],
@@ -3861,7 +3698,6 @@
       "start": "2025-08-26T05:20:01+00:00",
       "stop": "2025-08-26T06:57:31+00:00",
       "duration": 5850,
-      "description": "Data Domains and GPOs",
       "tags": [
         "HomeOffice"
       ],
@@ -3886,7 +3722,6 @@
       "start": "2025-08-26T04:59:23+00:00",
       "stop": "2025-08-26T05:20:01+00:00",
       "duration": 1238,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -3911,7 +3746,6 @@
       "start": "2025-08-26T03:29:56+00:00",
       "stop": "2025-08-26T04:59:23+00:00",
       "duration": 5367,
-      "description": "Knowledge Graphs for RAG",
       "tags": [
         "HomeOffice"
       ],
@@ -3936,7 +3770,6 @@
       "start": "2025-08-25T14:01:53+00:00",
       "stop": "2025-08-25T16:30:00+00:00",
       "duration": 8887,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -3960,7 +3793,6 @@
       "start": "2025-08-25T13:55:14+00:00",
       "stop": "2025-08-25T14:01:53+00:00",
       "duration": 399,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -3981,7 +3813,6 @@
       "start": "2025-08-25T12:56:45+00:00",
       "stop": "2025-08-25T13:55:09+00:00",
       "duration": 3504,
-      "description": "Trila Risk",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4002,7 +3833,6 @@
       "start": "2025-08-25T12:29:36+00:00",
       "stop": "2025-08-25T12:56:43+00:00",
       "duration": 1627,
-      "description": "Mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4023,7 +3853,6 @@
       "start": "2025-08-25T12:12:01+00:00",
       "stop": "2025-08-25T12:29:36+00:00",
       "duration": 1055,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4044,7 +3873,6 @@
       "start": "2025-08-25T11:55:09+00:00",
       "stop": "2025-08-25T12:12:01+00:00",
       "duration": 1012,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4064,7 +3892,6 @@
       "start": "2025-08-25T10:56:59+00:00",
       "stop": "2025-08-25T11:55:09+00:00",
       "duration": 3490,
-      "description": "KPI validation next steps",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4085,7 +3912,6 @@
       "start": "2025-08-25T10:09:29+00:00",
       "stop": "2025-08-25T10:56:59+00:00",
       "duration": 2850,
-      "description": "Various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4105,7 +3931,6 @@
       "start": "2025-08-25T09:31:09+00:00",
       "stop": "2025-08-25T10:09:23+00:00",
       "duration": 2294,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4125,7 +3950,6 @@
       "start": "2025-08-25T08:49:25+00:00",
       "stop": "2025-08-25T09:31:05+00:00",
       "duration": 2500,
-      "description": "Mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4146,7 +3970,6 @@
       "start": "2025-08-25T08:20:18+00:00",
       "stop": "2025-08-25T08:49:14+00:00",
       "duration": 1736,
-      "description": "Check-in with teams",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4167,7 +3990,6 @@
       "start": "2025-08-25T08:04:19+00:00",
       "stop": "2025-08-25T08:20:18+00:00",
       "duration": 959,
-      "description": "Q&A session with J\u00fcrg",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4188,7 +4010,6 @@
       "start": "2025-08-25T07:16:42+00:00",
       "stop": "2025-08-25T08:04:11+00:00",
       "duration": 2849,
-      "description": "Check Rovo",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4209,7 +4030,6 @@
       "start": "2025-08-25T06:28:52+00:00",
       "stop": "2025-08-25T07:16:42+00:00",
       "duration": 2870,
-      "description": "Q&A session with J\u00fcrg",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4230,7 +4050,6 @@
       "start": "2025-08-25T06:15:15+00:00",
       "stop": "2025-08-25T06:28:52+00:00",
       "duration": 817,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4251,7 +4070,6 @@
       "start": "2025-08-25T05:58:19+00:00",
       "stop": "2025-08-25T06:15:11+00:00",
       "duration": 1012,
-      "description": "Organize meeting Property master data",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4272,7 +4090,6 @@
       "start": "2025-08-25T05:21:33+00:00",
       "stop": "2025-08-25T05:58:19+00:00",
       "duration": 2206,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -4293,7 +4110,6 @@
       "start": "2025-08-25T04:48:56+00:00",
       "stop": "2025-08-25T05:21:33+00:00",
       "duration": 1957,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -4317,7 +4133,6 @@
       "start": "2025-08-25T04:11:33+00:00",
       "stop": "2025-08-25T04:48:56+00:00",
       "duration": 2243,
-      "description": "Mails",
       "tags": [
         "Commuting"
       ],
@@ -4342,7 +4157,6 @@
       "start": "2025-08-25T04:00:36+00:00",
       "stop": "2025-08-25T04:11:33+00:00",
       "duration": 657,
-      "description": "Daily planning and various",
       "tags": [
         "Commuting"
       ],
@@ -4367,7 +4181,6 @@
       "start": "2025-08-25T03:07:18+00:00",
       "stop": "2025-08-25T04:00:36+00:00",
       "duration": 3198,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -4391,7 +4204,6 @@
       "start": "2025-08-22T13:19:36+00:00",
       "stop": "2025-08-22T13:39:10+00:00",
       "duration": 1174,
-      "description": "Knowledge Graphs for RAG",
       "tags": [
         "HomeOffice"
       ],
@@ -4416,7 +4228,6 @@
       "start": "2025-08-22T13:16:22+00:00",
       "stop": "2025-08-22T13:19:33+00:00",
       "duration": 191,
-      "description": "Mails",
       "tags": [
         "HomeOffice"
       ],
@@ -4441,7 +4252,6 @@
       "start": "2025-08-22T12:23:14+00:00",
       "stop": "2025-08-22T13:16:22+00:00",
       "duration": 3188,
-      "description": "Status review",
       "tags": [
         "HomeOffice"
       ],
@@ -4466,7 +4276,6 @@
       "start": "2025-08-22T12:14:31+00:00",
       "stop": "2025-08-22T12:23:14+00:00",
       "duration": 523,
-      "description": "Prepare next week",
       "tags": [
         "HomeOffice"
       ],
@@ -4491,7 +4300,6 @@
       "start": "2025-08-22T12:08:12+00:00",
       "stop": "2025-08-22T12:14:31+00:00",
       "duration": 379,
-      "description": "Organize meeting with Eduard",
       "tags": [
         "HomeOffice"
       ],
@@ -4516,7 +4324,6 @@
       "start": "2025-08-22T12:01:47+00:00",
       "stop": "2025-08-22T12:08:12+00:00",
       "duration": 385,
-      "description": "Prepare next week",
       "tags": [
         "HomeOffice"
       ],
@@ -4541,7 +4348,6 @@
       "start": "2025-08-22T11:45:32+00:00",
       "stop": "2025-08-22T12:01:27+00:00",
       "duration": 955,
-      "description": "Confluence and setup",
       "tags": [
         "HomeOffice"
       ],
@@ -4566,7 +4372,6 @@
       "start": "2025-08-22T10:59:48+00:00",
       "stop": "2025-08-22T11:45:32+00:00",
       "duration": 2744,
-      "description": "Mails",
       "tags": [
         "HomeOffice"
       ],
@@ -4591,7 +4396,6 @@
       "start": "2025-08-22T10:45:19+00:00",
       "stop": "2025-08-22T10:59:49+00:00",
       "duration": 870,
-      "description": "Confluence and setup",
       "tags": [
         "HomeOffice"
       ],
@@ -4616,7 +4420,6 @@
       "start": "2025-08-22T10:26:42+00:00",
       "stop": "2025-08-22T10:45:19+00:00",
       "duration": 1117,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -4641,7 +4444,6 @@
       "start": "2025-08-22T09:23:42+00:00",
       "stop": "2025-08-22T10:26:42+00:00",
       "duration": 3780,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -4665,7 +4467,6 @@
       "start": "2025-08-22T09:05:02+00:00",
       "stop": "2025-08-22T09:23:42+00:00",
       "duration": 1120,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -4689,7 +4490,6 @@
       "start": "2025-08-22T08:30:00+00:00",
       "stop": "2025-08-22T09:05:00+00:00",
       "duration": 2100,
-      "description": "Next steps discussion",
       "tags": [
         "HomeOffice"
       ],
@@ -4714,7 +4514,6 @@
       "start": "2025-08-22T07:59:47+00:00",
       "stop": "2025-08-22T08:30:19+00:00",
       "duration": 1832,
-      "description": "NFR weekly",
       "tags": [
         "HomeOffice"
       ],
@@ -4739,7 +4538,6 @@
       "start": "2025-08-22T06:57:46+00:00",
       "stop": "2025-08-22T07:59:47+00:00",
       "duration": 3721,
-      "description": "ipc KPI vs datadash vs Yardi",
       "tags": [
         "HomeOffice"
       ],
@@ -4764,7 +4562,6 @@
       "start": "2025-08-22T05:12:03+00:00",
       "stop": "2025-08-22T06:57:46+00:00",
       "duration": 6343,
-      "description": "Confluence and setup",
       "tags": [
         "HomeOffice"
       ],
@@ -4789,7 +4586,6 @@
       "start": "2025-08-22T04:47:57+00:00",
       "stop": "2025-08-22T05:12:01+00:00",
       "duration": 1444,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -4814,7 +4610,6 @@
       "start": "2025-08-22T04:12:20+00:00",
       "stop": "2025-08-22T04:47:57+00:00",
       "duration": 2137,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -4839,7 +4634,6 @@
       "start": "2025-08-21T12:59:19+00:00",
       "stop": "2025-08-21T13:34:44+00:00",
       "duration": 2125,
-      "description": "DDM Coordiantion meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -4864,7 +4658,6 @@
       "start": "2025-08-21T12:07:32+00:00",
       "stop": "2025-08-21T12:59:19+00:00",
       "duration": 3107,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -4889,7 +4682,6 @@
       "start": "2025-08-21T11:33:40+00:00",
       "stop": "2025-08-21T12:07:32+00:00",
       "duration": 2032,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -4914,7 +4706,6 @@
       "start": "2025-08-21T10:59:18+00:00",
       "stop": "2025-08-21T11:33:35+00:00",
       "duration": 2057,
-      "description": "Current Data Delivery for RE",
       "tags": [
         "HomeOffice"
       ],
@@ -4939,7 +4730,6 @@
       "start": "2025-08-21T10:36:06+00:00",
       "stop": "2025-08-21T10:59:18+00:00",
       "duration": 1392,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -4964,7 +4754,6 @@
       "start": "2025-08-21T09:25:26+00:00",
       "stop": "2025-08-21T10:36:06+00:00",
       "duration": 4240,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -4988,7 +4777,6 @@
       "start": "2025-08-21T08:08:42+00:00",
       "stop": "2025-08-21T09:25:25+00:00",
       "duration": 4603,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -5013,7 +4801,6 @@
       "start": "2025-08-21T07:54:06+00:00",
       "stop": "2025-08-21T08:08:42+00:00",
       "duration": 876,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -5037,7 +4824,6 @@
       "start": "2025-08-21T07:12:24+00:00",
       "stop": "2025-08-21T07:53:50+00:00",
       "duration": 2486,
-      "description": "Catch up on the data quality initiative",
       "tags": [
         "HomeOffice"
       ],
@@ -5062,7 +4848,6 @@
       "start": "2025-08-21T06:30:09+00:00",
       "stop": "2025-08-21T07:12:24+00:00",
       "duration": 2535,
-      "description": "Bila Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -5087,7 +4872,6 @@
       "start": "2025-08-21T04:13:04+00:00",
       "stop": "2025-08-21T06:30:09+00:00",
       "duration": 8225,
-      "description": "Catch up on the data quality initiative",
       "tags": [
         "HomeOffice"
       ],
@@ -5112,7 +4896,6 @@
       "start": "2025-08-21T03:58:10+00:00",
       "stop": "2025-08-21T04:13:04+00:00",
       "duration": 894,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -5137,7 +4920,6 @@
       "start": "2025-08-20T14:53:48+00:00",
       "stop": "2025-08-20T17:31:00+00:00",
       "duration": 9432,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -5161,7 +4943,6 @@
       "start": "2025-08-20T14:50:19+00:00",
       "stop": "2025-08-20T14:53:48+00:00",
       "duration": 209,
-      "description": "Various tasks",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5182,7 +4963,6 @@
       "start": "2025-08-20T13:55:14+00:00",
       "stop": "2025-08-20T14:50:17+00:00",
       "duration": 3303,
-      "description": "DRE Contribution to AuM",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5203,7 +4983,6 @@
       "start": "2025-08-20T13:44:53+00:00",
       "stop": "2025-08-20T13:55:14+00:00",
       "duration": 621,
-      "description": "Various tasks",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5224,7 +5003,6 @@
       "start": "2025-08-20T13:33:28+00:00",
       "stop": "2025-08-20T13:44:46+00:00",
       "duration": 678,
-      "description": "Organize meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5245,7 +5023,6 @@
       "start": "2025-08-20T12:29:25+00:00",
       "stop": "2025-08-20T13:33:28+00:00",
       "duration": 3843,
-      "description": "NFR Q&A with Martin",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5266,7 +5043,6 @@
       "start": "2025-08-20T12:22:01+00:00",
       "stop": "2025-08-20T12:29:25+00:00",
       "duration": 444,
-      "description": "Various tasks",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5287,7 +5063,6 @@
       "start": "2025-08-20T10:35:14+00:00",
       "stop": "2025-08-20T12:21:50+00:00",
       "duration": 6396,
-      "description": "Risk Data Domain",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5308,7 +5083,6 @@
       "start": "2025-08-20T10:03:00+00:00",
       "stop": "2025-08-20T10:35:00+00:00",
       "duration": 1920,
-      "description": "Discussions with Alessandro",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5328,7 +5102,6 @@
       "start": "2025-08-20T09:30:00+00:00",
       "stop": "2025-08-20T10:03:00+00:00",
       "duration": 1980,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5348,7 +5121,6 @@
       "start": "2025-08-20T09:21:47+00:00",
       "stop": "2025-08-20T09:30:08+00:00",
       "duration": 501,
-      "description": "Risk Data Domain",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5369,7 +5141,6 @@
       "start": "2025-08-20T09:02:04+00:00",
       "stop": "2025-08-20T09:21:47+00:00",
       "duration": 1183,
-      "description": "Various tasks",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5390,7 +5161,6 @@
       "start": "2025-08-20T07:35:23+00:00",
       "stop": "2025-08-20T09:00:58+00:00",
       "duration": 5135,
-      "description": "Post-meeting tasks",
       "tags": [
         "Fastlane"
       ],
@@ -5415,7 +5185,6 @@
       "start": "2025-08-20T07:02:05+00:00",
       "stop": "2025-08-20T07:34:58+00:00",
       "duration": 1973,
-      "description": "NFR Data Request",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5436,7 +5205,6 @@
       "start": "2025-08-20T06:29:50+00:00",
       "stop": "2025-08-20T07:02:05+00:00",
       "duration": 1935,
-      "description": "Focus call",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5457,7 +5225,6 @@
       "start": "2025-08-20T05:42:04+00:00",
       "stop": "2025-08-20T06:29:50+00:00",
       "duration": 2866,
-      "description": "NFR mail and time estimates",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5478,7 +5245,6 @@
       "start": "2025-08-20T05:24:14+00:00",
       "stop": "2025-08-20T05:42:04+00:00",
       "duration": 1070,
-      "description": "Strategy and planning",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5499,7 +5265,6 @@
       "start": "2025-08-20T04:13:00+00:00",
       "stop": "2025-08-20T05:24:00+00:00",
       "duration": 4260,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -5523,7 +5288,6 @@
       "start": "2025-08-20T03:43:00+00:00",
       "stop": "2025-08-20T04:13:00+00:00",
       "duration": 1800,
-      "description": "Daily planning and various",
       "tags": [
         "Commuting"
       ],
@@ -5548,7 +5312,6 @@
       "start": "2025-08-20T02:38:23+00:00",
       "stop": "2025-08-20T03:43:40+00:00",
       "duration": 3917,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -5572,7 +5335,6 @@
       "start": "2025-08-19T13:09:00+00:00",
       "stop": "2025-08-19T13:26:00+00:00",
       "duration": 1020,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -5597,7 +5359,6 @@
       "start": "2025-08-19T12:13:05+00:00",
       "stop": "2025-08-19T13:09:17+00:00",
       "duration": 3372,
-      "description": "Prepare Excel and send comm",
       "tags": [
         "HomeOffice"
       ],
@@ -5622,7 +5383,6 @@
       "start": "2025-08-19T10:12:08+00:00",
       "stop": "2025-08-19T12:13:05+00:00",
       "duration": 7257,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -5647,7 +5407,6 @@
       "start": "2025-08-19T09:28:54+00:00",
       "stop": "2025-08-19T10:12:07+00:00",
       "duration": 2593,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -5671,7 +5430,6 @@
       "start": "2025-08-19T09:07:25+00:00",
       "stop": "2025-08-19T09:28:52+00:00",
       "duration": 1287,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -5696,7 +5454,6 @@
       "start": "2025-08-19T07:58:17+00:00",
       "stop": "2025-08-19T09:07:25+00:00",
       "duration": 4148,
-      "description": "Prepare Excel and send comm",
       "tags": [
         "HomeOffice"
       ],
@@ -5721,7 +5478,6 @@
       "start": "2025-08-19T07:17:25+00:00",
       "stop": "2025-08-19T07:58:17+00:00",
       "duration": 2452,
-      "description": "Strategy and planning",
       "tags": [
         "HomeOffice"
       ],
@@ -5746,7 +5502,6 @@
       "start": "2025-08-19T06:57:53+00:00",
       "stop": "2025-08-19T07:17:19+00:00",
       "duration": 1166,
-      "description": "Personal reflection on solution",
       "tags": [
         "HomeOffice"
       ],
@@ -5771,7 +5526,6 @@
       "start": "2025-08-19T06:52:31+00:00",
       "stop": "2025-08-19T06:57:53+00:00",
       "duration": 322,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -5795,7 +5549,6 @@
       "start": "2025-08-19T05:05:40+00:00",
       "stop": "2025-08-19T06:52:31+00:00",
       "duration": 6411,
-      "description": "Personal reflection on solution",
       "tags": [
         "HomeOffice"
       ],
@@ -5820,7 +5573,6 @@
       "start": "2025-08-19T03:38:14+00:00",
       "stop": "2025-08-19T05:05:37+00:00",
       "duration": 5243,
-      "description": "Prepare Excel and send comm",
       "tags": [
         "HomeOffice"
       ],
@@ -5845,7 +5597,6 @@
       "start": "2025-08-19T03:29:37+00:00",
       "stop": "2025-08-19T03:38:15+00:00",
       "duration": 518,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -5870,7 +5621,6 @@
       "start": "2025-08-18T16:13:00+00:00",
       "stop": "2025-08-18T17:10:00+00:00",
       "duration": 3420,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -5894,7 +5644,6 @@
       "start": "2025-08-18T15:41:00+00:00",
       "stop": "2025-08-18T16:13:00+00:00",
       "duration": 1920,
-      "description": "Prepare Excel and send comm",
       "tags": [
         "Commuting"
       ],
@@ -5919,7 +5668,6 @@
       "start": "2025-08-18T15:02:23+00:00",
       "stop": "2025-08-18T15:41:32+00:00",
       "duration": 2349,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -5943,7 +5691,6 @@
       "start": "2025-08-18T14:34:01+00:00",
       "stop": "2025-08-18T15:02:20+00:00",
       "duration": 1699,
-      "description": "Prepare Excel and send comm",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5964,7 +5711,6 @@
       "start": "2025-08-18T13:56:25+00:00",
       "stop": "2025-08-18T14:33:56+00:00",
       "duration": 2251,
-      "description": "Trila Risk",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -5985,7 +5731,6 @@
       "start": "2025-08-18T12:40:48+00:00",
       "stop": "2025-08-18T13:56:25+00:00",
       "duration": 4537,
-      "description": "Prepare for Trila",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6006,7 +5751,6 @@
       "start": "2025-08-18T12:09:33+00:00",
       "stop": "2025-08-18T12:40:49+00:00",
       "duration": 1876,
-      "description": "Prepare Excel and send comm",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6027,7 +5771,6 @@
       "start": "2025-08-18T11:34:49+00:00",
       "stop": "2025-08-18T12:09:30+00:00",
       "duration": 2081,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6048,7 +5791,6 @@
       "start": "2025-08-18T11:22:46+00:00",
       "stop": "2025-08-18T11:34:46+00:00",
       "duration": 720,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6068,7 +5810,6 @@
       "start": "2025-08-18T10:19:39+00:00",
       "stop": "2025-08-18T11:22:39+00:00",
       "duration": 3780,
-      "description": "Integrate SF data into Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6089,7 +5830,6 @@
       "start": "2025-08-18T10:18:38+00:00",
       "stop": "2025-08-18T10:19:39+00:00",
       "duration": 61,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6110,7 +5850,6 @@
       "start": "2025-08-18T10:06:47+00:00",
       "stop": "2025-08-18T10:18:38+00:00",
       "duration": 711,
-      "description": "KPI Approval process",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6131,7 +5870,6 @@
       "start": "2025-08-18T09:30:50+00:00",
       "stop": "2025-08-18T10:06:46+00:00",
       "duration": 2156,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6151,7 +5889,6 @@
       "start": "2025-08-18T07:59:48+00:00",
       "stop": "2025-08-18T09:30:43+00:00",
       "duration": 5455,
-      "description": "KPI Approval process",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6172,7 +5909,6 @@
       "start": "2025-08-18T06:42:20+00:00",
       "stop": "2025-08-18T07:59:48+00:00",
       "duration": 4648,
-      "description": "Prepare Excel and send comm",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6193,7 +5929,6 @@
       "start": "2025-08-18T06:00:54+00:00",
       "stop": "2025-08-18T06:42:18+00:00",
       "duration": 2484,
-      "description": "Mails catch-up",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6214,7 +5949,6 @@
       "start": "2025-08-18T05:29:44+00:00",
       "stop": "2025-08-18T06:00:54+00:00",
       "duration": 1870,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6235,7 +5969,6 @@
       "start": "2025-08-18T05:02:59+00:00",
       "stop": "2025-08-18T05:29:44+00:00",
       "duration": 1605,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -6259,7 +5992,6 @@
       "start": "2025-08-18T04:26:53+00:00",
       "stop": "2025-08-18T05:02:59+00:00",
       "duration": 2166,
-      "description": "Day setup",
       "tags": [
         "Commuting"
       ],
@@ -6283,7 +6015,6 @@
       "start": "2025-08-18T03:10:00+00:00",
       "stop": "2025-08-18T04:26:00+00:00",
       "duration": 4560,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -6307,7 +6038,6 @@
       "start": "2025-08-15T09:22:00+00:00",
       "stop": "2025-08-15T10:28:00+00:00",
       "duration": 3960,
-      "description": "Review NFR materials",
       "tags": [
         "HomeOffice"
       ],
@@ -6332,7 +6062,6 @@
       "start": "2025-08-15T08:18:55+00:00",
       "stop": "2025-08-15T09:22:50+00:00",
       "duration": 3835,
-      "description": "Oranize next week",
       "tags": [
         "HomeOffice"
       ],
@@ -6357,7 +6086,6 @@
       "start": "2025-08-15T04:37:03+00:00",
       "stop": "2025-08-15T08:18:55+00:00",
       "duration": 13312,
-      "description": "Review NFR materials",
       "tags": [
         "HomeOffice"
       ],
@@ -6382,7 +6110,6 @@
       "start": "2025-08-15T04:07:07+00:00",
       "stop": "2025-08-15T04:37:03+00:00",
       "duration": 1796,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -6407,7 +6134,6 @@
       "start": "2025-08-14T10:42:49+00:00",
       "stop": "2025-08-14T13:44:22+00:00",
       "duration": 10893,
-      "description": "Check and give feedback to Data Domain confluence",
       "tags": [
         "HomeOffice"
       ],
@@ -6432,7 +6158,6 @@
       "start": "2025-08-14T10:01:02+00:00",
       "stop": "2025-08-14T10:42:48+00:00",
       "duration": 2506,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -6456,7 +6181,6 @@
       "start": "2025-08-14T09:31:10+00:00",
       "stop": "2025-08-14T10:00:57+00:00",
       "duration": 1787,
-      "description": "Check and give feedback to Data Domain confluence",
       "tags": [
         "HomeOffice"
       ],
@@ -6481,7 +6205,6 @@
       "start": "2025-08-14T09:04:10+00:00",
       "stop": "2025-08-14T09:31:10+00:00",
       "duration": 1620,
-      "description": "SF-only properties",
       "tags": [
         "HomeOffice"
       ],
@@ -6506,7 +6229,6 @@
       "start": "2025-08-14T08:54:05+00:00",
       "stop": "2025-08-14T09:04:10+00:00",
       "duration": 605,
-      "description": "Check and give feedback to Data Domain confluence",
       "tags": [
         "HomeOffice"
       ],
@@ -6531,7 +6253,6 @@
       "start": "2025-08-14T08:00:18+00:00",
       "stop": "2025-08-14T08:53:53+00:00",
       "duration": 3215,
-      "description": "Update effort estimate NFR",
       "tags": [
         "HomeOffice"
       ],
@@ -6556,7 +6277,6 @@
       "start": "2025-08-14T07:09:00+00:00",
       "stop": "2025-08-14T08:00:00+00:00",
       "duration": 3060,
-      "description": "Review NFR materials",
       "tags": [
         "HomeOffice"
       ],
@@ -6581,7 +6301,6 @@
       "start": "2025-08-14T06:28:08+00:00",
       "stop": "2025-08-14T07:08:57+00:00",
       "duration": 2449,
-      "description": "IPC new export",
       "tags": [
         "HomeOffice"
       ],
@@ -6606,7 +6325,6 @@
       "start": "2025-08-14T04:32:23+00:00",
       "stop": "2025-08-14T06:28:08+00:00",
       "duration": 6945,
-      "description": "Polish Excel and doc",
       "tags": [
         "HomeOffice"
       ],
@@ -6631,7 +6349,6 @@
       "start": "2025-08-14T04:15:34+00:00",
       "stop": "2025-08-14T04:32:23+00:00",
       "duration": 1009,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -6656,7 +6373,6 @@
       "start": "2025-08-13T14:07:32+00:00",
       "stop": "2025-08-13T16:10:55+00:00",
       "duration": 7403,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -6680,7 +6396,6 @@
       "start": "2025-08-13T13:35:07+00:00",
       "stop": "2025-08-13T14:07:32+00:00",
       "duration": 1945,
-      "description": "Development Properties for CH",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6701,7 +6416,6 @@
       "start": "2025-08-13T13:27:50+00:00",
       "stop": "2025-08-13T13:35:07+00:00",
       "duration": 437,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6722,7 +6436,6 @@
       "start": "2025-08-13T13:12:55+00:00",
       "stop": "2025-08-13T13:27:50+00:00",
       "duration": 895,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6742,7 +6455,6 @@
       "start": "2025-08-13T12:33:27+00:00",
       "stop": "2025-08-13T13:12:53+00:00",
       "duration": 2366,
-      "description": "Fund Management Coordination Meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6763,7 +6475,6 @@
       "start": "2025-08-13T12:08:00+00:00",
       "stop": "2025-08-13T12:33:00+00:00",
       "duration": 1500,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6784,7 +6495,6 @@
       "start": "2025-08-13T11:50:00+00:00",
       "stop": "2025-08-13T12:08:00+00:00",
       "duration": 1080,
-      "description": "Mail decision operational exposure",
       "tags": [
         "Fastlane"
       ],
@@ -6808,7 +6518,6 @@
       "start": "2025-08-13T11:10:00+00:00",
       "stop": "2025-08-13T11:50:00+00:00",
       "duration": 2400,
-      "description": "Fix Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6829,7 +6538,6 @@
       "start": "2025-08-13T11:03:02+00:00",
       "stop": "2025-08-13T11:10:28+00:00",
       "duration": 446,
-      "description": "Mail decision operational exposure",
       "tags": [
         "Fastlane"
       ],
@@ -6853,7 +6561,6 @@
       "start": "2025-08-13T10:09:51+00:00",
       "stop": "2025-08-13T11:02:40+00:00",
       "duration": 3169,
-      "description": "Bila Erich",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6874,7 +6581,6 @@
       "start": "2025-08-13T10:04:42+00:00",
       "stop": "2025-08-13T10:09:51+00:00",
       "duration": 309,
-      "description": "Fix Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6895,7 +6601,6 @@
       "start": "2025-08-13T09:32:08+00:00",
       "stop": "2025-08-13T10:04:42+00:00",
       "duration": 1954,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6915,7 +6620,6 @@
       "start": "2025-08-13T09:30:20+00:00",
       "stop": "2025-08-13T09:32:08+00:00",
       "duration": 108,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6936,7 +6640,6 @@
       "start": "2025-08-13T09:23:39+00:00",
       "stop": "2025-08-13T09:30:20+00:00",
       "duration": 401,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6956,7 +6659,6 @@
       "start": "2025-08-13T09:07:26+00:00",
       "stop": "2025-08-13T09:23:28+00:00",
       "duration": 962,
-      "description": "Pilot feedback to doc",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6977,7 +6679,6 @@
       "start": "2025-08-13T08:00:09+00:00",
       "stop": "2025-08-13T09:07:26+00:00",
       "duration": 4037,
-      "description": "Follow-up SL Benefits",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -6998,7 +6699,6 @@
       "start": "2025-08-13T05:27:08+00:00",
       "stop": "2025-08-13T08:00:09+00:00",
       "duration": 9181,
-      "description": "Fix Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7019,7 +6719,6 @@
       "start": "2025-08-13T05:21:53+00:00",
       "stop": "2025-08-13T05:27:08+00:00",
       "duration": 315,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7040,7 +6739,6 @@
       "start": "2025-08-13T04:36:55+00:00",
       "stop": "2025-08-13T05:21:53+00:00",
       "duration": 2698,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -7064,7 +6762,6 @@
       "start": "2025-08-13T04:11:03+00:00",
       "stop": "2025-08-13T04:36:55+00:00",
       "duration": 1552,
-      "description": "Mails catch-up",
       "tags": [
         "Commuting"
       ],
@@ -7089,7 +6786,6 @@
       "start": "2025-08-13T04:01:25+00:00",
       "stop": "2025-08-13T04:11:03+00:00",
       "duration": 578,
-      "description": "Daily planning and various",
       "tags": [
         "Commuting"
       ],
@@ -7114,7 +6810,6 @@
       "start": "2025-08-13T03:10:00+00:00",
       "stop": "2025-08-13T04:01:00+00:00",
       "duration": 3060,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -7138,7 +6833,6 @@
       "start": "2025-08-12T12:11:52+00:00",
       "stop": "2025-08-12T14:19:06+00:00",
       "duration": 7634,
-      "description": "Fix Excel",
       "tags": [
         "HomeOffice"
       ],
@@ -7163,7 +6857,6 @@
       "start": "2025-08-12T11:30:00+00:00",
       "stop": "2025-08-12T12:11:00+00:00",
       "duration": 2460,
-      "description": "Sector Renaming: Pilot \"TIGR\" meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -7188,7 +6881,6 @@
       "start": "2025-08-12T10:37:22+00:00",
       "stop": "2025-08-12T11:30:18+00:00",
       "duration": 3176,
-      "description": "Fix Excel",
       "tags": [
         "HomeOffice"
       ],
@@ -7213,7 +6905,6 @@
       "start": "2025-08-12T09:45:48+00:00",
       "stop": "2025-08-12T10:37:22+00:00",
       "duration": 3094,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -7237,7 +6928,6 @@
       "start": "2025-08-12T09:00:19+00:00",
       "stop": "2025-08-12T09:45:48+00:00",
       "duration": 2729,
-      "description": "Contact Oliver and Gian-Luca",
       "tags": [
         "HomeOffice"
       ],
@@ -7262,7 +6952,6 @@
       "start": "2025-08-12T08:39:48+00:00",
       "stop": "2025-08-12T09:00:19+00:00",
       "duration": 1231,
-      "description": "Fix Excel",
       "tags": [
         "HomeOffice"
       ],
@@ -7287,7 +6976,6 @@
       "start": "2025-08-12T08:02:31+00:00",
       "stop": "2025-08-12T08:39:48+00:00",
       "duration": 2237,
-      "description": "DREP -AM SME Meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -7312,7 +7000,6 @@
       "start": "2025-08-12T07:29:57+00:00",
       "stop": "2025-08-12T08:02:31+00:00",
       "duration": 1954,
-      "description": "NFR Project meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -7337,7 +7024,6 @@
       "start": "2025-08-12T06:49:37+00:00",
       "stop": "2025-08-12T07:29:57+00:00",
       "duration": 2420,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -7362,7 +7048,6 @@
       "start": "2025-08-12T05:58:40+00:00",
       "stop": "2025-08-12T06:49:35+00:00",
       "duration": 3055,
-      "description": "Fix Excel",
       "tags": [
         "HomeOffice"
       ],
@@ -7387,7 +7072,6 @@
       "start": "2025-08-12T05:01:05+00:00",
       "stop": "2025-08-12T05:58:40+00:00",
       "duration": 3455,
-      "description": "Contact Oliver and Gian-Luca",
       "tags": [
         "HomeOffice"
       ],
@@ -7412,7 +7096,6 @@
       "start": "2025-08-12T04:41:12+00:00",
       "stop": "2025-08-12T05:01:05+00:00",
       "duration": 1193,
-      "description": "Day setup",
       "tags": [
         "HomeOffice"
       ],
@@ -7436,7 +7119,6 @@
       "start": "2025-08-11T15:03:28+00:00",
       "stop": "2025-08-11T16:55:00+00:00",
       "duration": 6692,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -7460,7 +7142,6 @@
       "start": "2025-08-11T14:11:33+00:00",
       "stop": "2025-08-11T15:03:28+00:00",
       "duration": 3115,
-      "description": "EXPO Dashboard design and planning",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7481,7 +7162,6 @@
       "start": "2025-08-11T12:00:14+00:00",
       "stop": "2025-08-11T14:11:33+00:00",
       "duration": 7879,
-      "description": "Fix Excel",
       "tags": [
         "Fastlane"
       ],
@@ -7506,7 +7186,6 @@
       "start": "2025-08-11T11:53:00+00:00",
       "stop": "2025-08-11T12:00:00+00:00",
       "duration": 420,
-      "description": "Mails catch-up",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7527,7 +7206,6 @@
       "start": "2025-08-11T10:56:13+00:00",
       "stop": "2025-08-11T11:53:40+00:00",
       "duration": 3447,
-      "description": "Catch-up/Back-handover sector renaming",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7548,7 +7226,6 @@
       "start": "2025-08-11T10:10:45+00:00",
       "stop": "2025-08-11T10:56:13+00:00",
       "duration": 2728,
-      "description": "Contact Oliver and Gian-Luca",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7569,7 +7246,6 @@
       "start": "2025-08-11T09:24:53+00:00",
       "stop": "2025-08-11T10:10:45+00:00",
       "duration": 2752,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7589,7 +7265,6 @@
       "start": "2025-08-11T08:56:17+00:00",
       "stop": "2025-08-11T09:24:53+00:00",
       "duration": 1716,
-      "description": "Mails catch-up",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7610,7 +7285,6 @@
       "start": "2025-08-11T08:30:29+00:00",
       "stop": "2025-08-11T08:56:17+00:00",
       "duration": 1548,
-      "description": "EXPO Real: Anforderungen f\u00fcr Datenanalyse",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7631,7 +7305,6 @@
       "start": "2025-08-11T08:00:14+00:00",
       "stop": "2025-08-11T08:30:29+00:00",
       "duration": 1815,
-      "description": "KPI approval process",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7652,7 +7325,6 @@
       "start": "2025-08-11T07:04:28+00:00",
       "stop": "2025-08-11T08:00:14+00:00",
       "duration": 3346,
-      "description": "Mails catch-up",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7673,7 +7345,6 @@
       "start": "2025-08-11T06:59:41+00:00",
       "stop": "2025-08-11T07:04:28+00:00",
       "duration": 287,
-      "description": "Case code issue",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7693,7 +7364,6 @@
       "start": "2025-08-11T06:45:53+00:00",
       "stop": "2025-08-11T06:59:41+00:00",
       "duration": 828,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7713,7 +7383,6 @@
       "start": "2025-08-11T06:16:05+00:00",
       "stop": "2025-08-11T06:45:53+00:00",
       "duration": 1788,
-      "description": "Mails catch-up",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7734,7 +7403,6 @@
       "start": "2025-08-11T05:38:05+00:00",
       "stop": "2025-08-11T06:16:05+00:00",
       "duration": 2280,
-      "description": "Week setup",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7754,7 +7422,6 @@
       "start": "2025-08-11T05:21:54+00:00",
       "stop": "2025-08-11T05:37:54+00:00",
       "duration": 960,
-      "description": "Case code issue",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -7774,7 +7441,6 @@
       "start": "2025-08-11T04:58:40+00:00",
       "stop": "2025-08-11T05:21:37+00:00",
       "duration": 1377,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -7798,7 +7464,6 @@
       "start": "2025-08-11T03:55:37+00:00",
       "stop": "2025-08-11T04:58:40+00:00",
       "duration": 3783,
-      "description": "Catch up after vacation",
       "tags": [
         "Commuting"
       ],
@@ -7822,7 +7487,6 @@
       "start": "2025-08-11T03:02:20+00:00",
       "stop": "2025-08-11T03:55:37+00:00",
       "duration": 3197,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -7846,7 +7510,6 @@
       "start": "2025-07-23T17:54:10+00:00",
       "stop": "2025-07-23T19:49:32+00:00",
       "duration": 6922,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -7871,7 +7534,6 @@
       "start": "2025-07-23T13:57:54+00:00",
       "stop": "2025-07-23T14:40:09+00:00",
       "duration": 2535,
-      "description": "SR big room",
       "tags": [
         "HomeOffice"
       ],
@@ -7896,7 +7558,6 @@
       "start": "2025-07-23T12:50:30+00:00",
       "stop": "2025-07-23T13:57:54+00:00",
       "duration": 4044,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -7921,7 +7582,6 @@
       "start": "2025-07-23T12:42:51+00:00",
       "stop": "2025-07-23T12:50:30+00:00",
       "duration": 459,
-      "description": "Dashboard requirements",
       "tags": [
         "HomeOffice"
       ],
@@ -7946,7 +7606,6 @@
       "start": "2025-07-23T12:22:27+00:00",
       "stop": "2025-07-23T12:42:51+00:00",
       "duration": 1224,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -7971,7 +7630,6 @@
       "start": "2025-07-23T12:03:21+00:00",
       "stop": "2025-07-23T12:22:27+00:00",
       "duration": 1146,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -7995,7 +7653,6 @@
       "start": "2025-07-23T12:01:04+00:00",
       "stop": "2025-07-23T12:03:20+00:00",
       "duration": 136,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -8020,7 +7677,6 @@
       "start": "2025-07-23T11:38:38+00:00",
       "stop": "2025-07-23T12:01:00+00:00",
       "duration": 1342,
-      "description": "Dashboard requirements",
       "tags": [
         "HomeOffice"
       ],
@@ -8045,7 +7701,6 @@
       "start": "2025-07-23T10:55:23+00:00",
       "stop": "2025-07-23T11:38:27+00:00",
       "duration": 2584,
-      "description": "Definition alignment",
       "tags": [
         "HomeOffice"
       ],
@@ -8070,7 +7725,6 @@
       "start": "2025-07-23T09:53:53+00:00",
       "stop": "2025-07-23T10:55:24+00:00",
       "duration": 3691,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -8094,7 +7748,6 @@
       "start": "2025-07-23T08:59:00+00:00",
       "stop": "2025-07-23T09:53:00+00:00",
       "duration": 3240,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -8119,7 +7772,6 @@
       "start": "2025-07-23T08:36:54+00:00",
       "stop": "2025-07-23T08:59:45+00:00",
       "duration": 1371,
-      "description": "Various mails and discussions",
       "tags": [
         "HomeOffice"
       ],
@@ -8144,7 +7796,6 @@
       "start": "2025-07-23T08:00:00+00:00",
       "stop": "2025-07-23T08:36:00+00:00",
       "duration": 2160,
-      "description": "Sector Renaming focus call",
       "tags": [
         "HomeOffice"
       ],
@@ -8169,7 +7820,6 @@
       "start": "2025-07-23T07:47:00+00:00",
       "stop": "2025-07-23T08:00:00+00:00",
       "duration": 780,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -8194,7 +7844,6 @@
       "start": "2025-07-23T06:58:34+00:00",
       "stop": "2025-07-23T07:47:10+00:00",
       "duration": 2916,
-      "description": "D&D Monthly",
       "tags": [
         "HomeOffice"
       ],
@@ -8219,7 +7868,6 @@
       "start": "2025-07-23T05:16:08+00:00",
       "stop": "2025-07-23T06:58:34+00:00",
       "duration": 6146,
-      "description": "Prepare comm and handout",
       "tags": [
         "HomeOffice"
       ],
@@ -8244,7 +7892,6 @@
       "start": "2025-07-23T04:14:30+00:00",
       "stop": "2025-07-23T05:16:08+00:00",
       "duration": 3698,
-      "description": "Polish pre-read and distribute",
       "tags": [
         "HomeOffice"
       ],
@@ -8269,7 +7916,6 @@
       "start": "2025-07-22T13:56:44+00:00",
       "stop": "2025-07-22T16:06:06+00:00",
       "duration": 7762,
-      "description": "CDO Masterclass III",
       "tags": [
         "HomeOffice"
       ],
@@ -8294,7 +7940,6 @@
       "start": "2025-07-22T13:50:50+00:00",
       "stop": "2025-07-22T13:56:44+00:00",
       "duration": 354,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -8318,7 +7963,6 @@
       "start": "2025-07-22T13:45:29+00:00",
       "stop": "2025-07-22T13:50:49+00:00",
       "duration": 320,
-      "description": "Mails and comms",
       "tags": [
         "HomeOffice"
       ],
@@ -8343,7 +7987,6 @@
       "start": "2025-07-22T12:59:04+00:00",
       "stop": "2025-07-22T13:45:22+00:00",
       "duration": 2778,
-      "description": "CAB Meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -8368,7 +8011,6 @@
       "start": "2025-07-22T12:31:00+00:00",
       "stop": "2025-07-22T12:58:00+00:00",
       "duration": 1620,
-      "description": "SR for Development",
       "tags": [
         "HomeOffice"
       ],
@@ -8393,7 +8035,6 @@
       "start": "2025-07-22T11:59:16+00:00",
       "stop": "2025-07-22T12:31:31+00:00",
       "duration": 1935,
-      "description": "Finalize Pre-Read",
       "tags": [
         "HomeOffice"
       ],
@@ -8418,7 +8059,6 @@
       "start": "2025-07-22T11:04:29+00:00",
       "stop": "2025-07-22T11:59:16+00:00",
       "duration": 3287,
-      "description": "Mails and comms",
       "tags": [
         "HomeOffice"
       ],
@@ -8443,7 +8083,6 @@
       "start": "2025-07-22T10:18:35+00:00",
       "stop": "2025-07-22T11:04:29+00:00",
       "duration": 2754,
-      "description": "Finalize Pre-Read",
       "tags": [
         "HomeOffice"
       ],
@@ -8468,7 +8107,6 @@
       "start": "2025-07-22T10:01:26+00:00",
       "stop": "2025-07-22T10:18:35+00:00",
       "duration": 1029,
-      "description": "Mails and comms",
       "tags": [
         "HomeOffice"
       ],
@@ -8493,7 +8131,6 @@
       "start": "2025-07-22T09:26:21+00:00",
       "stop": "2025-07-22T10:01:26+00:00",
       "duration": 2105,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -8517,7 +8154,6 @@
       "start": "2025-07-22T09:04:05+00:00",
       "stop": "2025-07-22T09:26:21+00:00",
       "duration": 1336,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -8541,7 +8177,6 @@
       "start": "2025-07-22T08:39:10+00:00",
       "stop": "2025-07-22T09:04:04+00:00",
       "duration": 1494,
-      "description": "Mails and comms",
       "tags": [
         "HomeOffice"
       ],
@@ -8566,7 +8201,6 @@
       "start": "2025-07-22T07:57:46+00:00",
       "stop": "2025-07-22T08:39:10+00:00",
       "duration": 2484,
-      "description": "Finalize Pre-Read",
       "tags": [
         "HomeOffice"
       ],
@@ -8591,7 +8225,6 @@
       "start": "2025-07-22T07:49:18+00:00",
       "stop": "2025-07-22T07:57:46+00:00",
       "duration": 508,
-      "description": "Docs for Benefits",
       "tags": [
         "HomeOffice"
       ],
@@ -8616,7 +8249,6 @@
       "start": "2025-07-22T07:43:11+00:00",
       "stop": "2025-07-22T07:49:19+00:00",
       "duration": 368,
-      "description": "Mails and comms",
       "tags": [
         "HomeOffice"
       ],
@@ -8641,7 +8273,6 @@
       "start": "2025-07-22T07:11:41+00:00",
       "stop": "2025-07-22T07:43:11+00:00",
       "duration": 1890,
-      "description": "Docs for Benefits",
       "tags": [
         "HomeOffice"
       ],
@@ -8666,7 +8297,6 @@
       "start": "2025-07-22T06:37:29+00:00",
       "stop": "2025-07-22T07:11:41+00:00",
       "duration": 2052,
-      "description": "Various mails",
       "tags": [
         "HomeOffice"
       ],
@@ -8690,7 +8320,6 @@
       "start": "2025-07-22T05:34:17+00:00",
       "stop": "2025-07-22T06:37:28+00:00",
       "duration": 3791,
-      "description": "Finalize Pre-Read",
       "tags": [
         "HomeOffice"
       ],
@@ -8715,7 +8344,6 @@
       "start": "2025-07-22T04:38:21+00:00",
       "stop": "2025-07-22T05:34:17+00:00",
       "duration": 3356,
-      "description": "Various mails",
       "tags": [
         "HomeOffice"
       ],
@@ -8739,7 +8367,6 @@
       "start": "2025-07-22T04:02:26+00:00",
       "stop": "2025-07-22T04:38:21+00:00",
       "duration": 2155,
-      "description": "Day setup",
       "tags": [
         "HomeOffice"
       ],
@@ -8763,7 +8390,6 @@
       "start": "2025-07-21T18:28:20+00:00",
       "stop": "2025-07-21T18:55:58+00:00",
       "duration": 1658,
-      "description": "Various mails",
       "tags": [
         "HomeOffice"
       ],
@@ -8787,7 +8413,6 @@
       "start": "2025-07-21T15:51:34+00:00",
       "stop": "2025-07-21T16:14:36+00:00",
       "duration": 1382,
-      "description": "Various mails",
       "tags": [
         "HomeOffice"
       ],
@@ -8811,7 +8436,6 @@
       "start": "2025-07-21T14:56:52+00:00",
       "stop": "2025-07-21T15:44:01+00:00",
       "duration": 2829,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -8835,7 +8459,6 @@
       "start": "2025-07-21T13:59:41+00:00",
       "stop": "2025-07-21T14:56:52+00:00",
       "duration": 3431,
-      "description": "Various mails",
       "tags": [
         "Commuting"
       ],
@@ -8859,7 +8482,6 @@
       "start": "2025-07-21T13:36:42+00:00",
       "stop": "2025-07-21T13:59:29+00:00",
       "duration": 1367,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -8883,7 +8505,6 @@
       "start": "2025-07-21T12:59:27+00:00",
       "stop": "2025-07-21T13:36:42+00:00",
       "duration": 2235,
-      "description": "Trila Risk",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -8904,7 +8525,6 @@
       "start": "2025-07-21T11:29:24+00:00",
       "stop": "2025-07-21T12:59:27+00:00",
       "duration": 5403,
-      "description": "Prepare Excel for Test Fond",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -8925,7 +8545,6 @@
       "start": "2025-07-21T10:52:17+00:00",
       "stop": "2025-07-21T11:29:24+00:00",
       "duration": 2227,
-      "description": "Prep meeting with Alessandro",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -8946,7 +8565,6 @@
       "start": "2025-07-21T10:11:21+00:00",
       "stop": "2025-07-21T10:51:56+00:00",
       "duration": 2435,
-      "description": "Prepare pre-read",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -8967,7 +8585,6 @@
       "start": "2025-07-21T09:33:10+00:00",
       "stop": "2025-07-21T10:11:21+00:00",
       "duration": 2291,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -8987,7 +8604,6 @@
       "start": "2025-07-21T09:18:16+00:00",
       "stop": "2025-07-21T09:33:10+00:00",
       "duration": 894,
-      "description": "Prepare pre-read",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9008,7 +8624,6 @@
       "start": "2025-07-21T09:15:52+00:00",
       "stop": "2025-07-21T09:18:16+00:00",
       "duration": 144,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9028,7 +8643,6 @@
       "start": "2025-07-21T07:43:52+00:00",
       "stop": "2025-07-21T09:15:51+00:00",
       "duration": 5519,
-      "description": "Prepare pre-read",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9049,7 +8663,6 @@
       "start": "2025-07-21T07:39:41+00:00",
       "stop": "2025-07-21T07:43:52+00:00",
       "duration": 251,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9069,7 +8682,6 @@
       "start": "2025-07-21T06:59:58+00:00",
       "stop": "2025-07-21T07:39:40+00:00",
       "duration": 2382,
-      "description": "Sector renaming for GPOs",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9090,7 +8702,6 @@
       "start": "2025-07-21T06:42:46+00:00",
       "stop": "2025-07-21T06:59:58+00:00",
       "duration": 1032,
-      "description": "Prepare meeting with GPO",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9111,7 +8722,6 @@
       "start": "2025-07-21T05:33:18+00:00",
       "stop": "2025-07-21T06:42:46+00:00",
       "duration": 4168,
-      "description": "Prepare pre-read",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9132,7 +8742,6 @@
       "start": "2025-07-21T05:20:31+00:00",
       "stop": "2025-07-21T05:33:18+00:00",
       "duration": 767,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9153,7 +8762,6 @@
       "start": "2025-07-21T04:21:13+00:00",
       "stop": "2025-07-21T05:20:31+00:00",
       "duration": 3558,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -9177,7 +8785,6 @@
       "start": "2025-07-21T03:48:09+00:00",
       "stop": "2025-07-21T04:21:05+00:00",
       "duration": 1976,
-      "description": "Organize week",
       "tags": [
         "Commuting"
       ],
@@ -9202,7 +8809,6 @@
       "start": "2025-07-21T02:39:50+00:00",
       "stop": "2025-07-21T03:48:09+00:00",
       "duration": 4099,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -9226,7 +8832,6 @@
       "start": "2025-07-18T12:18:03+00:00",
       "stop": "2025-07-18T13:11:34+00:00",
       "duration": 3211,
-      "description": "Technical tickets",
       "tags": [
         "HomeOffice"
       ],
@@ -9251,7 +8856,6 @@
       "start": "2025-07-18T12:00:26+00:00",
       "stop": "2025-07-18T12:18:03+00:00",
       "duration": 1057,
-      "description": "Documentation meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -9276,7 +8880,6 @@
       "start": "2025-07-18T10:40:01+00:00",
       "stop": "2025-07-18T12:00:26+00:00",
       "duration": 4825,
-      "description": "Technical tickets",
       "tags": [
         "HomeOffice"
       ],
@@ -9301,7 +8904,6 @@
       "start": "2025-07-18T09:41:49+00:00",
       "stop": "2025-07-18T10:40:01+00:00",
       "duration": 3492,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -9325,7 +8927,6 @@
       "start": "2025-07-18T08:58:55+00:00",
       "stop": "2025-07-18T09:41:49+00:00",
       "duration": 2574,
-      "description": "Various organizational",
       "tags": [
         "HomeOffice"
       ],
@@ -9350,7 +8951,6 @@
       "start": "2025-07-18T08:45:17+00:00",
       "stop": "2025-07-18T08:58:55+00:00",
       "duration": 818,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -9375,7 +8975,6 @@
       "start": "2025-07-18T08:12:58+00:00",
       "stop": "2025-07-18T08:42:33+00:00",
       "duration": 1775,
-      "description": "Organize export of a fund",
       "tags": [
         "HomeOffice"
       ],
@@ -9400,7 +8999,6 @@
       "start": "2025-07-18T07:52:11+00:00",
       "stop": "2025-07-18T08:12:58+00:00",
       "duration": 1247,
-      "description": "Sector Renaming FR",
       "tags": [
         "HomeOffice"
       ],
@@ -9425,7 +9023,6 @@
       "start": "2025-07-18T07:22:47+00:00",
       "stop": "2025-07-18T07:52:11+00:00",
       "duration": 1764,
-      "description": "Update Loop plan",
       "tags": [
         "HomeOffice"
       ],
@@ -9450,7 +9047,6 @@
       "start": "2025-07-18T07:15:47+00:00",
       "stop": "2025-07-18T07:22:47+00:00",
       "duration": 420,
-      "description": "Various organizational",
       "tags": [
         "HomeOffice"
       ],
@@ -9475,7 +9071,6 @@
       "start": "2025-07-18T06:54:24+00:00",
       "stop": "2025-07-18T07:15:47+00:00",
       "duration": 1283,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -9499,7 +9094,6 @@
       "start": "2025-07-18T06:34:50+00:00",
       "stop": "2025-07-18T06:54:23+00:00",
       "duration": 1173,
-      "description": "Various organizational",
       "tags": [
         "HomeOffice"
       ],
@@ -9524,7 +9118,6 @@
       "start": "2025-07-18T05:32:18+00:00",
       "stop": "2025-07-18T06:34:32+00:00",
       "duration": 3734,
-      "description": "Mail Nils",
       "tags": [
         "HomeOffice"
       ],
@@ -9549,7 +9142,6 @@
       "start": "2025-07-18T05:16:23+00:00",
       "stop": "2025-07-18T05:32:15+00:00",
       "duration": 952,
-      "description": "Finalize and publish mapping",
       "tags": [
         "HomeOffice"
       ],
@@ -9574,7 +9166,6 @@
       "start": "2025-07-18T04:29:57+00:00",
       "stop": "2025-07-18T05:16:12+00:00",
       "duration": 2775,
-      "description": "Bila Follow-up",
       "tags": [
         "HomeOffice"
       ],
@@ -9599,7 +9190,6 @@
       "start": "2025-07-18T04:26:03+00:00",
       "stop": "2025-07-18T04:29:57+00:00",
       "duration": 234,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -9624,7 +9214,6 @@
       "start": "2025-07-17T15:57:05+00:00",
       "stop": "2025-07-17T18:38:39+00:00",
       "duration": 9694,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -9648,7 +9237,6 @@
       "start": "2025-07-17T13:52:19+00:00",
       "stop": "2025-07-17T15:57:01+00:00",
       "duration": 7482,
-      "description": "CDO Masterclass II",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9669,7 +9257,6 @@
       "start": "2025-07-17T13:04:55+00:00",
       "stop": "2025-07-17T13:52:01+00:00",
       "duration": 2826,
-      "description": "Bila Erich",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9690,7 +9277,6 @@
       "start": "2025-07-17T12:23:55+00:00",
       "stop": "2025-07-17T13:04:52+00:00",
       "duration": 2457,
-      "description": "DG Coordination meeting",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9711,7 +9297,6 @@
       "start": "2025-07-17T11:27:58+00:00",
       "stop": "2025-07-17T12:23:43+00:00",
       "duration": 3345,
-      "description": "Data bila with Adrian",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9732,7 +9317,6 @@
       "start": "2025-07-17T11:01:59+00:00",
       "stop": "2025-07-17T11:27:58+00:00",
       "duration": 1559,
-      "description": "DD Q&A",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9753,7 +9337,6 @@
       "start": "2025-07-17T10:37:02+00:00",
       "stop": "2025-07-17T11:01:59+00:00",
       "duration": 1497,
-      "description": "Confluence",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9774,7 +9357,6 @@
       "start": "2025-07-17T10:23:42+00:00",
       "stop": "2025-07-17T10:37:02+00:00",
       "duration": 800,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9795,7 +9377,6 @@
       "start": "2025-07-17T09:29:24+00:00",
       "stop": "2025-07-17T10:23:42+00:00",
       "duration": 3258,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9815,7 +9396,6 @@
       "start": "2025-07-17T09:02:56+00:00",
       "stop": "2025-07-17T09:29:23+00:00",
       "duration": 1587,
-      "description": "Finalize and publish mapping",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9836,7 +9416,6 @@
       "start": "2025-07-17T08:56:45+00:00",
       "stop": "2025-07-17T09:02:56+00:00",
       "duration": 371,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9856,7 +9435,6 @@
       "start": "2025-07-17T07:53:41+00:00",
       "stop": "2025-07-17T08:56:41+00:00",
       "duration": 3780,
-      "description": "DRE Jour Fixe",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9877,7 +9455,6 @@
       "start": "2025-07-17T07:29:43+00:00",
       "stop": "2025-07-17T07:53:41+00:00",
       "duration": 1438,
-      "description": "Finalize and publish mapping",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9898,7 +9475,6 @@
       "start": "2025-07-17T07:26:47+00:00",
       "stop": "2025-07-17T07:29:43+00:00",
       "duration": 176,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9918,7 +9494,6 @@
       "start": "2025-07-17T07:19:02+00:00",
       "stop": "2025-07-17T07:26:47+00:00",
       "duration": 465,
-      "description": "Finalize and publish mapping",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9939,7 +9514,6 @@
       "start": "2025-07-17T05:46:56+00:00",
       "stop": "2025-07-17T07:18:47+00:00",
       "duration": 5511,
-      "description": "Prepare for JF pres",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9960,7 +9534,6 @@
       "start": "2025-07-17T05:20:49+00:00",
       "stop": "2025-07-17T05:46:56+00:00",
       "duration": 1567,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -9981,7 +9554,6 @@
       "start": "2025-07-17T04:36:48+00:00",
       "stop": "2025-07-17T05:20:49+00:00",
       "duration": 2641,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -10005,7 +9577,6 @@
       "start": "2025-07-17T03:54:49+00:00",
       "stop": "2025-07-17T04:36:35+00:00",
       "duration": 2506,
-      "description": "Focus call follow-up",
       "tags": [
         "Commuting"
       ],
@@ -10030,7 +9601,6 @@
       "start": "2025-07-17T03:47:51+00:00",
       "stop": "2025-07-17T03:54:49+00:00",
       "duration": 418,
-      "description": "Daily planning and various",
       "tags": [
         "Commuting"
       ],
@@ -10055,7 +9625,6 @@
       "start": "2025-07-17T02:37:00+00:00",
       "stop": "2025-07-17T03:47:00+00:00",
       "duration": 4200,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -10079,7 +9648,6 @@
       "start": "2025-07-16T13:59:16+00:00",
       "stop": "2025-07-16T14:35:24+00:00",
       "duration": 2168,
-      "description": "Focus call",
       "tags": [
         "HomeOffice"
       ],
@@ -10104,7 +9672,6 @@
       "start": "2025-07-16T13:03:37+00:00",
       "stop": "2025-07-16T13:59:13+00:00",
       "duration": 3336,
-      "description": "Prepare DRE JF",
       "tags": [
         "HomeOffice"
       ],
@@ -10129,7 +9696,6 @@
       "start": "2025-07-16T12:28:10+00:00",
       "stop": "2025-07-16T13:03:31+00:00",
       "duration": 2121,
-      "description": "Data Quality Initiative",
       "tags": [
         "HomeOffice"
       ],
@@ -10154,7 +9720,6 @@
       "start": "2025-07-16T10:31:04+00:00",
       "stop": "2025-07-16T12:28:10+00:00",
       "duration": 7026,
-      "description": "Prepare DRE JF",
       "tags": [
         "HomeOffice"
       ],
@@ -10179,7 +9744,6 @@
       "start": "2025-07-16T10:06:37+00:00",
       "stop": "2025-07-16T10:31:04+00:00",
       "duration": 1467,
-      "description": "Integrate slides",
       "tags": [
         "HomeOffice"
       ],
@@ -10204,7 +9768,6 @@
       "start": "2025-07-16T09:33:04+00:00",
       "stop": "2025-07-16T10:06:37+00:00",
       "duration": 2013,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -10228,7 +9791,6 @@
       "start": "2025-07-16T09:31:56+00:00",
       "stop": "2025-07-16T09:33:04+00:00",
       "duration": 68,
-      "description": "Integrate slides",
       "tags": [
         "HomeOffice"
       ],
@@ -10253,7 +9815,6 @@
       "start": "2025-07-16T09:10:49+00:00",
       "stop": "2025-07-16T09:31:56+00:00",
       "duration": 1267,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -10278,7 +9839,6 @@
       "start": "2025-07-16T07:58:36+00:00",
       "stop": "2025-07-16T09:09:28+00:00",
       "duration": 4252,
-      "description": "SL Benefits",
       "tags": [
         "HomeOffice"
       ],
@@ -10303,7 +9863,6 @@
       "start": "2025-07-16T07:03:19+00:00",
       "stop": "2025-07-16T07:58:36+00:00",
       "duration": 3317,
-      "description": "Sector renaming meeting follow-up",
       "tags": [
         "HomeOffice"
       ],
@@ -10327,7 +9886,6 @@
       "start": "2025-07-16T06:39:32+00:00",
       "stop": "2025-07-16T07:03:18+00:00",
       "duration": 1426,
-      "description": "Integrate slides",
       "tags": [
         "HomeOffice"
       ],
@@ -10352,7 +9910,6 @@
       "start": "2025-07-16T06:18:23+00:00",
       "stop": "2025-07-16T06:39:32+00:00",
       "duration": 1269,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -10376,7 +9933,6 @@
       "start": "2025-07-16T05:55:17+00:00",
       "stop": "2025-07-16T06:18:20+00:00",
       "duration": 1383,
-      "description": "Small data definitions",
       "tags": [
         "HomeOffice"
       ],
@@ -10400,7 +9956,6 @@
       "start": "2025-07-16T04:44:13+00:00",
       "stop": "2025-07-16T05:55:05+00:00",
       "duration": 4252,
-      "description": "Sector renaming meeting follow-up",
       "tags": [
         "HomeOffice"
       ],
@@ -10424,7 +9979,6 @@
       "start": "2025-07-16T04:33:11+00:00",
       "stop": "2025-07-16T04:44:12+00:00",
       "duration": 661,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -10449,7 +10003,6 @@
       "start": "2025-07-15T13:59:16+00:00",
       "stop": "2025-07-15T16:02:24+00:00",
       "duration": 7388,
-      "description": "CDO Masterclass I",
       "tags": [
         "HomeOffice"
       ],
@@ -10474,7 +10027,6 @@
       "start": "2025-07-15T13:07:19+00:00",
       "stop": "2025-07-15T13:59:16+00:00",
       "duration": 3117,
-      "description": "Sector renaming meeting follow-up",
       "tags": [
         "HomeOffice"
       ],
@@ -10498,7 +10050,6 @@
       "start": "2025-07-15T13:00:52+00:00",
       "stop": "2025-07-15T13:07:08+00:00",
       "duration": 376,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -10522,7 +10073,6 @@
       "start": "2025-07-15T12:12:16+00:00",
       "stop": "2025-07-15T13:00:39+00:00",
       "duration": 2903,
-      "description": "Sector renaming technical needs",
       "tags": [
         "HomeOffice"
       ],
@@ -10547,7 +10097,6 @@
       "start": "2025-07-15T10:21:30+00:00",
       "stop": "2025-07-15T12:12:13+00:00",
       "duration": 6643,
-      "description": "Prepare for Sector Renaming meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -10572,7 +10121,6 @@
       "start": "2025-07-15T09:40:04+00:00",
       "stop": "2025-07-15T10:21:30+00:00",
       "duration": 2486,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -10596,7 +10144,6 @@
       "start": "2025-07-15T09:02:22+00:00",
       "stop": "2025-07-15T09:39:58+00:00",
       "duration": 2256,
-      "description": "Discussion with Margaux",
       "tags": [
         "HomeOffice"
       ],
@@ -10621,7 +10168,6 @@
       "start": "2025-07-15T08:15:30+00:00",
       "stop": "2025-07-15T09:02:22+00:00",
       "duration": 2812,
-      "description": "Sector renaming mails",
       "tags": [
         "HomeOffice"
       ],
@@ -10645,7 +10191,6 @@
       "start": "2025-07-15T07:33:21+00:00",
       "stop": "2025-07-15T08:15:11+00:00",
       "duration": 2510,
-      "description": "Prepare for POM+ meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -10670,7 +10215,6 @@
       "start": "2025-07-15T07:13:08+00:00",
       "stop": "2025-07-15T07:33:21+00:00",
       "duration": 1213,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -10694,7 +10238,6 @@
       "start": "2025-07-15T06:49:17+00:00",
       "stop": "2025-07-15T07:13:01+00:00",
       "duration": 1424,
-      "description": "Prepare agenda for meeting with Adrian",
       "tags": [
         "HomeOffice"
       ],
@@ -10719,7 +10262,6 @@
       "start": "2025-07-15T06:24:27+00:00",
       "stop": "2025-07-15T06:49:07+00:00",
       "duration": 1480,
-      "description": "Discuss with Dominic about the final goal",
       "tags": [
         "HomeOffice"
       ],
@@ -10744,7 +10286,6 @@
       "start": "2025-07-15T04:57:15+00:00",
       "stop": "2025-07-15T06:24:27+00:00",
       "duration": 5232,
-      "description": "Sector renaming mails",
       "tags": [
         "HomeOffice"
       ],
@@ -10768,7 +10309,6 @@
       "start": "2025-07-15T04:47:31+00:00",
       "stop": "2025-07-15T04:57:12+00:00",
       "duration": 581,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
@@ -10793,7 +10333,6 @@
       "start": "2025-07-14T14:05:26+00:00",
       "stop": "2025-07-14T16:34:00+00:00",
       "duration": 8914,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -10817,7 +10356,6 @@
       "start": "2025-07-14T14:01:43+00:00",
       "stop": "2025-07-14T14:05:19+00:00",
       "duration": 216,
-      "description": "Sector Renaming issue mail",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10838,7 +10376,6 @@
       "start": "2025-07-14T13:25:30+00:00",
       "stop": "2025-07-14T14:01:40+00:00",
       "duration": 2170,
-      "description": "Meet Alexander Herzog",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10859,7 +10396,6 @@
       "start": "2025-07-14T13:00:11+00:00",
       "stop": "2025-07-14T13:25:24+00:00",
       "duration": 1513,
-      "description": "Trila Risk",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10880,7 +10416,6 @@
       "start": "2025-07-14T12:38:16+00:00",
       "stop": "2025-07-14T13:00:11+00:00",
       "duration": 1315,
-      "description": "Sector Renaming issue mail",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10901,7 +10436,6 @@
       "start": "2025-07-14T12:05:48+00:00",
       "stop": "2025-07-14T12:38:16+00:00",
       "duration": 1948,
-      "description": "Sector renaming mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10921,7 +10455,6 @@
       "start": "2025-07-14T11:50:00+00:00",
       "stop": "2025-07-14T12:05:00+00:00",
       "duration": 900,
-      "description": "Sector renaming mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10941,7 +10474,6 @@
       "start": "2025-07-14T11:30:00+00:00",
       "stop": "2025-07-14T11:50:00+00:00",
       "duration": 1200,
-      "description": "DD Cleanup status and next steps",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10962,7 +10494,6 @@
       "start": "2025-07-14T11:23:00+00:00",
       "stop": "2025-07-14T11:30:00+00:00",
       "duration": 420,
-      "description": "Sector renaming mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -10982,7 +10513,6 @@
       "start": "2025-07-14T11:10:53+00:00",
       "stop": "2025-07-14T11:23:26+00:00",
       "duration": 753,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11002,7 +10532,6 @@
       "start": "2025-07-14T10:29:57+00:00",
       "stop": "2025-07-14T11:10:52+00:00",
       "duration": 2455,
-      "description": "Sector renaming mails",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11022,7 +10551,6 @@
       "start": "2025-07-14T09:43:49+00:00",
       "stop": "2025-07-14T10:29:50+00:00",
       "duration": 2761,
-      "description": "Lunch",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11042,7 +10570,6 @@
       "start": "2025-07-14T07:57:10+00:00",
       "stop": "2025-07-14T09:43:39+00:00",
       "duration": 6389,
-      "description": "Onboarding HR",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11063,7 +10590,6 @@
       "start": "2025-07-14T07:37:53+00:00",
       "stop": "2025-07-14T07:57:10+00:00",
       "duration": 1157,
-      "description": "Finalize Property Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11084,7 +10610,6 @@
       "start": "2025-07-14T07:35:01+00:00",
       "stop": "2025-07-14T07:37:52+00:00",
       "duration": 171,
-      "description": "Break",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11104,7 +10629,6 @@
       "start": "2025-07-14T05:57:58+00:00",
       "stop": "2025-07-14T07:35:00+00:00",
       "duration": 5822,
-      "description": "Finalize Property Excel",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11125,7 +10649,6 @@
       "start": "2025-07-14T05:53:12+00:00",
       "stop": "2025-07-14T05:57:58+00:00",
       "duration": 286,
-      "description": "Set up meeting with AlexF for ESG property",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11146,7 +10669,6 @@
       "start": "2025-07-14T05:24:42+00:00",
       "stop": "2025-07-14T05:53:12+00:00",
       "duration": 1710,
-      "description": "Daily planning and various",
       "tags": [],
       "tag_ids": [],
       "duronly": true,
@@ -11167,7 +10689,6 @@
       "start": "2025-07-14T04:21:50+00:00",
       "stop": "2025-07-14T05:24:43+00:00",
       "duration": 3773,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -11191,7 +10712,6 @@
       "start": "2025-07-14T03:45:17+00:00",
       "stop": "2025-07-14T04:21:46+00:00",
       "duration": 2189,
-      "description": "Organize week",
       "tags": [
         "Commuting"
       ],
@@ -11216,7 +10736,6 @@
       "start": "2025-07-14T03:43:56+00:00",
       "stop": "2025-07-14T03:45:17+00:00",
       "duration": 81,
-      "description": "Day setup",
       "tags": [
         "Commuting"
       ],
@@ -11240,7 +10759,6 @@
       "start": "2025-07-14T02:35:00+00:00",
       "stop": "2025-07-14T03:43:00+00:00",
       "duration": 4080,
-      "description": "Commute",
       "tags": [
         "Commuting"
       ],
@@ -11264,7 +10782,6 @@
       "start": "2025-07-11T12:21:59+00:00",
       "stop": "2025-07-11T13:08:26+00:00",
       "duration": 2787,
-      "description": "Rework notes from yesterday and act on them",
       "tags": [
         "HomeOffice"
       ],
@@ -11289,7 +10806,6 @@
       "start": "2025-07-11T12:07:11+00:00",
       "stop": "2025-07-11T12:21:59+00:00",
       "duration": 888,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -11313,7 +10829,6 @@
       "start": "2025-07-11T10:55:56+00:00",
       "stop": "2025-07-11T12:06:37+00:00",
       "duration": 4241,
-      "description": "Data entites and domains meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -11338,7 +10853,6 @@
       "start": "2025-07-11T10:23:33+00:00",
       "stop": "2025-07-11T10:55:52+00:00",
       "duration": 1939,
-      "description": "Prepare DE and DD meeting",
       "tags": [
         "HomeOffice"
       ],
@@ -11362,7 +10876,6 @@
       "start": "2025-07-11T10:05:51+00:00",
       "stop": "2025-07-11T10:23:16+00:00",
       "duration": 1045,
-      "description": "Finalize canvas",
       "tags": [
         "HomeOffice"
       ],
@@ -11387,7 +10900,6 @@
       "start": "2025-07-11T09:26:46+00:00",
       "stop": "2025-07-11T10:05:51+00:00",
       "duration": 2345,
-      "description": "Lunch",
       "tags": [
         "HomeOffice"
       ],
@@ -11411,7 +10923,6 @@
       "start": "2025-07-11T09:08:34+00:00",
       "stop": "2025-07-11T09:26:46+00:00",
       "duration": 1092,
-      "description": "Rework notes from yesterday and act on them",
       "tags": [
         "HomeOffice"
       ],
@@ -11436,7 +10947,6 @@
       "start": "2025-07-11T05:52:32+00:00",
       "stop": "2025-07-11T09:08:27+00:00",
       "duration": 11755,
-      "description": "Plan and questions for Erich",
       "tags": [
         "HomeOffice"
       ],
@@ -11461,7 +10971,6 @@
       "start": "2025-07-11T05:16:49+00:00",
       "stop": "2025-07-11T05:52:32+00:00",
       "duration": 2143,
-      "description": "Sliiides",
       "tags": [
         "HomeOffice"
       ],
@@ -11486,7 +10995,6 @@
       "start": "2025-07-11T05:07:09+00:00",
       "stop": "2025-07-11T05:16:49+00:00",
       "duration": 580,
-      "description": "Break",
       "tags": [
         "HomeOffice"
       ],
@@ -11510,7 +11018,6 @@
       "start": "2025-07-11T04:13:56+00:00",
       "stop": "2025-07-11T05:07:08+00:00",
       "duration": 3192,
-      "description": "Sliiides",
       "tags": [
         "HomeOffice"
       ],
@@ -11535,7 +11042,6 @@
       "start": "2025-07-11T04:03:56+00:00",
       "stop": "2025-07-11T04:13:56+00:00",
       "duration": 600,
-      "description": "Daily planning and various",
       "tags": [
         "HomeOffice"
       ],
