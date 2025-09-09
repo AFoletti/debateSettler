@@ -1,28 +1,355 @@
 {
-  "fetched_at": "2025-09-08T02:17:40.474084",
+  "fetched_at": "2025-09-09T02:13:48.590075",
   "date_range": {
-    "start": "2025-07-10",
-    "end": "2025-09-07",
+    "start": "2025-07-11",
+    "end": "2025-09-08",
     "days": 60
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 500,
+  "total_entries": 494,
   "raw_entries": [
+    {
+      "id": 4086197364,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238273268,
+      "billable": true,
+      "start": "2025-09-08T13:21:37+00:00",
+      "stop": "2025-09-08T14:28:40+00:00",
+      "duration": 4023,
+      "description": "Dashboard f\u00fcr Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.49564Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238273268
+    },
+    {
+      "id": 4086116104,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238335969,
+      "billable": true,
+      "start": "2025-09-08T12:43:51+00:00",
+      "stop": "2025-09-08T13:21:37+00:00",
+      "duration": 2266,
+      "description": "Operational Exposure in CH",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.513141Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238335969
+    },
+    {
+      "id": 4086117501,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238273268,
+      "billable": true,
+      "start": "2025-09-08T12:12:00+00:00",
+      "stop": "2025-09-08T12:43:00+00:00",
+      "duration": 1860,
+      "description": "Dashboard f\u00fcr Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.526761Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238273268
+    },
+    {
+      "id": 4085984411,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 238178376,
+      "billable": true,
+      "start": "2025-09-08T11:28:00+00:00",
+      "stop": "2025-09-08T12:12:00+00:00",
+      "duration": 2640,
+      "description": "Data Domains meeting",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.539497Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 238178376
+    },
+    {
+      "id": 4085916979,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238273268,
+      "billable": true,
+      "start": "2025-09-08T10:45:04+00:00",
+      "stop": "2025-09-08T11:28:49+00:00",
+      "duration": 2625,
+      "description": "Dashboard f\u00fcr Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.558391Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238273268
+    },
+    {
+      "id": 4085839475,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-09-08T09:54:11+00:00",
+      "stop": "2025-09-08T10:45:04+00:00",
+      "duration": 3053,
+      "description": "Lunch",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.572439Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4085751962,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 238329148,
+      "billable": true,
+      "start": "2025-09-08T09:00:20+00:00",
+      "stop": "2025-09-08T09:54:11+00:00",
+      "duration": 3231,
+      "description": "REPDAB Meeting",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.58865Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 238329148
+    },
+    {
+      "id": 4085663167,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 238329150,
+      "billable": true,
+      "start": "2025-09-08T08:08:55+00:00",
+      "stop": "2025-09-08T09:00:20+00:00",
+      "duration": 3085,
+      "description": "Prepare REPDAB",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.630816Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 238329150
+    },
+    {
+      "id": 4085540809,
+      "workspace_id": 4536519,
+      "project_id": 211755726,
+      "task_id": 238128098,
+      "billable": true,
+      "start": "2025-09-08T06:58:08+00:00",
+      "stop": "2025-09-08T08:08:55+00:00",
+      "duration": 4247,
+      "description": "Meeting Sanitas",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.646992Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755726,
+      "tid": 238128098
+    },
+    {
+      "id": 4085400238,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238273268,
+      "billable": true,
+      "start": "2025-09-08T04:39:48+00:00",
+      "stop": "2025-09-08T06:58:08+00:00",
+      "duration": 8300,
+      "description": "Dashboard f\u00fcr Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.667545Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238273268
+    },
+    {
+      "id": 4085380489,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-09-08T04:05:53+00:00",
+      "stop": "2025-09-08T04:39:48+00:00",
+      "duration": 2035,
+      "description": "Breakfast with family",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.683963Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4085373922,
+      "workspace_id": 4536519,
+      "project_id": 211897715,
+      "task_id": 238273268,
+      "billable": true,
+      "start": "2025-09-08T03:56:00+00:00",
+      "stop": "2025-09-08T04:05:53+00:00",
+      "duration": 593,
+      "description": "Dashboard f\u00fcr Erich",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.697003Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211897715,
+      "tid": 238273268
+    },
+    {
+      "id": 4085365728,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 238138454,
+      "billable": true,
+      "start": "2025-09-08T03:40:44+00:00",
+      "stop": "2025-09-08T03:56:00+00:00",
+      "duration": 916,
+      "description": "Daily planning",
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-09-08T14:28:51.711062Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 238138454
+    },
     {
       "id": 4083339419,
       "workspace_id": 4536519,
       "project_id": 211851557,
       "task_id": 238178887,
-      "billable": false,
+      "billable": true,
       "start": "2025-09-05T08:57:16+00:00",
       "stop": "2025-09-05T09:33:24+00:00",
       "duration": 2168,
       "description": "Valuation DG and DD",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T09:33:24.813969Z",
+      "at": "2025-09-08T04:04:58.266946Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -40,10 +367,14 @@
       "stop": "2025-09-05T08:57:16+00:00",
       "duration": 1793,
       "description": "Bila Erich",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T08:57:16.484746Z",
+      "at": "2025-09-08T03:38:12.099186Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -61,10 +392,14 @@
       "stop": "2025-09-05T08:27:14+00:00",
       "duration": 1636,
       "description": "NFR meeting",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T08:27:28.986201Z",
+      "at": "2025-09-08T03:38:12.110182Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -82,10 +417,14 @@
       "stop": "2025-09-05T07:59:59+00:00",
       "duration": 1906,
       "description": "Notes",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T08:27:28.264915Z",
+      "at": "2025-09-08T03:38:12.119999Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -110,7 +449,7 @@
         18307839
       ],
       "duronly": true,
-      "at": "2025-09-05T07:28:13.630574Z",
+      "at": "2025-09-08T03:38:12.12915Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -134,7 +473,7 @@
         18307839
       ],
       "duronly": true,
-      "at": "2025-09-05T07:17:22.364951Z",
+      "at": "2025-09-08T03:38:12.14071Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -152,10 +491,14 @@
       "stop": "2025-09-05T04:38:00+00:00",
       "duration": 2700,
       "description": "Viz tests",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T04:39:10.70613Z",
+      "at": "2025-09-08T03:38:12.147436Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -173,10 +516,14 @@
       "stop": "2025-09-05T03:53:00+00:00",
       "duration": 660,
       "description": "Daily planning",
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
       "duronly": true,
-      "at": "2025-09-05T04:39:01.614244Z",
+      "at": "2025-09-08T03:38:12.155537Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -11203,426 +11550,6 @@
       "wid": 4536519,
       "pid": 211755804,
       "tid": 236790881
-    },
-    {
-      "id": 4010620270,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-07-10T15:20:37+00:00",
-      "stop": "2025-07-10T16:09:28+00:00",
-      "duration": 2931,
-      "description": "Commute",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T16:09:30.619514Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4010520306,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 237110000,
-      "billable": true,
-      "start": "2025-07-10T14:27:21+00:00",
-      "stop": "2025-07-10T15:20:36+00:00",
-      "duration": 3195,
-      "description": "Once again fix the slides",
-      "tags": [
-        "Commuting",
-        "Fastlane"
-      ],
-      "tag_ids": [
-        18313213,
-        18515361
-      ],
-      "duronly": true,
-      "at": "2025-07-10T15:20:39.150807Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 237110000
-    },
-    {
-      "id": 4010489943,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-07-10T14:10:47+00:00",
-      "stop": "2025-07-10T14:27:20+00:00",
-      "duration": 993,
-      "description": "Commute",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T14:27:22.978001Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4010464446,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": 236790881,
-      "billable": true,
-      "start": "2025-07-10T13:58:58+00:00",
-      "stop": "2025-07-10T14:10:47+00:00",
-      "duration": 709,
-      "description": "Daily planning and various",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T14:10:49.701545Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804,
-      "tid": 236790881
-    },
-    {
-      "id": 4010462634,
-      "workspace_id": 4536519,
-      "project_id": 211755736,
-      "task_id": 237095244,
-      "billable": true,
-      "start": "2025-07-10T13:28:00+00:00",
-      "stop": "2025-07-10T13:58:00+00:00",
-      "duration": 1800,
-      "description": "Data Quality initiative",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T13:59:11.07692Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755736,
-      "tid": 237095244
-    },
-    {
-      "id": 4010384444,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-07-10T13:16:48+00:00",
-      "stop": "2025-07-10T13:28:58+00:00",
-      "duration": 730,
-      "description": "Break",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T13:29:05.420363Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4010327219,
-      "workspace_id": 4536519,
-      "project_id": 211755734,
-      "task_id": 237095243,
-      "billable": true,
-      "start": "2025-07-10T12:45:21+00:00",
-      "stop": "2025-07-10T13:16:48+00:00",
-      "duration": 1887,
-      "description": "DG/DM bila Erich",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T13:59:02.398291Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755734,
-      "tid": 237095243
-    },
-    {
-      "id": 4010254262,
-      "workspace_id": 4536519,
-      "project_id": 211755813,
-      "task_id": 236747018,
-      "billable": true,
-      "start": "2025-07-10T11:59:57+00:00",
-      "stop": "2025-07-10T12:45:21+00:00",
-      "duration": 2724,
-      "description": "Bila Erich",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T13:59:04.558389Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755813,
-      "tid": 236747018
-    },
-    {
-      "id": 4010161741,
-      "workspace_id": 4536519,
-      "project_id": 211897715,
-      "task_id": 237144290,
-      "billable": true,
-      "start": "2025-07-10T10:54:23+00:00",
-      "stop": "2025-07-10T11:59:57+00:00",
-      "duration": 3934,
-      "description": "Sector renaming Q&A",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T11:59:57.791898Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211897715,
-      "tid": 237144290
-    },
-    {
-      "id": 4010146983,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 237110000,
-      "billable": true,
-      "start": "2025-07-10T10:33:00+00:00",
-      "stop": "2025-07-10T10:54:00+00:00",
-      "duration": 1260,
-      "description": "Once again fix the slides",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T10:57:24.748545Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 237110000
-    },
-    {
-      "id": 4010050448,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-07-10T09:30:00+00:00",
-      "stop": "2025-07-10T10:33:00+00:00",
-      "duration": 3780,
-      "description": "Lunch",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T10:42:51.737864Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4009936941,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 237110000,
-      "billable": true,
-      "start": "2025-07-10T08:16:56+00:00",
-      "stop": "2025-07-10T09:30:52+00:00",
-      "duration": 4436,
-      "description": "Once again fix the slides",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T09:30:54.324399Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 237110000
-    },
-    {
-      "id": 4009932587,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-07-10T08:13:57+00:00",
-      "stop": "2025-07-10T08:16:56+00:00",
-      "duration": 179,
-      "description": "Break",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T08:17:04.761154Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4009756166,
-      "workspace_id": 4536519,
-      "project_id": 211851557,
-      "task_id": 237110000,
-      "billable": true,
-      "start": "2025-07-10T06:00:32+00:00",
-      "stop": "2025-07-10T08:13:57+00:00",
-      "duration": 8005,
-      "description": "Once again fix the slides",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T08:13:58.331393Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211851557,
-      "tid": 237110000
-    },
-    {
-      "id": 4009724879,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": 236790881,
-      "billable": true,
-      "start": "2025-07-10T05:22:40+00:00",
-      "stop": "2025-07-10T06:00:32+00:00",
-      "duration": 2272,
-      "description": "Daily planning and various",
-      "tags": [],
-      "tag_ids": [],
-      "duronly": true,
-      "at": "2025-07-10T06:00:32.55486Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804,
-      "tid": 236790881
-    },
-    {
-      "id": 4009687576,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-07-10T04:25:02+00:00",
-      "stop": "2025-07-10T05:22:40+00:00",
-      "duration": 3458,
-      "description": "Commute",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T05:22:40.350111Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4009671954,
-      "workspace_id": 4536519,
-      "project_id": 211755813,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-07-10T03:57:25+00:00",
-      "stop": "2025-07-10T04:25:01+00:00",
-      "duration": 1656,
-      "description": "Various mails",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T04:25:03.449962Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755813
-    },
-    {
-      "id": 4009669383,
-      "workspace_id": 4536519,
-      "project_id": 211755804,
-      "task_id": null,
-      "billable": true,
-      "start": "2025-07-10T03:52:50+00:00",
-      "stop": "2025-07-10T03:57:20+00:00",
-      "duration": 270,
-      "description": "Day setup",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T03:57:21.688202Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755804
-    },
-    {
-      "id": 4009666182,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-07-10T03:13:00+00:00",
-      "stop": "2025-07-10T03:52:00+00:00",
-      "duration": 2340,
-      "description": "Commute",
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-07-10T03:53:00.483949Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
     }
   ]
 }
