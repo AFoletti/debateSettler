@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/argumentsettler-dashboard/sitemap.xml
+Sitemap: https://afoletti.github.io/argumentSettler/sitemap.xml

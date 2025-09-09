@@ -1,23 +1,34 @@
-# 🎯 ArgumentSettler Dashboard
+# 🎯 DebateSettler Dashboard
+> **Prove your point with data, without starting a war** 📊
 
-> **Win debates with data, not emotions** 📊
+DebateSettler is here to help you settle those classic debates about your working hours and family time—without the endless “You’re always late!” claims. Let’s be honest, perception is a sneaky trickster when all you have are memories to rely on. Now you can calmly show that no, you’re not always walking in the door after 19:00; most days you’re home closer to 18:00. Yes, sometimes you work late, but those evenings after 20:00? Just a few in the last two months, really. Better yet, DebateSettler isn’t about blame—it's about reassurance and finding common ground so you can agree on what's really going on and maybe even improve things together. Because sometimes, it’s not as tough as it seems—just a little data, a little empathy, and a lot less grumbling.
 
-A sophisticated **static web dashboard** that transforms your Toggl Track time logs into powerful visual insights. Built for GitHub Pages deployment with automated daily data updates and advanced statistical analysis.
+A **pure static HTML/CSS/JS** dashboard that transforms your Toggl Track time logs into easy to understand visual insights. Optimized for GitHub Pages deployment with zero build process - edit directly on GitHub!
+
+## 📁 Simple File Structure
+
+```
+/
+├── index.html          # Main dashboard (edit directly!)
+├── style.css           # All styling (pure CSS, no frameworks)  
+├── script.js           # All functionality (vanilla JavaScript)
+├── manifest.json       # PWA manifest
+├── favicon.ico         # Site icon
+├── data/
+│   └── raw_data.json   # Auto-updated by GitHub Actions
+└── scripts/
+    └── fetch-toggl-data.py  # Data fetching (unchanged)
+```
 
 ## ✨ Key Features
 
 ### 📊 **Comprehensive Time Analytics**
-- **Total Billable Hours** - Track productive work with daily averages  
-- **Time Away from Home** - Monitor hours without HomeOffice tag
+- **Total Billable Hours** - Track productive work with daily averages
+- **Time Away from Home** - Monitor hours away from home
 - **Back Home Statistics** - Commute end times (mean, median, earliest, latest)
-- **HomeOffice End Times** - Work-from-home completion patterns
-- **Late Work Frequency** - Track work sessions after 8:00 PM
-
-### 📈 **Advanced 7-Day vs 30-Day Trend Analysis**
-- **Recent Trends Card** - Compare 7-day performance against 30-day baselines
-- **Working Hours Trends** - Visual indicators for productivity changes
-- **Back Home Trends** - Commute pattern analysis with color-coded arrows
-- **Smart Thresholds** - ±15 minute differences considered "normal"
+- **HomeOffice End Times** - Work-from-home work patterns
+- **Late Work Frequency** - Track work sessions after 20:00
+- **Recent Trends Card** - Compare 7-day mean against 30-day baseline
 
 ### 🎨 **Modern Dark UI**
 - **Dark Theme by Default** - Easy on the eyes for data analysis
@@ -35,9 +46,8 @@ A sophisticated **static web dashboard** that transforms your Toggl Track time l
 
 ### 1. Repository Setup
 ```bash
-# Fork or clone this repository
-git clone https://github.com/yourusername/argumentsettler
-cd argumentsettler-dashboard
+# Fork or use this repository as-is
+# No installation required - it's all static files!
 ```
 
 ### 2. Configure GitHub Secrets
@@ -45,31 +55,22 @@ cd argumentsettler-dashboard
 - Add new secret: `TOGGL_API_TOKEN`
 - Get your token from **Toggl Profile → API Token**
 
-### 3. Update Homepage URL
-```json
-// package.json
-{
-  "homepage": "https://yourusername.github.io/argumentsettler"
-}
-```
-
-### 4. Deploy to GitHub Pages
-```bash
-yarn install
-yarn build
-# Push to your repository - GitHub Actions handles the rest!
-```
-
-### 5. Enable GitHub Pages
+### 3. Enable GitHub Pages
 - **Repository Settings → Pages**
 - **Source**: Deploy from a branch
-- **Branch**: `gh-pages` (auto-created by Actions)
+- **Branch**: `main` (serves files directly from root)
+
+### 4. Start Editing Directly on GitHub!
+- Edit `index.html` for content changes
+- Edit `style.css` for styling tweaks  
+- Edit `script.js` for functionality modifications
+- Changes are live immediately!
 
 ## 📊 Data Architecture
 
 ### **Smart Working Days Logic**
 - **30-Day Analysis**: Statistics from last 30 working days (days with actual entries)
-- **7-Day Trends**: Recent performance from last 7 working days  
+- **7-Day Trends**: Recent trend from last 7 working days
 - **Calendar vs Working Days**: Excludes weekends/holidays without entries
 - **Yesterday Boundary**: Data always ends yesterday for complete statistics
 
@@ -85,109 +86,59 @@ yarn build
 - **Real-time Processing**: Metrics calculated on every page load
 - **Debug Logging**: Console shows calculation details for transparency
 
-## 🛠️ Development
+## 🛠️ Development & Customization
 
-### **Local Development**
+### **Local Testing**
 ```bash
-# Install dependencies (using Yarn)
-yarn install
-
-# Start development server
-yarn start
-
-# Build for production  
-yarn build
-
-# Test production build locally
-yarn global add serve
-serve -s build
+# Serve the files locally (any static server works)
+python -m http.server 8000
+# or
+npx serve .
+# or just open index.html in your browser!
 ```
 
-### **Project Structure**
-```
-/app
-├── src/
-│   ├── App.js          # Main dashboard component with all logic
-│   ├── App.css         # Dark theme and responsive styles
-│   └── index.js        # React entry point
-├── public/
-│   └── data/           # Static data served to frontend
-│       └── raw_data.json
-├── scripts/
-│   └── fetch-toggl-data.py  # Data fetching script
-└── .github/workflows/
-    └── fetch-toggl-data.yml # Automated daily updates
+### **Customizing Colors**
+Edit the CSS variables in `style.css`:
+```css
+:root {
+    --primary-400: #60a5fa;  /* Change primary color */
+    --dark-100: #2a2a2a;     /* Change card background */
+    /* ... modify any colors you want */
+}
 ```
 
-## 🎨 UI/UX Highlights
-
-### **Dark Theme Design**
-- **Professional Color Palette**: Deep grays, blues, and accent colors
-- **High Contrast**: Optimized for data readability
-- **Gradient Header**: Attractive visual hierarchy  
-- **Card-based Layout**: Clean information grouping
-
-### **Responsive Grid System**
-- **Desktop**: 3-column layout (Back Home | HomeOffice | Trends)
-- **Tablet**: Adaptive 2-column with stacking
-- **Mobile**: Single column with touch-friendly interactions
-- **Typography**: Scalable fonts for all screen sizes
-
-### **Interactive Elements**
-- **Refresh Button**: Manual data reload capability
-- **Trend Indicators**: Color-coded arrows (🔴 Up, 🟢 Down, ⚪ Stable)
-- **Hover States**: Enhanced visual feedback
-- **Loading States**: Professional loading spinners
+### **Adding New Metrics**
+1. Add HTML in `index.html` for the new metric display
+2. Add styling in `style.css` if needed
+3. Add calculation logic in `script.js` in the `processRawData` function
+4. Update the `updateUI` function to display your new metric
 
 ## 🔄 Automated Workflow
 
 The GitHub Action runs daily and:
-
 1. **Fetches Raw Data** (60 days, excluding today)
 2. **Updates JSON File** (`data/raw_data.json`)
 3. **Commits Changes** automatically
-4. **Triggers Rebuild** for GitHub Pages
-5. **Shows Status** in Actions tab
+4. **Data is Live** immediately (no build step!)
 
 ### **Manual Trigger Options**
 - **GitHub Actions Tab** → "Fetch Toggl Data Daily" → "Run workflow"
+- **"Fetch New Data" Button** → Auto-opens GitHub Actions page
 - **API Call**: Trigger via GitHub API for custom schedules
 - **Local Testing**: Run `python scripts/fetch-toggl-data.py` with API token
 
 ## 🔒 Security & Privacy
 
-- ✅ **API Token Security**: Stored in GitHub Secrets, never exposed
-- ✅ **No Backend**: Static site eliminates server vulnerabilities  
-- ✅ **Client-Side Processing**: Data calculations in your browser only
-- ✅ **No Third-Party Analytics**: Your data stays with you
-- ✅ **HTTPS Deployment**: GitHub Pages provides SSL by default
+- **API Token Security**: Stored in GitHub Secrets, never exposed
+- **No Backend**: Static site eliminates server vulnerabilities
+- **Client-Side Processing**: Data calculations in your browser only
+- **No Third-Party Analytics**: Your data stays with you
+- **HTTPS Deployment**: GitHub Pages provides SSL by default
 
 ## 🚦 Performance
+- **Ultra-Fast Loading**: Static files, no build process
+- **Mobile Optimized**: Responsive design for all devices
+- **Efficient Updates**: Only data changes, instant updates
+- **Tiny Footprint**: ~15KB HTML + ~8KB CSS + ~12KB JS (uncompressed)
 
-- **⚡ Ultra-Fast Loading**: Static site with optimized bundles
-- **📱 Mobile Optimized**: Responsive design for all devices
-- **🔄 Efficient Updates**: Only data changes, not full rebuilds
-- **💾 Small Footprint**: ~51KB main JS + 3.5KB CSS (gzipped)
-
-## 🤝 Contributing
-
-This is a personal time tracking dashboard, but feel free to:
-- **Fork** for your own use case
-- **Report Issues** if you find bugs
-- **Suggest Features** via GitHub Issues
-- **Share** your modifications and improvements
-
-## 📈 Usage Analytics 
-
-The dashboard provides insights into:
-- **Productivity Trends**: Are you working more or less lately?
-- **Work-Life Balance**: Commute patterns and home office efficiency  
-- **Time Management**: Late work frequency and daily consistency
-- **Location Efficiency**: Home vs office productivity comparison
-
----
-
-## 🎉 **ArgumentSettler** 
-*Because when you need to prove your loved ones you're not working too much, data is your best friend!* 
-
-**Built with**: React • Tailwind CSS • GitHub Actions • Toggl Track API
+**Built with**: Pure HTML • Pure CSS • Vanilla JavaScript • GitHub Actions • Toggl Track API

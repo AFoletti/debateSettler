@@ -1,1 +1,295 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#667eea"/><meta name="description" content="ArgumentSettler - Toggl Track Dashboard for settling arguments with data"/><meta property="og:title" content="ArgumentSettler Dashboard"/><meta property="og:description" content="Win arguments with hard data from your Toggl Track time logs"/><meta property="og:type" content="website"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"><title>ArgumentSettler Dashboard</title><script defer="defer" src="./static/js/main.js"></script><link href="./static/css/main.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="DebateSettler - Toggl Track Dashboard for proving your point with data and help common understanding">
+    <meta property="og:title" content="DebateSettler Dashboard">
+    <meta property="og:description" content="Prove your point with hard data from your Toggl Track time logs">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico">
+    
+    <!-- Styles -->
+    <link href="./style.css" rel="stylesheet">
+    
+    <title>DebateSettler Dashboard</title>
+</head>
+<body>
+    <!-- Loading State -->
+    <div id="loading-container" class="loading-container">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-main-text">Processing your Toggl data...</p>
+            <p class="loading-sub-text">Analyzing trends and calculating statistics</p>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-container" class="error-container" style="display: none;">
+        <div class="error-content">
+            <svg class="error-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <h2 class="error-title">Error Loading Dashboard</h2>
+            <p id="error-message" class="error-text">Failed to load dashboard data</p>
+            <button id="retry-button" class="btn-primary">
+                <svg class="retry-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+                Try Again
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="main-dashboard" class="dashboard" style="display: none;">
+        <!-- Header -->
+        <div class="gradient-bg">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="main-title">DebateSettler</h1>
+                    <p class="main-subtitle">Prove your point with data, without starting a war 📊</p>
+                    <p id="analytics-info" class="analytics-info">Loading analytics...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container main-content">
+            <!-- Data Status -->
+            <div class="status-indicator">
+                <div class="status-content">
+                    <div class="status-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="metric-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"></path>
+                        </svg>
+                        <div>
+                            <p class="status-main">Data automatically updated daily at 6:00 AM UTC</p>
+                            <p id="last-updated" class="status-sub">Last updated: Unknown</p>
+                            <p id="data-info" class="status-detail">
+                                Raw data from 60 days • Statistics from last 30 working days • Client-side calculations
+                            </p>
+                        </div>
+                    </div>
+                    <div class="status-buttons">
+                        <button id="refresh-button" class="btn-primary btn-small" title="Re-process the existing data and refresh the display">
+                            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            Refresh Display
+                        </button>
+                        <a id="github-actions-link" href="#" target="_blank" class="btn-secondary btn-small" style="display: none;" title="Manually trigger GitHub Actions to fetch fresh data from Toggl API">
+                            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Fetch New Data
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="metrics-grid">
+                <!-- Billable Hours -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="metric-title">Total Billable Hours</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div id="billable-hours" class="metric-value">0h</div>
+                        <div class="metric-label">Last 30 working days</div>
+                        <div id="billable-avg" class="daily-avg">Daily average: 0h</div>
+                    </div>
+                </div>
+
+                <!-- Time Away from Home -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="metric-title">Time Away from Home</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div id="away-hours" class="metric-value">0h</div>
+                        <div class="metric-label">Non-HomeOffice hours</div>
+                        <div id="away-avg" class="daily-avg">Daily average: 0h</div>
+                    </div>
+                </div>
+
+                <!-- Late Work Frequency -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                        <h3 class="metric-title">Late Work Frequency</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div id="late-work-percentage" class="metric-value">0%</div>
+                        <div id="late-work-subtitle" class="metric-label">0 out of 0 work days after 20:00</div>
+                    </div>
+                </div>
+
+                <!-- Back Home Times -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <h3 class="metric-title">Back Home Times</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div id="back-home-count" class="metric-value">0</div>
+                        <div class="metric-label">Days with commuting tracked</div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Average</div>
+                                <div id="back-home-mean" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Median</div>
+                                <div id="back-home-median" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Earliest</div>
+                                <div id="back-home-earliest" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Latest</div>
+                                <div id="back-home-latest" class="stat-value">N/A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HomeOffice End Times -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h3 class="metric-title">HomeOffice End Times</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div id="home-office-count" class="metric-value">0</div>
+                        <div class="metric-label">Pure HomeOffice days analyzed</div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Average</div>
+                                <div id="home-office-mean" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Median</div>
+                                <div id="home-office-median" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Earliest</div>
+                                <div id="home-office-earliest" class="stat-value">N/A</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Latest</div>
+                                <div id="home-office-latest" class="stat-value">N/A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trends Card -->
+                <div id="trends-card" class="metric-card" style="display: none;">
+                    <div class="metric-header">
+                        <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h3 class="metric-title">Recent Trends</h3>
+                    </div>
+                    <div class="metric-content">
+                        <div class="trends-content">
+                            <!-- Working Hours Trend -->
+                            <div class="trend-section">
+                                <div class="trend-info">
+                                    <span id="billable-trend-icon" class="trend-icon">→</span>
+                                    <span class="trend-text">Working Hours</span>
+                                </div>
+                                <div class="trend-details">
+                                    <div id="billable-trend-text" class="trend-text">Same</div>
+                                    <div id="billable-trend-diff" class="trend-diff" style="display: none;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Back Home Trend -->
+                            <div class="trend-section">
+                                <div class="trend-info">
+                                    <span id="home-trend-icon" class="trend-icon">→</span>
+                                    <span class="trend-text">Back Home</span>
+                                </div>
+                                <div class="trend-details">
+                                    <div id="home-trend-text" class="trend-text">Same</div>
+                                    <div id="home-trend-diff" class="trend-diff" style="display: none;"></div>
+                                </div>
+                            </div>
+
+                            <div class="trend-footer">7-day vs 30-day averages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="data-summary">
+                <h2 class="summary-title">Data Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-stat">
+                        <div id="total-entries-30" class="summary-value">0</div>
+                        <div class="summary-label">Time Entries (30 days)</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div id="total-entries-60" class="summary-value">0</div>
+                        <div class="summary-label">Total Raw Entries (60 days)</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div id="working-days" class="summary-value">0</div>
+                        <div class="summary-label">Working Days Analyzed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-section">
+                <h3 class="footer-title">🚀 Enhanced DebateSettler</h3>
+                <p class="footer-main">Raw data (60 days) fetched daily • All calculations performed in your browser for privacy</p>
+                <p class="footer-sub">
+                    Workspace: <span id="workspace-name" class="workspace-highlight">DRE-P</span> • 
+                    DebateSettler helps you prove your point with data, not emotions 📊
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
