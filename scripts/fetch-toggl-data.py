@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Fetch raw Toggl Track data and save to JSON file for GitHub Pages
-This script runs daily via GitHub Actions and stores RAW data only
+This script runs daily via GitHub Actions and stores RAW data only,
+with 'description' field removed from entries before saving.
 """
 
 import requests
@@ -60,7 +61,7 @@ class TogglDataFetcher:
         return response.json()
 
     def fetch_and_save_raw_data(self):
-        """Fetch raw data and save to JSON file (no processing)"""
+        """Fetch raw data, remove 'description' field, and save to JSON file"""
         print(f"🚀 Fetching raw Toggl data for workspace: {self.workspace_name}")
         
         # Get workspace ID
@@ -68,7 +69,6 @@ class TogglDataFetcher:
         print(f"📡 Found workspace ID: {workspace_id}")
         
         # Calculate date range (last 60 days, excluding today)
-        # End date is yesterday to ensure complete day data
         end_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
         start_date = end_date - timedelta(days=59)  # 60 days total including end_date
         
@@ -78,10 +78,16 @@ class TogglDataFetcher:
         print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (60 days, excluding today)")
         
         # Fetch time entries - RAW DATA ONLY
+        # End date is yesterday to ensure complete day data
         time_entries = self.get_time_entries(start_date_str, end_date_str)
         print(f"📊 Retrieved {len(time_entries)} raw time entries")
         
-        # Store RAW data with metadata
+        # Remove 'description' field from each entry if it exists
+        for entry in time_entries:
+            if "description" in entry:
+                del entry["description"]
+        
+        # Store data with metadata
         raw_data = {
             "fetched_at": datetime.now().isoformat(),
             "date_range": {
@@ -92,14 +98,14 @@ class TogglDataFetcher:
             "workspace_name": self.workspace_name,
             "workspace_id": workspace_id,
             "total_entries": len(time_entries),
-            "raw_entries": time_entries  # Store exactly as received from API
+            "raw_entries": time_entries  # Raw data, with descriptions removed
         }
         
         # Ensure data directory exists
         data_dir = Path("data")
         data_dir.mkdir(exist_ok=True)
         
-        # Save RAW data to JSON file
+        # Save data to JSON file
         output_file = data_dir / "raw_data.json"
         with open(output_file, 'w') as f:
             json.dump(raw_data, f, indent=2)
@@ -107,7 +113,7 @@ class TogglDataFetcher:
         print(f"✅ Raw data saved to {output_file}")
         print(f"💾 Total Entries: {len(time_entries)}")
         print(f"💾 Date Range: {raw_data['date_range']['start']} to {raw_data['date_range']['end']}")
-        print(f"💾 No processing done - calculations will be performed client-side")
+        print(f"💾 'description' field removed from entries")
 
 def main():
     try:
