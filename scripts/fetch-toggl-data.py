@@ -78,6 +78,7 @@ class TogglDataFetcher:
         print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (60 days, excluding today)")
         
         # Fetch time entries - RAW DATA ONLY
+        # End date is yesterday to ensure complete day data
         time_entries = self.get_time_entries(start_date_str, end_date_str)
         print(f"📊 Retrieved {len(time_entries)} raw time entries")
         
@@ -97,7 +98,7 @@ class TogglDataFetcher:
             "workspace_name": self.workspace_name,
             "workspace_id": workspace_id,
             "total_entries": len(time_entries),
-            "raw_entries": time_entries  # With descriptions removed
+            "raw_entries": time_entries  # Raw data, with descriptions removed
         }
         
         # Ensure data directory exists
