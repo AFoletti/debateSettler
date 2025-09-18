@@ -25,7 +25,7 @@ Your ArgumentSettler Dashboard is now **100% ready** for GitHub commit and deplo
 ### **Data & Automation**
 - `scripts/fetch-toggl-data.py` - Updated to exclude current day
 - `.github/workflows/fetch-toggl-data.yml` - Daily automated data updates
-- `data/raw_data.json` - Current Toggl data (60 days)
+- `data/raw_data.json` - Current Toggl data (90 days)
 - `public/data/raw_data.json` - Web-accessible copy
 
 ### **Documentation**
@@ -63,7 +63,7 @@ Your ArgumentSettler Dashboard is now **100% ready** for GitHub commit and deplo
 
 ### **✅ Data Quality Improvements**
 - **Excludes current day** for complete statistics only
-- **60-day raw data** for robust analysis
+- **90-day raw data** for robust analysis
 - **Client-side processing** for privacy
 - **Daily automated updates** via GitHub Actions
 
