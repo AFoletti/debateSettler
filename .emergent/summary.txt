@@ -14,7 +14,7 @@ Initial requested metrics (last 30 days):
 
 Key evolutionary requirements:
 -   **Deployment**: Shift from full-stack to static GitHub Pages, requiring API token removal and data fetched via GitHub Actions into a local JSON file.
--   **Calculations**: All data processing and metric calculations to occur client-side in JavaScript, based on raw (60-day) API data.
+-   **Calculations**: All data processing and metric calculations to occur client-side in JavaScript, based on raw (90-day) API data.
 -   **Metric Refinements**:
     -   Display smaller daily mean for billable hours and time away from home.
     -   Back home time redefined as the last daily entry (including Commuting ones).
@@ -55,7 +55,7 @@ The application's architecture transitioned from a full-stack FastAPI/React setu
     -   **Changes Made**: Created to run . Updated to save raw API responses. Configured to fix 403 errors during deployment by setting .
 -   :
     -   **Importance**: Python script fetching Toggl time entries from the API.
-    -   **Changes Made**: Created to replace the backend's data fetching. Modified to fetch 60 days of *raw* data and save it directly to  without any pre-processing.
+    -   **Changes Made**: Created to replace the backend's data fetching. Modified to fetch 90 days of *raw* data and save it directly to  without any pre-processing.
 -   :
     -   **Importance**: Manages frontend dependencies and build configuration.
     -   **Changes Made**:  was removed. The  field was repeatedly adjusted to correctly configure the base URL for GitHub Pages deployment ().
