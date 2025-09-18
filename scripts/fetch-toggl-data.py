@@ -68,14 +68,14 @@ class TogglDataFetcher:
         workspace_id = self.get_workspace_id()
         print(f"📡 Found workspace ID: {workspace_id}")
         
-        # Calculate date range (last 60 days, excluding today)
+        # Calculate date range (last 90 days, excluding today)
         end_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
-        start_date = end_date - timedelta(days=59)  # 60 days total including end_date
+        start_date = end_date - timedelta(days=89)  # 90 days total including end_date
         
         start_date_str = start_date.strftime("%Y-%m-%dT00:00:00.000Z")
         end_date_str = end_date.strftime("%Y-%m-%dT23:59:59.999Z")
         
-        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (60 days, excluding today)")
+        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (90 days, excluding today)")
         
         # Fetch time entries - RAW DATA ONLY
         # End date is yesterday to ensure complete day data
@@ -93,7 +93,7 @@ class TogglDataFetcher:
             "date_range": {
                 "start": start_date.strftime("%Y-%m-%d"),
                 "end": end_date.strftime("%Y-%m-%d"),
-                "days": 60
+                "days": 90
             },
             "workspace_name": self.workspace_name,
             "workspace_id": workspace_id,
