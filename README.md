@@ -81,7 +81,7 @@ A **pure static HTML/CSS/JS** dashboard that transforms your Toggl Track time lo
 - **Late Work Detection**: Entries starting or ending after 20:00
 
 ### **Raw Data Processing**
-- **60-Day Data Fetch**: Ensures sufficient working days for analysis
+- **90-Day Data Fetch**: Ensures sufficient working days for analysis
 - **Client-Side Calculations**: No server dependency, works offline
 - **Real-time Processing**: Metrics calculated on every page load
 - **Debug Logging**: Console shows calculation details for transparency
@@ -116,7 +116,7 @@ Edit the CSS variables in `style.css`:
 ## 🔄 Automated Workflow
 
 The GitHub Action runs daily and:
-1. **Fetches Raw Data** (60 days, excluding today)
+1. **Fetches Raw Data** (90 days, excluding today)
 2. **Updates JSON File** (`data/raw_data.json`)
 3. **Commits Changes** automatically
 4. **Data is Live** immediately (no build step!)
