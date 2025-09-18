@@ -43,7 +43,7 @@ yarn deploy
 
 Your GitHub Action (`.github/workflows/fetch-toggl-data.yml`) will:
 1. **Run daily at 6:00 AM UTC**
-2. **Fetch last 60 days** of Toggl data (excluding today)
+2. **Fetch last 90 days** of Toggl data (excluding today)
 3. **Update data files** in both `/data/` and `/public/data/`
 4. **Commit changes** automatically
 5. **Trigger rebuild** for GitHub Pages
@@ -52,7 +52,7 @@ Your GitHub Action (`.github/workflows/fetch-toggl-data.yml`) will:
 
 ### **Smart Date Logic**
 - **End date**: Always yesterday (complete day statistics)
-- **Start date**: 60 days before yesterday
+- **Start date**: 90 days before yesterday
 - **Working days**: Calculated from actual entries (not calendar days)
 
 ### **File Structure**

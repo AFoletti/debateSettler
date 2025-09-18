@@ -13,7 +13,7 @@ All Requirements: **FULFILLED** ✅
 ### ✅ **1. Data Fetching Script Updated**
 - **Script**: `scripts/fetch-toggl-data.py`
 - **Change**: Modified to exclude current day from data fetch
-- **Logic**: End date = yesterday, Start date = 60 days before yesterday
+- **Logic**: End date = yesterday, Start date = 90 days before yesterday
 - **Benefit**: Ensures complete day statistics (no partial day data)
 - **Verification**: Tested and confirmed working correctly
 
@@ -116,7 +116,7 @@ Danger: #ef4444 (red trends)
 ```
 GitHub Action (6:00 AM UTC)
     ↓
-Fetch Toggl API (60 days, excluding today)
+Fetch Toggl API (90 days, excluding today)
     ↓
 Update /data/raw_data.json + /public/data/raw_data.json
     ↓
@@ -135,7 +135,7 @@ build/
 │   ├── js/main.[hash].js   # 51KB React bundle
 │   └── css/main.[hash].css # 4.1KB Tailwind styles
 ├── data/
-│   └── raw_data.json       # 292KB Toggl data (60 days)
+│   └── raw_data.json       # 292KB Toggl data (90 days)
 └── [other static assets]
 ```
 
