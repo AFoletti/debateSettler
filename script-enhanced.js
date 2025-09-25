@@ -78,27 +78,30 @@ function convertToLegacyFormat(aggregatedData) {
 
     return {
         billable_hours: aggregatedData.billable_hours?.sum || 0,
-        daily_billable_avg: aggregatedData.billable_hours?.mean || 0,
+        daily_billable_avg: aggregatedData.billable_hours?.mean || (aggregatedData.billable_hours?.sum / aggregatedData.working_days) || 0,
         absent_from_home_hours: aggregatedData.away_from_home_hours?.sum || 0,
         daily_away_avg: aggregatedData.away_from_home_hours?.mean || 0,
         back_home_stats: {
-            count: aggregatedData.back_home_times?.count || 0,
+            count: aggregatedData.back_home_times ? 
+                (Object.keys(aggregatedData.back_home_times).length > 0 ? aggregatedData.working_days : 0) : 0,
             mean: hoursToTime(aggregatedData.back_home_times?.mean),
             median: hoursToTime(aggregatedData.back_home_times?.median),
             earliest: hoursToTime(aggregatedData.back_home_times?.earliest),
             latest: hoursToTime(aggregatedData.back_home_times?.latest)
         },
         home_office_end_stats: {
-            count: aggregatedData.home_office_end_times?.count || 0,
+            count: aggregatedData.home_office_end_times ? 
+                (Object.keys(aggregatedData.home_office_end_times).length > 0 ? aggregatedData.working_days : 0) : 0,
             mean: hoursToTime(aggregatedData.home_office_end_times?.mean),
             median: hoursToTime(aggregatedData.home_office_end_times?.median),
             earliest: hoursToTime(aggregatedData.home_office_end_times?.earliest),
             latest: hoursToTime(aggregatedData.home_office_end_times?.latest)
         },
         late_work_frequency: {
-            late_work_days: aggregatedData.late_work_frequency?.sum || 0,
+            late_work_days: aggregatedData.late_work_frequency?.count || 0,
             total_work_days: aggregatedData.working_days || 0,
-            percentage: aggregatedData.late_work_frequency?.mean || 0
+            percentage: aggregatedData.working_days > 0 ? 
+                Math.round((aggregatedData.late_work_frequency?.count || 0) / aggregatedData.working_days * 100 * 10) / 10 : 0
         },
         total_entries: aggregatedData.total_entries || 0,
         working_days_analyzed: aggregatedData.working_days || 0,
