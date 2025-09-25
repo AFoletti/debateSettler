@@ -506,6 +506,133 @@ function formatLastUpdated(isoString) {
     }
 }
 
+// Check if current aggregation is a working days view
+function isWorkingDaysView() {
+    return currentAggregation === '5WD' || currentAggregation === '10WD' || currentAggregation === '30WD';
+}
+
+// Calculate differences between working days periods
+function calculateWorkingDaysDifferences() {
+    if (!workingDaysKpis) return null;
+    
+    const periods = ['5WD', '10WD', '30WD'];
+    const differences = {};
+    
+    // Helper function to calculate difference between two values
+    function calculateDiff(val1, val2, isTime = false) {
+        if (!val1 || !val2 || val1 === 'N/A' || val2 === 'N/A') return null;
+        
+        if (isTime) {
+            // Convert HH:MM to minutes for calculation
+            const timeToMinutes = (timeStr) => {
+                if (!timeStr || timeStr === 'N/A') return null;
+                const [hours, minutes] = timeStr.split(':').map(Number);
+                return hours * 60 + minutes;
+            };
+            
+            const min1 = timeToMinutes(val1);
+            const min2 = timeToMinutes(val2);
+            if (min1 === null || min2 === null) return null;
+            
+            return min1 - min2; // Difference in minutes
+        } else {
+            return val1 - val2;
+        }
+    }
+    
+    // Helper function to format difference display
+    function formatDifference(diff, isTime = false, isPercentage = false) {
+        if (diff === null || diff === 0) return { text: '—', trend: 'stable' };
+        
+        const sign = diff > 0 ? '+' : '';
+        
+        if (isTime) {
+            const hours = Math.floor(Math.abs(diff) / 60);
+            const minutes = Math.abs(diff) % 60;
+            let timeStr = '';
+            if (hours > 0) timeStr += `${hours}h `;
+            if (minutes > 0) timeStr += `${minutes}m`;
+            return {
+                text: `${sign}${timeStr}`,
+                trend: diff > 0 ? 'up' : 'down'
+            };
+        } else if (isPercentage) {
+            return {
+                text: `${sign}${diff.toFixed(1)}%`,
+                trend: diff > 0 ? 'up' : 'down'
+            };
+        } else {
+            // For hours, show in minutes if less than 1 hour
+            const absValue = Math.abs(diff);
+            if (absValue < 1) {
+                const minutes = Math.round(absValue * 60);
+                return {
+                    text: `${sign}${minutes}min`,
+                    trend: diff > 0 ? 'up' : 'down'
+                };
+            } else {
+                return {
+                    text: `${sign}${diff.toFixed(1)}h`,
+                    trend: diff > 0 ? 'up' : 'down'
+                };
+            }
+        }
+    }
+    
+    // Calculate differences for each metric
+    const metrics = ['billable_hours', 'away_from_home_hours', 'back_home_times', 'home_office_end_times', 'late_work_frequency'];
+    
+    metrics.forEach(metric => {
+        differences[metric] = {};
+        
+        if (metric === 'billable_hours') {
+            // Daily averages for billable hours
+            const val5 = workingDaysKpis['5WD']?.billable_hours?.sum / 5;
+            const val10 = workingDaysKpis['10WD']?.billable_hours?.sum / 10;
+            const val30 = workingDaysKpis['30WD']?.billable_hours?.sum / 30;
+            
+            differences[metric]['5_to_10'] = formatDifference(calculateDiff(val5, val10));
+            differences[metric]['10_to_30'] = formatDifference(calculateDiff(val10, val30));
+            differences[metric]['5_to_30'] = formatDifference(calculateDiff(val5, val30));
+            
+        } else if (metric === 'away_from_home_hours') {
+            // Daily averages for away hours
+            const val5 = workingDaysKpis['5WD']?.away_from_home_hours?.mean;
+            const val10 = workingDaysKpis['10WD']?.away_from_home_hours?.mean;
+            const val30 = workingDaysKpis['30WD']?.away_from_home_hours?.mean;
+            
+            differences[metric]['5_to_10'] = formatDifference(calculateDiff(val5, val10));
+            differences[metric]['10_to_30'] = formatDifference(calculateDiff(val10, val30));
+            differences[metric]['5_to_30'] = formatDifference(calculateDiff(val5, val30));
+            
+        } else if (metric === 'back_home_times' || metric === 'home_office_end_times') {
+            // Time-based metrics
+            const val5 = workingDaysKpis['5WD']?.[metric]?.mean;
+            const val10 = workingDaysKpis['10WD']?.[metric]?.mean;
+            const val30 = workingDaysKpis['30WD']?.[metric]?.mean;
+            
+            differences[metric]['5_to_10'] = formatDifference(calculateDiff(val5, val10, true), true);
+            differences[metric]['10_to_30'] = formatDifference(calculateDiff(val10, val30, true), true);
+            differences[metric]['5_to_30'] = formatDifference(calculateDiff(val5, val30, true), true);
+            
+        } else if (metric === 'late_work_frequency') {
+            // Percentage-based metric
+            const val5 = workingDaysKpis['5WD']?.working_days > 0 ? 
+                (workingDaysKpis['5WD']?.late_work_frequency?.count / workingDaysKpis['5WD']?.working_days * 100) : 0;
+            const val10 = workingDaysKpis['10WD']?.working_days > 0 ? 
+                (workingDaysKpis['10WD']?.late_work_frequency?.count / workingDaysKpis['10WD']?.working_days * 100) : 0;
+            const val30 = workingDaysKpis['30WD']?.working_days > 0 ? 
+                (workingDaysKpis['30WD']?.late_work_frequency?.count / workingDaysKpis['30WD']?.working_days * 100) : 0;
+            
+            differences[metric]['5_to_10'] = formatDifference(calculateDiff(val5, val10), false, true);
+            differences[metric]['10_to_30'] = formatDifference(calculateDiff(val10, val30), false, true);
+            differences[metric]['5_to_30'] = formatDifference(calculateDiff(val5, val30), false, true);
+        }
+    });
+    
+    return differences;
+}
+
 // Update UI with calculated metrics
 function updateUI() {
     if (loading) {
@@ -520,8 +647,14 @@ function updateUI() {
 
     showDashboard();
     
-    // Update all UI elements
-    updateMetrics();
+    // Check if we should show trends view or regular view
+    if (isWorkingDaysView() && workingDaysKpis) {
+        showTrendsView();
+    } else {
+        showRegularView();
+        updateMetrics();
+    }
+    
     updateSummary();
     updateFooter();
 }
