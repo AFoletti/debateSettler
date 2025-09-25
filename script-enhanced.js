@@ -1025,7 +1025,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: backHomeData.map(d => timeStringToDecimal(d.mean))
         };
-        chartInstances['back-home-mean'] = createBarChart('chart-back-home-mean', 'Average Back Home Time', meanData, '#F59E0B', true);
+        chartInstances['back-home-mean'] = createBarChart('chart-back-home-mean', 'Average Back Home Time', meanData, '#F59E0B', true, consistentTimeRange);
     }
     
     if (backHomeData.some(d => d.median)) {
@@ -1033,7 +1033,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: backHomeData.map(d => timeStringToDecimal(d.median))
         };
-        chartInstances['back-home-median'] = createBarChart('chart-back-home-median', 'Median Back Home Time', medianData, '#EF4444', true);
+        chartInstances['back-home-median'] = createBarChart('chart-back-home-median', 'Median Back Home Time', medianData, '#EF4444', true, consistentTimeRange);
     }
     
     if (backHomeData.some(d => d.earliest)) {
@@ -1041,7 +1041,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: backHomeData.map(d => timeStringToDecimal(d.earliest))
         };
-        chartInstances['back-home-earliest'] = createBarChart('chart-back-home-earliest', 'Earliest Back Home Time', earliestData, '#8B5CF6', true);
+        chartInstances['back-home-earliest'] = createBarChart('chart-back-home-earliest', 'Earliest Back Home Time', earliestData, '#8B5CF6', true, consistentTimeRange);
     }
     
     if (backHomeData.some(d => d.latest)) {
@@ -1049,7 +1049,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: backHomeData.map(d => timeStringToDecimal(d.latest))
         };
-        chartInstances['back-home-latest'] = createBarChart('chart-back-home-latest', 'Latest Back Home Time', latestData, '#06B6D4', true);
+        chartInstances['back-home-latest'] = createBarChart('chart-back-home-latest', 'Latest Back Home Time', latestData, '#06B6D4', true, consistentTimeRange);
     }
     
     // Home Office End Times Charts
