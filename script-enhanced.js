@@ -1102,6 +1102,18 @@ async function fetchData() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DebateSettler Enhanced Dashboard starting...');
     
+    // Initialize DOM elements
+    loadingContainer = document.getElementById('loading-container');
+    errorContainer = document.getElementById('error-container');
+    mainDashboard = document.getElementById('main-dashboard');
+    retryButton = document.getElementById('retry-button');
+    refreshButton = document.getElementById('refresh-button');
+    githubActionsLink = document.getElementById('github-actions-link');
+    metricsGrid = document.querySelector('.metrics-grid');
+    chartsContainer = document.getElementById('charts-container');
+    viewToggleButton = document.getElementById('view-toggle');
+    viewToggleText = document.getElementById('view-toggle-text');
+    
     // Initial data fetch
     fetchData();
     
