@@ -761,7 +761,7 @@ function generateChartData(aggregationType, timeRange) {
     return { labels, data: limitedKeys.map(key => sourceData[key]) };
 }
 
-function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeChart = false) {
+function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeChart = false, predefinedTimeRange = null) {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     
@@ -779,16 +779,26 @@ function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeCh
     };
     
     if (isTimeChart && dataPoints.values.length > 0) {
-        // Filter out null/undefined values for range calculation
-        const validTimes = dataPoints.values.filter(v => v !== null && v !== undefined);
-        if (validTimes.length > 0) {
-            const minTime = Math.min(...validTimes);
-            const maxTime = Math.max(...validTimes);
-            
-            // Dynamic Y-axis: start 2 hours before the lowest value
-            const rangeMin = Math.max(6, Math.floor(minTime) - 2); // Don't go below 6:00 AM
-            const rangeMax = Math.min(24, Math.ceil(maxTime) + 1); // Add 1 hour padding at top
-            
+        let rangeMin, rangeMax;
+        
+        // Use predefined range if provided (for consistency across charts)
+        if (predefinedTimeRange) {
+            rangeMin = predefinedTimeRange.min;
+            rangeMax = predefinedTimeRange.max;
+        } else {
+            // Calculate range from individual chart data (fallback)
+            const validTimes = dataPoints.values.filter(v => v !== null && v !== undefined);
+            if (validTimes.length > 0) {
+                const minTime = Math.min(...validTimes);
+                const maxTime = Math.max(...validTimes);
+                
+                // Dynamic Y-axis: start 2 hours before the lowest value
+                rangeMin = Math.max(6, Math.floor(minTime) - 2); // Don't go below 6:00 AM
+                rangeMax = Math.min(24, Math.ceil(maxTime) + 1); // Add 1 hour padding at top
+            }
+        }
+        
+        if (rangeMin !== undefined && rangeMax !== undefined) {
             yAxisOptions = {
                 min: rangeMin,
                 max: rangeMax,
