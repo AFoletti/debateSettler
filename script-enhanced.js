@@ -679,6 +679,161 @@ function showDashboard() {
     mainDashboard.style.display = 'block';
 }
 
+// Show regular metric cards view
+function showRegularView() {
+    const metricsGrid = document.querySelector('.metrics-grid');
+    if (!metricsGrid) return;
+    
+    // Remove any existing trends cards
+    const existingTrendsCards = metricsGrid.querySelectorAll('.trend-comparison-card');
+    existingTrendsCards.forEach(card => card.remove());
+    
+    // Show regular metric cards
+    const regularCards = metricsGrid.querySelectorAll('.metric-card:not(.trend-comparison-card)');
+    regularCards.forEach(card => card.style.display = 'block');
+}
+
+// Show trends comparison view for working days
+function showTrendsView() {
+    const metricsGrid = document.querySelector('.metrics-grid');
+    if (!metricsGrid || !workingDaysKpis) return;
+    
+    // Hide regular metric cards
+    const regularCards = metricsGrid.querySelectorAll('.metric-card:not(.trend-comparison-card)');
+    regularCards.forEach(card => card.style.display = 'none');
+    
+    // Remove existing trends cards
+    const existingTrendsCards = metricsGrid.querySelectorAll('.trend-comparison-card');
+    existingTrendsCards.forEach(card => card.remove());
+    
+    // Calculate differences
+    const differences = calculateWorkingDaysDifferences();
+    
+    // Create trend comparison cards
+    createTrendCard('billable_hours', 'Total Billable Hours', differences);
+    createTrendCard('away_from_home_hours', 'Time Away from Home', differences);
+    createTrendCard('late_work_frequency', 'Late Work Frequency', differences);
+    createTrendCard('back_home_times', 'Back Home Times', differences);
+    createTrendCard('home_office_end_times', 'HomeOffice End Times', differences);
+}
+
+// Create a single trend comparison card
+function createTrendCard(metricKey, title, differences) {
+    const metricsGrid = document.querySelector('.metrics-grid');
+    if (!metricsGrid) return;
+    
+    const card = document.createElement('div');
+    card.className = 'metric-card trend-comparison-card';
+    
+    // Get icon for metric
+    const icons = {
+        'billable_hours': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>`,
+        'away_from_home_hours': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>`,
+        'late_work_frequency': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>`,
+        'back_home_times': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>`,
+        'home_office_end_times': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>`
+    };
+    
+    // Helper function to format values for display
+    function formatValue(data, metricKey) {
+        if (!data) return 'N/A';
+        
+        switch(metricKey) {
+            case 'billable_hours':
+                return `${Math.round((data.billable_hours?.sum / data.working_days) * 100) / 100}h`;
+            case 'away_from_home_hours':
+                return `${Math.round((data.away_from_home_hours?.mean || 0) * 100) / 100}h`;
+            case 'late_work_frequency':
+                const percentage = data.working_days > 0 ? 
+                    Math.round((data.late_work_frequency?.count / data.working_days * 100) * 10) / 10 : 0;
+                return `${percentage}%`;
+            case 'back_home_times':
+            case 'home_office_end_times':
+                return data[metricKey]?.mean || 'N/A';
+            default:
+                return 'N/A';
+        }
+    }
+    
+    // Helper function to get trend arrow
+    function getTrendArrow(trend) {
+        switch(trend) {
+            case 'up': return '↗️';
+            case 'down': return '↘️';
+            default: return '→';
+        }
+    }
+    
+    // Helper function to get trend class
+    function getTrendClass(trend) {
+        switch(trend) {
+            case 'up': return 'trend-up';
+            case 'down': return 'trend-down';
+            default: return 'trend-stable';
+        }
+    }
+    
+    card.innerHTML = `
+        <div class="metric-header">
+            <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                ${icons[metricKey]}
+            </svg>
+            <h3 class="metric-title">${title}</h3>
+        </div>
+        <div class="metric-content">
+            <div class="trends-comparison">
+                <div class="trend-period">
+                    <div class="trend-period-header">
+                        <span class="trend-period-title">5 Working Days</span>
+                        <span class="trend-period-dates">${workingDaysKpis['5WD']?.date_range?.start || 'N/A'} to ${workingDaysKpis['5WD']?.date_range?.end || 'N/A'}</span>
+                    </div>
+                    <div class="trend-value">${formatValue(workingDaysKpis['5WD'], metricKey)}</div>
+                </div>
+                
+                <div class="trend-arrow-section">
+                    <div class="trend-arrow-container">
+                        <span class="trend-arrow ${getTrendClass(differences?.[metricKey]?.['5_to_10']?.trend)}">${getTrendArrow(differences?.[metricKey]?.['5_to_10']?.trend)}</span>
+                        <span class="trend-diff">${differences?.[metricKey]?.['5_to_10']?.text || '—'}</span>
+                    </div>
+                </div>
+                
+                <div class="trend-period">
+                    <div class="trend-period-header">
+                        <span class="trend-period-title">10 Working Days</span>
+                        <span class="trend-period-dates">${workingDaysKpis['10WD']?.date_range?.start || 'N/A'} to ${workingDaysKpis['10WD']?.date_range?.end || 'N/A'}</span>
+                    </div>
+                    <div class="trend-value">${formatValue(workingDaysKpis['10WD'], metricKey)}</div>
+                </div>
+                
+                <div class="trend-arrow-section">
+                    <div class="trend-arrow-container">
+                        <span class="trend-arrow ${getTrendClass(differences?.[metricKey]?.['10_to_30']?.trend)}">${getTrendArrow(differences?.[metricKey]?.['10_to_30']?.trend)}</span>
+                        <span class="trend-diff">${differences?.[metricKey]?.['10_to_30']?.text || '—'}</span>
+                    </div>
+                </div>
+                
+                <div class="trend-period">
+                    <div class="trend-period-header">
+                        <span class="trend-period-title">30 Working Days</span>
+                        <span class="trend-period-dates">${workingDaysKpis['30WD']?.date_range?.start || 'N/A'} to ${workingDaysKpis['30WD']?.date_range?.end || 'N/A'}</span>
+                    </div>
+                    <div class="trend-value">${formatValue(workingDaysKpis['30WD'], metricKey)}</div>
+                </div>
+            </div>
+            
+            ${differences?.[metricKey]?.['5_to_30'] ? `
+            <div class="trend-summary">
+                <span class="trend-summary-label">5-day vs 30-day:</span>
+                <span class="trend-arrow ${getTrendClass(differences[metricKey]['5_to_30'].trend)}">${getTrendArrow(differences[metricKey]['5_to_30'].trend)}</span>
+                <span class="trend-diff">${differences[metricKey]['5_to_30'].text}</span>
+            </div>
+            ` : ''}
+        </div>
+    `;
+    
+    metricsGrid.appendChild(card);
+}
+
 function updateMetrics() {
     if (!metrics) return;
 
