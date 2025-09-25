@@ -829,7 +829,96 @@ function generateCharts() {
     const chartData = generateChartData(currentAggregation, currentChartTimeRange);
     if (!chartData.data.length) return;
     
-    // Billable Hours Chart
+    if (currentAggregation === 'daily') {
+        // For daily view, only show billable hours with late work color coding
+        generateDailyCharts(chartData);
+    } else {
+        // For aggregated views, show full chart suite
+        generateAggregatedCharts(chartData);
+    }
+}
+
+function generateDailyCharts(chartData) {
+    // Hide non-relevant chart sections for daily view
+    const backHomeSection = document.querySelector('.chart-section:has(#chart-back-home-mean)');
+    const homeOfficeSection = document.querySelector('.chart-section:has(#chart-home-office-mean)');
+    const lateWorkSection = document.querySelector('.chart-section:has(#chart-late-work)');
+    
+    if (backHomeSection) backHomeSection.style.display = 'none';
+    if (homeOfficeSection) homeOfficeSection.style.display = 'none';
+    if (lateWorkSection) lateWorkSection.style.display = 'none';
+    
+    // Create billable hours chart with late work color coding
+    const billableData = chartData.data.map((d, index) => ({
+        value: d.billable_hours?.sum || 0,
+        isLateWork: d.late_work_frequency?.count > 0
+    }));
+    
+    const canvas = document.getElementById('chart-billable-sum');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    chartInstances['billable-sum'] = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: chartData.labels,
+            datasets: [{
+                label: 'Billable Hours',
+                data: billableData.map(d => d.value),
+                backgroundColor: billableData.map(d => d.isLateWork ? '#DC262680' : '#10B98180'), // Red for late work, green for normal
+                borderColor: billableData.map(d => d.isLateWork ? '#DC2626' : '#10B981'),
+                borderWidth: 1,
+                borderRadius: 4,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        afterLabel: function(context) {
+                            const dataPoint = billableData[context.dataIndex];
+                            return dataPoint.isLateWork ? 'Late work day' : 'Normal day';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#374151'
+                    },
+                    ticks: {
+                        color: '#9CA3AF'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: '#374151'
+                    },
+                    ticks: {
+                        color: '#9CA3AF',
+                        maxRotation: 45
+                    }
+                }
+            }
+        }
+    });
+}
+
+function generateAggregatedCharts(chartData) {
+    // Show all chart sections for aggregated views
+    const allSections = document.querySelectorAll('.chart-section');
+    allSections.forEach(section => section.style.display = 'block');
+    
+    // Billable Hours Chart (normal green)
     const billableData = {
         labels: chartData.labels,
         values: chartData.data.map(d => d.billable_hours?.sum || 0)
@@ -906,7 +995,7 @@ function generateCharts() {
         chartInstances['home-office-latest'] = createBarChart('chart-home-office-latest', 'Latest Home Office End Time', latestData, '#06B6D4');
     }
     
-    // Late Work Chart
+    // Late Work Chart (separate for aggregated views)
     const lateWorkData = {
         labels: chartData.labels,
         values: chartData.data.map(d => d.late_work_frequency?.count || 0)
