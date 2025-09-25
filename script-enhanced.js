@@ -12,7 +12,7 @@ let workingDaysKpis = null;
 let metrics = null;
 let loading = true;
 let error = null;
-let currentAggregation = '30WD'; // Default to 30 working days
+let currentAggregation = 'trend'; // Default to trends view
 
 // DOM elements
 const loadingContainer = document.getElementById('loading-container');
