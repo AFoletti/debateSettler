@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Dashboard Functionality</title>
+</head>
+<body>
+    <h1>Testing Dashboard Functionality</h1>
+    
+    <script>
+        // Test if the main dashboard loads
+        setTimeout(() => {
+            fetch('/data/weekly_aggregations.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Weekly data loaded successfully');
+                    console.log('Weekly data keys:', Object.keys(data));
+                    
+                    // Test Chart.js loading
+                    if (typeof Chart !== 'undefined') {
+                        console.log('Chart.js loaded successfully');
+                    } else {
+                        console.log('Chart.js not loaded');
+                    }
+                })
+                .catch(error => console.error('Error loading weekly data:', error));
+                
+            // Test DOM elements  
+            const elements = {
+                viewToggle: document.getElementById('view-toggle'),
+                dropdown: document.getElementById('aggregation-dropdown'),
+                charts: document.getElementById('charts-container')
+            };
+            
+            console.log('DOM Elements:', elements);
+        }, 1000);
+    </script>
+</body>
+</html>
