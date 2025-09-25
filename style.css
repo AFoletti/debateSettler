@@ -234,6 +234,40 @@ body {
     margin-right: 0.5rem;
 }
 
+/* Aggregation Dropdown */
+.aggregation-dropdown {
+    background-color: var(--dark-200);
+    color: var(--dark-600);
+    border: 1px solid var(--dark-200);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
+    margin-right: 0.75rem;
+    min-width: 120px;
+}
+
+.aggregation-dropdown:hover {
+    background-color: var(--dark-200);
+    color: var(--dark-700);
+    border-color: var(--dark-400);
+}
+
+.aggregation-dropdown:focus {
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.aggregation-dropdown option {
+    background-color: var(--dark-100);
+    color: var(--dark-600);
+    padding: 0.5rem;
+}
+
 /* Metrics grid */
 .metrics-grid {
     display: grid;

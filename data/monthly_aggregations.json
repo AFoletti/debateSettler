@@ -1,0 +1,124 @@
+{
+  "2025-09": {
+    "working_days": 17,
+    "date_range": {
+      "start": "2025-09-01",
+      "end": "2025-09-24"
+    },
+    "month": "2025-09",
+    "total_entries": 291,
+    "billable_hours": {
+      "sum": 148.19
+    },
+    "away_from_home_hours": {
+      "mean": 13.42,
+      "median": 13.25
+    },
+    "back_home_times": {
+      "mean": "18:41",
+      "median": "18:30",
+      "earliest": "18:18",
+      "latest": "19:33",
+      "count": 8
+    },
+    "home_office_end_times": {
+      "mean": "15:55",
+      "median": "16:23",
+      "earliest": "11:33",
+      "latest": "17:03",
+      "count": 9
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-08": {
+    "working_days": 15,
+    "date_range": {
+      "start": "2025-08-11",
+      "end": "2025-08-29"
+    },
+    "month": "2025-08",
+    "total_entries": 240,
+    "billable_hours": {
+      "sum": 134.77
+    },
+    "away_from_home_hours": {
+      "mean": 14.04,
+      "median": 13.94
+    },
+    "back_home_times": {
+      "mean": "19:06",
+      "median": "19:02",
+      "earliest": "18:10",
+      "latest": "20:21",
+      "count": 6
+    },
+    "home_office_end_times": {
+      "mean": "15:31",
+      "median": "15:43",
+      "earliest": "12:28",
+      "latest": "16:53",
+      "count": 9
+    },
+    "late_work_frequency": {
+      "count": 1
+    }
+  },
+  "2025-07": {
+    "working_days": 17,
+    "date_range": {
+      "start": "2025-07-01",
+      "end": "2025-07-23"
+    },
+    "month": "2025-07",
+    "total_entries": 308,
+    "billable_hours": {
+      "sum": 160.24
+    },
+    "away_from_home_hours": {
+      "mean": 13.31,
+      "median": 13.5
+    },
+    "back_home_times": {
+      "mean": "18:38",
+      "median": "18:28",
+      "earliest": "17:44",
+      "latest": "20:37",
+      "count": 8
+    },
+    "home_office_end_times": {
+      "mean": "17:05",
+      "median": "16:34",
+      "earliest": "15:07",
+      "latest": "21:48",
+      "count": 9
+    },
+    "late_work_frequency": {
+      "count": 3
+    }
+  },
+  "2025-06": {
+    "working_days": 2,
+    "date_range": {
+      "start": "2025-06-27",
+      "end": "2025-06-30"
+    },
+    "month": "2025-06",
+    "total_entries": 27,
+    "billable_hours": {
+      "sum": 16.43
+    },
+    "back_home_times": {},
+    "home_office_end_times": {
+      "mean": "15:22",
+      "median": "15:22",
+      "earliest": "14:48",
+      "latest": "15:56",
+      "count": 2
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  }
+}

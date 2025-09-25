@@ -1,0 +1,101 @@
+{
+  "5WD": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-09-24",
+      "end": "2025-09-18"
+    },
+    "period": "5WD",
+    "total_entries": 86,
+    "billable_hours": {
+      "sum": 47.57
+    },
+    "away_from_home_hours": {
+      "mean": 14.22,
+      "median": 14.22
+    },
+    "back_home_times": {
+      "mean": "19:27",
+      "median": "19:27",
+      "earliest": "19:21",
+      "latest": "19:33",
+      "count": 2
+    },
+    "home_office_end_times": {
+      "mean": "16:35",
+      "median": "16:23",
+      "earliest": "16:18",
+      "latest": "17:03",
+      "count": 3
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "10WD": {
+    "working_days": 10,
+    "date_range": {
+      "start": "2025-09-24",
+      "end": "2025-09-10"
+    },
+    "period": "10WD",
+    "total_entries": 172,
+    "billable_hours": {
+      "sum": 89.04
+    },
+    "away_from_home_hours": {
+      "mean": 13.54,
+      "median": 13.32
+    },
+    "back_home_times": {
+      "mean": "18:51",
+      "median": "18:32",
+      "earliest": "18:18",
+      "latest": "19:33",
+      "count": 5
+    },
+    "home_office_end_times": {
+      "mean": "16:27",
+      "median": "16:23",
+      "earliest": "15:48",
+      "latest": "17:03",
+      "count": 5
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "30WD": {
+    "working_days": 30,
+    "date_range": {
+      "start": "2025-09-24",
+      "end": "2025-08-13"
+    },
+    "period": "30WD",
+    "total_entries": 500,
+    "billable_hours": {
+      "sum": 264.22
+    },
+    "away_from_home_hours": {
+      "mean": 13.67,
+      "median": 13.37
+    },
+    "back_home_times": {
+      "mean": "18:51",
+      "median": "18:32",
+      "earliest": "18:10",
+      "latest": "20:21",
+      "count": 13
+    },
+    "home_office_end_times": {
+      "mean": "15:41",
+      "median": "15:48",
+      "earliest": "11:33",
+      "latest": "17:03",
+      "count": 17
+    },
+    "late_work_frequency": {
+      "count": 1
+    }
+  }
+}
