@@ -113,7 +113,9 @@ function convertToLegacyFormat(aggregatedData) {
     return {
         billable_hours: aggregatedData.billable_hours?.sum || 0,
         daily_billable_avg: aggregatedData.billable_hours?.mean || (aggregatedData.billable_hours?.sum / aggregatedData.working_days) || 0,
-        absent_from_home_hours: aggregatedData.away_from_home_hours?.sum || 0,
+        absent_from_home_hours: aggregatedData.away_from_home_hours?.sum || 
+                               (aggregatedData.away_from_home_hours?.mean ? 
+                                Math.round(aggregatedData.away_from_home_hours.mean * aggregatedData.working_days * 100) / 100 : 0),
         daily_away_avg: aggregatedData.away_from_home_hours?.mean || 0,
         back_home_stats: {
             count: aggregatedData.back_home_times ? 
