@@ -629,10 +629,35 @@ function updateMetrics() {
 function updateSummary() {
     if (!metrics || !rawData) return;
 
-    // Show total entries for current aggregation instead of just daily
+    // Get aggregation display names for labels
+    const getAggregationLabel = (aggregation) => {
+        switch(aggregation) {
+            case 'daily': return 'Most Recent Day';
+            case 'weekly': return 'Current Week'; 
+            case 'monthly': return 'Current Month';
+            case '5WD': return '5 Working Days';
+            case '10WD': return '10 Working Days';
+            case '30WD': return '30 Working Days';
+            default: return aggregation;
+        }
+    };
+
+    // Update values
     document.getElementById('total-entries-30').textContent = metrics.total_entries || 0;
     document.getElementById('total-entries-60').textContent = rawData.total_entries || 0;
     document.getElementById('working-days').textContent = metrics.working_days_analyzed || 0;
+    
+    // Update dynamic labels
+    const currentAggregationLabel = getAggregationLabel(currentAggregation);
+    const rawDataPeriod = rawData?.date_range?.days || 180;
+    
+    // Update the summary labels dynamically
+    const summaryLabels = document.querySelectorAll('.summary-label');
+    if (summaryLabels.length >= 3) {
+        summaryLabels[0].textContent = `Time Entries (${currentAggregationLabel})`;
+        summaryLabels[1].textContent = `Total Raw Entries (${rawDataPeriod} days)`;
+        summaryLabels[2].textContent = 'Working Days Analyzed';
+    }
 }
 
 function updateFooter() {
