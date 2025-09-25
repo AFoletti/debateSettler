@@ -118,18 +118,14 @@ function convertToLegacyFormat(aggregatedData) {
                                 Math.round(aggregatedData.away_from_home_hours.mean * aggregatedData.working_days * 100) / 100 : 0),
         daily_away_avg: aggregatedData.away_from_home_hours?.mean || 0,
         back_home_stats: {
-            count: aggregatedData.back_home_times ? 
-                (aggregatedData.back_home_times.mean ? 
-                 (aggregatedData.back_home_times.count || Object.keys(aggregatedData.back_home_times).length - 1) : 0) : 0,
+            count: aggregatedData.back_home_times?.count || 0,
             mean: timeToDisplay(aggregatedData.back_home_times?.mean),
             median: timeToDisplay(aggregatedData.back_home_times?.median),
             earliest: timeToDisplay(aggregatedData.back_home_times?.earliest),
             latest: timeToDisplay(aggregatedData.back_home_times?.latest)
         },
         home_office_end_stats: {
-            count: aggregatedData.home_office_end_times ? 
-                (aggregatedData.home_office_end_times.mean ? 
-                 (aggregatedData.home_office_end_times.count || Object.keys(aggregatedData.home_office_end_times).length - 1) : 0) : 0,
+            count: aggregatedData.home_office_end_times?.count || 0,
             mean: timeToDisplay(aggregatedData.home_office_end_times?.mean),
             median: timeToDisplay(aggregatedData.home_office_end_times?.median),
             earliest: timeToDisplay(aggregatedData.home_office_end_times?.earliest),
