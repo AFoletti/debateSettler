@@ -549,29 +549,6 @@ function updateFooter() {
     if (!rawData) return;
     
     document.getElementById('workspace-name').textContent = rawData.workspace_name || 'DRE-P';
-    
-    // Try to set up GitHub Actions link based on the current URL
-    if (githubActionsLink && typeof window !== 'undefined') {
-        const hostname = window.location.hostname;
-        
-        // Check if we're on GitHub Pages
-        if (hostname.includes('github.io')) {
-            // Extract username and repo from GitHub Pages URL
-            // Format: username.github.io/repo-name
-            const pathParts = window.location.pathname.split('/').filter(p => p);
-            const username = hostname.split('.')[0];
-            const repoName = pathParts[0] || 'argumentSettler';
-            
-            const actionsUrl = `https://github.com/${username}/${repoName}/actions/workflows/fetch-toggl-data.yml`;
-            githubActionsLink.href = actionsUrl;
-            githubActionsLink.style.display = 'inline-flex';
-            
-            console.log(`🔗 GitHub Actions link set to: ${actionsUrl}`);
-        } else {
-            // For local development or other hosting, hide the button
-            githubActionsLink.style.display = 'none';
-        }
-    }
 }
 
 // Fetch data from JSON file
