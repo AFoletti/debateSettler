@@ -1,0 +1,376 @@
+{
+  "2025-W39": {
+    "working_days": 3,
+    "date_range": {
+      "start": "2025-09-22",
+      "end": "2025-09-24"
+    },
+    "week": "2025-W39",
+    "billable_hours": {
+      "sum": 28.14,
+      "mean": 9.38,
+      "median": 9.54
+    },
+    "away_from_home_hours": {
+      "mean": 14.22,
+      "median": 14.22
+    },
+    "back_home_times": {
+      "mean": 17.45,
+      "median": 17.45,
+      "earliest": 17.35,
+      "latest": 17.55
+    },
+    "home_office_end_times": {
+      "mean": 14.32,
+      "median": 14.32,
+      "earliest": 14.32,
+      "latest": 14.32
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W38": {
+    "working_days": 4,
+    "date_range": {
+      "start": "2025-09-16",
+      "end": "2025-09-19"
+    },
+    "week": "2025-W38",
+    "billable_hours": {
+      "sum": 35.44,
+      "mean": 8.86,
+      "median": 9.5
+    },
+    "away_from_home_hours": {
+      "mean": 12.96,
+      "median": 12.96
+    },
+    "back_home_times": {
+      "mean": 16.43,
+      "median": 16.43,
+      "earliest": 16.32,
+      "latest": 16.53
+    },
+    "home_office_end_times": {
+      "mean": 14.73,
+      "median": 14.73,
+      "earliest": 14.4,
+      "latest": 15.05
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W37": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-09-08",
+      "end": "2025-09-12"
+    },
+    "week": "2025-W37",
+    "billable_hours": {
+      "sum": 44.56,
+      "mean": 8.91,
+      "median": 9.25
+    },
+    "away_from_home_hours": {
+      "mean": 13.23,
+      "median": 13.23
+    },
+    "back_home_times": {
+      "mean": 16.43,
+      "median": 16.43,
+      "earliest": 16.35,
+      "latest": 16.5
+    },
+    "home_office_end_times": {
+      "mean": 14.33,
+      "median": 14.47,
+      "earliest": 13.82,
+      "latest": 14.7
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W36": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-09-01",
+      "end": "2025-09-05"
+    },
+    "week": "2025-W36",
+    "billable_hours": {
+      "sum": 40.05,
+      "mean": 8.01,
+      "median": 8.16
+    },
+    "away_from_home_hours": {
+      "mean": 13.27,
+      "median": 13.27
+    },
+    "back_home_times": {
+      "mean": 16.45,
+      "median": 16.45,
+      "earliest": 16.35,
+      "latest": 16.55
+    },
+    "home_office_end_times": {
+      "mean": 12.87,
+      "median": 14.12,
+      "earliest": 9.55,
+      "latest": 14.95
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W35": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-08-25",
+      "end": "2025-08-29"
+    },
+    "week": "2025-W35",
+    "billable_hours": {
+      "sum": 46.57,
+      "mean": 9.31,
+      "median": 8.85
+    },
+    "away_from_home_hours": {
+      "mean": 14.27,
+      "median": 14.27
+    },
+    "back_home_times": {
+      "mean": 17.43,
+      "median": 17.43,
+      "earliest": 16.5,
+      "latest": 18.35
+    },
+    "home_office_end_times": {
+      "mean": 14.17,
+      "median": 13.82,
+      "earliest": 13.8,
+      "latest": 14.9
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W34": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-08-18",
+      "end": "2025-08-22"
+    },
+    "week": "2025-W34",
+    "billable_hours": {
+      "sum": 45.53,
+      "mean": 9.11,
+      "median": 9.22
+    },
+    "away_from_home_hours": {
+      "mean": 14.42,
+      "median": 14.42
+    },
+    "back_home_times": {
+      "mean": 17.34,
+      "median": 17.34,
+      "earliest": 17.17,
+      "latest": 17.52
+    },
+    "home_office_end_times": {
+      "mean": 13.55,
+      "median": 13.57,
+      "earliest": 13.43,
+      "latest": 13.65
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W33": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-08-11",
+      "end": "2025-08-15"
+    },
+    "week": "2025-W33",
+    "billable_hours": {
+      "sum": 42.67,
+      "mean": 8.53,
+      "median": 8.77
+    },
+    "away_from_home_hours": {
+      "mean": 13.44,
+      "median": 13.44
+    },
+    "back_home_times": {
+      "mean": 16.55,
+      "median": 16.55,
+      "earliest": 16.17,
+      "latest": 16.92
+    },
+    "home_office_end_times": {
+      "mean": 12.84,
+      "median": 13.73,
+      "earliest": 10.47,
+      "latest": 14.32
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W30": {
+    "working_days": 3,
+    "date_range": {
+      "start": "2025-07-21",
+      "end": "2025-07-23"
+    },
+    "week": "2025-W30",
+    "billable_hours": {
+      "sum": 32.74,
+      "mean": 10.91,
+      "median": 11.31
+    },
+    "away_from_home_hours": {
+      "mean": 13.06,
+      "median": 13.06
+    },
+    "back_home_times": {
+      "mean": 15.73,
+      "median": 15.73,
+      "earliest": 15.73,
+      "latest": 15.73
+    },
+    "home_office_end_times": {
+      "mean": 17.96,
+      "median": 17.96,
+      "earliest": 16.1,
+      "latest": 19.82
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W29": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-07-14",
+      "end": "2025-07-18"
+    },
+    "week": "2025-W29",
+    "billable_hours": {
+      "sum": 46.75,
+      "mean": 9.35,
+      "median": 9.45
+    },
+    "away_from_home_hours": {
+      "mean": 14.97,
+      "median": 14.97
+    },
+    "back_home_times": {
+      "mean": 17.6,
+      "median": 17.6,
+      "earliest": 16.57,
+      "latest": 18.63
+    },
+    "home_office_end_times": {
+      "mean": 14.6,
+      "median": 14.58,
+      "earliest": 13.18,
+      "latest": 16.03
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W28": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-07-07",
+      "end": "2025-07-11"
+    },
+    "week": "2025-W28",
+    "billable_hours": {
+      "sum": 45.66,
+      "mean": 9.13,
+      "median": 9.18
+    },
+    "away_from_home_hours": {
+      "mean": 13.5,
+      "median": 13.5
+    },
+    "back_home_times": {
+      "mean": 16.43,
+      "median": 16.43,
+      "earliest": 16.15,
+      "latest": 16.72
+    },
+    "home_office_end_times": {
+      "mean": 14.11,
+      "median": 14.15,
+      "earliest": 13.13,
+      "latest": 15.05
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W27": {
+    "working_days": 5,
+    "date_range": {
+      "start": "2025-06-30",
+      "end": "2025-07-04"
+    },
+    "week": "2025-W27",
+    "billable_hours": {
+      "sum": 43.3,
+      "mean": 8.66,
+      "median": 8.95
+    },
+    "away_from_home_hours": {
+      "mean": 12.17,
+      "median": 12.98
+    },
+    "back_home_times": {
+      "mean": 16.47,
+      "median": 16.37,
+      "earliest": 16.25,
+      "latest": 16.78
+    },
+    "home_office_end_times": {
+      "mean": 13.3,
+      "median": 13.3,
+      "earliest": 12.8,
+      "latest": 13.8
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-W26": {
+    "working_days": 1,
+    "date_range": {
+      "start": "2025-06-27",
+      "end": "2025-06-27"
+    },
+    "week": "2025-W26",
+    "billable_hours": {
+      "sum": 8.22,
+      "mean": 8.22,
+      "median": 8.22
+    },
+    "home_office_end_times": {
+      "mean": 13.95,
+      "median": 13.95,
+      "earliest": 13.95,
+      "latest": 13.95
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  }
+}
