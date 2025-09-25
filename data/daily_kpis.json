@@ -7,7 +7,7 @@
       "sum": 14.28
     },
     "back_home_times": {
-      "time": 17.55
+      "time": 19.55
     },
     "home_office_end_times": {
       "time": null
@@ -27,7 +27,7 @@
       "sum": 14.16
     },
     "back_home_times": {
-      "time": 17.35
+      "time": 19.35
     },
     "home_office_end_times": {
       "time": null
@@ -50,7 +50,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.32
+      "time": 16.32
     },
     "late_work_frequency": {
       "count": 0
@@ -70,7 +70,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 15.05
+      "time": 17.05
     },
     "late_work_frequency": {
       "count": 0
@@ -90,7 +90,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.4
+      "time": 16.4
     },
     "late_work_frequency": {
       "count": 0
@@ -107,7 +107,7 @@
       "sum": 12.75
     },
     "back_home_times": {
-      "time": 16.53
+      "time": 18.53
     },
     "home_office_end_times": {
       "time": null
@@ -127,7 +127,7 @@
       "sum": 13.17
     },
     "back_home_times": {
-      "time": 16.32
+      "time": 18.32
     },
     "home_office_end_times": {
       "time": null
@@ -150,7 +150,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.7
+      "time": 16.7
     },
     "late_work_frequency": {
       "count": 0
@@ -170,7 +170,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.82
+      "time": 15.82
     },
     "late_work_frequency": {
       "count": 0
@@ -187,7 +187,7 @@
       "sum": 13.32
     },
     "back_home_times": {
-      "time": 16.5
+      "time": 18.5
     },
     "home_office_end_times": {
       "time": null
@@ -207,7 +207,7 @@
       "sum": 13.14
     },
     "back_home_times": {
-      "time": 16.35
+      "time": 18.35
     },
     "home_office_end_times": {
       "time": null
@@ -230,7 +230,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.47
+      "time": 16.47
     },
     "late_work_frequency": {
       "count": 0
@@ -250,7 +250,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 9.55
+      "time": 11.55
     },
     "late_work_frequency": {
       "count": 0
@@ -270,7 +270,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.12
+      "time": 16.12
     },
     "late_work_frequency": {
       "count": 0
@@ -287,7 +287,7 @@
       "sum": 13.13
     },
     "back_home_times": {
-      "time": 16.35
+      "time": 18.35
     },
     "home_office_end_times": {
       "time": null
@@ -307,7 +307,7 @@
       "sum": 13.4
     },
     "back_home_times": {
-      "time": 16.55
+      "time": 18.55
     },
     "home_office_end_times": {
       "time": null
@@ -330,7 +330,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.95
+      "time": 16.95
     },
     "late_work_frequency": {
       "count": 0
@@ -350,7 +350,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.8
+      "time": 15.8
     },
     "late_work_frequency": {
       "count": 0
@@ -370,7 +370,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.82
+      "time": 15.82
     },
     "late_work_frequency": {
       "count": 0
@@ -387,13 +387,13 @@
       "sum": 15.18
     },
     "back_home_times": {
-      "time": 18.35
+      "time": 20.35
     },
     "home_office_end_times": {
       "time": null
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     },
     "working_day": true,
     "total_entries": 25,
@@ -410,7 +410,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.9
+      "time": 16.9
     },
     "late_work_frequency": {
       "count": 0
@@ -427,7 +427,7 @@
       "sum": 13.37
     },
     "back_home_times": {
-      "time": 16.5
+      "time": 18.5
     },
     "home_office_end_times": {
       "time": null
@@ -450,7 +450,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.65
+      "time": 15.65
     },
     "late_work_frequency": {
       "count": 0
@@ -470,7 +470,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.57
+      "time": 15.57
     },
     "late_work_frequency": {
       "count": 0
@@ -487,7 +487,7 @@
       "sum": 14.85
     },
     "back_home_times": {
-      "time": 17.52
+      "time": 19.52
     },
     "home_office_end_times": {
       "time": null
@@ -510,7 +510,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.43
+      "time": 15.43
     },
     "late_work_frequency": {
       "count": 0
@@ -527,7 +527,7 @@
       "sum": 13.99
     },
     "back_home_times": {
-      "time": 17.17
+      "time": 19.17
     },
     "home_office_end_times": {
       "time": null
@@ -550,7 +550,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 10.47
+      "time": 12.47
     },
     "late_work_frequency": {
       "count": 0
@@ -570,7 +570,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.73
+      "time": 15.73
     },
     "late_work_frequency": {
       "count": 0
@@ -587,7 +587,7 @@
       "sum": 13.0
     },
     "back_home_times": {
-      "time": 16.17
+      "time": 18.17
     },
     "home_office_end_times": {
       "time": null
@@ -610,7 +610,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.32
+      "time": 16.32
     },
     "late_work_frequency": {
       "count": 0
@@ -627,7 +627,7 @@
       "sum": 13.88
     },
     "back_home_times": {
-      "time": 16.92
+      "time": 18.92
     },
     "home_office_end_times": {
       "time": null
@@ -650,10 +650,10 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 19.82
+      "time": 21.82
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     },
     "working_day": true,
     "total_entries": 17,
@@ -670,7 +670,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 16.1
+      "time": 18.1
     },
     "late_work_frequency": {
       "count": 0
@@ -687,13 +687,13 @@
       "sum": 13.06
     },
     "back_home_times": {
-      "time": 15.73
+      "time": 17.73
     },
     "home_office_end_times": {
       "time": null
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     },
     "working_day": true,
     "total_entries": 21,
@@ -710,7 +710,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.18
+      "time": 15.18
     },
     "late_work_frequency": {
       "count": 0
@@ -727,13 +727,13 @@
       "sum": 15.99
     },
     "back_home_times": {
-      "time": 18.63
+      "time": 20.63
     },
     "home_office_end_times": {
       "time": null
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     },
     "working_day": true,
     "total_entries": 21,
@@ -750,7 +750,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.58
+      "time": 16.58
     },
     "late_work_frequency": {
       "count": 0
@@ -770,7 +770,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 16.03
+      "time": 18.03
     },
     "late_work_frequency": {
       "count": 0
@@ -787,7 +787,7 @@
       "sum": 13.95
     },
     "back_home_times": {
-      "time": 16.57
+      "time": 18.57
     },
     "home_office_end_times": {
       "time": null
@@ -810,7 +810,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.13
+      "time": 15.13
     },
     "late_work_frequency": {
       "count": 0
@@ -827,7 +827,7 @@
       "sum": 12.93
     },
     "back_home_times": {
-      "time": 16.15
+      "time": 18.15
     },
     "home_office_end_times": {
       "time": null
@@ -850,7 +850,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 15.05
+      "time": 17.05
     },
     "late_work_frequency": {
       "count": 0
@@ -867,7 +867,7 @@
       "sum": 14.07
     },
     "back_home_times": {
-      "time": 16.72
+      "time": 18.72
     },
     "home_office_end_times": {
       "time": null
@@ -890,7 +890,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 14.15
+      "time": 16.15
     },
     "late_work_frequency": {
       "count": 0
@@ -907,7 +907,7 @@
       "sum": 9.41
     },
     "back_home_times": {
-      "time": 16.37
+      "time": 18.37
     },
     "home_office_end_times": {
       "time": null
@@ -927,7 +927,7 @@
       "sum": 12.98
     },
     "back_home_times": {
-      "time": 16.25
+      "time": 18.25
     },
     "home_office_end_times": {
       "time": null
@@ -950,7 +950,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.8
+      "time": 15.8
     },
     "late_work_frequency": {
       "count": 0
@@ -967,7 +967,7 @@
       "sum": 14.11
     },
     "back_home_times": {
-      "time": 16.78
+      "time": 18.78
     },
     "home_office_end_times": {
       "time": null
@@ -990,7 +990,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 12.8
+      "time": 14.8
     },
     "late_work_frequency": {
       "count": 0
@@ -1010,7 +1010,7 @@
       "time": null
     },
     "home_office_end_times": {
-      "time": 13.95
+      "time": 15.95
     },
     "late_work_frequency": {
       "count": 0
