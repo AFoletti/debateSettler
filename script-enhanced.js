@@ -566,6 +566,12 @@ function showDashboard() {
 function updateMetrics() {
     if (!metrics) return;
 
+    // Handle trends view differently
+    if (currentAggregation === 'trends') {
+        updateTrendsUI();
+        return;
+    }
+
     // Get aggregation display name
     const aggregationNames = {
         'daily': 'Daily',
