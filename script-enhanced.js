@@ -28,12 +28,9 @@ function parseDateTime(dateTimeStr) {
     return new Date(dateTimeStr.replace("Z", "+00:00"));
 }
 
-// Helper function to convert decimal hours to HH:MM format
-function hoursToTime(decimalHours) {
-    if (!decimalHours || decimalHours === 0) return 'N/A';
-    const hours = Math.floor(decimalHours);
-    const mins = Math.round((decimalHours - hours) * 60);
-    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+// Helper function to convert HH:MM format to display (no conversion needed)
+function timeToDisplay(timeStr) {
+    return timeStr || 'N/A';
 }
 
 // Helper function to convert minutes to HH:MM format (legacy support)
