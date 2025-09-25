@@ -551,9 +551,21 @@ function showDashboard() {
 function updateMetrics() {
     if (!metrics) return;
 
+    // Get aggregation display name
+    const aggregationNames = {
+        'daily': 'Daily',
+        'weekly': 'Weekly', 
+        'monthly': 'Monthly',
+        '5WD': '5 working days',
+        '10WD': '10 working days',
+        '30WD': '30 working days'
+    };
+    
+    const aggregationDisplay = aggregationNames[currentAggregation] || currentAggregation;
+
     // Analytics info
     const analyticsInfo = metrics.working_days_analyzed ? 
-        `${metrics.working_days_analyzed} working days analyzed (${currentAggregation}): ${metrics.date_range.start} to ${metrics.date_range.end}` :
+        `${metrics.working_days_analyzed} working days analyzed (${aggregationDisplay}): ${metrics.date_range.start} to ${metrics.date_range.end}` :
         'Loading analytics...';
     document.getElementById('analytics-info').textContent = analyticsInfo;
 
@@ -562,8 +574,20 @@ function updateMetrics() {
         document.getElementById('last-updated').textContent = `Last updated: ${formatLastUpdated(rawData.fetched_at)}`;
     }
     
-    const dataInfo = `Raw data from ${rawData?.date_range?.days || 180} days • Statistics from ${currentAggregation} • Enhanced processing`;
+    const dataInfo = `Raw data from ${rawData?.date_range?.days || 180} days • Statistics from ${aggregationDisplay} • Enhanced processing`;
     document.getElementById('data-info').textContent = dataInfo;
+
+    // Update metric labels based on aggregation
+    const metricLabel = currentAggregation === 'daily' ? 'Single day' : 
+                       currentAggregation === 'weekly' ? 'Last week' :
+                       currentAggregation === 'monthly' ? 'Last month' :
+                       `Last ${aggregationDisplay}`;
+    
+    // Update billable hours metric label
+    const billableLabel = document.querySelector('#billable-hours').parentElement.querySelector('.metric-label');
+    if (billableLabel) {
+        billableLabel.textContent = metricLabel;
+    }
 
     // Billable Hours
     document.getElementById('billable-hours').textContent = `${metrics.billable_hours || 0}h`;
