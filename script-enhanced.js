@@ -948,9 +948,7 @@ function updateSummary() {
             case 'daily': return 'Most Recent Day';
             case 'weekly': return 'Current Week'; 
             case 'monthly': return 'Current Month';
-            case '5WD': return '5 Working Days';
-            case '10WD': return '10 Working Days';
-            case '30WD': return '30 Working Days';
+            case 'trend': return 'Trends Comparison';
             default: return aggregation;
         }
     };
