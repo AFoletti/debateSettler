@@ -77,6 +77,39 @@ function getAggregatedMetrics() {
 function convertToLegacyFormat(aggregatedData) {
     if (!aggregatedData) return null;
 
+    // Handle daily format (different structure)
+    if (currentAggregation === 'daily') {
+        return {
+            billable_hours: aggregatedData.billable_hours?.sum || 0,
+            daily_billable_avg: aggregatedData.billable_hours?.sum || 0, // For daily, avg = total
+            absent_from_home_hours: aggregatedData.away_from_home_hours?.sum || 0,
+            daily_away_avg: aggregatedData.away_from_home_hours?.sum || 0, // For daily, avg = total
+            back_home_stats: {
+                count: aggregatedData.back_home_times?.time ? 1 : 0,
+                mean: timeToDisplay(aggregatedData.back_home_times?.time),
+                median: timeToDisplay(aggregatedData.back_home_times?.time),
+                earliest: timeToDisplay(aggregatedData.back_home_times?.time),
+                latest: timeToDisplay(aggregatedData.back_home_times?.time)
+            },
+            home_office_end_stats: {
+                count: aggregatedData.home_office_end_times?.time ? 1 : 0,
+                mean: timeToDisplay(aggregatedData.home_office_end_times?.time),
+                median: timeToDisplay(aggregatedData.home_office_end_times?.time),
+                earliest: timeToDisplay(aggregatedData.home_office_end_times?.time),
+                latest: timeToDisplay(aggregatedData.home_office_end_times?.time)
+            },
+            late_work_frequency: {
+                late_work_days: aggregatedData.late_work_frequency?.count || 0,
+                total_work_days: 1,
+                percentage: (aggregatedData.late_work_frequency?.count || 0) * 100
+            },
+            total_entries: aggregatedData.total_entries || 0,
+            working_days_analyzed: 1,
+            date_range: { start: aggregatedData.date, end: aggregatedData.date }
+        };
+    }
+
+    // Handle aggregated format (weekly, monthly, working days)
     return {
         billable_hours: aggregatedData.billable_hours?.sum || 0,
         daily_billable_avg: aggregatedData.billable_hours?.mean || (aggregatedData.billable_hours?.sum / aggregatedData.working_days) || 0,
