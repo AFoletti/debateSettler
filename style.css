@@ -234,87 +234,38 @@ body {
     margin-right: 0.5rem;
 }
 
-/* Aggregation Selector */
-.aggregation-selector {
-    background-color: var(--dark-100);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    border: 1px solid var(--dark-200);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    margin-bottom: 2rem;
-}
-
-.aggregation-header {
-    margin-bottom: 1.25rem;
-}
-
-.aggregation-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--dark-800);
-    margin: 0 0 0.25rem 0;
-}
-
-.aggregation-subtitle {
-    font-size: 0.875rem;
-    color: var(--dark-500);
-    margin: 0;
-    font-weight: 500;
-}
-
-.aggregation-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.aggregation-btn {
+/* Aggregation Dropdown */
+.aggregation-dropdown {
     background-color: var(--dark-200);
     color: var(--dark-600);
     border: 1px solid var(--dark-200);
     border-radius: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     outline: none;
     font-family: inherit;
-    min-width: 80px;
-    text-align: center;
+    margin-right: 0.75rem;
+    min-width: 120px;
 }
 
-.aggregation-btn:hover {
+.aggregation-dropdown:hover {
     background-color: var(--dark-200);
     color: var(--dark-700);
     border-color: var(--dark-400);
-    transform: translateY(-1px);
 }
 
-.aggregation-btn.active {
-    background-color: var(--primary-500);
-    color: white;
+.aggregation-dropdown:focus {
     border-color: var(--primary-500);
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
-.aggregation-btn.active:hover {
-    background-color: var(--primary-600);
-    border-color: var(--primary-600);
-    transform: translateY(-1px);
-}
-
-@media (max-width: 640px) {
-    .aggregation-buttons {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-    }
-    
-    .aggregation-btn {
-        padding: 0.625rem 0.75rem;
-        min-width: auto;
-    }
+.aggregation-dropdown option {
+    background-color: var(--dark-100);
+    color: var(--dark-600);
+    padding: 0.5rem;
 }
 
 /* Metrics grid */
