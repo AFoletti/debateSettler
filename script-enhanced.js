@@ -640,7 +640,6 @@ function updateTrendsCards(data5WD, data10WD, data30WD) {
     document.getElementById('home-office-earliest').textContent = data30WD.home_office_end_times?.earliest || 'N/A';
     document.getElementById('home-office-latest').textContent = data30WD.home_office_end_times?.latest || 'N/A';
 }
-}
 
 function updateMetrics() {
     if (!metrics) return;
