@@ -601,6 +601,162 @@ body {
     line-height: 1.6;
 }
 
+/* Trends comparison cards */
+.trend-comparison-card {
+    grid-column: 1 / -1; /* Full width */
+    margin-bottom: 1rem;
+}
+
+.trends-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.trend-period {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    border: 1px solid var(--dark-200);
+}
+
+.trend-period-header {
+    margin-bottom: 0.75rem;
+}
+
+.trend-period-title {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dark-800);
+    margin-bottom: 0.25rem;
+}
+
+.trend-period-dates {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--dark-500);
+}
+
+.trend-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-400);
+}
+
+.trend-arrow-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.trend-arrow {
+    font-size: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-arrow.trend-up {
+    color: var(--danger-500);
+}
+
+.trend-arrow.trend-down {
+    color: var(--success-500);
+}
+
+.trend-arrow.trend-stable {
+    color: var(--dark-400);
+}
+
+.trend-diff {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--dark-600);
+    text-align: center;
+}
+
+.trend-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-500-30);
+    margin-top: 1rem;
+}
+
+.trend-summary-label {
+    font-size: 0.875rem;
+    color: var(--dark-600);
+}
+
+.trend-summary .trend-arrow {
+    font-size: 1rem;
+    width: auto;
+    height: auto;
+}
+
+.trend-summary .trend-diff {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments for trends */
+@media (max-width: 768px) {
+    .trends-comparison {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .trend-arrow-section {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+    
+    .trend-period {
+        padding: 0.75rem;
+    }
+    
+    .trend-value {
+        font-size: 1.25rem;
+    }
+    
+    .trend-summary {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .trend-period-title {
+        font-size: 0.8125rem;
+    }
+    
+    .trend-period-dates {
+        font-size: 0.6875rem;
+    }
+    
+    .trend-value {
+        font-size: 1.125rem;
+    }
+}
+
 /* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
     width: 8px;
