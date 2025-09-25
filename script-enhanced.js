@@ -679,7 +679,7 @@ function updateUI() {
     showDashboard();
     
     // Check if we should show trends view or regular view
-    if (isWorkingDaysView() && workingDaysKpis) {
+    if (isTrendsView() && workingDaysKpis) {
         showTrendsView();
     } else {
         showRegularView();
