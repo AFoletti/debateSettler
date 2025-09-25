@@ -14,16 +14,16 @@
       "median": 14.22
     },
     "back_home_times": {
-      "mean": 17.45,
-      "median": 17.45,
-      "earliest": 17.35,
-      "latest": 17.55
+      "mean": 19.45,
+      "median": 19.45,
+      "earliest": 19.35,
+      "latest": 19.55
     },
     "home_office_end_times": {
-      "mean": 14.59,
-      "median": 14.4,
-      "earliest": 14.32,
-      "latest": 15.05
+      "mean": 16.59,
+      "median": 16.4,
+      "earliest": 16.32,
+      "latest": 17.05
     },
     "late_work_frequency": {
       "count": 0
@@ -44,16 +44,16 @@
       "median": 13.32
     },
     "back_home_times": {
-      "mean": 16.85,
-      "median": 16.53,
-      "earliest": 16.32,
-      "latest": 17.55
+      "mean": 18.85,
+      "median": 18.53,
+      "earliest": 18.32,
+      "latest": 19.55
     },
     "home_office_end_times": {
-      "mean": 14.46,
-      "median": 14.4,
-      "earliest": 13.82,
-      "latest": 15.05
+      "mean": 16.46,
+      "median": 16.4,
+      "earliest": 15.82,
+      "latest": 17.05
     },
     "late_work_frequency": {
       "count": 0
@@ -74,19 +74,19 @@
       "median": 13.37
     },
     "back_home_times": {
-      "mean": 16.86,
-      "median": 16.53,
-      "earliest": 16.17,
-      "latest": 18.35
+      "mean": 18.86,
+      "median": 18.53,
+      "earliest": 18.17,
+      "latest": 20.35
     },
     "home_office_end_times": {
-      "mean": 13.69,
-      "median": 13.82,
-      "earliest": 9.55,
-      "latest": 15.05
+      "mean": 15.69,
+      "median": 15.82,
+      "earliest": 11.55,
+      "latest": 17.05
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     }
   }
 }

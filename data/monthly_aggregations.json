@@ -14,16 +14,16 @@
       "median": 13.25
     },
     "back_home_times": {
-      "mean": 16.69,
-      "median": 16.52,
-      "earliest": 16.32,
-      "latest": 17.55
+      "mean": 18.69,
+      "median": 18.52,
+      "earliest": 18.32,
+      "latest": 19.55
     },
     "home_office_end_times": {
-      "mean": 13.93,
-      "median": 14.4,
-      "earliest": 9.55,
-      "latest": 15.05
+      "mean": 15.93,
+      "median": 16.4,
+      "earliest": 11.55,
+      "latest": 17.05
     },
     "late_work_frequency": {
       "count": 0
@@ -44,19 +44,19 @@
       "median": 13.94
     },
     "back_home_times": {
-      "mean": 17.11,
-      "median": 17.05,
-      "earliest": 16.17,
-      "latest": 18.35
+      "mean": 19.11,
+      "median": 19.05,
+      "earliest": 18.17,
+      "latest": 20.35
     },
     "home_office_end_times": {
-      "mean": 13.52,
-      "median": 13.73,
-      "earliest": 10.47,
-      "latest": 14.9
+      "mean": 15.52,
+      "median": 15.73,
+      "earliest": 12.47,
+      "latest": 16.9
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 1
     }
   },
   "2025-07": {
@@ -74,19 +74,19 @@
       "median": 13.5
     },
     "back_home_times": {
-      "mean": 16.65,
-      "median": 16.47,
-      "earliest": 15.73,
-      "latest": 18.63
+      "mean": 18.65,
+      "median": 18.47,
+      "earliest": 17.73,
+      "latest": 20.63
     },
     "home_office_end_times": {
-      "mean": 15.09,
-      "median": 14.58,
-      "earliest": 13.13,
-      "latest": 19.82
+      "mean": 17.09,
+      "median": 16.58,
+      "earliest": 15.13,
+      "latest": 21.82
     },
     "late_work_frequency": {
-      "count": 0
+      "count": 3
     }
   },
   "2025-06": {
@@ -100,10 +100,10 @@
       "sum": 16.43
     },
     "home_office_end_times": {
-      "mean": 13.38,
-      "median": 13.38,
-      "earliest": 12.8,
-      "latest": 13.95
+      "mean": 15.38,
+      "median": 15.38,
+      "earliest": 14.8,
+      "latest": 15.95
     },
     "late_work_frequency": {
       "count": 0
