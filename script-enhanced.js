@@ -592,12 +592,12 @@ function updateMetrics() {
     }
 
     // Billable Hours
-    document.getElementById('billable-hours').textContent = `${metrics.billable_hours || 0}h`;
-    document.getElementById('billable-avg').innerHTML = `Daily average: <span>${metrics.daily_billable_avg || 0}h</span>`;
+    document.getElementById('billable-hours').textContent = `${Math.round((metrics.billable_hours || 0) * 100) / 100}h`;
+    document.getElementById('billable-avg').innerHTML = `Daily average: <span>${Math.round((metrics.daily_billable_avg || 0) * 100) / 100}h</span>`;
 
     // Time Away from Home
-    document.getElementById('away-hours').textContent = `${metrics.absent_from_home_hours || 0}h`;
-    document.getElementById('away-avg').innerHTML = `Daily average: <span>${metrics.daily_away_avg || 0}h</span>`;
+    document.getElementById('away-hours').textContent = `${Math.round((metrics.absent_from_home_hours || 0) * 100) / 100}h`;
+    document.getElementById('away-avg').innerHTML = `Daily average: <span>${Math.round((metrics.daily_away_avg || 0) * 100) / 100}h</span>`;
 
     // Late Work Frequency
     document.getElementById('late-work-percentage').textContent = `${metrics.late_work_frequency?.percentage || 0}%`;
