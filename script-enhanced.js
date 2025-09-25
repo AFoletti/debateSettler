@@ -1028,8 +1028,7 @@ function generateAggregatedCharts(chartData) {
     };
     chartInstances['billable-sum'] = createBarChart('chart-billable-sum', 'Billable Hours', billableData, '#10B981');
     
-    // Back Home Times Charts
-    
+    // Back Home Times Charts (using consistent time range)
     if (backHomeData.some(d => d.mean)) {
         const meanData = {
             labels: chartData.labels,
