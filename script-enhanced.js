@@ -898,9 +898,7 @@ function updateMetrics() {
             case 'daily': return 'Most recent day';
             case 'weekly': return 'Current week';  
             case 'monthly': return 'Current month';
-            case '5WD': return 'Last 5 working days';
-            case '10WD': return 'Last 10 working days';
-            case '30WD': return 'Last 30 working days';
+            case 'trend': return 'Trends comparison';
             default: return aggregationDisplay;
         }
     };
