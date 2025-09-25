@@ -1031,7 +1031,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: homeOfficeData.map(d => timeStringToDecimal(d.mean))
         };
-        chartInstances['home-office-mean'] = createBarChart('chart-home-office-mean', 'Average Home Office End Time', meanData, '#F59E0B');
+        chartInstances['home-office-mean'] = createBarChart('chart-home-office-mean', 'Average Home Office End Time', meanData, '#F59E0B', true);
     }
     
     if (homeOfficeData.some(d => d.median)) {
@@ -1039,7 +1039,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: homeOfficeData.map(d => timeStringToDecimal(d.median))
         };
-        chartInstances['home-office-median'] = createBarChart('chart-home-office-median', 'Median Home Office End Time', medianData, '#EF4444');
+        chartInstances['home-office-median'] = createBarChart('chart-home-office-median', 'Median Home Office End Time', medianData, '#EF4444', true);
     }
     
     if (homeOfficeData.some(d => d.earliest)) {
@@ -1047,7 +1047,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: homeOfficeData.map(d => timeStringToDecimal(d.earliest))
         };
-        chartInstances['home-office-earliest'] = createBarChart('chart-home-office-earliest', 'Earliest Home Office End Time', earliestData, '#8B5CF6');
+        chartInstances['home-office-earliest'] = createBarChart('chart-home-office-earliest', 'Earliest Home Office End Time', earliestData, '#8B5CF6', true);
     }
     
     if (homeOfficeData.some(d => d.latest)) {
@@ -1055,7 +1055,7 @@ function generateAggregatedCharts(chartData) {
             labels: chartData.labels,
             values: homeOfficeData.map(d => timeStringToDecimal(d.latest))
         };
-        chartInstances['home-office-latest'] = createBarChart('chart-home-office-latest', 'Latest Home Office End Time', latestData, '#06B6D4');
+        chartInstances['home-office-latest'] = createBarChart('chart-home-office-latest', 'Latest Home Office End Time', latestData, '#06B6D4', true);
     }
     
     // Late Work Chart (separate for aggregated views)
