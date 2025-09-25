@@ -596,9 +596,10 @@ function formatTimeDifference(minutes) {
 function updateTrendsUI() {
     if (!metrics || !metrics['5WD'] || !metrics['10WD'] || !metrics['30WD']) return;
 
-    const data5WD = convertToLegacyFormat(metrics['5WD']);
-    const data10WD = convertToLegacyFormat(metrics['10WD']);
-    const data30WD = convertToLegacyFormat(metrics['30WD']);
+    // Use the aggregated data directly (no need for legacy conversion)
+    const data5WD = metrics['5WD'];
+    const data10WD = metrics['10WD'];
+    const data30WD = metrics['30WD'];
 
     // Update analytics info for trends
     document.getElementById('analytics-info').textContent = 
