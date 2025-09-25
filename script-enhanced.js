@@ -24,6 +24,10 @@ const mainDashboard = document.getElementById('main-dashboard');
 const retryButton = document.getElementById('retry-button');
 const refreshButton = document.getElementById('refresh-button');
 const githubActionsLink = document.getElementById('github-actions-link');
+const metricsGrid = document.querySelector('.metrics-grid');
+const chartsContainer = document.getElementById('charts-container');
+const viewToggleButton = document.getElementById('view-toggle');
+const viewToggleText = document.getElementById('view-toggle-text');
 
 // Helper function to parse datetime with timezone handling
 function parseDateTime(dateTimeStr) {
