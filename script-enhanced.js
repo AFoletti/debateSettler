@@ -629,6 +629,7 @@ function updateMetrics() {
 function updateSummary() {
     if (!metrics || !rawData) return;
 
+    // Show total entries for current aggregation instead of just daily
     document.getElementById('total-entries-30').textContent = metrics.total_entries || 0;
     document.getElementById('total-entries-60').textContent = rawData.total_entries || 0;
     document.getElementById('working-days').textContent = metrics.working_days_analyzed || 0;
