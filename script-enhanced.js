@@ -572,7 +572,7 @@ function updateMetrics() {
         document.getElementById('last-updated').textContent = `Last updated: ${formatLastUpdated(rawData.fetched_at)}`;
     }
     
-    const dataInfo = `Raw data from ${rawData?.date_range?.days || 180} days • Statistics from ${aggregationDisplay} • Enhanced processing`;
+    const dataInfo = `Raw data from ${rawData?.date_range?.days || 90} days • Statistics from ${aggregationDisplay} • Enhanced processing`;
     document.getElementById('data-info').textContent = dataInfo;
 
     // Update metric labels based on aggregation - BE MORE SPECIFIC
@@ -647,7 +647,7 @@ function updateSummary() {
     
     // Update dynamic labels
     const currentAggregationLabel = getAggregationLabel(currentAggregation);
-    const rawDataPeriod = rawData?.date_range?.days || 180;
+    const rawDataPeriod = rawData?.date_range?.days || 90;
     
     // Update the summary labels dynamically
     const summaryLabels = document.querySelectorAll('.summary-label');

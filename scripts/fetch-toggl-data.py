@@ -2,7 +2,7 @@
 """
 Enhanced Toggl Track data fetcher with KPI calculation and aggregation
 This script runs daily via GitHub Actions and:
-1. Fetches 6 months of raw data (overwrites previous)
+1. Fetches 3 months of raw data (overwrites previous)
 2. Calculates daily KPIs and stores them persistently 
 3. Builds weekly, monthly, and working days aggregations
 """
@@ -384,14 +384,14 @@ class EnhancedTogglDataFetcher:
         workspace_id = self.get_workspace_id()
         print(f"📡 Found workspace ID: {workspace_id}")
         
-        # Calculate date range (last 6 months, excluding today)
+        # Calculate date range (last 3 months, excluding today)
         end_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
-        start_date = end_date - timedelta(days=180)  # Approximately 6 months
+        start_date = end_date - timedelta(days=90)  # Approximately 3 months
         
         start_date_str = start_date.strftime("%Y-%m-%dT00:00:00.000Z")
         end_date_str = end_date.strftime("%Y-%m-%dT23:59:59.999Z")
         
-        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (6 months)")
+        print(f"📅 Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (3 months)")
         
         # Fetch time entries
         time_entries = self.get_time_entries(start_date_str, end_date_str)
@@ -411,7 +411,7 @@ class EnhancedTogglDataFetcher:
             "date_range": {
                 "start": start_date.strftime("%Y-%m-%d"),
                 "end": end_date.strftime("%Y-%m-%d"),
-                "days": 180
+                "days": 90
             },
             "workspace_name": self.workspace_name,
             "workspace_id": workspace_id,
@@ -422,7 +422,7 @@ class EnhancedTogglDataFetcher:
         with open(data_dir / "raw_data.json", 'w') as f:
             json.dump(raw_data, f, indent=2)
         
-        print(f"✅ Raw data saved (6 months, {len(time_entries)} entries)")
+        print(f"✅ Raw data saved (3 months, {len(time_entries)} entries)")
         
         # Calculate daily KPIs
         print("🧮 Calculating daily KPIs...")
