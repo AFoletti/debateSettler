@@ -87,6 +87,11 @@ function getAggregatedMetrics() {
 function convertToLegacyFormat(aggregatedData) {
     if (!aggregatedData) return null;
 
+    // Handle trends format (multiple periods)
+    if (currentAggregation === 'trends') {
+        return aggregatedData; // Return as-is for trends processing
+    }
+
     // Handle daily format (different structure)
     if (currentAggregation === 'daily') {
         return {
