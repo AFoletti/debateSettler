@@ -793,10 +793,9 @@ function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeCh
             const minTime = Math.min(...validTimes);
             const maxTime = Math.max(...validTimes);
             
-            // Add some padding and ensure reasonable range
-            const padding = 1; // 1 hour padding
-            const rangeMin = Math.max(8, Math.floor(minTime) - padding); // Don't go below 8:00
-            const rangeMax = Math.min(24, Math.ceil(maxTime) + padding); // Don't go above 24:00
+            // Dynamic Y-axis: start 2 hours before the lowest value
+            const rangeMin = Math.max(6, Math.floor(minTime) - 2); // Don't go below 6:00 AM
+            const rangeMax = Math.min(24, Math.ceil(maxTime) + 1); // Add 1 hour padding at top
             
             yAxisOptions = {
                 min: rangeMin,
