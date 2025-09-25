@@ -991,6 +991,12 @@ function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeCh
 function generateCharts() {
     destroyCharts(); // Clean up existing charts
     
+    if (currentAggregation === 'trends') {
+        // For trends view, show comparison charts
+        generateTrendsCharts();
+        return;
+    }
+    
     const chartData = generateChartData(currentAggregation, currentChartTimeRange);
     if (!chartData.data.length) return;
     
