@@ -973,6 +973,44 @@ function generateAggregatedCharts(chartData) {
     const allSections = document.querySelectorAll('.chart-section');
     allSections.forEach(section => section.style.display = 'block');
     
+    // Calculate consistent Y-axis range for all time-based charts
+    const backHomeData = chartData.data.map(d => d.back_home_times || {});
+    const homeOfficeData = chartData.data.map(d => d.home_office_end_times || {});
+    
+    // Collect all time values from both Back Home and Home Office data
+    const allTimeValues = [];
+    
+    // Collect Back Home times
+    ['mean', 'median', 'earliest', 'latest'].forEach(stat => {
+        backHomeData.forEach(d => {
+            if (d[stat]) {
+                const timeValue = timeStringToDecimal(d[stat]);
+                if (timeValue !== null) allTimeValues.push(timeValue);
+            }
+        });
+    });
+    
+    // Collect Home Office times  
+    ['mean', 'median', 'earliest', 'latest'].forEach(stat => {
+        homeOfficeData.forEach(d => {
+            if (d[stat]) {
+                const timeValue = timeStringToDecimal(d[stat]);
+                if (timeValue !== null) allTimeValues.push(timeValue);
+            }
+        });
+    });
+    
+    // Calculate consistent range for all time charts
+    let consistentTimeRange = null;
+    if (allTimeValues.length > 0) {
+        const minTime = Math.min(...allTimeValues);
+        const maxTime = Math.max(...allTimeValues);
+        const rangeMin = Math.max(6, Math.floor(minTime) - 2); // Don't go below 6:00 AM
+        const rangeMax = Math.min(24, Math.ceil(maxTime) + 1); // Add 1 hour padding at top
+        
+        consistentTimeRange = { min: rangeMin, max: rangeMax };
+    }
+    
     // Billable Hours Chart (normal green)
     const billableData = {
         labels: chartData.labels,
@@ -981,7 +1019,6 @@ function generateAggregatedCharts(chartData) {
     chartInstances['billable-sum'] = createBarChart('chart-billable-sum', 'Billable Hours', billableData, '#10B981');
     
     // Back Home Times Charts
-    const backHomeData = chartData.data.map(d => d.back_home_times || {});
     
     if (backHomeData.some(d => d.mean)) {
         const meanData = {
