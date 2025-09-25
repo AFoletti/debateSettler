@@ -701,6 +701,31 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     });
+    
+    // Aggregation selector buttons
+    const aggregationButtons = document.querySelectorAll('.aggregation-btn');
+    aggregationButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            aggregationButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get aggregation value
+            const newAggregation = this.getAttribute('data-aggregation');
+            
+            // Update current aggregation
+            currentAggregation = newAggregation;
+            
+            // Reprocess data and update UI
+            const aggregatedData = getAggregatedMetrics();
+            metrics = convertToLegacyFormat(aggregatedData);
+            updateUI();
+            
+            console.log('📊 Switched to aggregation:', newAggregation);
+        });
+    });
 });
 
 // Make enhanced functions available globally for debugging
