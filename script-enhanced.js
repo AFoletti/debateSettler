@@ -12,7 +12,10 @@ let workingDaysKpis = null;
 let metrics = null;
 let loading = true;
 let error = null;
-let currentAggregation = '30WD'; // Default to 30 working days
+let currentAggregation = '30WD';
+let currentView = 'cards'; // 'cards' or 'charts'
+let currentChartTimeRange = 30;
+let chartInstances = {}; // Store chart instances for cleanup // Default to 30 working days
 
 // DOM elements
 const loadingContainer = document.getElementById('loading-container');
