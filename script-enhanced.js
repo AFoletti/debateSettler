@@ -542,6 +542,7 @@ function getAggregatedMetrics() {
             return workingDaysKpis?.['30WD'] || null;
     }
 }
+// Calculate differences between working days periods
 function calculateWorkingDaysDifferences() {
     if (!workingDaysKpis) return null;
     
