@@ -276,6 +276,91 @@
                 </div>
             </div>
 
+            <!-- Charts Container (hidden by default) -->
+            <div id="charts-container" class="charts-container" style="display: none;">
+                <div class="charts-header">
+                    <h2 class="charts-title">Data Visualization</h2>
+                    <div class="chart-controls">
+                        <label for="chart-timerange">Time Range:</label>
+                        <select id="chart-timerange" class="chart-timerange-selector">
+                            <option value="5">5 periods</option>
+                            <option value="10">10 periods</option>
+                            <option value="30" selected>30 periods</option>
+                            <option value="90">90 periods</option>
+                            <option value="all">All available</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Billable Hours Charts -->
+                <div class="chart-section">
+                    <h3 class="chart-section-title">Billable Hours</h3>
+                    <div class="chart-grid">
+                        <div class="chart-item">
+                            <canvas id="chart-billable-sum"></canvas>
+                            <div class="chart-label">Total Hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Back Home Times Charts -->
+                <div class="chart-section">
+                    <h3 class="chart-section-title">Back Home Times</h3>
+                    <div class="chart-grid">
+                        <div class="chart-item">
+                            <canvas id="chart-back-home-mean"></canvas>
+                            <div class="chart-label">Average Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-back-home-median"></canvas>
+                            <div class="chart-label">Median Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-back-home-earliest"></canvas>
+                            <div class="chart-label">Earliest Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-back-home-latest"></canvas>
+                            <div class="chart-label">Latest Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Office End Times Charts -->
+                <div class="chart-section">
+                    <h3 class="chart-section-title">HomeOffice End Times</h3>
+                    <div class="chart-grid">
+                        <div class="chart-item">
+                            <canvas id="chart-home-office-mean"></canvas>
+                            <div class="chart-label">Average Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-home-office-median"></canvas>
+                            <div class="chart-label">Median Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-home-office-earliest"></canvas>
+                            <div class="chart-label">Earliest Time</div>
+                        </div>
+                        <div class="chart-item">
+                            <canvas id="chart-home-office-latest"></canvas>
+                            <div class="chart-label">Latest Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Late Work Frequency Chart -->
+                <div class="chart-section">
+                    <h3 class="chart-section-title">Late Work Frequency</h3>
+                    <div class="chart-grid">
+                        <div class="chart-item">
+                            <canvas id="chart-late-work"></canvas>
+                            <div class="chart-label">Days with Late Work</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Summary Stats -->
             <div class="data-summary">
                 <h2 class="summary-title">Data Summary</h2>
