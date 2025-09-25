@@ -1000,7 +1000,27 @@ document.addEventListener('DOMContentLoaded', function() {
         metrics = convertToLegacyFormat(aggregatedData);
         updateUI();
         
+        // Regenerate charts if in charts view
+        if (currentView === 'charts') {
+            generateCharts();
+        }
+        
         console.log('📊 Switched to aggregation:', newAggregation);
+    });
+    
+    // View toggle button
+    viewToggleButton.addEventListener('click', toggleView);
+    
+    // Chart time range selector
+    const chartTimeRangeSelector = document.getElementById('chart-timerange');
+    chartTimeRangeSelector.addEventListener('change', function() {
+        currentChartTimeRange = this.value === 'all' ? 'all' : parseInt(this.value);
+        
+        if (currentView === 'charts') {
+            generateCharts();
+        }
+        
+        console.log('📊 Chart time range changed to:', currentChartTimeRange);
     });
 });
 
