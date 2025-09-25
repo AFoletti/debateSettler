@@ -611,35 +611,35 @@ function updateTrendsUI() {
 
 // Function to update cards for trends display
 function updateTrendsCards(data5WD, data10WD, data30WD) {
-    // This function will be implemented to create the side-by-side layout
-    // For now, let's use the 30WD data as primary display
+    // For now, display 30WD data as primary (later we'll create side-by-side layout)
     
     // Billable Hours
-    document.getElementById('billable-hours').textContent = `${Math.round((data30WD.billable_hours || 0) * 100) / 100}h`;
-    document.getElementById('billable-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.daily_billable_avg || 0) * 100) / 100}h</span>`;
+    document.getElementById('billable-hours').textContent = `${Math.round((data30WD.billable_hours?.sum || 0) * 100) / 100}h`;
+    document.getElementById('billable-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.billable_hours?.mean || 0) * 100) / 100}h</span>`;
 
     // Time Away from Home  
-    document.getElementById('away-hours').textContent = `${Math.round((data30WD.absent_from_home_hours || 0) * 100) / 100}h`;
-    document.getElementById('away-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.daily_away_avg || 0) * 100) / 100}h</span>`;
+    document.getElementById('away-hours').textContent = `${Math.round((data30WD.away_from_home_hours?.sum || 0) * 100) / 100}h`;
+    document.getElementById('away-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.away_from_home_hours?.mean || 0) * 100) / 100}h</span>`;
 
     // Late Work Frequency
-    document.getElementById('late-work-percentage').textContent = `${data30WD.late_work_frequency?.percentage || 0}%`;
+    document.getElementById('late-work-percentage').textContent = `${Math.round((data30WD.late_work_frequency?.percentage || 0) * 10) / 10}%`;
     document.getElementById('late-work-subtitle').textContent = 
-        `${data30WD.late_work_frequency?.late_work_days || 0} out of ${data30WD.late_work_frequency?.total_work_days || 0} work days after 20:00`;
+        `${data30WD.late_work_frequency?.count || 0} out of ${data30WD.working_days || 0} work days after 20:00`;
 
     // Back Home Times
-    document.getElementById('back-home-count').textContent = data30WD.back_home_stats?.count || 0;
-    document.getElementById('back-home-mean').textContent = data30WD.back_home_stats?.mean || 'N/A';
-    document.getElementById('back-home-median').textContent = data30WD.back_home_stats?.median || 'N/A';
-    document.getElementById('back-home-earliest').textContent = data30WD.back_home_stats?.earliest || 'N/A';
-    document.getElementById('back-home-latest').textContent = data30WD.back_home_stats?.latest || 'N/A';
+    document.getElementById('back-home-count').textContent = data30WD.back_home_times?.count || 0;
+    document.getElementById('back-home-mean').textContent = data30WD.back_home_times?.mean || 'N/A';
+    document.getElementById('back-home-median').textContent = data30WD.back_home_times?.median || 'N/A';
+    document.getElementById('back-home-earliest').textContent = data30WD.back_home_times?.earliest || 'N/A';
+    document.getElementById('back-home-latest').textContent = data30WD.back_home_times?.latest || 'N/A';
 
     // HomeOffice End Times  
-    document.getElementById('home-office-count').textContent = data30WD.home_office_end_stats?.count || 0;
-    document.getElementById('home-office-mean').textContent = data30WD.home_office_end_stats?.mean || 'N/A';
-    document.getElementById('home-office-median').textContent = data30WD.home_office_end_stats?.median || 'N/A';
-    document.getElementById('home-office-earliest').textContent = data30WD.home_office_end_stats?.earliest || 'N/A';
-    document.getElementById('home-office-latest').textContent = data30WD.home_office_end_stats?.latest || 'N/A';
+    document.getElementById('home-office-count').textContent = data30WD.home_office_end_times?.count || 0;
+    document.getElementById('home-office-mean').textContent = data30WD.home_office_end_times?.mean || 'N/A';
+    document.getElementById('home-office-median').textContent = data30WD.home_office_end_times?.median || 'N/A';
+    document.getElementById('home-office-earliest').textContent = data30WD.home_office_end_times?.earliest || 'N/A';
+    document.getElementById('home-office-latest').textContent = data30WD.home_office_end_times?.latest || 'N/A';
+}
 }
 
 function updateMetrics() {
