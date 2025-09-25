@@ -1061,8 +1061,7 @@ function generateAggregatedCharts(chartData) {
         chartInstances['back-home-latest'] = createBarChart('chart-back-home-latest', 'Latest Back Home Time', latestData, '#06B6D4', true, consistentTimeRange);
     }
     
-    // Home Office End Times Charts
-    const homeOfficeData = chartData.data.map(d => d.home_office_end_times || {});
+    // Home Office End Times Charts (using consistent time range)
     
     if (homeOfficeData.some(d => d.mean)) {
         const meanData = {
