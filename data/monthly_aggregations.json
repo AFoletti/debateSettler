@@ -1,0 +1,112 @@
+{
+  "2025-09": {
+    "working_days": 17,
+    "date_range": {
+      "start": "2025-09-01",
+      "end": "2025-09-24"
+    },
+    "month": "2025-09",
+    "billable_hours": {
+      "sum": 148.19
+    },
+    "away_from_home_hours": {
+      "mean": 13.42,
+      "median": 13.25
+    },
+    "back_home_times": {
+      "mean": 16.69,
+      "median": 16.52,
+      "earliest": 16.32,
+      "latest": 17.55
+    },
+    "home_office_end_times": {
+      "mean": 13.93,
+      "median": 14.4,
+      "earliest": 9.55,
+      "latest": 15.05
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-08": {
+    "working_days": 15,
+    "date_range": {
+      "start": "2025-08-11",
+      "end": "2025-08-29"
+    },
+    "month": "2025-08",
+    "billable_hours": {
+      "sum": 134.77
+    },
+    "away_from_home_hours": {
+      "mean": 14.04,
+      "median": 13.94
+    },
+    "back_home_times": {
+      "mean": 17.11,
+      "median": 17.05,
+      "earliest": 16.17,
+      "latest": 18.35
+    },
+    "home_office_end_times": {
+      "mean": 13.52,
+      "median": 13.73,
+      "earliest": 10.47,
+      "latest": 14.9
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-07": {
+    "working_days": 17,
+    "date_range": {
+      "start": "2025-07-01",
+      "end": "2025-07-23"
+    },
+    "month": "2025-07",
+    "billable_hours": {
+      "sum": 160.24
+    },
+    "away_from_home_hours": {
+      "mean": 13.31,
+      "median": 13.5
+    },
+    "back_home_times": {
+      "mean": 16.65,
+      "median": 16.47,
+      "earliest": 15.73,
+      "latest": 18.63
+    },
+    "home_office_end_times": {
+      "mean": 15.09,
+      "median": 14.58,
+      "earliest": 13.13,
+      "latest": 19.82
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  },
+  "2025-06": {
+    "working_days": 2,
+    "date_range": {
+      "start": "2025-06-27",
+      "end": "2025-06-30"
+    },
+    "month": "2025-06",
+    "billable_hours": {
+      "sum": 16.43
+    },
+    "home_office_end_times": {
+      "mean": 13.38,
+      "median": 13.38,
+      "earliest": 12.8,
+      "latest": 13.95
+    },
+    "late_work_frequency": {
+      "count": 0
+    }
+  }
+}
