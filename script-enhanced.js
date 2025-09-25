@@ -563,6 +563,84 @@ function showDashboard() {
     mainDashboard.style.display = 'block';
 }
 
+// Helper function to calculate time difference in minutes
+function getTimeDifferenceMinutes(time1, time2) {
+    if (!time1 || !time2) return null;
+    
+    const [h1, m1] = time1.split(':').map(Number);
+    const [h2, m2] = time2.split(':').map(Number);
+    
+    const minutes1 = h1 * 60 + m1;
+    const minutes2 = h2 * 60 + m2;
+    
+    return minutes1 - minutes2;
+}
+
+// Format time difference for display
+function formatTimeDifference(minutes) {
+    if (minutes === null) return '';
+    
+    const absMinutes = Math.abs(minutes);
+    const sign = minutes >= 0 ? '+' : '-';
+    
+    if (absMinutes < 60) {
+        return `${sign}${absMinutes}min`;
+    } else {
+        const hours = Math.floor(absMinutes / 60);
+        const mins = absMinutes % 60;
+        return mins > 0 ? `${sign}${hours}h${mins}min` : `${sign}${hours}h`;
+    }
+}
+
+// Update UI for trends view (showing 5WD, 10WD, 30WD side by side)
+function updateTrendsUI() {
+    if (!metrics || !metrics['5WD'] || !metrics['10WD'] || !metrics['30WD']) return;
+
+    const data5WD = convertToLegacyFormat(metrics['5WD']);
+    const data10WD = convertToLegacyFormat(metrics['10WD']);
+    const data30WD = convertToLegacyFormat(metrics['30WD']);
+
+    // Update analytics info for trends
+    document.getElementById('analytics-info').textContent = 
+        'Trending Analysis: 5, 10, and 30 working days comparison';
+
+    // Update main UI to show trends layout
+    updateTrendsCards(data5WD, data10WD, data30WD);
+}
+
+// Function to update cards for trends display
+function updateTrendsCards(data5WD, data10WD, data30WD) {
+    // This function will be implemented to create the side-by-side layout
+    // For now, let's use the 30WD data as primary display
+    
+    // Billable Hours
+    document.getElementById('billable-hours').textContent = `${Math.round((data30WD.billable_hours || 0) * 100) / 100}h`;
+    document.getElementById('billable-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.daily_billable_avg || 0) * 100) / 100}h</span>`;
+
+    // Time Away from Home  
+    document.getElementById('away-hours').textContent = `${Math.round((data30WD.absent_from_home_hours || 0) * 100) / 100}h`;
+    document.getElementById('away-avg').innerHTML = `Daily average: <span>${Math.round((data30WD.daily_away_avg || 0) * 100) / 100}h</span>`;
+
+    // Late Work Frequency
+    document.getElementById('late-work-percentage').textContent = `${data30WD.late_work_frequency?.percentage || 0}%`;
+    document.getElementById('late-work-subtitle').textContent = 
+        `${data30WD.late_work_frequency?.late_work_days || 0} out of ${data30WD.late_work_frequency?.total_work_days || 0} work days after 20:00`;
+
+    // Back Home Times
+    document.getElementById('back-home-count').textContent = data30WD.back_home_stats?.count || 0;
+    document.getElementById('back-home-mean').textContent = data30WD.back_home_stats?.mean || 'N/A';
+    document.getElementById('back-home-median').textContent = data30WD.back_home_stats?.median || 'N/A';
+    document.getElementById('back-home-earliest').textContent = data30WD.back_home_stats?.earliest || 'N/A';
+    document.getElementById('back-home-latest').textContent = data30WD.back_home_stats?.latest || 'N/A';
+
+    // HomeOffice End Times  
+    document.getElementById('home-office-count').textContent = data30WD.home_office_end_stats?.count || 0;
+    document.getElementById('home-office-mean').textContent = data30WD.home_office_end_stats?.mean || 'N/A';
+    document.getElementById('home-office-median').textContent = data30WD.home_office_end_stats?.median || 'N/A';
+    document.getElementById('home-office-earliest').textContent = data30WD.home_office_end_stats?.earliest || 'N/A';
+    document.getElementById('home-office-latest').textContent = data30WD.home_office_end_stats?.latest || 'N/A';
+}
+
 function updateMetrics() {
     if (!metrics) return;
 
