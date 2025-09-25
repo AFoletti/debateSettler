@@ -506,12 +506,42 @@ function formatLastUpdated(isoString) {
     }
 }
 
-// Check if current aggregation is a working days view
-function isWorkingDaysView() {
-    return currentAggregation === '5WD' || currentAggregation === '10WD' || currentAggregation === '30WD';
+// Check if current aggregation is a trends view
+function isTrendsView() {
+    return currentAggregation === 'trend';
 }
 
-// Calculate differences between working days periods
+// Enhanced function to get aggregated metrics based on current selection
+function getAggregatedMetrics() {
+    if (!dailyKpis) return null;
+
+    switch(currentAggregation) {
+        case 'daily':
+            // For daily, get most recent day
+            const latestDate = Object.keys(dailyKpis).sort().pop();
+            return dailyKpis[latestDate] || null;
+        case 'weekly':
+            // Get most recent week
+            if (weeklyKpis) {
+                const latestWeek = Object.keys(weeklyKpis).sort().pop();
+                return weeklyKpis[latestWeek];
+            }
+            return null;
+        case 'monthly':
+            // Get most recent month
+            if (monthlyKpis) {
+                const latestMonth = Object.keys(monthlyKpis).sort().pop();
+                return monthlyKpis[latestMonth];
+            }
+            return null;
+        case 'trend':
+            // For trends, return 30WD as baseline
+            return workingDaysKpis?.['30WD'] || null;
+        default:
+            // Fallback to 30WD
+            return workingDaysKpis?.['30WD'] || null;
+    }
+}
 function calculateWorkingDaysDifferences() {
     if (!workingDaysKpis) return null;
     
