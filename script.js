@@ -593,28 +593,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Retry button
     retryButton.addEventListener('click', fetchData);
-    
-    // Refresh button  
-    refreshButton.addEventListener('click', async function() {
-        refreshButton.disabled = true;
-        refreshButton.textContent = 'Refreshing...';
-        
-        try {
-            await fetchData();
-            console.log('🔄 Data refreshed successfully');
-        } catch (error) {
-            console.error('❌ Error refreshing data:', error);
-        } finally {
-            refreshButton.disabled = false;
-            refreshButton.innerHTML = `
-                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-                Refresh Data
-            `;
-        }
-    });
 });
 
 // Make functions available globally for debugging
