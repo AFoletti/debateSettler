@@ -45,10 +45,10 @@ function getAggregatedMetrics() {
     if (!dailyKpis) return null;
 
     switch(currentAggregation) {
-        case '5WD':
-        case '10WD':
-        case '30WD':
-            return workingDaysKpis?.[currentAggregation] || null;
+        case 'daily':
+            // For daily, get most recent day
+            const latestDate = Object.keys(dailyKpis).sort().pop();
+            return dailyKpis[latestDate] || null;
         case 'weekly':
             // Get most recent week
             if (weeklyKpis) {
@@ -63,6 +63,10 @@ function getAggregatedMetrics() {
                 return monthlyKpis[latestMonth];
             }
             return null;
+        case '5WD':
+        case '10WD':
+        case '30WD':
+            return workingDaysKpis?.[currentAggregation] || null;
         default:
             // Fallback to 30WD
             return workingDaysKpis?.['30WD'] || null;
