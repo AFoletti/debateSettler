@@ -17,17 +17,9 @@ let currentView = 'cards'; // 'cards' or 'charts'
 let currentChartTimeRange = 30;
 let chartInstances = {}; // Store chart instances for cleanup // Default to 30 working days
 
-// DOM elements
-const loadingContainer = document.getElementById('loading-container');
-const errorContainer = document.getElementById('error-container');
-const mainDashboard = document.getElementById('main-dashboard');
-const retryButton = document.getElementById('retry-button');
-const refreshButton = document.getElementById('refresh-button');
-const githubActionsLink = document.getElementById('github-actions-link');
-const metricsGrid = document.querySelector('.metrics-grid');
-const chartsContainer = document.getElementById('charts-container');
-const viewToggleButton = document.getElementById('view-toggle');
-const viewToggleText = document.getElementById('view-toggle-text');
+// DOM elements - will be initialized in DOMContentLoaded
+let loadingContainer, errorContainer, mainDashboard, retryButton, refreshButton;
+let githubActionsLink, metricsGrid, chartsContainer, viewToggleButton, viewToggleText;
 
 // Helper function to parse datetime with timezone handling
 function parseDateTime(dateTimeStr) {
