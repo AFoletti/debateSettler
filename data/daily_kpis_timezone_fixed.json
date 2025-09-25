@@ -1,0 +1,1022 @@
+{
+  "2025-09-24": {
+    "billable_hours": {
+      "sum": 8.72
+    },
+    "away_from_home_hours": {
+      "sum": 14.28
+    },
+    "back_home_times": {
+      "time": 19.55
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 26,
+    "date": "2025-09-24"
+  },
+  "2025-09-23": {
+    "billable_hours": {
+      "sum": 9.88
+    },
+    "away_from_home_hours": {
+      "sum": 14.16
+    },
+    "back_home_times": {
+      "time": 19.35
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 17,
+    "date": "2025-09-23"
+  },
+  "2025-09-22": {
+    "billable_hours": {
+      "sum": 9.54
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.32
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 18,
+    "date": "2025-09-22"
+  },
+  "2025-09-19": {
+    "billable_hours": {
+      "sum": 10.15
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 17.05
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-09-19"
+  },
+  "2025-09-18": {
+    "billable_hours": {
+      "sum": 9.28
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.4
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 13,
+    "date": "2025-09-18"
+  },
+  "2025-09-17": {
+    "billable_hours": {
+      "sum": 6.29
+    },
+    "away_from_home_hours": {
+      "sum": 12.75
+    },
+    "back_home_times": {
+      "time": 18.53
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 16,
+    "date": "2025-09-17"
+  },
+  "2025-09-16": {
+    "billable_hours": {
+      "sum": 9.72
+    },
+    "away_from_home_hours": {
+      "sum": 13.17
+    },
+    "back_home_times": {
+      "time": 18.32
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-09-16"
+  },
+  "2025-09-12": {
+    "billable_hours": {
+      "sum": 8.67
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.7
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 19,
+    "date": "2025-09-12"
+  },
+  "2025-09-11": {
+    "billable_hours": {
+      "sum": 9.25
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.82
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-09-11"
+  },
+  "2025-09-10": {
+    "billable_hours": {
+      "sum": 7.54
+    },
+    "away_from_home_hours": {
+      "sum": 13.32
+    },
+    "back_home_times": {
+      "time": 18.5
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 19,
+    "date": "2025-09-10"
+  },
+  "2025-09-09": {
+    "billable_hours": {
+      "sum": 9.72
+    },
+    "away_from_home_hours": {
+      "sum": 13.14
+    },
+    "back_home_times": {
+      "time": 18.35
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 23,
+    "date": "2025-09-09"
+  },
+  "2025-09-08": {
+    "billable_hours": {
+      "sum": 9.38
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.47
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 13,
+    "date": "2025-09-08"
+  },
+  "2025-09-05": {
+    "billable_hours": {
+      "sum": 5.84
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 11.55
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 8,
+    "date": "2025-09-05"
+  },
+  "2025-09-04": {
+    "billable_hours": {
+      "sum": 8.16
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.12
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 14,
+    "date": "2025-09-04"
+  },
+  "2025-09-03": {
+    "billable_hours": {
+      "sum": 7.45
+    },
+    "away_from_home_hours": {
+      "sum": 13.13
+    },
+    "back_home_times": {
+      "time": 18.35
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 24,
+    "date": "2025-09-03"
+  },
+  "2025-09-02": {
+    "billable_hours": {
+      "sum": 8.46
+    },
+    "away_from_home_hours": {
+      "sum": 13.4
+    },
+    "back_home_times": {
+      "time": 18.55
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-09-02"
+  },
+  "2025-09-01": {
+    "billable_hours": {
+      "sum": 10.14
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.95
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 17,
+    "date": "2025-09-01"
+  },
+  "2025-08-29": {
+    "billable_hours": {
+      "sum": 8.85
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.8
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 15,
+    "date": "2025-08-29"
+  },
+  "2025-08-28": {
+    "billable_hours": {
+      "sum": 8.66
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.82
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 14,
+    "date": "2025-08-28"
+  },
+  "2025-08-27": {
+    "billable_hours": {
+      "sum": 10.3
+    },
+    "away_from_home_hours": {
+      "sum": 15.18
+    },
+    "back_home_times": {
+      "time": 20.35
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 1
+    },
+    "working_day": true,
+    "total_entries": 25,
+    "date": "2025-08-27"
+  },
+  "2025-08-26": {
+    "billable_hours": {
+      "sum": 9.93
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.9
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 16,
+    "date": "2025-08-26"
+  },
+  "2025-08-25": {
+    "billable_hours": {
+      "sum": 8.83
+    },
+    "away_from_home_hours": {
+      "sum": 13.37
+    },
+    "back_home_times": {
+      "time": 18.5
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 21,
+    "date": "2025-08-25"
+  },
+  "2025-08-22": {
+    "billable_hours": {
+      "sum": 8.4
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.65
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 18,
+    "date": "2025-08-22"
+  },
+  "2025-08-21": {
+    "billable_hours": {
+      "sum": 8.43
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.57
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-08-21"
+  },
+  "2025-08-20": {
+    "billable_hours": {
+      "sum": 9.41
+    },
+    "away_from_home_hours": {
+      "sum": 14.85
+    },
+    "back_home_times": {
+      "time": 19.52
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-08-20"
+  },
+  "2025-08-19": {
+    "billable_hours": {
+      "sum": 9.22
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.43
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-08-19"
+  },
+  "2025-08-18": {
+    "billable_hours": {
+      "sum": 10.07
+    },
+    "away_from_home_hours": {
+      "sum": 13.99
+    },
+    "back_home_times": {
+      "time": 19.17
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-08-18"
+  },
+  "2025-08-15": {
+    "billable_hours": {
+      "sum": 6.36
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 12.47
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 4,
+    "date": "2025-08-15"
+  },
+  "2025-08-14": {
+    "billable_hours": {
+      "sum": 8.77
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.73
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 10,
+    "date": "2025-08-14"
+  },
+  "2025-08-13": {
+    "billable_hours": {
+      "sum": 8.8
+    },
+    "away_from_home_hours": {
+      "sum": 13.0
+    },
+    "back_home_times": {
+      "time": 18.17
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 22,
+    "date": "2025-08-13"
+  },
+  "2025-08-12": {
+    "billable_hours": {
+      "sum": 8.76
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.32
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-08-12"
+  },
+  "2025-08-11": {
+    "billable_hours": {
+      "sum": 9.98
+    },
+    "away_from_home_hours": {
+      "sum": 13.88
+    },
+    "back_home_times": {
+      "time": 18.92
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 19,
+    "date": "2025-08-11"
+  },
+  "2025-07-23": {
+    "billable_hours": {
+      "sum": 11.31
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 21.82
+    },
+    "late_work_frequency": {
+      "count": 1
+    },
+    "working_day": true,
+    "total_entries": 17,
+    "date": "2025-07-23"
+  },
+  "2025-07-22": {
+    "billable_hours": {
+      "sum": 11.46
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 18.1
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-07-22"
+  },
+  "2025-07-21": {
+    "billable_hours": {
+      "sum": 9.97
+    },
+    "away_from_home_hours": {
+      "sum": 13.06
+    },
+    "back_home_times": {
+      "time": 17.73
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 1
+    },
+    "working_day": true,
+    "total_entries": 21,
+    "date": "2025-07-21"
+  },
+  "2025-07-18": {
+    "billable_hours": {
+      "sum": 7.73
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.18
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 16,
+    "date": "2025-07-18"
+  },
+  "2025-07-17": {
+    "billable_hours": {
+      "sum": 10.5
+    },
+    "away_from_home_hours": {
+      "sum": 15.99
+    },
+    "back_home_times": {
+      "time": 20.63
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 1
+    },
+    "working_day": true,
+    "total_entries": 21,
+    "date": "2025-07-17"
+  },
+  "2025-07-16": {
+    "billable_hours": {
+      "sum": 9.45
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.58
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 15,
+    "date": "2025-07-16"
+  },
+  "2025-07-15": {
+    "billable_hours": {
+      "sum": 10.54
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 18.03
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 14,
+    "date": "2025-07-15"
+  },
+  "2025-07-14": {
+    "billable_hours": {
+      "sum": 8.53
+    },
+    "away_from_home_hours": {
+      "sum": 13.95
+    },
+    "back_home_times": {
+      "time": 18.57
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 22,
+    "date": "2025-07-14"
+  },
+  "2025-07-11": {
+    "billable_hours": {
+      "sum": 8.41
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.13
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 12,
+    "date": "2025-07-11"
+  },
+  "2025-07-10": {
+    "billable_hours": {
+      "sum": 9.18
+    },
+    "away_from_home_hours": {
+      "sum": 12.93
+    },
+    "back_home_times": {
+      "time": 18.15
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 19,
+    "date": "2025-07-10"
+  },
+  "2025-07-09": {
+    "billable_hours": {
+      "sum": 9.63
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 17.05
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 14,
+    "date": "2025-07-09"
+  },
+  "2025-07-08": {
+    "billable_hours": {
+      "sum": 8.96
+    },
+    "away_from_home_hours": {
+      "sum": 14.07
+    },
+    "back_home_times": {
+      "time": 18.72
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 23,
+    "date": "2025-07-08"
+  },
+  "2025-07-07": {
+    "billable_hours": {
+      "sum": 9.48
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 16.15
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 17,
+    "date": "2025-07-07"
+  },
+  "2025-07-04": {
+    "billable_hours": {
+      "sum": 8.13
+    },
+    "away_from_home_hours": {
+      "sum": 9.41
+    },
+    "back_home_times": {
+      "time": 18.37
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-07-04"
+  },
+  "2025-07-03": {
+    "billable_hours": {
+      "sum": 9.0
+    },
+    "away_from_home_hours": {
+      "sum": 12.98
+    },
+    "back_home_times": {
+      "time": 18.25
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 21,
+    "date": "2025-07-03"
+  },
+  "2025-07-02": {
+    "billable_hours": {
+      "sum": 8.95
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.8
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 16,
+    "date": "2025-07-02"
+  },
+  "2025-07-01": {
+    "billable_hours": {
+      "sum": 9.01
+    },
+    "away_from_home_hours": {
+      "sum": 14.11
+    },
+    "back_home_times": {
+      "time": 18.78
+    },
+    "home_office_end_times": {
+      "time": null
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 20,
+    "date": "2025-07-01"
+  },
+  "2025-06-30": {
+    "billable_hours": {
+      "sum": 8.21
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 14.8
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 13,
+    "date": "2025-06-30"
+  },
+  "2025-06-27": {
+    "billable_hours": {
+      "sum": 8.22
+    },
+    "away_from_home_hours": {
+      "sum": 0
+    },
+    "back_home_times": {
+      "time": null
+    },
+    "home_office_end_times": {
+      "time": 15.95
+    },
+    "late_work_frequency": {
+      "count": 0
+    },
+    "working_day": true,
+    "total_entries": 14,
+    "date": "2025-06-27"
+  }
+}
