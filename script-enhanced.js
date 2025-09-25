@@ -696,6 +696,224 @@ function updateFooter() {
     }
 }
 
+// View Toggle Functions
+function toggleView() {
+    currentView = currentView === 'cards' ? 'charts' : 'cards';
+    updateViewDisplay();
+}
+
+function updateViewDisplay() {
+    if (currentView === 'charts') {
+        metricsGrid.style.display = 'none';
+        chartsContainer.style.display = 'block';
+        viewToggleText.textContent = 'Cards';
+        generateCharts();
+    } else {
+        metricsGrid.style.display = 'grid';
+        chartsContainer.style.display = 'none';
+        viewToggleText.textContent = 'Charts';
+        destroyCharts();
+    }
+}
+
+// Chart Management Functions
+function destroyCharts() {
+    Object.values(chartInstances).forEach(chart => {
+        if (chart) {
+            chart.destroy();
+        }
+    });
+    chartInstances = {};
+}
+
+function timeStringToDecimal(timeStr) {
+    if (!timeStr || timeStr === 'N/A') return null;
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return hours + minutes / 60;
+}
+
+function generateChartData(aggregationType, timeRange) {
+    let sourceData;
+    
+    // Get appropriate data source based on aggregation type
+    switch(aggregationType) {
+        case 'daily':
+            sourceData = dailyKpis;
+            break;
+        case 'weekly':
+            sourceData = weeklyKpis;
+            break;
+        case 'monthly':
+            sourceData = monthlyKpis;
+            break;
+        default:
+            sourceData = dailyKpis; // Use daily as base for working days aggregations
+    }
+    
+    if (!sourceData) return { labels: [], datasets: [] };
+    
+    // Sort and limit data based on time range
+    const sortedKeys = Object.keys(sourceData).sort();
+    const limitedKeys = timeRange === 'all' ? sortedKeys : sortedKeys.slice(-timeRange);
+    
+    const labels = limitedKeys.map(key => {
+        if (aggregationType === 'weekly') {
+            return `Week ${key.split('-W')[1]}`;
+        } else if (aggregationType === 'monthly') {
+            return key; // 2025-09 format
+        } else {
+            return key; // Daily format
+        }
+    });
+    
+    return { labels, data: limitedKeys.map(key => sourceData[key]) };
+}
+
+function createBarChart(canvasId, label, dataPoints, color = '#3B82F6') {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return null;
+    
+    const ctx = canvas.getContext('2d');
+    
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dataPoints.labels,
+            datasets: [{
+                label: label,
+                data: dataPoints.values,
+                backgroundColor: color + '80', // Add transparency
+                borderColor: color,
+                borderWidth: 1,
+                borderRadius: 4,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#374151'
+                    },
+                    ticks: {
+                        color: '#9CA3AF'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: '#374151'
+                    },
+                    ticks: {
+                        color: '#9CA3AF',
+                        maxRotation: 45
+                    }
+                }
+            }
+        }
+    });
+    
+    return chart;
+}
+
+function generateCharts() {
+    destroyCharts(); // Clean up existing charts
+    
+    const chartData = generateChartData(currentAggregation, currentChartTimeRange);
+    if (!chartData.data.length) return;
+    
+    // Billable Hours Chart
+    const billableData = {
+        labels: chartData.labels,
+        values: chartData.data.map(d => d.billable_hours?.sum || 0)
+    };
+    chartInstances['billable-sum'] = createBarChart('chart-billable-sum', 'Billable Hours', billableData, '#10B981');
+    
+    // Back Home Times Charts
+    const backHomeData = chartData.data.map(d => d.back_home_times || {});
+    
+    if (backHomeData.some(d => d.mean)) {
+        const meanData = {
+            labels: chartData.labels,
+            values: backHomeData.map(d => timeStringToDecimal(d.mean))
+        };
+        chartInstances['back-home-mean'] = createBarChart('chart-back-home-mean', 'Average Back Home Time', meanData, '#F59E0B');
+    }
+    
+    if (backHomeData.some(d => d.median)) {
+        const medianData = {
+            labels: chartData.labels,
+            values: backHomeData.map(d => timeStringToDecimal(d.median))
+        };
+        chartInstances['back-home-median'] = createBarChart('chart-back-home-median', 'Median Back Home Time', medianData, '#EF4444');
+    }
+    
+    if (backHomeData.some(d => d.earliest)) {
+        const earliestData = {
+            labels: chartData.labels,
+            values: backHomeData.map(d => timeStringToDecimal(d.earliest))
+        };
+        chartInstances['back-home-earliest'] = createBarChart('chart-back-home-earliest', 'Earliest Back Home Time', earliestData, '#8B5CF6');
+    }
+    
+    if (backHomeData.some(d => d.latest)) {
+        const latestData = {
+            labels: chartData.labels,
+            values: backHomeData.map(d => timeStringToDecimal(d.latest))
+        };
+        chartInstances['back-home-latest'] = createBarChart('chart-back-home-latest', 'Latest Back Home Time', latestData, '#06B6D4');
+    }
+    
+    // Home Office End Times Charts
+    const homeOfficeData = chartData.data.map(d => d.home_office_end_times || {});
+    
+    if (homeOfficeData.some(d => d.mean)) {
+        const meanData = {
+            labels: chartData.labels,
+            values: homeOfficeData.map(d => timeStringToDecimal(d.mean))
+        };
+        chartInstances['home-office-mean'] = createBarChart('chart-home-office-mean', 'Average Home Office End Time', meanData, '#F59E0B');
+    }
+    
+    if (homeOfficeData.some(d => d.median)) {
+        const medianData = {
+            labels: chartData.labels,
+            values: homeOfficeData.map(d => timeStringToDecimal(d.median))
+        };
+        chartInstances['home-office-median'] = createBarChart('chart-home-office-median', 'Median Home Office End Time', medianData, '#EF4444');
+    }
+    
+    if (homeOfficeData.some(d => d.earliest)) {
+        const earliestData = {
+            labels: chartData.labels,
+            values: homeOfficeData.map(d => timeStringToDecimal(d.earliest))
+        };
+        chartInstances['home-office-earliest'] = createBarChart('chart-home-office-earliest', 'Earliest Home Office End Time', earliestData, '#8B5CF6');
+    }
+    
+    if (homeOfficeData.some(d => d.latest)) {
+        const latestData = {
+            labels: chartData.labels,
+            values: homeOfficeData.map(d => timeStringToDecimal(d.latest))
+        };
+        chartInstances['home-office-latest'] = createBarChart('chart-home-office-latest', 'Latest Home Office End Time', latestData, '#06B6D4');
+    }
+    
+    // Late Work Chart
+    const lateWorkData = {
+        labels: chartData.labels,
+        values: chartData.data.map(d => d.late_work_frequency?.count || 0)
+    };
+    chartInstances['late-work'] = createBarChart('chart-late-work', 'Late Work Days', lateWorkData, '#DC2626');
+}
+
 // Fetch data from JSON files
 async function fetchData() {
     try {
