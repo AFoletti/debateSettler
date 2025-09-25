@@ -873,9 +873,7 @@ function updateMetrics() {
         'daily': 'Daily',
         'weekly': 'Weekly', 
         'monthly': 'Monthly',
-        '5WD': '5 working days',
-        '10WD': '10 working days',
-        '30WD': '30 working days'
+        'trend': 'Trends'
     };
     
     const aggregationDisplay = aggregationNames[currentAggregation] || currentAggregation;
