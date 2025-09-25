@@ -1209,6 +1209,148 @@ function generateAggregatedCharts(chartData) {
     chartInstances['late-work'] = createBarChart('chart-late-work', 'Late Work Days', lateWorkData, '#DC2626');
 }
 
+// Generate charts for trends view (5WD, 10WD, 30WD comparison)
+function generateTrendsCharts() {
+    // Show all chart sections for trends view
+    const allSections = document.querySelectorAll('.chart-section');
+    allSections.forEach(section => section.style.display = 'block');
+
+    // Get data for all three working day periods
+    if (!workingDaysKpis || !workingDaysKpis['5WD'] || !workingDaysKpis['10WD'] || !workingDaysKpis['30WD']) return;
+
+    const data5WD = workingDaysKpis['5WD'];
+    const data10WD = workingDaysKpis['10WD']; 
+    const data30WD = workingDaysKpis['30WD'];
+
+    // Prepare labels and colors for comparison
+    const trendLabels = ['5 Days', '10 Days', '30 Days'];
+    const colors = ['#EF4444', '#F59E0B', '#10B981']; // Red, Orange, Green
+
+    // Billable Hours Comparison
+    const billableData = {
+        labels: trendLabels,
+        values: [
+            data5WD.billable_hours?.sum || 0,
+            data10WD.billable_hours?.sum || 0,
+            data30WD.billable_hours?.sum || 0
+        ]
+    };
+    
+    // Create multi-colored chart for billable hours
+    chartInstances['billable-sum'] = createMultiColorBarChart('chart-billable-sum', 'Billable Hours Trends', billableData, colors);
+
+    // Back Home Times - Mean comparison
+    const backHomeMeanData = {
+        labels: trendLabels,
+        values: [
+            timeStringToDecimal(data5WD.back_home_times?.mean),
+            timeStringToDecimal(data10WD.back_home_times?.mean),
+            timeStringToDecimal(data30WD.back_home_times?.mean)
+        ]
+    };
+    
+    if (backHomeMeanData.values.some(v => v !== null)) {
+        // Calculate consistent time range for back home comparisons
+        const validTimes = backHomeMeanData.values.filter(v => v !== null && v !== undefined);
+        let consistentTimeRange = null;
+        if (validTimes.length > 0) {
+            const minTime = Math.min(...validTimes);
+            const maxTime = Math.max(...validTimes);
+            const rangeMin = Math.max(6, Math.floor(minTime) - 2);
+            const rangeMax = Math.min(24, Math.ceil(maxTime) + 1);
+            consistentTimeRange = { min: rangeMin, max: rangeMax };
+        }
+        
+        chartInstances['back-home-mean'] = createMultiColorBarChart('chart-back-home-mean', 'Back Home Time Trends', backHomeMeanData, colors, true, consistentTimeRange);
+    }
+
+    // Late Work Frequency comparison
+    const lateWorkData = {
+        labels: trendLabels,
+        values: [
+            data5WD.late_work_frequency?.count || 0,
+            data10WD.late_work_frequency?.count || 0,
+            data30WD.late_work_frequency?.count || 0
+        ]
+    };
+    chartInstances['late-work'] = createMultiColorBarChart('chart-late-work', 'Late Work Trends', lateWorkData, colors);
+}
+
+// Create multi-colored bar chart for trends comparison
+function createMultiColorBarChart(canvasId, label, dataPoints, colors, isTimeChart = false, predefinedTimeRange = null) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return null;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // Use same Y-axis logic as single-color charts
+    let yAxisOptions = {
+        beginAtZero: true,
+        grid: { color: '#374151' },
+        ticks: { color: '#9CA3AF' }
+    };
+    
+    if (isTimeChart && predefinedTimeRange) {
+        yAxisOptions = {
+            min: predefinedTimeRange.min,
+            max: predefinedTimeRange.max,
+            grid: { color: '#374151' },
+            ticks: {
+                color: '#9CA3AF',
+                stepSize: 1,
+                callback: function(value) {
+                    const hours = Math.floor(value);
+                    const minutes = Math.round((value - hours) * 60);
+                    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                }
+            }
+        };
+    }
+    
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dataPoints.labels,
+            datasets: [{
+                label: label,
+                data: dataPoints.values,
+                backgroundColor: colors.map(c => c + '80'), // Add transparency
+                borderColor: colors,
+                borderWidth: 1,
+                borderRadius: 4,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: isTimeChart ? {
+                        label: function(context) {
+                            const value = context.parsed.y;
+                            if (value === null || value === undefined) return `${label}: N/A`;
+                            const hours = Math.floor(value);
+                            const minutes = Math.round((value - hours) * 60);
+                            return `${label}: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                        }
+                    } : undefined
+                }
+            },
+            scales: {
+                y: yAxisOptions,
+                x: {
+                    grid: { color: '#374151' },
+                    ticks: { color: '#9CA3AF', maxRotation: 45 }
+                }
+            }
+        }
+    });
+    
+    return chart;
+}
+
 // Fetch data from JSON files
 async function fetchData() {
     try {
