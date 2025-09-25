@@ -62,13 +62,24 @@ function getAggregatedMetrics() {
                 return monthlyKpis[latestMonth];
             }
             return null;
+        case 'trends':
+            // Return all three working day aggregations for comparison
+            return {
+                '5WD': workingDaysKpis?.['5WD'] || null,
+                '10WD': workingDaysKpis?.['10WD'] || null,
+                '30WD': workingDaysKpis?.['30WD'] || null
+            };
         case '5WD':
         case '10WD':
         case '30WD':
             return workingDaysKpis?.[currentAggregation] || null;
         default:
-            // Fallback to 30WD
-            return workingDaysKpis?.['30WD'] || null;
+            // Fallback to trends
+            return {
+                '5WD': workingDaysKpis?.['5WD'] || null,
+                '10WD': workingDaysKpis?.['10WD'] || null,
+                '30WD': workingDaysKpis?.['30WD'] || null
+            };
     }
 }
 
