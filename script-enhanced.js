@@ -81,18 +81,18 @@ function convertToLegacyFormat(aggregatedData) {
         back_home_stats: {
             count: aggregatedData.back_home_times ? 
                 (Object.keys(aggregatedData.back_home_times).length > 0 ? aggregatedData.working_days : 0) : 0,
-            mean: hoursToTime(aggregatedData.back_home_times?.mean),
-            median: hoursToTime(aggregatedData.back_home_times?.median),
-            earliest: hoursToTime(aggregatedData.back_home_times?.earliest),
-            latest: hoursToTime(aggregatedData.back_home_times?.latest)
+            mean: timeToDisplay(aggregatedData.back_home_times?.mean),
+            median: timeToDisplay(aggregatedData.back_home_times?.median),
+            earliest: timeToDisplay(aggregatedData.back_home_times?.earliest),
+            latest: timeToDisplay(aggregatedData.back_home_times?.latest)
         },
         home_office_end_stats: {
             count: aggregatedData.home_office_end_times ? 
                 (Object.keys(aggregatedData.home_office_end_times).length > 0 ? aggregatedData.working_days : 0) : 0,
-            mean: hoursToTime(aggregatedData.home_office_end_times?.mean),
-            median: hoursToTime(aggregatedData.home_office_end_times?.median),
-            earliest: hoursToTime(aggregatedData.home_office_end_times?.earliest),
-            latest: hoursToTime(aggregatedData.home_office_end_times?.latest)
+            mean: timeToDisplay(aggregatedData.home_office_end_times?.mean),
+            median: timeToDisplay(aggregatedData.home_office_end_times?.median),
+            earliest: timeToDisplay(aggregatedData.home_office_end_times?.earliest),
+            latest: timeToDisplay(aggregatedData.home_office_end_times?.latest)
         },
         late_work_frequency: {
             late_work_days: aggregatedData.late_work_frequency?.count || 0,
