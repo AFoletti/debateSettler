@@ -14,8 +14,6 @@ const loadingContainer = document.getElementById('loading-container');
 const errorContainer = document.getElementById('error-container');
 const mainDashboard = document.getElementById('main-dashboard');
 const retryButton = document.getElementById('retry-button');
-const refreshButton = document.getElementById('refresh-button');
-const githubActionsLink = document.getElementById('github-actions-link');
 
 // Helper function to parse datetime with timezone handling
 function parseDateTime(dateTimeStr) {
@@ -551,29 +549,6 @@ function updateFooter() {
     if (!rawData) return;
     
     document.getElementById('workspace-name').textContent = rawData.workspace_name || 'DRE-P';
-    
-    // Try to set up GitHub Actions link based on the current URL
-    if (githubActionsLink && typeof window !== 'undefined') {
-        const hostname = window.location.hostname;
-        
-        // Check if we're on GitHub Pages
-        if (hostname.includes('github.io')) {
-            // Extract username and repo from GitHub Pages URL
-            // Format: username.github.io/repo-name
-            const pathParts = window.location.pathname.split('/').filter(p => p);
-            const username = hostname.split('.')[0];
-            const repoName = pathParts[0] || 'argumentSettler';
-            
-            const actionsUrl = `https://github.com/${username}/${repoName}/actions/workflows/fetch-toggl-data.yml`;
-            githubActionsLink.href = actionsUrl;
-            githubActionsLink.style.display = 'inline-flex';
-            
-            console.log(`🔗 GitHub Actions link set to: ${actionsUrl}`);
-        } else {
-            // For local development or other hosting, hide the button
-            githubActionsLink.style.display = 'none';
-        }
-    }
 }
 
 // Fetch data from JSON file
@@ -618,28 +593,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Retry button
     retryButton.addEventListener('click', fetchData);
-    
-    // Refresh button  
-    refreshButton.addEventListener('click', async function() {
-        refreshButton.disabled = true;
-        refreshButton.textContent = 'Refreshing...';
-        
-        try {
-            await fetchData();
-            console.log('🔄 Data refreshed successfully');
-        } catch (error) {
-            console.error('❌ Error refreshing data:', error);
-        } finally {
-            refreshButton.disabled = false;
-            refreshButton.innerHTML = `
-                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-                Refresh Data
-            `;
-        }
-    });
 });
 
 // Make functions available globally for debugging
