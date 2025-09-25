@@ -83,6 +83,14 @@
                         </div>
                     </div>
                     <div class="status-buttons">
+                        <select id="aggregation-dropdown" class="aggregation-dropdown">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="5WD">5 Days</option>
+                            <option value="10WD">10 Days</option>
+                            <option value="30WD" selected>30 Days</option>
+                        </select>
                         <button id="refresh-button" class="btn-primary btn-small" title="Re-process the existing data and refresh the display">
                             <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
