@@ -1114,6 +1114,12 @@ document.addEventListener('DOMContentLoaded', function() {
     viewToggleButton = document.getElementById('view-toggle');
     viewToggleText = document.getElementById('view-toggle-text');
     
+    console.log('🔧 DOM elements initialized:', {
+        viewToggleButton: !!viewToggleButton,
+        chartsContainer: !!chartsContainer,
+        metricsGrid: !!metricsGrid
+    });
+    
     // Initial data fetch
     fetchData();
     
