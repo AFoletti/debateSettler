@@ -769,11 +769,71 @@ function generateChartData(aggregationType, timeRange) {
     return { labels, data: limitedKeys.map(key => sourceData[key]) };
 }
 
-function createBarChart(canvasId, label, dataPoints, color = '#3B82F6') {
+function createBarChart(canvasId, label, dataPoints, color = '#3B82F6', isTimeChart = false) {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     
     const ctx = canvas.getContext('2d');
+    
+    // For time charts, calculate a sensible Y-axis range
+    let yAxisOptions = {
+        beginAtZero: true,
+        grid: {
+            color: '#374151'
+        },
+        ticks: {
+            color: '#9CA3AF'
+        }
+    };
+    
+    if (isTimeChart && dataPoints.values.length > 0) {
+        // Filter out null/undefined values for range calculation
+        const validTimes = dataPoints.values.filter(v => v !== null && v !== undefined);
+        if (validTimes.length > 0) {
+            const minTime = Math.min(...validTimes);
+            const maxTime = Math.max(...validTimes);
+            
+            // Add some padding and ensure reasonable range
+            const padding = 1; // 1 hour padding
+            const rangeMin = Math.max(8, Math.floor(minTime) - padding); // Don't go below 8:00
+            const rangeMax = Math.min(24, Math.ceil(maxTime) + padding); // Don't go above 24:00
+            
+            yAxisOptions = {
+                min: rangeMin,
+                max: rangeMax,
+                grid: {
+                    color: '#374151'
+                },
+                ticks: {
+                    color: '#9CA3AF',
+                    stepSize: 1, // 1 hour intervals
+                    callback: function(value) {
+                        // Convert decimal hours to HH:MM format
+                        const hours = Math.floor(value);
+                        const minutes = Math.round((value - hours) * 60);
+                        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                    }
+                }
+            };
+        }
+    }
+    
+    // Special handling for Late Work Frequency (integer scale)
+    if (canvasId.includes('late-work')) {
+        yAxisOptions = {
+            beginAtZero: true,
+            grid: {
+                color: '#374151'
+            },
+            ticks: {
+                color: '#9CA3AF',
+                stepSize: 1, // Integer steps only
+                callback: function(value) {
+                    return Number.isInteger(value) ? value : null; // Only show integer labels
+                }
+            }
+        };
+    }
     
     const chart = new Chart(ctx, {
         type: 'bar',
@@ -795,18 +855,22 @@ function createBarChart(canvasId, label, dataPoints, color = '#3B82F6') {
             plugins: {
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    callbacks: isTimeChart ? {
+                        label: function(context) {
+                            const value = context.parsed.y;
+                            if (value === null || value === undefined) return `${label}: N/A`;
+                            
+                            const hours = Math.floor(value);
+                            const minutes = Math.round((value - hours) * 60);
+                            return `${label}: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                        }
+                    } : undefined
                 }
             },
             scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: '#374151'
-                    },
-                    ticks: {
-                        color: '#9CA3AF'
-                    }
-                },
+                y: yAxisOptions,
                 x: {
                     grid: {
                         color: '#374151'
