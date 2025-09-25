@@ -6,6 +6,7 @@
       "end": "2025-09-18"
     },
     "period": "5WD",
+    "total_entries": 86,
     "billable_hours": {
       "sum": 47.57
     },
@@ -17,13 +18,15 @@
       "mean": "19:27",
       "median": "19:27",
       "earliest": "19:21",
-      "latest": "19:33"
+      "latest": "19:33",
+      "count": 2
     },
     "home_office_end_times": {
       "mean": "16:35",
       "median": "16:23",
       "earliest": "16:18",
-      "latest": "17:03"
+      "latest": "17:03",
+      "count": 3
     },
     "late_work_frequency": {
       "count": 0
@@ -36,6 +39,7 @@
       "end": "2025-09-10"
     },
     "period": "10WD",
+    "total_entries": 172,
     "billable_hours": {
       "sum": 89.04
     },
@@ -47,13 +51,15 @@
       "mean": "18:51",
       "median": "18:32",
       "earliest": "18:18",
-      "latest": "19:33"
+      "latest": "19:33",
+      "count": 5
     },
     "home_office_end_times": {
       "mean": "16:27",
       "median": "16:23",
       "earliest": "15:48",
-      "latest": "17:03"
+      "latest": "17:03",
+      "count": 5
     },
     "late_work_frequency": {
       "count": 0
@@ -66,6 +72,7 @@
       "end": "2025-08-13"
     },
     "period": "30WD",
+    "total_entries": 500,
     "billable_hours": {
       "sum": 264.22
     },
@@ -77,13 +84,15 @@
       "mean": "18:51",
       "median": "18:32",
       "earliest": "18:10",
-      "latest": "20:21"
+      "latest": "20:21",
+      "count": 13
     },
     "home_office_end_times": {
       "mean": "15:41",
       "median": "15:48",
       "earliest": "11:33",
-      "latest": "17:03"
+      "latest": "17:03",
+      "count": 17
     },
     "late_work_frequency": {
       "count": 1
