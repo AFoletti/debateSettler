@@ -111,12 +111,12 @@ async function loadAggregatedData() {
     try {
         console.log('📊 Loading aggregated data files...');
         
-        // Try to load new aggregated data files
+        // Try to load new aggregated data files (using final filenames)
         const responses = await Promise.allSettled([
             fetch('./data/daily_kpis.json'),
             fetch('./data/weekly_aggregations.json'),  
             fetch('./data/monthly_aggregations.json'),
-            fetch('./data/test_working_days_kpis.json') // Use test file for now
+            fetch('./data/working_days_aggregations.json') // Using final filename
         ]);
 
         // Process daily KPIs
