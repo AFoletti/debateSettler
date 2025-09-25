@@ -252,7 +252,7 @@ def generate_all_aggregations():
             if period_data['home_office_end_times']:
                 result['home_office_end_times'] = {
                     'mean': round(statistics.mean(period_data['home_office_end_times']), 2),
-                    'median': round(statistics.median(period_data['home_office_times']), 2),
+                    'median': round(statistics.median(period_data['home_office_end_times']), 2),
                     'earliest': round(min(period_data['home_office_end_times']), 2),
                     'latest': round(max(period_data['home_office_end_times']), 2)
                 }
