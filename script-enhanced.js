@@ -577,11 +577,20 @@ function updateMetrics() {
     const dataInfo = `Raw data from ${rawData?.date_range?.days || 180} days • Statistics from ${aggregationDisplay} • Enhanced processing`;
     document.getElementById('data-info').textContent = dataInfo;
 
-    // Update metric labels based on aggregation
-    const metricLabel = currentAggregation === 'daily' ? 'Single day' : 
-                       currentAggregation === 'weekly' ? 'Last week' :
-                       currentAggregation === 'monthly' ? 'Last month' :
-                       `Last ${aggregationDisplay}`;
+    // Update metric labels based on aggregation - BE MORE SPECIFIC
+    const getAggregationLabel = (aggregation) => {
+        switch(aggregation) {
+            case 'daily': return 'Most recent day';
+            case 'weekly': return 'Current week';  
+            case 'monthly': return 'Current month';
+            case '5WD': return 'Last 5 working days';
+            case '10WD': return 'Last 10 working days';
+            case '30WD': return 'Last 30 working days';
+            default: return aggregationDisplay;
+        }
+    };
+    
+    const metricLabel = getAggregationLabel(currentAggregation);
     
     // Update billable hours metric label
     const billableLabel = document.querySelector('#billable-hours').parentElement.querySelector('.metric-label');
