@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2025-10-01T02:23:08.442292",
+  "fetched_at": "2025-10-01T06:23:15.772256",
   "date_range": {
     "start": "2025-07-03",
     "end": "2025-09-30",
@@ -7,7 +7,7 @@
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 865,
+  "total_entries": 864,
   "raw_entries": [
     {
       "id": 4116763297,
@@ -15,9 +15,9 @@
       "project_id": 211755753,
       "task_id": null,
       "billable": false,
-      "start": "2025-09-30T14:46:22+00:00",
-      "stop": "2025-09-30T16:22:14+00:00",
-      "duration": 5752,
+      "start": "2025-09-30T14:03:00+00:00",
+      "stop": "2025-09-30T16:22:00+00:00",
+      "duration": 8340,
       "tags": [
         "Commuting"
       ],
@@ -25,30 +25,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-09-30T16:22:20.450145Z",
-      "server_deleted_at": null,
-      "user_id": 548836,
-      "uid": 548836,
-      "wid": 4536519,
-      "pid": 211755753
-    },
-    {
-      "id": 4116651946,
-      "workspace_id": 4536519,
-      "project_id": 211755753,
-      "task_id": null,
-      "billable": false,
-      "start": "2025-09-30T13:54:12+00:00",
-      "stop": "2025-09-30T13:54:53+00:00",
-      "duration": 41,
-      "tags": [
-        "Commuting"
-      ],
-      "tag_ids": [
-        18313213
-      ],
-      "duronly": true,
-      "at": "2025-09-30T13:54:59.654684Z",
+      "at": "2025-10-01T03:32:31.466739Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -61,13 +38,13 @@
       "project_id": 211755813,
       "task_id": 238138473,
       "billable": true,
-      "start": "2025-09-30T13:49:44+00:00",
-      "stop": "2025-09-30T14:46:22+00:00",
-      "duration": 3398,
+      "start": "2025-09-30T13:49:00+00:00",
+      "stop": "2025-09-30T14:03:00+00:00",
+      "duration": 840,
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-09-30T14:47:16.258002Z",
+      "at": "2025-10-01T03:32:24.023524Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
