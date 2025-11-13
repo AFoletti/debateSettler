@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2025-11-13T02:24:18.639067",
+  "fetched_at": "2025-11-13T11:14:27.494347",
   "date_range": {
     "start": "2025-08-15",
     "end": "2025-11-12",
@@ -16,8 +16,8 @@
       "task_id": null,
       "billable": false,
       "start": "2025-11-12T15:22:08+00:00",
-      "stop": null,
-      "duration": -1762960929,
+      "stop": "2025-11-12T20:27:00+00:00",
+      "duration": 18292,
       "tags": [
         "Commuting"
       ],
@@ -25,7 +25,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-11-12T15:22:10.343491Z",
+      "at": "2025-11-13T03:15:00.966185Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
