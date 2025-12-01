@@ -732,58 +732,6 @@ function renderNumericChartFromPrecomputed(key, metricKey, options = {}) {
   });
 }
 
-  const ctx = document.getElementById(options.canvasId).getContext('2d');
-  destroyExistingChart(key);
-
-  chartInstances[key] = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets,
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: '#d1d5db',
-          },
-          grid: {
-            color: 'rgba(55, 65, 81, 0.5)',
-          },
-        },
-        x: {
-          ticks: {
-            color: '#9ca3af',
-            maxTicksLimit: 8,
-          },
-          grid: {
-            color: 'rgba(31, 41, 55, 0.5)',
-          },
-        },
-      },
-      plugins: {
-        legend: {
-          labels: {
-            color: '#e5e7eb',
-          },
-        },
-        tooltip: {
-          callbacks: {
-            label(context) {
-              const label = context.dataset.label || '';
-              const value = context.parsed.y;
-              return `${label}: ${value != null ? value.toFixed(2) : 'N/A'}`;
-            },
-          },
-        },
-      },
-    },
-  });
-}
-
 function renderTimeChartFromPrecomputed(key, metricKey, options = {}) {
   if (!historyCharts || !historyCharts.metrics || !historyCharts.metrics[metricKey]) return;
 
