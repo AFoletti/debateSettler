@@ -229,8 +229,11 @@ def main():
         if current_end > yesterday:
             current_end = yesterday
 
-        start_iso = datetime.combine(current_start, datetime.min.time()).isoformat() + "Z"
-        end_iso = datetime.combine(current_end, datetime.max.time()).isoformat() + "Z"
+        start_dt = datetime.combine(current_start, datetime.min.time())
+        end_dt = datetime.combine(current_end, datetime.max.time())
+        # Match the format used in fetch-toggl-data.py (no microseconds)
+        start_iso = start_dt.strftime("%Y-%m-%dT00:00:00.000Z")
+        end_iso = end_dt.strftime("%Y-%m-%dT23:59:59.999Z")
 
         entries = fetcher.get_time_entries(start_iso, end_iso)
         print(f"  → Retrieved {len(entries)} entries")
