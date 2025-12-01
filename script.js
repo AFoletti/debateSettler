@@ -205,23 +205,6 @@ function rangeFilterSeries(series, rangeKey) {
   });
 }
 
-  // Back Home Times
-  document.getElementById('back-home-count').textContent = metrics.back_home_stats?.count || 0;
-  document.getElementById('back-home-mean').textContent = metrics.back_home_stats?.mean || 'N/A';
-  document.getElementById('back-home-median').textContent = metrics.back_home_stats?.median || 'N/A';
-  document.getElementById('back-home-earliest').textContent = metrics.back_home_stats?.earliest || 'N/A';
-  document.getElementById('back-home-latest').textContent = metrics.back_home_stats?.latest || 'N/A';
-
-  // HomeOffice End Times
-  document.getElementById('home-office-count').textContent = metrics.home_office_end_stats?.count || 0;
-  document.getElementById('home-office-mean').textContent = metrics.home_office_end_stats?.mean || 'N/A';
-  document.getElementById('home-office-median').textContent = metrics.home_office_end_stats?.median || 'N/A';
-  document.getElementById('home-office-earliest').textContent =
-    metrics.home_office_end_stats?.earliest || 'N/A';
-  document.getElementById('home-office-latest').textContent =
-    metrics.home_office_end_stats?.latest || 'N/A';
-}
-
 function updateTrends() {
   if (!metrics?.trends) return;
 
