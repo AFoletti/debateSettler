@@ -138,6 +138,68 @@ function updateMetrics() {
   }%`;
   document.getElementById('late-work-subtitle').textContent = `${
     metrics.late_work_frequency?.late_work_days || 0
+function rangeFilterSeries(series, rangeKey) {
+  if (!Array.isArray(series) || series.length === 0) return [];
+
+  // Use date (for daily) or start_date (for weekly/monthly)
+  const first = series[0];
+  const useDateField = Object.prototype.hasOwnProperty.call(first, 'date') ? 'date' : 'start_date';
+
+  const dates = series
+    .map((p) => p[useDateField])
+    .filter(Boolean)
+    .sort();
+  const lastDateStr = dates[dates.length - 1];
+  const lastDate = parseISODate(lastDateStr);
+  if (!lastDate) return [];
+
+  let startDate = null;
+
+  switch (rangeKey) {
+    case '7d': {
+      startDate = new Date(lastDate);
+      startDate.setDate(startDate.getDate() - 6);
+      break;
+    }
+    case '30d': {
+      startDate = new Date(lastDate);
+      startDate.setDate(startDate.getDate() - 29);
+      break;
+    }
+    case '3m': {
+      startDate = new Date(lastDate);
+      startDate.setMonth(startDate.getMonth() - 3);
+      break;
+    }
+    case '6m': {
+      startDate = new Date(lastDate);
+      startDate.setMonth(startDate.getMonth() - 6);
+      break;
+    }
+    case '1y': {
+      startDate = new Date(lastDate);
+      startDate.setFullYear(startDate.getFullYear() - 1);
+      break;
+    }
+    case 'ytd': {
+      startDate = new Date(lastDate.getFullYear(), 0, 1);
+      break;
+    }
+    case 'all':
+    default:
+      startDate = null;
+      break;
+  }
+
+  return series.filter((p) => {
+    const v = p[useDateField];
+    const dt = parseISODate(v);
+    if (!dt) return false;
+    if (!startDate) return true;
+    return dt >= startDate && dt <= lastDate;
+  });
+}
+
   } out of ${metrics.late_work_frequency?.total_work_days || 0} work days after 20:00`;
 
   // Back Home Times
