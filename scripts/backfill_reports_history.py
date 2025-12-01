@@ -513,6 +513,8 @@ class ReportsBackfillClient:
     url = f"{REPORTS_BASE}/workspace/{self.workspace_id}/search/time_entries"
     next_id = None
     next_row = None
+    last_next_id = None
+    last_next_row = None
 
     while True:
       body = {
@@ -539,14 +541,28 @@ class ReportsBackfillClient:
       all_entries.extend(batch)
 
       # Pagination headers
-      next_id = resp.headers.get("X-Next-ID")
+      next_id_header = resp.headers.get("X-Next-ID")
       next_row_header = resp.headers.get("X-Next-Row-Number")
-      if not next_id or not next_row_header:
+
+      # Stop if no further pagination info
+      if not next_id_header or not next_row_header:
         break
+
+      # Convert row number safely
       try:
-        next_row = int(next_row_header)
+        next_row_val = int(next_row_header)
       except ValueError:
         break
+
+      # If pagination token does not change, break to avoid infinite loops
+      if next_id_header == last_next_id and next_row_val == last_next_row:
+        print("ℹ️ Pagination token did not change; stopping to avoid infinite loop.")
+        break
+
+      last_next_id = next_id_header
+      last_next_row = next_row_val
+      next_id = next_id_header
+      next_row = next_row_val
 
     print(f"📊 Total entries from reports API: {len(all_entries)}")
     return all_entries
