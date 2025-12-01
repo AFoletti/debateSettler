@@ -557,10 +557,10 @@ def main():
   data_dir = Path("data")
   data_dir.mkdir(exist_ok=True)
 
-  # Backfill from 2025-06-01 (inclusive) to yesterday
+  # Backfill from 2025-06-01 (inclusive) to 2025-08-31
   start_date = date(2025, 6, 1)
-  yesterday = datetime.utcnow().date() - timedelta(days=1)
-  entries = client.fetch_time_entries_range(start_date, yesterday)
+  end_date = date(2025, 8, 31)
+  entries = client.fetch_time_entries_range(start_date, end_date)
 
   # Normalise: remove description if present
   for e in entries:
