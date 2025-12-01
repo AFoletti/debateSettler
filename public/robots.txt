@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://yourusername.github.io/argumentsettler-dashboard/sitemap.xml
