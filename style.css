@@ -39,20 +39,20 @@ body {
 
 /* Container */
 .container {
-    max-width: 1280px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.25rem;
 }
 
 @media (min-width: 640px) {
     .container {
-        padding: 0 1.5rem;
+        padding: 0 1.75rem;
     }
 }
 
 @media (min-width: 1024px) {
     .container {
-        padding: 0 2rem;
+        padding: 0 2.5rem;
     }
 }
 
