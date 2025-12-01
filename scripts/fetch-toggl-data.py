@@ -282,15 +282,18 @@ class TogglDataFetcher:
         data_dir = Path("data")
         data_dir.mkdir(exist_ok=True)
         
-        # Save data to JSON file
+        # Save short-term raw data (90 days) to JSON file
         output_file = data_dir / "raw_data.json"
         with open(output_file, 'w') as f:
             json.dump(raw_data, f, indent=2)
-        
+
         print(f"✅ Raw data saved to {output_file}")
         print(f"💾 Total Entries: {len(time_entries)}")
         print(f"💾 Date Range: {raw_data['date_range']['start']} to {raw_data['date_range']['end']}")
         print(f"💾 'description' field removed from entries")
+
+        # Update long-term daily aggregates for charts
+        _update_history_daily(time_entries, self.workspace_name, data_dir)
 
 def main():
     try:
