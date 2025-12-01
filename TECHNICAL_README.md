@@ -1,23 +1,103 @@
 # DebateSettler – Technical Overview
 
-This document is for developers who want to understand how DebateSettler works internally and how to safely extend it.
+This document is for developers (human or AI) who want to understand how DebateSettler works internally and how to safely extend or redeploy it **without introducing hashed filenames or unnecessary build steps**.
+
+---
 
 ## 1. High-Level Architecture
 
-DebateSettler is a **pure static** dashboard:
+DebateSettler is a **pure static** dashboard. There is **no frontend framework** and **no runtime backend**.
 
-- **index.html** – DOM structure (loading, error, metrics, trends, summary, footer)
-- **style.css** – Dark theme + responsive layout (no frameworks)
-- **script.js** – UI state, DOM updates, data loading
-- **metrics_engine.js** – Pure calculation logic (all statistics derived from Toggl raw data)
-- **data/raw_data.json** – Raw Toggl time entries (last 90 days, excluding today)
-- **scripts/fetch-toggl-data.py** – GitHub Actions script that fetches raw Toggl data and writes `data/raw_data.json`
-- **scripts/generate_metrics_snapshot.js** – Generates a baseline metrics snapshot from current logic
-- **scripts/test_metrics_engine.js** – Compares current metrics output against the baseline snapshot
+Root files under `/app`:
 
-There is **no build step** required for runtime: GitHub Pages serves `index.html`, `style.css`, `metrics_engine.js` and `script.js` directly.
+- **`index.html`** – DOM structure (loading, error, metrics, trends, summary, footer)
+- **`style.css`** – Dark theme + responsive layout (no frameworks)
+- **`metrics_engine.js`** – Pure calculation logic (all statistics derived from Toggl raw data)
+- **`script.js`** – UI state, DOM updates, data loading
+- **`data/raw_data.json`** – Raw Toggl time entries (last 90 days, excluding today)
+- **`scripts/fetch-toggl-data.py`** – GitHub Actions script that fetches Toggl data and writes `data/raw_data.json`
+- **`scripts/generate_metrics_snapshot.js`** – Generates a baseline metrics snapshot from the current logic
+- **`scripts/test_metrics_engine.js`** – Compares current metrics output against the baseline snapshot
 
-## 2. Data Flow
+There is **no bundler** (no Webpack/Vite/Parcel/etc.). GitHub Pages (or any static host) serves:
+
+- `index.html`
+- `style.css`
+- `metrics_engine.js`
+- `script.js`
+- `data/raw_data.json`
+
+These filenames are **stable, non-hashed entrypoints** and should be preserved.
+
+---
+
+## 2. Build & Deployment Model (Non-Hashed Static Files)
+
+### 2.1 What “build” means for DebateSettler
+
+For this project, a “build” is simply:
+
+- Selecting the minimal set of static files under `/app` that are needed at runtime, and
+- Copying them to the target environment **without changing their names**.
+
+Runtime-critical files:
+
+- `index.html`
+- `style.css`
+- `metrics_engine.js`
+- `script.js`
+- `data/raw_data.json`
+- `favicon.ico`
+- `manifest.json`
+- `robots.txt`
+
+Support files (used by CI / dev tooling, not served to browsers):
+
+- `scripts/fetch-toggl-data.py`
+- `scripts/generate_metrics_snapshot.js`
+- `scripts/test_metrics_engine.js`
+
+### 2.2 Non-hashed filenames – strict rule
+
+The dashboard is designed around **fixed file names**. Any agent taking over MUST:
+
+- **Not introduce hashed asset names** (e.g. `main.abcd1234.js`) unless the HTML is also updated to point **exactly** to those names, and
+- Prefer to keep the simple structure where:
+  - `index.html` references `./style.css`, `./metrics_engine.js`, and `./script.js`
+  - `script.js` fetches `./data/raw_data.json`
+
+If you add a bundler for your own development convenience, make sure the final output still exposes:
+
+- An `index.html` at the site root
+- A non-hashed JS bundle referenced as `./script.js` (or update `index.html` explicitly)
+- A non-hashed CSS file referenced as `./style.css`
+- The metrics engine accessible as `window.DebateSettlerMetrics.processRawData`
+- `data/raw_data.json` still available at `./data/raw_data.json`
+
+**Recommendation:** keep the current no-bundler setup. It is simpler and less error-prone for this use case.
+
+### 2.3 Typical deployment to GitHub Pages
+
+1. **Repository layout**
+   - Place the contents of `/app` at the root of your repository, or
+   - Configure GitHub Pages to use the `/app` directory as the site source.
+
+2. **GitHub Pages configuration**
+   - In **Settings → Pages**, set:
+     - **Source**: your main branch (e.g. `main`)
+     - **Folder**: `/ (root)` if `/app` is the repo root; otherwise, configure Pages to use the `/app` folder.
+
+3. **Data refresh via GitHub Actions**
+   - A workflow (in `.github/workflows`) should run `scripts/fetch-toggl-data.py` on a schedule (e.g. daily at 06:00 UTC).
+   - The workflow must commit the updated `data/raw_data.json` back into the repo so GitHub Pages serves the fresh data.
+
+4. **Static hosting elsewhere**
+   - Any static file host (S3, Netlify, etc.) can serve these files.
+   - Ensure that the public root contains at least the runtime files listed in 2.1 with the same names.
+
+---
+
+## 3. Data Flow
 
 1. A scheduled GitHub Action runs `scripts/fetch-toggl-data.py` daily.
 2. The script:
@@ -25,14 +105,16 @@ There is **no build step** required for runtime: GitHub Pages serves `index.html
    - Fetches the last **90 days of entries**, excluding today
    - Removes the `description` field from each entry
    - Stores everything in `data/raw_data.json`
-3. When a user opens `index.html`:
+3. When a user opens `index.html` in the browser:
    - `script.js` fetches `./data/raw_data.json`
    - Passes the parsed JSON to `DebateSettlerMetrics.processRawData` from `metrics_engine.js`
    - Receives a metrics object and updates the DOM accordingly
 
 All calculations run in the browser; the server (GitHub Pages) only serves static files.
 
-## 3. Metrics and Rules
+---
+
+## 4. Metrics Engine and Rules
 
 `metrics_engine.js` exposes a single function:
 
@@ -61,7 +143,7 @@ Each entry has at least:
 - `billable` – boolean
 - `tags` – array of strings (e.g. `"HomeOffice"`, `"Commuting"`)
 
-### 3.1 Working-Day Selection
+### 4.1 Working-Day Selection
 
 1. Collect all dates where there is at least one entry with `duration > 0`.
 2. Sort them ascending, then reverse for **most recent first**.
@@ -71,7 +153,7 @@ Each entry has at least:
 
 All main dashboard metrics are based on `last30WorkingDays`. Trends compare 7-day values to 30-day values.
 
-### 3.2 Metrics per 30/7 Working Days
+### 4.2 Metrics per 30/7 Working Days
 
 For a given set of working days:
 
@@ -138,7 +220,7 @@ The function returns a structure like:
 }
 ```
 
-### 3.3 Trends
+### 4.3 Trends
 
 Trends are computed by comparing 7-day values to 30-day values:
 
@@ -155,7 +237,9 @@ Rules:
 
 The UI converts these into arrows (↗️, ↘️, →) and human-readable labels.
 
-## 4. UI Responsibilities (`script.js`)
+---
+
+## 5. UI Responsibilities (`script.js`)
 
 `script.js` is responsible for:
 
@@ -163,11 +247,12 @@ The UI converts these into arrows (↗️, ↘️, →) and human-readable label
 - Fetching `./data/raw_data.json`.
 - Calling `DebateSettlerMetrics.processRawData(rawData)`.
 - Populating and updating DOM elements with the metrics result.
-- Building a GitHub Actions link dynamically when running on GitHub Pages.
 
 It does **not** know any of the detailed calculation rules; those live in `metrics_engine.js`.
 
-## 5. Regression Testing
+---
+
+## 6. Regression Testing
 
 Two Node scripts help keep your refactors safe:
 
@@ -187,19 +272,32 @@ node scripts/test_metrics_engine.js
 
 These tests read the real `data/raw_data.json` in the repo, so they always compare against actual Toggl data.
 
-## 6. Extending the App Safely
+---
 
-When adding a new metric:
+## 7. Extending the App Safely
+
+When adding a new metric or UI feature:
 
 1. **Add calculation** to `metrics_engine.js`:
    - Extend `calculateMetricsForDays` or add a new helper.
    - Include the new value in the returned object from `processRawData`.
 2. **Update UI** (`index.html` + `script.js`):
-   - Add new DOM nodes for the metric.
-   - In `script.js`, extend the `updateMetrics` or `updateSummary` functions to write values into those elements.
+   - Add new DOM nodes for the metric in `index.html`.
+   - In `script.js`, extend `updateMetrics`, `updateSummary`, or `updateTrends` to write values into those elements.
 3. **Update docs**:
-   - Add a short explanation to `README.md` and this technical document.
-4. **Run regression test**:
+   - Add a short explanation to `README.md` and/or this technical document.
+4. **Run regression tests**:
    - If the change is intentional and breaks the baseline, regenerate the snapshot after manually confirming numbers.
 
-By keeping the metrics engine pure and tested, you can confidently evolve DebateSettler without breaking existing behavior.
+---
+
+## 8. Handoff Notes for Other Agents (Human or AI)
+
+If you are taking over this project:
+
+1. **Assume no build tool** – treat `/app` as the deployable root.
+2. **Serve statically** – any HTTP static server that serves the files as-is will work.
+3. **Do not introduce hashed filenames** unless you also update `index.html` and keep the public API (`window.DebateSettlerMetrics.processRawData`, `data/raw_data.json`) intact.
+4. **Use the regression scripts** before and after significant changes to ensure metrics behavior is preserved.
+
+Following these constraints ensures DebateSettler remains simple to host on GitHub Pages and easy to evolve without surprises.
