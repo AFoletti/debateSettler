@@ -774,6 +774,11 @@ body {
         padding: 0 1.25rem;
     }
 
+    .charts-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .summary-value {
         font-size: 1.25rem;
     }
