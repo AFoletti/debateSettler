@@ -9,7 +9,7 @@ let loading = true;
 let error = null;
 
 // Chart state
-let historyDaily = null;
+let historyCharts = null;
 let chartsInitialized = false;
 let chartInstances = {
   billable: null,
