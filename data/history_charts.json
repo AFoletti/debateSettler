@@ -1,0 +1,1131 @@
+{
+  "generated_at": "2025-12-01T20:54:40.377869",
+  "date_range": {
+    "start": "2025-09-01",
+    "end": "2025-10-08"
+  },
+  "workspace_name": "DRE-P",
+  "metrics": {
+    "billable_hours": {
+      "unit": "hours",
+      "daily": [
+        {
+          "date": "2025-09-01",
+          "value": 10.14,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-02",
+          "value": 8.46,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-03",
+          "value": 7.45,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-04",
+          "value": 8.16,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-05",
+          "value": 5.84,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-08",
+          "value": 9.38,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-09",
+          "value": 9.72,
+          "mean_7": 8.45,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-10",
+          "value": 7.54,
+          "mean_7": 8.078571428571427,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-11",
+          "value": 0.82,
+          "mean_7": 6.987142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-12",
+          "value": 8.67,
+          "mean_7": 7.161428571428571,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-16",
+          "value": 9.72,
+          "mean_7": 7.384285714285714,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-17",
+          "value": 6.29,
+          "mean_7": 7.448571428571428,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-18",
+          "value": 9.28,
+          "mean_7": 7.434285714285714,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-19",
+          "value": 10.15,
+          "mean_7": 7.4957142857142856,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-22",
+          "value": 9.54,
+          "mean_7": 7.781428571428571,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-23",
+          "value": 9.44,
+          "mean_7": 9.012857142857142,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-24",
+          "value": 8.72,
+          "mean_7": 9.02,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-25",
+          "value": 9.39,
+          "mean_7": 8.972857142857142,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-26",
+          "value": 7.5,
+          "mean_7": 9.145714285714286,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-29",
+          "value": 10.16,
+          "mean_7": 9.27142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-30",
+          "value": 8.61,
+          "mean_7": 9.05142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-01",
+          "value": 6.29,
+          "mean_7": 8.587142857142856,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-02",
+          "value": 8.23,
+          "mean_7": 8.414285714285713,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-03",
+          "value": 6.42,
+          "mean_7": 8.085714285714285,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-06",
+          "value": 6.77,
+          "mean_7": 7.71142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-07",
+          "value": 9.53,
+          "mean_7": 8.001428571428571,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-08",
+          "value": 10.22,
+          "mean_7": 8.01,
+          "mean_30": null,
+          "mean_90": null
+        }
+      ],
+      "weekly": [
+        {
+          "period": "2025-W36",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-05",
+          "sum": 40.05,
+          "mean_per_workday": 8.01,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W37",
+          "start_date": "2025-09-08",
+          "end_date": "2025-09-12",
+          "sum": 36.13,
+          "mean_per_workday": 7.23,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W38",
+          "start_date": "2025-09-16",
+          "end_date": "2025-09-19",
+          "sum": 35.44,
+          "mean_per_workday": 8.86,
+          "workdays": 4
+        },
+        {
+          "period": "2025-W39",
+          "start_date": "2025-09-22",
+          "end_date": "2025-09-26",
+          "sum": 44.59,
+          "mean_per_workday": 8.92,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W40",
+          "start_date": "2025-09-29",
+          "end_date": "2025-10-03",
+          "sum": 39.71,
+          "mean_per_workday": 7.94,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W41",
+          "start_date": "2025-10-06",
+          "end_date": "2025-10-08",
+          "sum": 26.52,
+          "mean_per_workday": 8.84,
+          "workdays": 3
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-09",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-30",
+          "sum": 174.98,
+          "mean_per_workday": 8.33,
+          "workdays": 21
+        },
+        {
+          "period": "2025-10",
+          "start_date": "2025-10-01",
+          "end_date": "2025-10-08",
+          "sum": 47.46,
+          "mean_per_workday": 7.91,
+          "workdays": 6
+        }
+      ]
+    },
+    "total_hours": {
+      "unit": "hours",
+      "daily": [
+        {
+          "date": "2025-09-01",
+          "value": 10.14,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-02",
+          "value": 21.86,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-03",
+          "value": 19.66,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-04",
+          "value": 8.16,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-05",
+          "value": 5.84,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-08",
+          "value": 9.38,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-09",
+          "value": 22.86,
+          "mean_7": 13.985714285714284,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-10",
+          "value": 20.86,
+          "mean_7": 15.517142857142856,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-11",
+          "value": 0.82,
+          "mean_7": 12.511428571428569,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-12",
+          "value": 8.67,
+          "mean_7": 10.94142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-16",
+          "value": 22.89,
+          "mean_7": 13.045714285714284,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-17",
+          "value": 19.04,
+          "mean_7": 14.931428571428569,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-18",
+          "value": 9.28,
+          "mean_7": 14.917142857142855,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-19",
+          "value": 10.15,
+          "mean_7": 13.10142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-22",
+          "value": 9.54,
+          "mean_7": 11.484285714285715,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-23",
+          "value": 22.72,
+          "mean_7": 14.612857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-24",
+          "value": 23.0,
+          "mean_7": 16.66,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-25",
+          "value": 9.39,
+          "mean_7": 14.731428571428571,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-26",
+          "value": 7.5,
+          "mean_7": 13.082857142857145,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-29",
+          "value": 10.16,
+          "mean_7": 13.20857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-30",
+          "value": 21.869999999999997,
+          "mean_7": 14.882857142857144,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-01",
+          "value": 16.08,
+          "mean_7": 15.817142857142857,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-02",
+          "value": 8.23,
+          "mean_7": 13.747142857142858,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-03",
+          "value": 6.42,
+          "mean_7": 11.37857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-06",
+          "value": 6.77,
+          "mean_7": 11.004285714285714,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-07",
+          "value": 22.77,
+          "mean_7": 13.185714285714285,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-08",
+          "value": 24.43,
+          "mean_7": 15.224285714285713,
+          "mean_30": null,
+          "mean_90": null
+        }
+      ],
+      "weekly": [
+        {
+          "period": "2025-W36",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-05",
+          "sum": 65.66,
+          "mean_per_workday": 13.13,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W37",
+          "start_date": "2025-09-08",
+          "end_date": "2025-09-12",
+          "sum": 62.59,
+          "mean_per_workday": 12.52,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W38",
+          "start_date": "2025-09-16",
+          "end_date": "2025-09-19",
+          "sum": 61.36,
+          "mean_per_workday": 15.34,
+          "workdays": 4
+        },
+        {
+          "period": "2025-W39",
+          "start_date": "2025-09-22",
+          "end_date": "2025-09-26",
+          "sum": 72.15,
+          "mean_per_workday": 14.43,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W40",
+          "start_date": "2025-09-29",
+          "end_date": "2025-10-03",
+          "sum": 62.76,
+          "mean_per_workday": 12.55,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W41",
+          "start_date": "2025-10-06",
+          "end_date": "2025-10-08",
+          "sum": 53.97,
+          "mean_per_workday": 17.99,
+          "workdays": 3
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-09",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-30",
+          "sum": 293.79,
+          "mean_per_workday": 13.99,
+          "workdays": 21
+        },
+        {
+          "period": "2025-10",
+          "start_date": "2025-10-01",
+          "end_date": "2025-10-08",
+          "sum": 84.7,
+          "mean_per_workday": 14.12,
+          "workdays": 6
+        }
+      ]
+    },
+    "away_from_home_hours": {
+      "unit": "hours",
+      "daily": [
+        {
+          "date": "2025-09-01",
+          "value": 0.0,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-02",
+          "value": 13.4,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-03",
+          "value": 12.21,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-04",
+          "value": 0.0,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-05",
+          "value": 0.0,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-08",
+          "value": 0.0,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-09",
+          "value": 13.14,
+          "mean_7": 5.535714285714286,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-10",
+          "value": 13.32,
+          "mean_7": 7.438571428571429,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-11",
+          "value": 0.0,
+          "mean_7": 5.524285714285715,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-12",
+          "value": 0.0,
+          "mean_7": 3.7800000000000002,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-16",
+          "value": 13.17,
+          "mean_7": 5.661428571428572,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-17",
+          "value": 12.75,
+          "mean_7": 7.482857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-18",
+          "value": 0.0,
+          "mean_7": 7.482857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-19",
+          "value": 0.0,
+          "mean_7": 5.605714285714286,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-22",
+          "value": 0.0,
+          "mean_7": 3.7028571428571433,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-23",
+          "value": 13.28,
+          "mean_7": 5.6000000000000005,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-24",
+          "value": 14.28,
+          "mean_7": 7.640000000000001,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-25",
+          "value": 0.0,
+          "mean_7": 5.758571428571429,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-26",
+          "value": 0.0,
+          "mean_7": 3.9371428571428573,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-29",
+          "value": 0.0,
+          "mean_7": 3.9371428571428573,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-30",
+          "value": 13.26,
+          "mean_7": 5.831428571428572,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-01",
+          "value": 9.79,
+          "mean_7": 7.2299999999999995,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-02",
+          "value": 0.0,
+          "mean_7": 5.332857142857143,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-03",
+          "value": 0.0,
+          "mean_7": 3.2928571428571423,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-06",
+          "value": 0.0,
+          "mean_7": 3.2928571428571423,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-07",
+          "value": 13.24,
+          "mean_7": 5.184285714285714,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-08",
+          "value": 14.21,
+          "mean_7": 7.214285714285714,
+          "mean_30": null,
+          "mean_90": null
+        }
+      ],
+      "weekly": [
+        {
+          "period": "2025-W36",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-05",
+          "sum": 25.61,
+          "mean_per_workday": 5.12,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W37",
+          "start_date": "2025-09-08",
+          "end_date": "2025-09-12",
+          "sum": 26.46,
+          "mean_per_workday": 5.29,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W38",
+          "start_date": "2025-09-16",
+          "end_date": "2025-09-19",
+          "sum": 25.92,
+          "mean_per_workday": 6.48,
+          "workdays": 4
+        },
+        {
+          "period": "2025-W39",
+          "start_date": "2025-09-22",
+          "end_date": "2025-09-26",
+          "sum": 27.56,
+          "mean_per_workday": 5.51,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W40",
+          "start_date": "2025-09-29",
+          "end_date": "2025-10-03",
+          "sum": 23.05,
+          "mean_per_workday": 4.61,
+          "workdays": 5
+        },
+        {
+          "period": "2025-W41",
+          "start_date": "2025-10-06",
+          "end_date": "2025-10-08",
+          "sum": 27.45,
+          "mean_per_workday": 9.15,
+          "workdays": 3
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-09",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-30",
+          "sum": 118.81,
+          "mean_per_workday": 5.66,
+          "workdays": 21
+        },
+        {
+          "period": "2025-10",
+          "start_date": "2025-10-01",
+          "end_date": "2025-10-08",
+          "sum": 37.24,
+          "mean_per_workday": 6.21,
+          "workdays": 6
+        }
+      ]
+    },
+    "back_home_time": {
+      "unit": "minutes_since_midnight",
+      "daily": [
+        {
+          "date": "2025-09-02",
+          "value": 993,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-03",
+          "value": 981,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-09",
+          "value": 981,
+          "mean_7": 985.0,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-10",
+          "value": 990,
+          "mean_7": 986.25,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-16",
+          "value": 979,
+          "mean_7": 983.3333333333334,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-17",
+          "value": 992,
+          "mean_7": 985.5,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-23",
+          "value": 1041,
+          "mean_7": 1004.0,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-24",
+          "value": 1053,
+          "mean_7": 1016.25,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-30",
+          "value": 982,
+          "mean_7": 1025.3333333333333,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-01",
+          "value": 979,
+          "mean_7": 1013.75,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-07",
+          "value": 980,
+          "mean_7": 980.3333333333334,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-08",
+          "value": 1040,
+          "mean_7": 995.25,
+          "mean_30": null,
+          "mean_90": null
+        }
+      ],
+      "weekly": [
+        {
+          "period": "2025-W36",
+          "start_date": "2025-09-02",
+          "end_date": "2025-09-03",
+          "sum": 1974.0,
+          "mean_per_workday": 987.0,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W37",
+          "start_date": "2025-09-09",
+          "end_date": "2025-09-10",
+          "sum": 1971.0,
+          "mean_per_workday": 985.5,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W38",
+          "start_date": "2025-09-16",
+          "end_date": "2025-09-17",
+          "sum": 1971.0,
+          "mean_per_workday": 985.5,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W39",
+          "start_date": "2025-09-23",
+          "end_date": "2025-09-24",
+          "sum": 2094.0,
+          "mean_per_workday": 1047.0,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W40",
+          "start_date": "2025-09-30",
+          "end_date": "2025-10-01",
+          "sum": 1961.0,
+          "mean_per_workday": 980.5,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W41",
+          "start_date": "2025-10-07",
+          "end_date": "2025-10-08",
+          "sum": 2020.0,
+          "mean_per_workday": 1010.0,
+          "workdays": 2
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-09",
+          "start_date": "2025-09-02",
+          "end_date": "2025-09-30",
+          "sum": 8992.0,
+          "mean_per_workday": 999.11,
+          "workdays": 9
+        },
+        {
+          "period": "2025-10",
+          "start_date": "2025-10-01",
+          "end_date": "2025-10-08",
+          "sum": 2999.0,
+          "mean_per_workday": 999.67,
+          "workdays": 3
+        }
+      ]
+    },
+    "home_office_end_time": {
+      "unit": "minutes_since_midnight",
+      "daily": [
+        {
+          "date": "2025-09-01",
+          "value": 897,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-04",
+          "value": 847,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-05",
+          "value": 573,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-08",
+          "value": 868,
+          "mean_7": null,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-11",
+          "value": 829,
+          "mean_7": 779.25,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-12",
+          "value": 882,
+          "mean_7": 799.8,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-18",
+          "value": 864,
+          "mean_7": 858.3333333333334,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-19",
+          "value": 903,
+          "mean_7": 869.5,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-22",
+          "value": 859,
+          "mean_7": 867.4,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-25",
+          "value": 851,
+          "mean_7": 869.25,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-26",
+          "value": 758,
+          "mean_7": 847.0,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-09-29",
+          "value": 893,
+          "mean_7": 852.8,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-02",
+          "value": 793,
+          "mean_7": 823.75,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-03",
+          "value": 831,
+          "mean_7": 825.2,
+          "mean_30": null,
+          "mean_90": null
+        },
+        {
+          "date": "2025-10-06",
+          "value": 645,
+          "mean_7": 784.0,
+          "mean_30": null,
+          "mean_90": null
+        }
+      ],
+      "weekly": [
+        {
+          "period": "2025-W36",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-05",
+          "sum": 2317.0,
+          "mean_per_workday": 772.33,
+          "workdays": 3
+        },
+        {
+          "period": "2025-W37",
+          "start_date": "2025-09-08",
+          "end_date": "2025-09-12",
+          "sum": 2579.0,
+          "mean_per_workday": 859.67,
+          "workdays": 3
+        },
+        {
+          "period": "2025-W38",
+          "start_date": "2025-09-18",
+          "end_date": "2025-09-19",
+          "sum": 1767.0,
+          "mean_per_workday": 883.5,
+          "workdays": 2
+        },
+        {
+          "period": "2025-W39",
+          "start_date": "2025-09-22",
+          "end_date": "2025-09-26",
+          "sum": 2468.0,
+          "mean_per_workday": 822.67,
+          "workdays": 3
+        },
+        {
+          "period": "2025-W40",
+          "start_date": "2025-09-29",
+          "end_date": "2025-10-03",
+          "sum": 2517.0,
+          "mean_per_workday": 839.0,
+          "workdays": 3
+        },
+        {
+          "period": "2025-W41",
+          "start_date": "2025-10-06",
+          "end_date": "2025-10-06",
+          "sum": 645.0,
+          "mean_per_workday": 645.0,
+          "workdays": 1
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-09",
+          "start_date": "2025-09-01",
+          "end_date": "2025-09-29",
+          "sum": 10024.0,
+          "mean_per_workday": 835.33,
+          "workdays": 12
+        },
+        {
+          "period": "2025-10",
+          "start_date": "2025-10-02",
+          "end_date": "2025-10-06",
+          "sum": 2269.0,
+          "mean_per_workday": 756.33,
+          "workdays": 3
+        }
+      ]
+    }
+  }
+}
