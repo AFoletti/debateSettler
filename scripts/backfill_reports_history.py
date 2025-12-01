@@ -235,7 +235,8 @@ class ReportsBackfillClient:
     next_row = None
 
     while True:
-      body = {"since": since.isoformat()}
+      # Reports API expects start_date / end_date style parameters; use start_date
+      body = {"start_date": since.isoformat()}
       if next_id is not None and next_row is not None:
         body["next_id"] = next_id
         body["next_row_number"] = next_row
