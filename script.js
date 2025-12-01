@@ -529,21 +529,21 @@ function buildChartDatasetsFromSeries(series, options) {
 }
 
 function ensureHistoryLoaded() {
-  if (historyDaily) return Promise.resolve(historyDaily);
+  if (historyCharts) return Promise.resolve(historyCharts);
 
-  return fetch('./data/history_daily.json')
+  return fetch('./data/history_charts.json')
     .then((res) => {
       if (!res.ok) {
-        throw new Error(`Failed to load history_daily.json: ${res.status}`);
+        throw new Error(`Failed to load history_charts.json: ${res.status}`);
       }
       return res.json();
     })
     .then((data) => {
-      historyDaily = data;
+      historyCharts = data;
       return data;
     })
     .catch((err) => {
-      console.error('Error loading history_daily.json', err);
+      console.error('Error loading history_charts.json', err);
       return null;
     });
 }
