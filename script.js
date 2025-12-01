@@ -13,6 +13,12 @@ let historyDaily = null;
 let chartsInitialized = false;
 let chartInstances = {
   billable: null,
+const viewToggleDataBtn = document.querySelector('[data-testid="view-toggle-data"]');
+const viewToggleChartsBtn = document.querySelector('[data-testid="view-toggle-charts"]');
+const chartsSection = document.querySelector('[data-testid="charts-section"]');
+const metricsGridSection = document.querySelector('.metrics-grid');
+const dataSummarySection = document.querySelector('.data-summary');
+
   away: null,
   backHome: null,
   homeOffice: null,
