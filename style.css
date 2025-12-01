@@ -155,7 +155,13 @@ body {
 
 /* Main content */
 .main-content {
-    padding: 2rem 0;
+    padding: 2.5rem 0 3rem 0;
+}
+
+@media (max-width: 640px) {
+    .main-content {
+        padding: 1.75rem 0 2.5rem 0;
+    }
 }
 
 /* Dashboard */
