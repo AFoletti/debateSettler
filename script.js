@@ -212,22 +212,6 @@ function updateTrends() {
     case 'down':
       homeIcon.textContent = '↘️';
       homeIcon.className = 'trend-icon trend-down';
-function setViewMode(mode) {
-  if (mode === 'charts') {
-    viewToggleDataBtn.classList.remove('is-active');
-    viewToggleChartsBtn.classList.add('is-active');
-    if (metricsGridSection) metricsGridSection.style.display = 'none';
-    if (dataSummarySection) dataSummarySection.style.display = 'none';
-    if (chartsSection) chartsSection.style.display = 'block';
-  } else {
-    viewToggleDataBtn.classList.add('is-active');
-    viewToggleChartsBtn.classList.remove('is-active');
-    if (metricsGridSection) metricsGridSection.style.display = 'grid';
-    if (dataSummarySection) dataSummarySection.style.display = 'block';
-    if (chartsSection) chartsSection.style.display = 'none';
-  }
-}
-
       homeText.textContent = 'Earlier';
       break;
     default:
