@@ -731,12 +731,6 @@ function renderNumericChartFromPrecomputed(key, metricKey, options = {}) {
     },
   });
 }
-  const { labels, datasets } = buildChartDatasetsFromSeries(series, {
-    baseLabel: options.baseLabel,
-    mean30: chartState.means.mean30,
-    mean90: chartState.means.mean90,
-    yAxisID: 'y',
-  });
 
   const ctx = document.getElementById(options.canvasId).getContext('2d');
   destroyExistingChart(key);
