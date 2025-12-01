@@ -138,6 +138,9 @@ function updateMetrics() {
   }%`;
   document.getElementById('late-work-subtitle').textContent = `${
     metrics.late_work_frequency?.late_work_days || 0
+  } out of ${metrics.late_work_frequency?.total_work_days || 0} work days after 20:00`;
+}
+
 function rangeFilterSeries(series, rangeKey) {
   if (!Array.isArray(series) || series.length === 0) return [];
 
