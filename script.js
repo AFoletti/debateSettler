@@ -833,6 +833,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial data fetch
   fetchData();
 
+  // Load history for charts and init controls
+  ensureHistoryLoaded().then(() => {
+    initChartControls();
+    renderAllCharts();
+  });
+
   // Retry button
   retryButton.addEventListener('click', fetchData);
 });
