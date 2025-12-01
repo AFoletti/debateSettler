@@ -1,0 +1,70 @@
+{
+  "billable_hours": 259.33,
+  "daily_billable_avg": 8.64,
+  "absent_from_home_hours": 153.96,
+  "daily_away_avg": 14,
+  "back_home_stats": {
+    "mean": "18:10",
+    "median": "17:41",
+    "earliest": "17:23",
+    "latest": "20:27",
+    "count": 11
+  },
+  "home_office_end_stats": {
+    "mean": "14:30",
+    "median": "14:53",
+    "earliest": "12:47",
+    "latest": "15:32",
+    "count": 19
+  },
+  "late_work_frequency": {
+    "late_work_days": 1,
+    "total_work_days": 30,
+    "percentage": 3.3
+  },
+  "total_entries": 424,
+  "working_days_analyzed": 30,
+  "date_range": {
+    "start": "2025-10-20",
+    "end": "2025-11-28"
+  },
+  "last_7_days": {
+    "billable_hours": 60.62,
+    "daily_billable_avg": 8.66,
+    "absent_from_home_hours": 15.25,
+    "daily_away_avg": 15.25,
+    "back_home_stats": {
+      "mean": "19:22",
+      "median": "19:22",
+      "earliest": "19:22",
+      "latest": "19:22",
+      "count": 1
+    },
+    "home_office_end_stats": {
+      "mean": "14:30",
+      "median": "14:31",
+      "earliest": "13:32",
+      "latest": "15:32",
+      "count": 6
+    },
+    "late_work_frequency": {
+      "late_work_days": 0,
+      "total_work_days": 7,
+      "percentage": 0
+    },
+    "total_entries": 90,
+    "working_days_analyzed": 7
+  },
+  "trends": {
+    "billable_hours": {
+      "trend": "stable",
+      "difference": 0.019999999999999574,
+      "percentage": 0
+    },
+    "back_home_time": {
+      "trend": "up",
+      "difference": 72,
+      "percentage": 0
+    }
+  }
+}
