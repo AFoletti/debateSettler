@@ -742,29 +742,79 @@ function renderNumericChartFromPrecomputed(key, metricKey, options = {}) {
   });
 }
 
-function renderTimeChart(key, selector, options = {}) {
-  if (!historyDaily || !historyDaily.daily_metrics) return;
+function renderTimeChartFromPrecomputed(key, metricKey, options = {}) {
+  if (!historyCharts || !historyCharts.metrics || !historyCharts.metrics[metricKey]) return;
 
-  const filtered = rangeFilterDailyMetrics(historyDaily.daily_metrics, chartState.range).filter(
-    (d) => selector(d) != null,
-  );
+  const metric = historyCharts.metrics[metricKey];
+  const seriesSource = metric[chartState.resolution];
+  if (!Array.isArray(seriesSource) || seriesSource.length === 0) return;
 
-  const series = getAggregatedSeries(
-    filtered,
-    chartState.resolution,
-    chartState.aggregation,
-    (d) => selector(d),
-  );
+  const filtered = rangeFilterSeries(seriesSource, chartState.range);
+  const values = filtered.map((p) => p.value != null
+    ? p.value
+    : (chartState.aggregation === 'mean' ? p.mean_per_workday : p.sum));
+  const labels = filtered.map((p) => p.date || p.period);
 
-  const { labels, datasets } = buildChartDatasetsFromSeries(
-    series.map((p) => ({ ...p, value: p.value })),
-    {
-      baseLabel: options.baseLabel,
-      mean30: chartState.means.mean30,
-      mean90: chartState.means.mean90,
-      yAxisID: 'y',
-    },
-  );
+  const baseOutliers = tukeyOutlierFlags(values);
+
+  const mean7 = filtered.map((p) => p.mean_7 ?? null);
+  const mean30 = chartState.means.mean30 ? filtered.map((p) => p.mean_30 ?? null) : new Array(values.length).fill(null);
+  const mean90 = chartState.means.mean90 ? filtered.map((p) => p.mean_90 ?? null) : new Array(values.length).fill(null);
+
+  const datasets = [];
+
+  datasets.push({
+    type: 'bar',
+    label: options.baseLabel,
+    data: values,
+    backgroundColor: values.map((v, idx) =>
+      baseOutliers.isOutlier[idx] ? 'rgba(239, 68, 68, 0.7)' : 'rgba(59, 130, 246, 0.7)',
+    ),
+    borderWidth: 0,
+  });
+
+  datasets.push({
+    type: 'line',
+    label: '7d mean',
+    data: mean7,
+    borderColor: 'rgba(16, 185, 129, 1)',
+    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+    tension: 0.3,
+    borderWidth: 2,
+    pointRadius: 0,
+    spanGaps: true,
+    yAxisID: options.yAxisID || 'y',
+  });
+
+  if (chartState.means.mean30) {
+    datasets.push({
+      type: 'line',
+      label: '30d mean',
+      data: mean30,
+      borderColor: 'rgba(234, 179, 8, 1)',
+      backgroundColor: 'rgba(234, 179, 8, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
+
+  if (chartState.means.mean90) {
+    datasets.push({
+      type: 'line',
+      label: '90d mean',
+      data: mean90,
+      borderColor: 'rgba(129, 140, 248, 1)',
+      backgroundColor: 'rgba(129, 140, 248, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
 
   const ctx = document.getElementById(options.canvasId).getContext('2d');
   destroyExistingChart(key);
