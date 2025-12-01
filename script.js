@@ -855,11 +855,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial data fetch
   fetchData();
 
+  // Default to data view
+  setViewMode('data');
+
   // Load history for charts and init controls
   ensureHistoryLoaded().then(() => {
     initChartControls();
     renderAllCharts();
   });
+
+  // View toggle buttons
+  if (viewToggleDataBtn && viewToggleChartsBtn) {
+    viewToggleDataBtn.addEventListener('click', () => setViewMode('data'));
+    viewToggleChartsBtn.addEventListener('click', () => setViewMode('charts'));
+  }
 
   // Retry button
   retryButton.addEventListener('click', fetchData);
