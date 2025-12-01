@@ -82,14 +82,6 @@ body {
     text-align: center;
     padding: 3rem 0;
 }
-.header-top-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
 .view-toggle {
     display: inline-flex;
     padding: 0.25rem;
@@ -119,9 +111,22 @@ body {
     opacity: 0.6;
 }
 
+.status-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 @media (max-width: 640px) {
-    .header-top-row {
+    .status-content {
+        flex-direction: column;
         align-items: flex-start;
+    }
+
+    .status-actions {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 0.75rem;
     }
 }
 
