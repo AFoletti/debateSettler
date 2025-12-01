@@ -203,8 +203,6 @@ function rangeFilterSeries(series, rangeKey) {
   });
 }
 
-  } out of ${metrics.late_work_frequency?.total_work_days || 0} work days after 20:00`;
-
   // Back Home Times
   document.getElementById('back-home-count').textContent = metrics.back_home_stats?.count || 0;
   document.getElementById('back-home-mean').textContent = metrics.back_home_stats?.mean || 'N/A';
