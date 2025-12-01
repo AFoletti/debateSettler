@@ -8,6 +8,26 @@ let metrics = null;
 let loading = true;
 let error = null;
 
+// Chart state
+let historyDaily = null;
+let chartsInitialized = false;
+let chartInstances = {
+  billable: null,
+  away: null,
+  backHome: null,
+  homeOffice: null,
+};
+
+let chartState = {
+  range: '30d',
+  resolution: 'daily',
+  means: {
+    mean30: false,
+    mean90: false,
+  },
+  aggregation: 'sum',
+};
+
 // DOM elements
 const loadingContainer = document.getElementById('loading-container');
 const errorContainer = document.getElementById('error-container');
