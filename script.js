@@ -923,6 +923,16 @@ function renderTimeChartFromPrecomputed(key, metricKey, options = {}) {
 function renderAllCharts() {
   if (!historyCharts || !historyCharts.metrics) return;
 
+  // Total worked hours (numeric)
+  renderNumericChartFromPrecomputed(
+    'total',
+    'total_hours',
+    {
+      canvasId: 'chart-total-canvas',
+      baseLabel: 'Total hours',
+    },
+  );
+
   // Billable hours (numeric)
   renderNumericChartFromPrecomputed(
     'billable',
