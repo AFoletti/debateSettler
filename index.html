@@ -333,6 +333,73 @@
           </div>
         </section>
 
+      <!-- Charts Section -->
+      <section class="container charts-section" aria-label="Visual trends" data-testid="charts-section">
+        <h2 class="charts-title">Visual Trends</h2>
+        <p class="charts-subtitle">
+          Long-term view of your billable hours, time away from home, and return times. Outliers are highlighted
+          using Tukey's method (values outside [Q1 − 1.5 × IQR, Q3 + 1.5 × IQR]).
+        </p>
+
+        <!-- Global chart controls -->
+        <div class="charts-controls" data-testid="charts-controls">
+          <div class="control-group" data-testid="charts-range-control">
+            <span class="control-label">Range:</span>
+            <button type="button" class="control-btn" data-range="7d">7d</button>
+            <button type="button" class="control-btn is-active" data-range="30d">30d</button>
+            <button type="button" class="control-btn" data-range="3m">3m</button>
+            <button type="button" class="control-btn" data-range="6m">6m</button>
+            <button type="button" class="control-btn" data-range="1y">1y</button>
+            <button type="button" class="control-btn" data-range="ytd">YTD</button>
+            <button type="button" class="control-btn" data-range="all">All</button>
+          </div>
+
+          <div class="control-group" data-testid="charts-resolution-control">
+            <span class="control-label">Resolution:</span>
+            <button type="button" class="control-btn is-active" data-resolution="daily">Daily</button>
+            <button type="button" class="control-btn" data-resolution="weekly">Weekly</button>
+            <button type="button" class="control-btn" data-resolution="monthly">Monthly</button>
+          </div>
+
+          <div class="control-group" data-testid="charts-mean-control">
+            <span class="control-label">Running means:</span>
+            <span class="control-pill" data-testid="mean-7d-pill">7d (always on)</span>
+            <button type="button" class="control-btn" data-mean="30">30d</button>
+            <button type="button" class="control-btn" data-mean="90">90d</button>
+          </div>
+
+          <div class="control-group" data-testid="charts-aggregate-mode-control">
+            <span class="control-label">Aggregation:</span>
+            <button type="button" class="control-btn is-active" data-agg="sum">Sum</button>
+            <button type="button" class="control-btn" data-agg="mean">Mean</button>
+          </div>
+        </div>
+
+        <!-- Charts grid -->
+        <div class="charts-grid">
+          <article class="chart-card" aria-label="Billable hours chart" data-testid="chart-billable">
+            <h3 class="chart-title">Billable Hours Over Time</h3>
+            <canvas id="chart-billable-canvas"></canvas>
+          </article>
+
+          <article class="chart-card" aria-label="Time away from home chart" data-testid="chart-away">
+            <h3 class="chart-title">Time Away from Home</h3>
+            <canvas id="chart-away-canvas"></canvas>
+          </article>
+
+          <article class="chart-card" aria-label="Back home times chart" data-testid="chart-back-home">
+            <h3 class="chart-title">Back Home Times</h3>
+            <canvas id="chart-back-home-canvas"></canvas>
+          </article>
+
+          <article class="chart-card" aria-label="HomeOffice end times chart" data-testid="chart-home-office">
+            <h3 class="chart-title">HomeOffice End Times</h3>
+            <canvas id="chart-home-office-canvas"></canvas>
+          </article>
+        </div>
+      </section>
+
+
         <!-- Footer -->
         <footer class="footer-section">
           <h2 class="footer-title">DebateSettler</h2>
