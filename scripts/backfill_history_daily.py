@@ -207,7 +207,11 @@ class TogglBackfillFetcher:
         }
         print(f"📡 Requesting entries from {start_iso} to {end_iso}")
         resp = requests.get(f"{self.base_url}/me/time_entries", headers=self.headers, params=params)
-        resp.raise_for_status()
+        try:
+            resp.raise_for_status()
+        except requests.HTTPError as exc:
+            print(f"❌ Toggl API error {resp.status_code}: {resp.text}")
+            raise
         return resp.json()
 
 
