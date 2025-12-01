@@ -242,7 +242,11 @@ class ReportsBackfillClient:
 
       print(f"📨 POST {url} with body: {body}")
       resp = requests.post(url, headers=self.auth_headers, data=json.dumps(body))
-      resp.raise_for_status()
+      try:
+        resp.raise_for_status()
+      except requests.HTTPError:
+        print(f"❌ Reports API error {resp.status_code}: {resp.text}")
+        raise
       batch = resp.json()
 
       if not batch:
