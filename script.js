@@ -555,11 +555,134 @@ function destroyExistingChart(key) {
   }
 }
 
-function renderNumericChart(key, selector, options = {}) {
-  if (!historyDaily || !historyDaily.daily_metrics) return;
+function renderNumericChartFromPrecomputed(key, metricKey, options = {}) {
+  if (!historyCharts || !historyCharts.metrics || !historyCharts.metrics[metricKey]) return;
 
-  const filtered = rangeFilterDailyMetrics(historyDaily.daily_metrics, chartState.range);
-  const series = getAggregatedSeries(filtered, chartState.resolution, chartState.aggregation, selector);
+  const metric = historyCharts.metrics[metricKey];
+  const seriesSource = metric[chartState.resolution];
+  if (!Array.isArray(seriesSource) || seriesSource.length === 0) return;
+
+  // Filter by range based on date or start_date
+  const filtered = rangeFilterSeries(seriesSource, chartState.range);
+  const values = filtered.map((p) => p.value != null
+    ? p.value
+    : (chartState.aggregation === 'mean' ? p.mean_per_workday : p.sum));
+  const labels = filtered.map((p) => p.date || p.period);
+
+  const baseOutliers = tukeyOutlierFlags(values);
+
+  const mean7 = filtered.map((p) => p.mean_7 ?? null);
+  const mean30 = chartState.means.mean30 ? filtered.map((p) => p.mean_30 ?? null) : new Array(values.length).fill(null);
+  const mean90 = chartState.means.mean90 ? filtered.map((p) => p.mean_90 ?? null) : new Array(values.length).fill(null);
+
+  const datasets = [];
+
+  // Base bars
+  datasets.push({
+    type: 'bar',
+    label: options.baseLabel,
+    data: values,
+    backgroundColor: values.map((v, idx) =>
+      baseOutliers.isOutlier[idx] ? 'rgba(239, 68, 68, 0.7)' : 'rgba(59, 130, 246, 0.7)',
+    ),
+    borderWidth: 0,
+  });
+
+  // 7d running mean (from precomputed daily only)
+  datasets.push({
+    type: 'line',
+    label: '7d mean',
+    data: mean7,
+    borderColor: 'rgba(16, 185, 129, 1)',
+    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+    tension: 0.3,
+    borderWidth: 2,
+    pointRadius: 0,
+    spanGaps: true,
+    yAxisID: options.yAxisID || 'y',
+  });
+
+  if (chartState.means.mean30) {
+    datasets.push({
+      type: 'line',
+      label: '30d mean',
+      data: mean30,
+      borderColor: 'rgba(234, 179, 8, 1)',
+      backgroundColor: 'rgba(234, 179, 8, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
+
+  if (chartState.means.mean90) {
+    datasets.push({
+      type: 'line',
+      label: '90d mean',
+      data: mean90,
+      borderColor: 'rgba(129, 140, 248, 1)',
+      backgroundColor: 'rgba(129, 140, 248, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
+
+  const ctx = document.getElementById(options.canvasId).getContext('2d');
+  destroyExistingChart(key);
+
+  chartInstances[key] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets,
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: '#d1d5db',
+          },
+          grid: {
+            color: 'rgba(55, 65, 81, 0.5)',
+          },
+        },
+        x: {
+          ticks: {
+            color: '#9ca3af',
+            maxTicksLimit: 8,
+          },
+          grid: {
+            color: 'rgba(31, 41, 55, 0.5)',
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#e5e7eb',
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label(context) {
+              const label = context.dataset.label || '';
+              const value = context.parsed.y;
+              return `${label}: ${value != null ? value.toFixed(2) : 'N/A'}`;
+            },
+          },
+        },
+      },
+    },
+  });
+}
   const { labels, datasets } = buildChartDatasetsFromSeries(series, {
     baseLabel: options.baseLabel,
     mean30: chartState.means.mean30,
