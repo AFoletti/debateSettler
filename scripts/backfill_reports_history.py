@@ -502,8 +502,8 @@ class ReportsBackfillClient:
         return ws["id"]
     raise RuntimeError(f"Workspace '{self.workspace_name}' not found")
 
-  def fetch_time_entries_since(self, since: date):
-    """Fetch all time entries from 'since' (inclusive) up to today using reports API.
+  def fetch_time_entries_range(self, start: date, end: date):
+    """Fetch all time entries between start and end (inclusive) using reports API.
 
     Uses POST /workspace/{workspace_id}/search/time_entries with pagination
     via X-Next-ID and X-Next-Row-Number headers.
@@ -515,8 +515,10 @@ class ReportsBackfillClient:
     next_row = None
 
     while True:
-      # Reports API expects start_date / end_date style parameters; use start_date
-      body = {"start_date": since.isoformat()}
+      body = {
+        "start_date": start.isoformat(),
+        "end_date": end.isoformat(),
+      }
       if next_id is not None and next_row is not None:
         body["next_id"] = next_id
         body["next_row_number"] = next_row
@@ -555,16 +557,19 @@ def main():
   data_dir = Path("data")
   data_dir.mkdir(exist_ok=True)
 
-  # Backfill from 2025-06-01 (inclusive)
-  since_date = date(2025, 6, 1)
-  entries = client.fetch_time_entries_since(since_date)
+  # Backfill from 2025-06-01 (inclusive) to yesterday
+  start_date = date(2025, 6, 1)
+  yesterday = datetime.utcnow().date() - timedelta(days=1)
+  entries = client.fetch_time_entries_range(start_date, yesterday)
 
   # Normalise: remove description if present
   for e in entries:
     if "description" in e:
       del e["description"]
 
-  _update_history_daily(entries, client.workspace_name, data_dir)
+  # Build daily stats and charts history
+  daily_stats = _build_daily_stats(entries)
+  _build_history_charts(daily_stats, client.workspace_name, data_dir)
 
 
 if __name__ == "__main__":
