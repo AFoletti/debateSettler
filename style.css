@@ -97,7 +97,7 @@ body {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
-    cursor: default;
+    cursor: pointer;
     font-weight: 500;
     white-space: nowrap;
 }
