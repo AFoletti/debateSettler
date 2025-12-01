@@ -222,6 +222,28 @@ function updateTrends() {
   }
 
   if (Math.abs(homeTrend.difference) > 0) {
+    homeDiff.textContent = `${homeTrend.difference > 0 ? '+' : ''}${homeTrend.difference.toFixed(0)}min`;
+    homeDiff.style.display = 'block';
+  } else {
+    homeDiff.style.display = 'none';
+  }
+}
+
+function setViewMode(mode) {
+  if (mode === 'charts') {
+    viewToggleDataBtn.classList.remove('is-active');
+    viewToggleChartsBtn.classList.add('is-active');
+    if (metricsGridSection) metricsGridSection.style.display = 'none';
+    if (dataSummarySection) dataSummarySection.style.display = 'none';
+    if (chartsSection) chartsSection.style.display = 'block';
+  } else {
+    viewToggleDataBtn.classList.add('is-active');
+    viewToggleChartsBtn.classList.remove('is-active');
+    if (metricsGridSection) metricsGridSection.style.display = 'grid';
+    if (dataSummarySection) dataSummarySection.style.display = 'block';
+    if (chartsSection) chartsSection.style.display = 'none';
+  }
+}
 
 // ---------- Charts Helpers ----------
 
