@@ -215,6 +215,560 @@ function updateTrends() {
   }
 
   if (Math.abs(homeTrend.difference) > 0) {
+
+// ---------- Charts Helpers ----------
+
+function parseISODate(dateStr) {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return null;
+  return d;
+}
+
+function rangeFilterDailyMetrics(dailyMetrics, rangeKey) {
+  if (!Array.isArray(dailyMetrics) || dailyMetrics.length === 0) return [];
+
+  const dates = dailyMetrics.map((d) => d.date).sort();
+  const lastDateStr = dates[dates.length - 1];
+  const lastDate = parseISODate(lastDateStr);
+  if (!lastDate) return [];
+
+  let startDate = null;
+
+  switch (rangeKey) {
+    case '7d': {
+      startDate = new Date(lastDate);
+      startDate.setDate(startDate.getDate() - 6);
+      break;
+    }
+    case '30d': {
+      startDate = new Date(lastDate);
+      startDate.setDate(startDate.getDate() - 29);
+      break;
+    }
+    case '3m': {
+      startDate = new Date(lastDate);
+      startDate.setMonth(startDate.getMonth() - 3);
+      break;
+    }
+    case '6m': {
+      startDate = new Date(lastDate);
+      startDate.setMonth(startDate.getMonth() - 6);
+      break;
+    }
+    case '1y': {
+      startDate = new Date(lastDate);
+      startDate.setFullYear(startDate.getFullYear() - 1);
+      break;
+    }
+    case 'ytd': {
+      startDate = new Date(lastDate.getFullYear(), 0, 1);
+      break;
+    }
+    case 'all':
+    default:
+      startDate = null;
+      break;
+  }
+
+  return dailyMetrics.filter((d) => {
+    const dt = parseISODate(d.date);
+    if (!dt) return false;
+    if (!startDate) return true;
+    return dt >= startDate && dt <= lastDate;
+  });
+}
+
+function tukeyOutlierFlags(values) {
+  const finiteVals = values.filter((v) => typeof v === 'number' && Number.isFinite(v));
+  if (finiteVals.length < 4) {
+    return {
+      isOutlier: values.map(() => false),
+      lowerFence: null,
+      upperFence: null,
+    };
+  }
+
+  const sorted = [...finiteVals].sort((a, b) => a - b);
+  const q1Index = (sorted.length - 1) * 0.25;
+  const q3Index = (sorted.length - 1) * 0.75;
+
+  function interp(arr, idx) {
+    const lo = Math.floor(idx);
+    const hi = Math.ceil(idx);
+    if (lo === hi) return arr[lo];
+    const t = idx - lo;
+    return arr[lo] + (arr[hi] - arr[lo]) * t;
+  }
+
+  const q1 = interp(sorted, q1Index);
+  const q3 = interp(sorted, q3Index);
+  const iqr = q3 - q1;
+  const lowerFence = q1 - 1.5 * iqr;
+  const upperFence = q3 + 1.5 * iqr;
+
+  const isOutlier = values.map((v) => {
+    if (typeof v !== 'number' || !Number.isFinite(v)) return false;
+    return v < lowerFence || v > upperFence;
+  });
+
+  return { isOutlier, lowerFence, upperFence };
+}
+
+function runningMean(values, windowSize) {
+  const result = new Array(values.length).fill(null);
+  if (!windowSize || windowSize <= 1) return result;
+
+  const nums = values.map((v) => (typeof v === 'number' && Number.isFinite(v) ? v : null));
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    const v = nums[i];
+    if (v != null) {
+      sum += v;
+      count += 1;
+    }
+
+    const removeIndex = i - windowSize;
+    if (removeIndex >= 0) {
+      const removeVal = nums[removeIndex];
+      if (removeVal != null) {
+        sum -= removeVal;
+        count -= 1;
+      }
+    }
+
+    if (count > 0 && i >= windowSize - 1) {
+      result[i] = sum / count;
+    }
+  }
+
+  return result;
+}
+
+function timeToMinutes(timeStr) {
+  if (!timeStr) return null;
+  const parts = timeStr.split(':').map((p) => parseInt(p, 10));
+  if (parts.length !== 2 || Number.isNaN(parts[0]) || Number.isNaN(parts[1])) return null;
+  return parts[0] * 60 + parts[1];
+}
+
+function minutesToTimeLabel(minutes) {
+  if (minutes == null || !Number.isFinite(minutes)) return null;
+  const h = String(Math.floor(minutes / 60)).padStart(2, '0');
+  const m = String(Math.floor(minutes % 60)).padStart(2, '0');
+  return `${h}:${m}`;
+}
+
+function aggregateByPeriod(filteredDaily, resolution, valueSelector) {
+  if (resolution === 'daily') {
+    return filteredDaily.map((d) => ({ key: d.date, label: d.date, value: valueSelector(d) }));
+  }
+
+  const buckets = new Map();
+
+  function keyFor(dateStr, res) {
+    const dt = parseISODate(dateStr);
+    if (!dt) return null;
+    const year = dt.getFullYear();
+    if (res === 'weekly') {
+      // Simple ISO week approximation
+      const tmp = new Date(dt.getTime());
+      tmp.setHours(0, 0, 0, 0);
+      const dayNum = (tmp.getDay() + 6) % 7; // Mon=0
+      tmp.setDate(tmp.getDate() - dayNum + 3);
+      const firstThursday = new Date(tmp.getFullYear(), 0, 4);
+      const diff = tmp - firstThursday;
+      const week = 1 + Math.round(diff / (7 * 24 * 60 * 60 * 1000));
+      return `${year}-W${String(week).padStart(2, '0')}`;
+    }
+    // monthly
+    const month = String(dt.getMonth() + 1).padStart(2, '0');
+    return `${year}-${month}`;
+  }
+
+  filteredDaily.forEach((d) => {
+    const key = keyFor(d.date, resolution);
+    if (!key) return;
+    const v = valueSelector(d);
+    const isNumeric = typeof v === 'number' && Number.isFinite(v);
+    if (!buckets.has(key)) {
+      buckets.set(key, {
+        key,
+        dates: [],
+        sum: 0,
+        count: 0,
+      });
+    }
+    const bucket = buckets.get(key);
+    bucket.dates.push(d.date);
+    if (isNumeric) {
+      bucket.sum += v;
+      bucket.count += 1;
+    }
+  });
+
+  const result = Array.from(buckets.values()).sort((a, b) => (a.key < b.key ? -1 : 1));
+  return result.map((b) => ({ key: b.key, label: b.key, sum: b.sum, count: b.count }));
+}
+
+function getAggregatedSeries(filteredDaily, resolution, aggregationMode, selector) {
+  if (resolution === 'daily') {
+    return filteredDaily.map((d) => ({
+      key: d.date,
+      label: d.date,
+      value: selector(d),
+    }));
+  }
+
+  const buckets = aggregateByPeriod(filteredDaily, resolution, selector);
+  return buckets.map((b) => {
+    const base = aggregationMode === 'mean' && b.count > 0 ? b.sum / b.count : b.sum;
+    return { key: b.key, label: b.key, value: base };
+  });
+}
+
+function buildChartDatasetsFromSeries(series, options) {
+  const baseValues = series.map((p) => (typeof p.value === 'number' ? p.value : null));
+  const baseOutliers = tukeyOutlierFlags(baseValues);
+
+  const labels = series.map((p) => p.label);
+
+  const mean7 = runningMean(baseValues, 7);
+  const mean30 = options.mean30 ? runningMean(baseValues, 30) : new Array(baseValues.length).fill(null);
+  const mean90 = options.mean90 ? runningMean(baseValues, 90) : new Array(baseValues.length).fill(null);
+
+  const datasets = [];
+
+  // Base bars
+  datasets.push({
+    type: 'bar',
+    label: options.baseLabel,
+    data: baseValues,
+    backgroundColor: baseValues.map((v, idx) =>
+      baseOutliers.isOutlier[idx] ? 'rgba(239, 68, 68, 0.7)' : 'rgba(59, 130, 246, 0.7)',
+    ),
+    borderWidth: 0,
+  });
+
+  // 7d running mean (always on)
+  datasets.push({
+    type: 'line',
+    label: '7d mean',
+    data: mean7,
+    borderColor: 'rgba(16, 185, 129, 1)',
+    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+    tension: 0.3,
+    borderWidth: 2,
+    pointRadius: 0,
+    spanGaps: true,
+    yAxisID: options.yAxisID || 'y',
+  });
+
+  if (options.mean30) {
+    datasets.push({
+      type: 'line',
+      label: '30d mean',
+      data: mean30,
+      borderColor: 'rgba(234, 179, 8, 1)',
+      backgroundColor: 'rgba(234, 179, 8, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
+
+  if (options.mean90) {
+    datasets.push({
+      type: 'line',
+      label: '90d mean',
+      data: mean90,
+      borderColor: 'rgba(129, 140, 248, 1)',
+      backgroundColor: 'rgba(129, 140, 248, 0.1)',
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      yAxisID: options.yAxisID || 'y',
+    });
+  }
+
+  return { labels, datasets };
+}
+
+function ensureHistoryLoaded() {
+  if (historyDaily) return Promise.resolve(historyDaily);
+
+  return fetch('./data/history_daily.json')
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Failed to load history_daily.json: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      historyDaily = data;
+      return data;
+    })
+    .catch((err) => {
+      console.error('Error loading history_daily.json', err);
+      return null;
+    });
+}
+
+function destroyExistingChart(key) {
+  if (chartInstances[key]) {
+    chartInstances[key].destroy();
+    chartInstances[key] = null;
+  }
+}
+
+function renderNumericChart(key, selector, options = {}) {
+  if (!historyDaily || !historyDaily.daily_metrics) return;
+
+  const filtered = rangeFilterDailyMetrics(historyDaily.daily_metrics, chartState.range);
+  const series = getAggregatedSeries(filtered, chartState.resolution, chartState.aggregation, selector);
+  const { labels, datasets } = buildChartDatasetsFromSeries(series, {
+    baseLabel: options.baseLabel,
+    mean30: chartState.means.mean30,
+    mean90: chartState.means.mean90,
+    yAxisID: 'y',
+  });
+
+  const ctx = document.getElementById(options.canvasId).getContext('2d');
+  destroyExistingChart(key);
+
+  chartInstances[key] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets,
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: '#d1d5db',
+          },
+          grid: {
+            color: 'rgba(55, 65, 81, 0.5)',
+          },
+        },
+        x: {
+          ticks: {
+            color: '#9ca3af',
+            maxTicksLimit: 8,
+          },
+          grid: {
+            color: 'rgba(31, 41, 55, 0.5)',
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#e5e7eb',
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label(context) {
+              const label = context.dataset.label || '';
+              const value = context.parsed.y;
+              return `${label}: ${value != null ? value.toFixed(2) : 'N/A'}`;
+            },
+          },
+        },
+      },
+    },
+  });
+}
+
+function renderTimeChart(key, selector, options = {}) {
+  if (!historyDaily || !historyDaily.daily_metrics) return;
+
+  const filtered = rangeFilterDailyMetrics(historyDaily.daily_metrics, chartState.range).filter(
+    (d) => selector(d) != null,
+  );
+
+  const series = getAggregatedSeries(
+    filtered,
+    chartState.resolution,
+    chartState.aggregation,
+    (d) => selector(d),
+  );
+
+  const { labels, datasets } = buildChartDatasetsFromSeries(
+    series.map((p) => ({ ...p, value: p.value })),
+    {
+      baseLabel: options.baseLabel,
+      mean30: chartState.means.mean30,
+      mean90: chartState.means.mean90,
+      yAxisID: 'y',
+    },
+  );
+
+  const ctx = document.getElementById(options.canvasId).getContext('2d');
+  destroyExistingChart(key);
+
+  chartInstances[key] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets,
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: false,
+          ticks: {
+            color: '#d1d5db',
+            callback(value) {
+              return minutesToTimeLabel(value) || '';
+            },
+          },
+          grid: {
+            color: 'rgba(55, 65, 81, 0.5)',
+          },
+        },
+        x: {
+          ticks: {
+            color: '#9ca3af',
+            maxTicksLimit: 8,
+          },
+          grid: {
+            color: 'rgba(31, 41, 55, 0.5)',
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#e5e7eb',
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label(context) {
+              const label = context.dataset.label || '';
+              const value = context.parsed.y;
+              const human = minutesToTimeLabel(value);
+              return `${label}: ${human || 'N/A'}`;
+            },
+          },
+        },
+      },
+    },
+  });
+}
+
+function renderAllCharts() {
+  if (!historyDaily || !historyDaily.daily_metrics) return;
+
+  // Billable hours (numeric)
+  renderNumericChart(
+    'billable',
+    (d) => (typeof d.billable_hours === 'number' ? d.billable_hours : null),
+    {
+      canvasId: 'chart-billable-canvas',
+      baseLabel: 'Billable hours',
+    },
+  );
+
+  // Away from home (numeric)
+  renderNumericChart(
+    'away',
+    (d) => (typeof d.away_from_home_hours === 'number' ? d.away_from_home_hours : null),
+    {
+      canvasId: 'chart-away-canvas',
+      baseLabel: 'Away from home (hours)',
+    },
+  );
+
+  // Back home times (time-of-day)
+  renderTimeChart(
+    'backHome',
+    (d) => timeToMinutes(d.back_home_time),
+    {
+      canvasId: 'chart-back-home-canvas',
+      baseLabel: 'Back home time',
+    },
+  );
+
+  // HomeOffice end times (time-of-day)
+  renderTimeChart(
+    'homeOffice',
+    (d) => timeToMinutes(d.home_office_end_time),
+    {
+      canvasId: 'chart-home-office-canvas',
+      baseLabel: 'HomeOffice end time',
+    },
+  );
+}
+
+function initChartControls() {
+  if (chartsInitialized) return;
+  chartsInitialized = true;
+
+  // Range buttons
+  document.querySelectorAll('[data-range]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const range = btn.getAttribute('data-range');
+      chartState.range = range;
+      document.querySelectorAll('[data-range]').forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      renderAllCharts();
+    });
+  });
+
+  // Resolution buttons
+  document.querySelectorAll('[data-resolution]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const res = btn.getAttribute('data-resolution');
+      chartState.resolution = res;
+      document
+        .querySelectorAll('[data-resolution]')
+        .forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      renderAllCharts();
+    });
+  });
+
+  // Running means buttons (30d / 90d)
+  document.querySelectorAll('[data-mean]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = btn.getAttribute('data-mean');
+      if (val === '30') {
+        chartState.means.mean30 = !chartState.means.mean30;
+        btn.classList.toggle('is-active', chartState.means.mean30);
+      } else if (val === '90') {
+        chartState.means.mean90 = !chartState.means.mean90;
+        btn.classList.toggle('is-active', chartState.means.mean90);
+      }
+      renderAllCharts();
+    });
+  });
+
+  // Aggregation buttons (sum/mean)
+  document.querySelectorAll('[data-agg]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const agg = btn.getAttribute('data-agg');
+      chartState.aggregation = agg;
+      document.querySelectorAll('[data-agg]').forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      renderAllCharts();
+    });
+  });
+}
+
     homeDiff.textContent = `${homeTrend.difference > 0 ? '+' : ''}${homeTrend.difference.toFixed(0)}min`;
     homeDiff.style.display = 'block';
   } else {
