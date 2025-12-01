@@ -935,12 +935,12 @@ function renderTimeChartFromPrecomputed(key, metricKey, options = {}) {
 }
 
 function renderAllCharts() {
-  if (!historyDaily || !historyDaily.daily_metrics) return;
+  if (!historyCharts || !historyCharts.metrics) return;
 
   // Billable hours (numeric)
-  renderNumericChart(
+  renderNumericChartFromPrecomputed(
     'billable',
-    (d) => (typeof d.billable_hours === 'number' ? d.billable_hours : null),
+    'billable_hours',
     {
       canvasId: 'chart-billable-canvas',
       baseLabel: 'Billable hours',
@@ -948,9 +948,9 @@ function renderAllCharts() {
   );
 
   // Away from home (numeric)
-  renderNumericChart(
+  renderNumericChartFromPrecomputed(
     'away',
-    (d) => (typeof d.away_from_home_hours === 'number' ? d.away_from_home_hours : null),
+    'away_from_home_hours',
     {
       canvasId: 'chart-away-canvas',
       baseLabel: 'Away from home (hours)',
@@ -958,9 +958,9 @@ function renderAllCharts() {
   );
 
   // Back home times (time-of-day)
-  renderTimeChart(
+  renderTimeChartFromPrecomputed(
     'backHome',
-    (d) => timeToMinutes(d.back_home_time),
+    'back_home_time',
     {
       canvasId: 'chart-back-home-canvas',
       baseLabel: 'Back home time',
@@ -968,9 +968,9 @@ function renderAllCharts() {
   );
 
   // HomeOffice end times (time-of-day)
-  renderTimeChart(
+  renderTimeChartFromPrecomputed(
     'homeOffice',
-    (d) => timeToMinutes(d.home_office_end_time),
+    'home_office_end_time',
     {
       canvasId: 'chart-home-office-canvas',
       baseLabel: 'HomeOffice end time',
