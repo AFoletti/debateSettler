@@ -110,6 +110,11 @@ body {
 .view-toggle-btn.is-disabled {
     opacity: 0.6;
 }
+.view-toggle-btn.is-active {
+    background: rgba(15, 118, 110, 0.5);
+    color: #f9fafb;
+}
+
 
 .status-actions {
     display: flex;
