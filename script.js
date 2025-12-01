@@ -141,6 +141,8 @@ function updateMetrics() {
   } out of ${metrics.late_work_frequency?.total_work_days || 0} work days after 20:00`;
 }
 
+// ---------- Charts Helpers ----------
+
 function rangeFilterSeries(series, rangeKey) {
   if (!Array.isArray(series) || series.length === 0) return [];
 
