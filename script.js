@@ -798,13 +798,6 @@ function initChartControls() {
   });
 }
 
-    homeDiff.textContent = `${homeTrend.difference > 0 ? '+' : ''}${homeTrend.difference.toFixed(0)}min`;
-    homeDiff.style.display = 'block';
-  } else {
-    homeDiff.style.display = 'none';
-  }
-}
-
 function updateSummary() {
   if (!metrics || !rawData) return;
 
