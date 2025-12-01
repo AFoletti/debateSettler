@@ -661,6 +661,10 @@ body {
 }
 
 @media (max-width: 640px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
     .summary-value {
         font-size: 1.25rem;
     }
