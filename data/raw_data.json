@@ -1,14 +1,181 @@
 {
-  "fetched_at": "2025-12-05T02:26:09.244260",
+  "fetched_at": "2025-12-06T02:19:26.283131",
   "date_range": {
-    "start": "2025-09-06",
-    "end": "2025-12-04",
+    "start": "2025-09-07",
+    "end": "2025-12-05",
     "days": 90
   },
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
-  "total_entries": 965,
+  "total_entries": 972,
   "raw_entries": [
+    {
+      "id": 4205778784,
+      "workspace_id": 4536519,
+      "project_id": 211851557,
+      "task_id": 239768367,
+      "billable": true,
+      "start": "2025-12-05T11:47:27+00:00",
+      "stop": "2025-12-05T13:10:26+00:00",
+      "duration": 4979,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.657547Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211851557,
+      "tid": 239768367
+    },
+    {
+      "id": 4205693889,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2025-12-05T10:39:44+00:00",
+      "stop": "2025-12-05T11:47:27+00:00",
+      "duration": 4063,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.673817Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4205644068,
+      "workspace_id": 4536519,
+      "project_id": 213130697,
+      "task_id": 239037171,
+      "billable": true,
+      "start": "2025-12-05T10:01:10+00:00",
+      "stop": "2025-12-05T10:39:44+00:00",
+      "duration": 2314,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.688334Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 213130697,
+      "tid": 239037171
+    },
+    {
+      "id": 4205558982,
+      "workspace_id": 4536519,
+      "project_id": 213210090,
+      "task_id": 239964864,
+      "billable": true,
+      "start": "2025-12-05T08:59:33+00:00",
+      "stop": "2025-12-05T10:01:10+00:00",
+      "duration": 3697,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.703512Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 213210090,
+      "tid": 239964864
+    },
+    {
+      "id": 4205481937,
+      "workspace_id": 4536519,
+      "project_id": 214646789,
+      "task_id": 240046177,
+      "billable": true,
+      "start": "2025-12-05T08:00:58+00:00",
+      "stop": "2025-12-05T08:59:33+00:00",
+      "duration": 3515,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.723925Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 214646789,
+      "tid": 240046177
+    },
+    {
+      "id": 4205372916,
+      "workspace_id": 4536519,
+      "project_id": 213210090,
+      "task_id": 239964864,
+      "billable": true,
+      "start": "2025-12-05T05:56:05+00:00",
+      "stop": "2025-12-05T08:00:58+00:00",
+      "duration": 7493,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.738959Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 213210090,
+      "tid": 239964864
+    },
+    {
+      "id": 4205891262,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 238138473,
+      "billable": true,
+      "start": "2025-12-05T05:11:00+00:00",
+      "stop": "2025-12-05T05:56:00+00:00",
+      "duration": 2700,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2025-12-05T13:11:13.753196Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 238138473
+    },
     {
       "id": 4204992424,
       "workspace_id": 4536519,
@@ -41,10 +208,14 @@
       "start": "2025-12-04T15:43:26+00:00",
       "stop": "2025-12-04T20:50:06+00:00",
       "duration": 18400,
-      "tags": [],
-      "tag_ids": [],
+      "tags": [
+        "Commuting"
+      ],
+      "tag_ids": [
+        18313213
+      ],
       "duronly": true,
-      "at": "2025-12-04T20:50:07.80506Z",
+      "at": "2025-12-05T05:56:22.529245Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1005,7 +1176,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T19:42:46.651553Z",
+      "at": "2025-12-01T19:42:47.651553Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1024,7 +1195,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T16:29:23.43175Z",
+      "at": "2025-12-01T16:29:24.43175Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1044,7 +1215,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T15:46:43.438998Z",
+      "at": "2025-12-01T15:46:44.438998Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1064,7 +1235,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T15:46:42.914808Z",
+      "at": "2025-12-01T15:46:43.914808Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1084,7 +1255,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T15:46:42.409509Z",
+      "at": "2025-12-01T15:46:43.409509Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1104,7 +1275,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T15:46:41.923391Z",
+      "at": "2025-12-01T15:46:42.923391Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1124,7 +1295,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T15:46:41.268248Z",
+      "at": "2025-12-01T15:46:42.268248Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1144,7 +1315,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T11:12:00.437626Z",
+      "at": "2025-12-01T11:12:01.437626Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1163,7 +1334,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T10:37:42.705717Z",
+      "at": "2025-12-01T10:37:43.705717Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1183,7 +1354,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T08:58:05.750399Z",
+      "at": "2025-12-01T08:58:06.750399Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1203,7 +1374,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T08:53:54.419007Z",
+      "at": "2025-12-01T08:53:55.419007Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1222,7 +1393,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T08:33:00.895715Z",
+      "at": "2025-12-01T08:33:01.895715Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1242,7 +1413,7 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2025-12-01T07:06:19.484155Z",
+      "at": "2025-12-01T07:06:20.484155Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1266,7 +1437,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T06:52:53.385072Z",
+      "at": "2025-12-01T06:52:54.385072Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1289,7 +1460,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T06:05:35.758063Z",
+      "at": "2025-12-01T06:05:36.758063Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1313,7 +1484,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T05:12:09.952274Z",
+      "at": "2025-12-01T05:12:10.952274Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1336,7 +1507,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T05:22:21.282751Z",
+      "at": "2025-12-01T05:22:22.282751Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
@@ -1359,7 +1530,7 @@
         18313213
       ],
       "duronly": true,
-      "at": "2025-12-01T04:30:40.33632Z",
+      "at": "2025-12-01T04:30:41.33632Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
