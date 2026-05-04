@@ -70,7 +70,7 @@ class TogglDataFetcher:
         
         # Calculate date range (last 90 days, excluding today)
         end_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
-        start_date = end_date - timedelta(days=89)  # 90 days total including end_date
+        start_date = end_date - timedelta(days=88)  # 90 days total including end_date
         
         start_date_str = start_date.strftime("%Y-%m-%dT00:00:00.000Z")
         end_date_str = end_date.strftime("%Y-%m-%dT23:59:59.999Z")
