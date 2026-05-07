@@ -173,6 +173,64 @@ body {
     margin: 0.25rem 0 0 0;
 }
 
+/* Timeframe selector */
+.timeframe-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeframe-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dark-400);
+    font-weight: 600;
+    margin: 0;
+}
+
+.timeframe-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeframe-pill {
+    background-color: var(--dark-100);
+    color: var(--dark-700);
+    border: 1px solid var(--dark-200);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+    font-family: inherit;
+}
+
+.timeframe-pill:hover {
+    border-color: var(--primary-500-50);
+    color: var(--dark-800);
+}
+
+.timeframe-pill:active {
+    transform: translateY(1px);
+}
+
+.timeframe-pill.is-active {
+    background-color: var(--primary-600);
+    border-color: var(--primary-600);
+    color: white;
+    box-shadow: 0 0 0 1px var(--primary-500-30);
+}
+
+.timeframe-pill.is-active:hover {
+    background-color: var(--primary-700);
+    border-color: var(--primary-700);
+    color: white;
+}
+
 /* Buttons */
 .btn-primary {
     background-color: var(--primary-600);

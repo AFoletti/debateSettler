@@ -8,7 +8,15 @@ It is a **pure static site**: just HTML, CSS, and JavaScript, designed to be hos
 
 ## What the dashboard shows
 
-Using the last **30 working days** (days with any tracked time), DebateSettler displays:
+The dashboard now lets you pick the **timeframe** the statistics are computed for:
+
+- **This week** / **Last week** — calendar weeks (Monday → Sunday, ISO 8601)
+- **This month** / **Last month** — calendar months
+- **Last 30 working days** — the original behavior, default selection
+- **Last 100 working days**
+- **Full history** — every working day stored in `data/raw_history.json`
+
+For the chosen timeframe, DebateSettler displays:
 
 - **Total billable hours** and **average billable hours per working day**
 - **Time away from home** (non‑HomeOffice time) with daily averages
@@ -17,14 +25,15 @@ Using the last **30 working days** (days with any tracked time), DebateSettler d
 - **HomeOffice end times** for days that are pure HomeOffice (no commuting or mixed patterns)
 - **Late work frequency** – percentage of working days with activity at or after 20:00
 - **Summary counts**
-  - Number of time entries in the 30‑day window
-  - Total raw entries in the 90‑day window
-  - Number of working days analyzed
-- **Recent trends card** comparing the last **7 working days** to the 30‑day baseline:
-  - Trend in daily billable hours
-  - Trend in back‑home times
+  - Time entries in the selected timeframe
+  - Total entries in the cumulative history
+  - Working days analyzed
+- **Recent trends card** comparing the **last 10 working days** to the selected
+  timeframe, for:
+  - Daily billable hours
+  - Back‑home times
 
-All calculations happen **in your browser** using the raw data file.
+All calculations happen **in your browser** using the raw history file.
 
 ---
 
@@ -61,9 +70,11 @@ future) historical charts:
 
 The static site (served by GitHub Pages):
 - Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
-- `script.js` fetches `./data/raw_data.json`
-- `metrics_engine.js` computes all metrics in the browser
-- The page updates to show your latest numbers
+- `script.js` fetches `./data/raw_history.json` (and falls back to
+  `./data/raw_data.json` if history isn't available yet)
+- `metrics_engine.js` computes all metrics in the browser **for the timeframe
+  the user has selected** in the dashboard's pill selector
+- The page updates instantly when the timeframe changes — no re-fetch
 
 There is **no backend server** and no client‑side dependencies beyond the browser.
 

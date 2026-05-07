@@ -13,7 +13,7 @@ Root files under `/app`:
 - **`index.html`** – DOM structure (loading, error, metrics, trends, summary, footer)
 - **`style.css`** – Dark theme + responsive layout (no frameworks)
 - **`metrics_engine.js`** – Pure calculation logic (all statistics derived from Toggl raw data)
-- **`script.js`** – UI state, DOM updates, data loading
+- **`script.js`** – UI state, DOM updates, data loading, **timeframe selector**
 - **`data/raw_history.json`** – **Cumulative** Toggl history (source of truth)
 - **`data/raw_data.json`** – **Derived** last-90-days slice consumed by the dashboard
 - **`scripts/_toggl_common.py`** – Shared helpers used by both fetch scripts
@@ -28,7 +28,8 @@ There is **no bundler** (no Webpack/Vite/Parcel/etc.). GitHub Pages (or any stat
 - `style.css`
 - `metrics_engine.js`
 - `script.js`
-- `data/raw_data.json`
+- `data/raw_history.json`  ← **the dashboard reads this directly**
+- `data/raw_data.json`     ← legacy 90-day slice, served as a fallback
 - (Optionally also `data/raw_history.json` if you want chart code in the
   browser to read it directly — currently unused by the live dashboard.)
 
@@ -195,12 +196,34 @@ history backward in time as far as it goes.
 
 ## 4. Metrics Engine and Rules
 
-`metrics_engine.js` exposes a single function:
+`metrics_engine.js` exposes two public entry points:
 
 ```js
-const { processRawData } = require('./metrics_engine'); // Node
-// or in browser: window.DebateSettlerMetrics.processRawData(rawData);
+const {
+  processRawData,         // legacy: 30-day window with 7-vs-30 trends (kept for the regression test)
+  processWithTimeframe,   // current: arbitrary timeframe, last-10-vs-selected trends (used by the dashboard)
+} = require('./metrics_engine');
+// or in browser: window.DebateSettlerMetrics.processWithTimeframe(rawData, spec);
 ```
+
+### 4.0 `processWithTimeframe(rawData, spec)` — current API
+
+`spec` is one of:
+
+```js
+{ type: 'full' }                                                  // full history
+{ type: 'last_n_working_days', n: 30 }                            // last N working days
+{ type: 'calendar_range', start: 'YYYY-MM-DD', end: 'YYYY-MM-DD' } // inclusive calendar window
+```
+
+It returns the same metric object as `processRawData` plus:
+
+- `timeframe` — the spec it was called with (echoed back, with optional `label`)
+- `last_10_days` — metrics for the last 10 working days from the FULL history
+  (used as the trends baseline)
+- `trends` — `last 10 working days` compared to the selected timeframe
+
+### 4.1 `processRawData(rawData)` — legacy API
 
 `processRawData(rawData)` expects the structure produced by the daily fetch
 (i.e. the **derived** `raw_data.json`):
@@ -223,7 +246,7 @@ Each entry has at least:
 - `billable` – boolean
 - `tags` – array of strings (e.g. `"HomeOffice"`, `"Commuting"`)
 
-### 4.1 Working-Day Selection
+### 4.2 Working-Day Selection
 
 1. Collect all dates where there is at least one entry with `duration > 0`.
 2. Sort them ascending, then reverse for **most recent first**.
@@ -233,7 +256,7 @@ Each entry has at least:
 
 All main dashboard metrics are based on `last30WorkingDays`. Trends compare 7-day values to 30-day values.
 
-### 4.2 Metrics per 30/7 Working Days
+### 4.3 Metrics per 30/7 Working Days
 
 For a given set of working days:
 
@@ -300,7 +323,7 @@ The function returns a structure like:
 }
 ```
 
-### 4.3 Trends
+### 4.4 Trends (legacy `processRawData`)
 
 Trends are computed by comparing 7-day values to 30-day values:
 
@@ -315,7 +338,10 @@ Rules:
   - `trend = 'down'` if recent < baseline.
 - For numeric values (hours), `difference` is in hours; for times, it is in minutes.
 
-The UI converts these into arrows (↗️, ↘️, →) and human-readable labels.
+The UI converts these into arrows (↗, ↘, →) and human-readable labels.
+
+`processWithTimeframe` uses the same rules but with a different baseline:
+**last 10 working days** (recent) vs **the selected timeframe** (baseline).
 
 ---
 
@@ -324,11 +350,47 @@ The UI converts these into arrows (↗️, ↘️, →) and human-readable label
 `script.js` is responsible for:
 
 - Managing loading / error / dashboard states.
-- Fetching `./data/raw_data.json`.
-- Calling `DebateSettlerMetrics.processRawData(rawData)`.
+- Fetching `./data/raw_history.json` (with `./data/raw_data.json` as fallback).
+- Rendering the **timeframe selector** (pill buttons) and tracking the active
+  timeframe in memory.
+- Calling `DebateSettlerMetrics.processWithTimeframe(rawData, spec)` whenever
+  the data loads or the user clicks a different timeframe pill — no re-fetch
+  is needed; everything is recomputed from the in-memory raw history.
 - Populating and updating DOM elements with the metrics result.
 
 It does **not** know any of the detailed calculation rules; those live in `metrics_engine.js`.
+
+### 5.1 Timeframes
+
+Timeframes are constructed in `buildTimeframeSpec(id, today)` from a small set
+of ids. They map to the spec object understood by
+`metrics_engine.js → selectWorkingDays`:
+
+| Timeframe id    | Spec produced                                                        | Semantics |
+|-----------------|----------------------------------------------------------------------|-----------|
+| `current_week`  | `{type: 'calendar_range', start: <Mon UTC>, end: <today UTC>}`       | This week so far (Mon-based, ISO 8601) |
+| `last_week`     | `{type: 'calendar_range', start: <prev Mon>, end: <prev Sun>}`        | The previous full Mon–Sun |
+| `current_month` | `{type: 'calendar_range', start: <1st of month>, end: <today>}`      | Current month, partial |
+| `last_month`    | `{type: 'calendar_range', start: <prev 1st>, end: <prev last day>}`   | Previous full calendar month |
+| `last_30`       | `{type: 'last_n_working_days', n: 30}`                                | Default — matches the original dashboard |
+| `last_100`      | `{type: 'last_n_working_days', n: 100}`                               |  |
+| `full`          | `{type: 'full'}`                                                      | Every working day in `raw_history.json` |
+
+**Date convention**: dates are computed in UTC, matching how
+`metrics_engine.js` bucketizes entry dates (`new Date(entry.start).toISOString().split('T')[0]`).
+This is consistent across all functions but means an entry started right
+after midnight local time *might* fall into the previous UTC date — a
+pre-existing behavior of the engine that we have not changed.
+
+### 5.2 Trends card
+
+Trends always compare the **last 10 working days** (taken from the full
+history, regardless of selected timeframe) to the **selected timeframe**.
+This gives the trends card a single, consistent meaning across all
+timeframes: *"how does my recent rhythm compare to this period?"*
+
+The card's footer text is updated dynamically to reflect the active
+timeframe ("Last 10 working days vs *Full history*", etc.).
 
 ---
 
