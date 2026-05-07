@@ -54,11 +54,12 @@ function deepEqual(a, b, currentPath = '') {
 }
 
 function main() {
-  const rawPath = path.join(__dirname, '..', 'data', 'raw_data.json');
+  const rawPath = path.join(__dirname, '..', 'data', 'raw_history.json');
   const snapshotPath = path.join(__dirname, '..', 'data', 'metrics_snapshot_baseline.json');
 
   if (!fs.existsSync(rawPath)) {
-    console.error('❌ raw_data.json not found at', rawPath);
+    console.error('❌ raw_history.json not found at', rawPath);
+    console.error('   Run scripts/fetch-toggl-data.py or trigger the backfill workflow first.');
     process.exit(1);
   }
   if (!fs.existsSync(snapshotPath)) {

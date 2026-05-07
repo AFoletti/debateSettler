@@ -2,8 +2,8 @@
 Shared helpers for DebateSettler Toggl scripts.
 
 Both `fetch-toggl-data.py` (daily) and `backfill-toggl-history.py` (one-shot)
-import from this module. Keeping the public schema of `data/raw_history.json`
-and `data/raw_data.json` consistent across runs.
+import from this module. They maintain a single cumulative file:
+`data/raw_history.json`.
 
 Schema reminder
 ---------------
@@ -19,16 +19,6 @@ data/raw_history.json (cumulative source of truth):
   "total_entries": N,
   "raw_entries": [ <v9-shape entries, sorted by start ASC, deduped by id, NO description> ]
 }
-
-data/raw_data.json (DERIVED — last 90 days slice for the current dashboard):
-{
-  "fetched_at": "...",
-  "date_range": { "start": "YYYY-MM-DD", "end": "YYYY-MM-DD", "days": 90 },
-  "workspace_name": "...",
-  "workspace_id": 0,
-  "total_entries": N,
-  "raw_entries": [...]
-}
 """
 
 import base64
@@ -43,9 +33,7 @@ import requests
 # ---------------------------------------------------------------------------
 DATA_DIR = Path("data")
 HISTORY_FILE = DATA_DIR / "raw_history.json"
-RAW_DATA_FILE = DATA_DIR / "raw_data.json"
 
-LEGACY_DAYS_WINDOW = 90  # raw_data.json keeps last N days
 HISTORY_VERSION = 1
 
 V9_BASE = "https://api.track.toggl.com/api/v9"
@@ -100,6 +88,11 @@ def fetch_v9_time_entries(headers: dict, start_date: datetime, end_date: datetim
 # ---------------------------------------------------------------------------
 # Reports API v3 fetch (backfill)
 # ---------------------------------------------------------------------------
+class WindowCappedError(RuntimeError):
+    """Raised when a Reports API search returns the API's hard row cap,
+    indicating the window should be split and retried."""
+
+
 def fetch_reports_v3_window(
     headers: dict,
     workspace_id: int,
@@ -151,7 +144,6 @@ def fetch_reports_v3_window(
 
         r = requests.post(url, headers=headers, json=payload, timeout=60)
         if r.status_code == 429:
-            # Rate-limited: back off and retry once
             import time as _time
 
             _time.sleep(2.0)
@@ -160,7 +152,6 @@ def fetch_reports_v3_window(
 
         body = r.json() or []
         # The Reports API v3 sometimes returns a bare list, sometimes {data: [...]}.
-        # Handle both defensively.
         if isinstance(body, dict):
             entries = body.get("data", []) or []
         else:
@@ -181,12 +172,9 @@ def fetch_reports_v3_window(
 
             _time.sleep(sleep_between_pages)
 
-        # Safety guard against runaway loops
         if page > 5000:
             raise RuntimeError("Pagination safety limit hit (5000 pages)")
 
-    # Cap detection: if we got exactly the API ceiling, the window almost
-    # certainly contains MORE data that wasn't returned. Signal the caller.
     REPORTS_V3_HARD_CAP = 1000
     if len(all_entries) >= REPORTS_V3_HARD_CAP and page_size >= REPORTS_V3_HARD_CAP:
         raise WindowCappedError(
@@ -196,11 +184,6 @@ def fetch_reports_v3_window(
         )
 
     return all_entries
-
-
-class WindowCappedError(RuntimeError):
-    """Raised when a Reports API search returns the API's hard row cap,
-    indicating the window should be split and retried."""
 
 
 # ---------------------------------------------------------------------------
@@ -226,7 +209,6 @@ def normalize_reports_entries(
 
     for row in report_rows:
         sub_entries = row.get("time_entries")
-        # Common (row-level) fields that may apply to all sub-entries
         row_common = {
             "workspace_id": _row_workspace_id(row, workspace_id),
             "project_id": row.get("project_id"),
@@ -240,7 +222,6 @@ def normalize_reports_entries(
             for sub in sub_entries:
                 normalized.append(_build_v9_entry(sub, row_common, tag_map))
         else:
-            # Flat row (no nested time_entries array)
             normalized.append(_build_v9_entry(row, row_common, tag_map))
 
     return normalized
@@ -249,15 +230,12 @@ def normalize_reports_entries(
 def _build_v9_entry(src: dict, row_common: dict, tag_map: dict) -> dict:
     """Build a v9-style entry from one Reports row/sub-entry."""
     start = src.get("start") or row_common.get("start")
-    # `stop` may be in `end` (flat row) or `stop` (sub-entry)
     stop = src.get("stop") or src.get("end")
-    # `duration` may be in `seconds` (flat row) or `seconds` (sub-entry)
     duration = src.get("seconds")
     if duration is None:
         duration = src.get("duration", 0)
 
     tag_ids = src.get("tag_ids") or row_common.get("tag_ids") or []
-    # Drop nulls that Toggl sometimes includes
     tag_ids = [t for t in tag_ids if t is not None]
     tags = [tag_map[t] for t in tag_ids if t in tag_map]
 
@@ -323,29 +301,6 @@ def strip_description(entries: list) -> list:
 def entry_start_date_str(entry: dict) -> str:
     s = entry.get("start") or ""
     return s.split("T", 1)[0] if s else ""
-
-
-def seed_from_raw_data(workspace_name: str, workspace_id: int) -> dict | None:
-    """If raw_data.json exists, seed history from it (no API call)."""
-    if not RAW_DATA_FILE.exists():
-        return None
-    with open(RAW_DATA_FILE) as f:
-        raw = json.load(f)
-    history = empty_history(
-        raw.get("workspace_name", workspace_name),
-        raw.get("workspace_id", workspace_id),
-    )
-    entries = strip_description(list(raw.get("raw_entries", [])))
-    deduped: dict = {}
-    for e in entries:
-        deduped[e["id"]] = e
-    sorted_entries = sorted(deduped.values(), key=lambda e: e.get("start") or "")
-    history["raw_entries"] = sorted_entries
-    history["total_entries"] = len(sorted_entries)
-    if sorted_entries:
-        history["first_entry_start"] = sorted_entries[0].get("start")
-        history["last_entry_start"] = sorted_entries[-1].get("start")
-    return history
 
 
 def merge_authoritative_window(
@@ -417,46 +372,3 @@ def write_history(history: dict) -> None:
     DATA_DIR.mkdir(exist_ok=True)
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
-
-
-def derive_raw_data(history: dict, days: int = LEGACY_DAYS_WINDOW) -> dict:
-    """
-    Slice the last `days` days from history into the legacy raw_data.json shape.
-
-    Window: [yesterday - (days-1), yesterday] — same convention as the original
-    fetch script, so the existing dashboard & regression snapshots remain valid.
-    """
-    today = datetime.now(timezone.utc).replace(
-        hour=0, minute=0, second=0, microsecond=0
-    )
-    end_date = today - timedelta(days=1)
-    # Match the original fetch-toggl-data.py convention exactly:
-    # end = yesterday; start = end - 88 days; labelled as "90 days".
-    # (Keeps git diffs of raw_data.json minimal and the existing
-    # regression baseline interpretable across the migration.)
-    start_date = end_date - timedelta(days=days - 2)
-    start_str = start_date.strftime("%Y-%m-%d")
-    end_str = end_date.strftime("%Y-%m-%d")
-
-    selected = [
-        e
-        for e in history["raw_entries"]
-        if start_str <= entry_start_date_str(e) <= end_str
-    ]
-    # Preserve the original raw_data.json convention: most-recent entries first.
-    selected.sort(key=lambda e: e.get("start") or "", reverse=True)
-
-    return {
-        "fetched_at": datetime.now().isoformat(),
-        "date_range": {"start": start_str, "end": end_str, "days": days},
-        "workspace_name": history["workspace_name"],
-        "workspace_id": history["workspace_id"],
-        "total_entries": len(selected),
-        "raw_entries": selected,
-    }
-
-
-def write_raw_data(raw_data: dict) -> None:
-    DATA_DIR.mkdir(exist_ok=True)
-    with open(RAW_DATA_FILE, "w") as f:
-        json.dump(raw_data, f, indent=2)

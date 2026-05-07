@@ -8,7 +8,7 @@ It is a **pure static site**: just HTML, CSS, and JavaScript, designed to be hos
 
 ## What the dashboard shows
 
-The dashboard now lets you pick the **timeframe** the statistics are computed for:
+The dashboard lets you pick the **timeframe** the statistics are computed for:
 
 - **This week** / **Last week** — calendar weeks (Monday → Sunday, ISO 8601)
 - **This month** / **Last month** — calendar months
@@ -39,25 +39,20 @@ All calculations happen **in your browser** using the raw history file.
 
 ## How it works
 
-DebateSettler keeps **two** JSON files in `data/` to power the dashboard and (in the
-future) historical charts:
+DebateSettler keeps a single cumulative JSON file in `data/`:
 
 - **`data/raw_history.json`** — the **cumulative source of truth**. Every Toggl
   entry ever tracked, deduped by `id` and stored in the `v9` shape used by the
   metrics engine. It grows over time but is also fully self-contained, so any
-  new metric can be re-derived from it.
-- **`data/raw_data.json`** — a **derived** file containing the last 90 days
-  sliced from the history. This is the file the dashboard actually reads, and
-  it preserves the exact format the original site has always used.
+  new metric or chart can be re-derived from it.
 
-### Two GitHub Actions keep these files current
+### Two GitHub Actions keep the file current
 
 1. **`Fetch Toggl Data Daily`** runs every day:
    - Fetches the **last 30 days** via the Toggl v9 `/me/time_entries` endpoint
    - Replaces that window inside `raw_history.json` (so edits and deletions
      made in the recent past are picked up correctly)
-   - Re-derives `raw_data.json` from the updated history
-   - Commits both files
+   - Commits the updated file
 
 2. **`Backfill Toggl History (manual)`** runs only when you trigger it manually
    from the GitHub Actions tab:
@@ -70,8 +65,7 @@ future) historical charts:
 
 The static site (served by GitHub Pages):
 - Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
-- `script.js` fetches `./data/raw_history.json` (and falls back to
-  `./data/raw_data.json` if history isn't available yet)
+- `script.js` fetches `./data/raw_history.json`
 - `metrics_engine.js` computes all metrics in the browser **for the timeframe
   the user has selected** in the dashboard's pill selector
 - The page updates instantly when the timeframe changes — no re-fetch
@@ -95,7 +89,7 @@ There is **no backend server** and no client‑side dependencies beyond the brow
 5. In **Settings → Pages**, configure GitHub Pages to serve from the branch
    where these static files live (typically `main`, root folder).
 6. Visit your GitHub Pages URL; the dashboard will:
-   - Show a loading screen while it fetches `data/raw_data.json`
+   - Show a loading screen while it fetches `data/raw_history.json`
    - Render your metrics once data is loaded
 
 If no data is available or the JSON cannot be loaded, an error message is shown with a button to retry.

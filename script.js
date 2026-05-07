@@ -2,9 +2,7 @@
  * DebateSettler Dashboard — static JavaScript
  *
  * Reads `./data/raw_history.json` (cumulative source of truth) and renders
- * the metrics for a user-selected timeframe. Falls back to `raw_data.json`
- * when history isn't available (e.g., before the first daily run on a
- * fresh deploy).
+ * the metrics for a user-selected timeframe.
  *
  * Timeframes:
  *   - Current week / Last week              (calendar, ISO Mon-Sun)
@@ -374,11 +372,8 @@ async function fetchData() {
     error = null;
     updateUI();
 
-    // Prefer full history; fall back to legacy 90-day file.
-    let resp = await fetch("./data/raw_history.json", { cache: "no-store" });
-    if (!resp.ok) {
-      resp = await fetch("./data/raw_data.json", { cache: "no-store" });
-    }
+    // Read the cumulative source of truth.
+    const resp = await fetch("./data/raw_history.json", { cache: "no-store" });
     if (!resp.ok) throw new Error(`Failed to load data: ${resp.status}`);
 
     rawData = await resp.json();

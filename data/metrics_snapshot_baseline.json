@@ -1,69 +1,69 @@
 {
-  "billable_hours": 259.33,
-  "daily_billable_avg": 8.64,
-  "absent_from_home_hours": 153.96,
-  "daily_away_avg": 14,
+  "billable_hours": 260.55,
+  "daily_billable_avg": 8.69,
+  "absent_from_home_hours": 191.78,
+  "daily_away_avg": 13.7,
   "back_home_stats": {
-    "mean": "18:10",
-    "median": "17:41",
-    "earliest": "17:23",
-    "latest": "20:27",
-    "count": 11
+    "mean": "17:08",
+    "median": "16:53",
+    "earliest": "11:30",
+    "latest": "20:48",
+    "count": 14
   },
   "home_office_end_stats": {
-    "mean": "14:30",
-    "median": "14:53",
-    "earliest": "12:47",
-    "latest": "15:32",
-    "count": 19
+    "mean": "14:08",
+    "median": "14:07",
+    "earliest": "13:12",
+    "latest": "15:06",
+    "count": 16
   },
   "late_work_frequency": {
-    "late_work_days": 1,
+    "late_work_days": 2,
     "total_work_days": 30,
-    "percentage": 3.3
+    "percentage": 6.7
   },
-  "total_entries": 424,
+  "total_entries": 381,
   "working_days_analyzed": 30,
   "date_range": {
-    "start": "2025-10-20",
-    "end": "2025-11-28"
+    "start": "2026-03-16",
+    "end": "2026-05-06"
   },
   "last_7_days": {
-    "billable_hours": 60.62,
-    "daily_billable_avg": 8.66,
-    "absent_from_home_hours": 15.25,
-    "daily_away_avg": 15.25,
+    "billable_hours": 66.67,
+    "daily_billable_avg": 9.52,
+    "absent_from_home_hours": 43.57,
+    "daily_away_avg": 14.52,
     "back_home_stats": {
-      "mean": "19:22",
-      "median": "19:22",
-      "earliest": "19:22",
-      "latest": "19:22",
-      "count": 1
+      "mean": "17:34",
+      "median": "16:27",
+      "earliest": "16:25",
+      "latest": "19:51",
+      "count": 3
     },
     "home_office_end_stats": {
-      "mean": "14:30",
-      "median": "14:31",
-      "earliest": "13:32",
-      "latest": "15:32",
-      "count": 6
+      "mean": "14:09",
+      "median": "14:09",
+      "earliest": "13:45",
+      "latest": "14:34",
+      "count": 4
     },
     "late_work_frequency": {
       "late_work_days": 0,
       "total_work_days": 7,
       "percentage": 0
     },
-    "total_entries": 90,
+    "total_entries": 93,
     "working_days_analyzed": 7
   },
   "trends": {
     "billable_hours": {
-      "trend": "stable",
-      "difference": 0.019999999999999574,
-      "percentage": 0
+      "trend": "up",
+      "difference": 0.8300000000000001,
+      "percentage": 9.6
     },
     "back_home_time": {
       "trend": "up",
-      "difference": 72,
+      "difference": 26,
       "percentage": 0
     }
   }

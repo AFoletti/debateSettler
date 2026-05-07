@@ -43,16 +43,10 @@ jobs:
           BACKFILL_PAGE_SIZE: ${{ inputs.page_size }}
         run: python scripts/backfill-toggl-history.py
 
-      - name: Mirror data files into public/data
-        run: |
-          mkdir -p public/data
-          cp data/raw_history.json public/data/raw_history.json
-          cp data/raw_data.json    public/data/raw_data.json
-
       - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name  "GitHub Action"
-          git add data/raw_history.json data/raw_data.json public/data/raw_history.json public/data/raw_data.json
+          git add data/raw_history.json
           git diff --staged --quiet || git commit -m "Backfill Toggl history - $(date)"
           git push

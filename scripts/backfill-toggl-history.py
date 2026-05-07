@@ -6,8 +6,8 @@ Walks back from yesterday in 365-day windows, paginating within each window,
 normalizes the response to the v9 entry shape, and merges everything into
 `data/raw_history.json` (additively — existing entries are preserved).
 
-After the backfill, `data/raw_data.json` is re-derived as the last 90 days
-slice so the existing dashboard keeps working.
+After the backfill, `data/raw_history.json` is the cumulative source of truth
+read by the dashboard.
 
 Environment
 -----------
@@ -162,13 +162,6 @@ def main() -> int:
         f"\n💾 Wrote {tc.HISTORY_FILE}: {history['total_entries']} total entries "
         f"({history['first_entry_start']} → {history['last_entry_start']}); "
         f"+{total_added} new from this backfill"
-    )
-
-    derived = tc.derive_raw_data(history)
-    tc.write_raw_data(derived)
-    print(
-        f"💾 Wrote {tc.RAW_DATA_FILE}: {derived['total_entries']} entries "
-        f"(window {derived['date_range']['start']} → {derived['date_range']['end']})"
     )
 
     print("🎉 Backfill complete.")
