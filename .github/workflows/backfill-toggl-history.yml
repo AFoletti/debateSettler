@@ -1,0 +1,58 @@
+name: Backfill Toggl History (manual)
+
+# Manual one-shot backfill of the full Toggl history via Reports API v3.
+# Run from the GitHub Actions tab > "Backfill Toggl History (manual)" > "Run workflow".
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Earliest date to backfill (YYYY-MM-DD). Leave empty for full history (defaults to 2010-01-01).'
+        required: false
+        default: ''
+      page_size:
+        description: 'Reports API page size (50–1000, default 200).'
+        required: false
+        default: '200'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run backfill
+        env:
+          TOGGL_API_TOKEN: ${{ secrets.TOGGL_API_TOKEN }}
+          TOGGL_WORKSPACE: DRE-P
+          BACKFILL_START_DATE: ${{ inputs.start_date }}
+          BACKFILL_PAGE_SIZE: ${{ inputs.page_size }}
+        run: python scripts/backfill-toggl-history.py
+
+      - name: Mirror data files into public/data
+        run: |
+          mkdir -p public/data
+          cp data/raw_history.json public/data/raw_history.json
+          cp data/raw_data.json    public/data/raw_data.json
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name  "GitHub Action"
+          git add data/raw_history.json data/raw_data.json public/data/raw_history.json public/data/raw_data.json
+          git diff --staged --quiet || git commit -m "Backfill Toggl history - $(date)"
+          git push
