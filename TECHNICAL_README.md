@@ -13,9 +13,11 @@ Root files under `/app`:
 - **`index.html`** – DOM structure (loading, error, metrics, trends, summary, footer)
 - **`style.css`** – Dark theme + responsive layout (no frameworks)
 - **`metrics_engine.js`** – Pure calculation logic (all statistics derived from Toggl raw data)
-- **`script.js`** – UI state, DOM updates, data loading
-- **`data/raw_data.json`** – Raw Toggl time entries (last 90 days, excluding today)
-- **`scripts/fetch-toggl-data.py`** – GitHub Actions script that fetches Toggl data and writes `data/raw_data.json`
+- **`script.js`** – UI state, DOM updates, data loading, **timeframe selector**
+- **`data/raw_history.json`** – **Cumulative** Toggl history (source of truth, read by the dashboard)
+- **`scripts/_toggl_common.py`** – Shared helpers used by both fetch scripts
+- **`scripts/fetch-toggl-data.py`** – Daily incremental fetch (GitHub Actions)
+- **`scripts/backfill-toggl-history.py`** – One-shot backfill (manual GitHub Action)
 - **`scripts/generate_metrics_snapshot.js`** – Generates a baseline metrics snapshot from the current logic
 - **`scripts/test_metrics_engine.js`** – Compares current metrics output against the baseline snapshot
 
@@ -25,7 +27,7 @@ There is **no bundler** (no Webpack/Vite/Parcel/etc.). GitHub Pages (or any stat
 - `style.css`
 - `metrics_engine.js`
 - `script.js`
-- `data/raw_data.json`
+- `data/raw_history.json`
 
 These filenames are **stable, non-hashed entrypoints** and should be preserved.
 
@@ -33,9 +35,9 @@ These filenames are **stable, non-hashed entrypoints** and should be preserved.
 
 ## 2. Build & Deployment Model (Non-Hashed Static Files)
 
-### 2.1 What “build” means for DebateSettler
+### 2.1 What "build" means for DebateSettler
 
-For this project, a “build” is simply:
+For this project, a "build" is simply:
 
 - Selecting the minimal set of static files under `/app` that are needed at runtime, and
 - Copying them to the target environment **without changing their names**.
@@ -46,14 +48,16 @@ Runtime-critical files:
 - `style.css`
 - `metrics_engine.js`
 - `script.js`
-- `data/raw_data.json`
+- `data/raw_history.json`
 - `favicon.ico`
 - `manifest.json`
 - `robots.txt`
 
 Support files (used by CI / dev tooling, not served to browsers):
 
+- `scripts/_toggl_common.py`
 - `scripts/fetch-toggl-data.py`
+- `scripts/backfill-toggl-history.py`
 - `scripts/generate_metrics_snapshot.js`
 - `scripts/test_metrics_engine.js`
 
@@ -64,15 +68,15 @@ The dashboard is designed around **fixed file names**. Any agent taking over MUS
 - **Not introduce hashed asset names** (e.g. `main.abcd1234.js`) unless the HTML is also updated to point **exactly** to those names, and
 - Prefer to keep the simple structure where:
   - `index.html` references `./style.css`, `./metrics_engine.js`, and `./script.js`
-  - `script.js` fetches `./data/raw_data.json`
+  - `script.js` fetches `./data/raw_history.json`
 
 If you add a bundler for your own development convenience, make sure the final output still exposes:
 
 - An `index.html` at the site root
 - A non-hashed JS bundle referenced as `./script.js` (or update `index.html` explicitly)
 - A non-hashed CSS file referenced as `./style.css`
-- The metrics engine accessible as `window.DebateSettlerMetrics.processRawData`
-- `data/raw_data.json` still available at `./data/raw_data.json`
+- The metrics engine accessible as `window.DebateSettlerMetrics.processWithTimeframe`
+- `data/raw_history.json` still available at `./data/raw_history.json`
 
 **Recommendation:** keep the current no-bundler setup. It is simpler and less error-prone for this use case.
 
@@ -87,9 +91,12 @@ If you add a bundler for your own development convenience, make sure the final o
      - **Source**: your main branch (e.g. `main`)
      - **Folder**: `/ (root)` if `/app` is the repo root; otherwise, configure Pages to use the `/app` folder.
 
-3. **Data refresh via GitHub Actions**
-   - A workflow (in `.github/workflows`) should run `scripts/fetch-toggl-data.py` on a schedule (e.g. daily at 06:00 UTC).
-   - The workflow must commit the updated `data/raw_data.json` back into the repo so GitHub Pages serves the fresh data.
+3. **Data refresh via GitHub Actions** (see §3 for the full data flow)
+   - `.github/workflows/fetch-toggl-data.yml` runs the daily incremental fetch.
+   - `.github/workflows/backfill-toggl-history.yml` runs the one-shot
+     historical backfill (manual trigger only).
+   - Both workflows commit `data/raw_history.json` back into the repo so
+     GitHub Pages serves the fresh data.
 
 4. **Static hosting elsewhere**
    - Any static file host (S3, Netlify, etc.) can serve these files.
@@ -99,42 +106,116 @@ If you add a bundler for your own development convenience, make sure the final o
 
 ## 3. Data Flow
 
-1. A scheduled GitHub Action runs `scripts/fetch-toggl-data.py` daily.
-2. The script:
-   - Reads Toggl API credentials from GitHub Secrets
-   - Fetches the last **90 days of entries**, excluding today
-   - Removes the `description` field from each entry
-   - Stores everything in `data/raw_data.json`
-3. When a user opens `index.html` in the browser:
-   - `script.js` fetches `./data/raw_data.json`
-   - Passes the parsed JSON to `DebateSettlerMetrics.processRawData` from `metrics_engine.js`
-   - Receives a metrics object and updates the DOM accordingly
+### 3.1 Single-file model
 
-All calculations run in the browser; the server (GitHub Pages) only serves static files.
+DebateSettler maintains one JSON file in `data/`:
+
+| File | Role | Lifecycle |
+|------|------|-----------|
+| `data/raw_history.json` | **Cumulative source of truth.** All Toggl entries ever tracked, deduped by `id`, stored in v9 entry shape. | Created by the backfill, kept current by the daily fetch. |
+
+The dashboard reads only `raw_history.json`; future history-based features (e.g. charts) read the same file.
+
+### 3.2 Daily incremental run (`scripts/fetch-toggl-data.py`)
+
+Runs every day on a cron schedule from `.github/workflows/fetch-toggl-data.yml`:
+
+1. Loads `data/raw_history.json`. If missing (only on a brand-new deployment that hasn't run the backfill workflow), seeds it with a 90-day v9 fetch.
+2. Calls the v9 endpoint `GET /api/v9/me/time_entries` for the **last 30 days** (yesterday – 29 days … yesterday).
+3. **Replaces** all entries in `raw_history.json` whose `start` falls in that 30-day window with the freshly fetched ones — capturing edits **and** deletions made within the recent past.
+4. Commits `data/raw_history.json`.
+
+The 30-day window keeps the daily run **idempotent** and bounded in size.
+
+### 3.3 One-shot backfill (`scripts/backfill-toggl-history.py`)
+
+Runs only when triggered manually from the GitHub Actions tab via
+`.github/workflows/backfill-toggl-history.yml` (`workflow_dispatch`). Inputs:
+
+- `start_date` (optional, `YYYY-MM-DD`) – earliest date to backfill. Default: `2010-01-01` (the script stops automatically as soon as a window comes back empty).
+- `page_size` (optional, default `1000`) – Reports API page size.
+
+The script:
+
+1. Resolves the workspace ID and fetches the workspace's tag map (id → name) via the v9 API. The Reports API only returns `tag_ids`, so we resolve them locally.
+2. Walks **backward** in time in 90-day windows from yesterday down to the `start_date` floor.
+3. For each window calls `POST /reports/api/v3/workspace/{wid}/search/time_entries` (Reports API v3).
+4. Normalizes each Reports row into the v9 entry shape used by `metrics_engine.js` (see §3.5).
+5. Merges new entries **additively** (never overwrites entries already in `raw_history.json`).
+6. Stops early after two consecutive empty windows (signals end of history).
+7. Commits `data/raw_history.json`.
+
+### 3.4 Toggl API quirks worth knowing
+
+These were validated empirically against the live API and shape the design above:
+
+- **v9 `/me/time_entries` has a hard ~3-month-ago floor** on `start_date`. It returns `start_date must not be earlier than YYYY-MM-DD` for older requests. That's why the daily run uses v9 (returns canonical entry shape, simple) but the **backfill must use Reports API v3**.
+- **Reports API v3 has a hard ~1000-row cap per single search**, regardless of `page_size`. The backfill detects this (raises `WindowCappedError`) and **automatically splits the window in half**, recursing until each chunk fits under the cap.
+- **Reports API v3 cursor pagination is unreliable** when a page fills exactly to `page_size`: the API returns a `X-Next-Id` / `X-Next-Row-Number` header, but the next page can come back empty even when more rows exist. Mitigation: the backfill uses `page_size=1000` (the API max) so almost all windows fit in a single page; the auto-split above covers the residual case.
+- **Response header casing**: Toggl returns `X-Next-Id` (lowercase `d`), not the `X-Next-ID` shown in some docs. The shared helper checks both forms defensively.
+- **Reports API rows can group multiple sub-entries** under a single row in `time_entries: [...]`. With `grouped` defaulting to `false` each row in practice contains exactly one sub-entry, but the normalizer in `_toggl_common.normalize_reports_entries` handles the multi-sub-entry case anyway.
+- **Reports API auth is `email:api_token` per the official docs**, but `{api_token}:api_token` (the same form as v9) works just as well, so we use a single auth helper for both APIs.
+
+### 3.5 Reports v3 → v9 normalization (`_toggl_common.normalize_reports_entries`)
+
+The Reports API v3 response uses **different field names** from `/me/time_entries`. Each entry produced by the backfill is therefore translated into v9 shape so that `metrics_engine.js` sees exactly one canonical format:
+
+| v9 field used by metrics | Source in Reports v3 |
+|--------------------------|----------------------|
+| `start`                  | `start` (sub-entry)  |
+| `stop`                   | `stop` (sub-entry) — sometimes `end` |
+| `duration` (seconds)     | `seconds`            |
+| `billable`               | `billable` (row level) |
+| `tags` (string array)    | `tag_ids` (row) → resolved against the workspace tag map |
+| `tag_ids`                | `tag_ids` (row)      |
+| `id`, `workspace_id`, `project_id`, `task_id`, `user_id` | passed through |
+
+`description` is dropped (the project has always done this for privacy).
+
+### 3.6 First-run behavior
+
+On a **brand-new deployment** that has never run any workflow yet, the daily
+script will find no `raw_history.json`. In that case it falls back to a 90-day
+v9 fetch as the initial seed. Run the **Backfill Toggl History (manual)**
+workflow afterwards to extend the history backward in time as far as it goes.
 
 ---
 
 ## 4. Metrics Engine and Rules
 
-`metrics_engine.js` exposes a single function:
+`metrics_engine.js` exposes two public entry points:
 
 ```js
-const { processRawData } = require('./metrics_engine'); // Node
-// or in browser: window.DebateSettlerMetrics.processRawData(rawData);
+const {
+  processRawData,         // legacy: 30-day window with 7-vs-30 trends (kept for the regression test)
+  processWithTimeframe,   // current: arbitrary timeframe, last-10-vs-selected trends (used by the dashboard)
+} = require('./metrics_engine');
+// or in browser: window.DebateSettlerMetrics.processWithTimeframe(rawData, spec);
 ```
 
-`processRawData(rawData)` expects the structure produced by `fetch-toggl-data.py`:
+### 4.0 `processWithTimeframe(rawData, spec)` — current API
 
-```jsonc
-{
-  "fetched_at": "2025-12-01T02:57:43.313812",
-  "date_range": { "start": "YYYY-MM-DD", "end": "YYYY-MM-DD", "days": 90 },
-  "workspace_name": "DRE-P",
-  "workspace_id": 4536519,
-  "total_entries": 968,
-  "raw_entries": [ /* Toggl time entries */ ]
-}
+`spec` is one of:
+
+```js
+{ type: 'full' }                                                  // full history
+{ type: 'last_n_working_days', n: 30 }                            // last N working days
+{ type: 'calendar_range', start: 'YYYY-MM-DD', end: 'YYYY-MM-DD' } // inclusive calendar window
 ```
+
+It returns the same metric object as `processRawData` plus:
+
+- `timeframe` — the spec it was called with (echoed back, with optional `label`)
+- `last_10_days` — metrics for the last 10 working days from the FULL history
+  (used as the trends baseline)
+- `trends` — `last 10 working days` compared to the selected timeframe
+
+### 4.1 `processRawData(rawData)` — legacy API
+
+`processRawData(rawData)` is kept around for the regression test; the
+dashboard does not use it. It accepts any `{ raw_entries: [...] }` object
+(typically `raw_history.json`) and computes the original 30-day window with
+7-vs-30 trends.
 
 Each entry has at least:
 
@@ -143,7 +224,7 @@ Each entry has at least:
 - `billable` – boolean
 - `tags` – array of strings (e.g. `"HomeOffice"`, `"Commuting"`)
 
-### 4.1 Working-Day Selection
+### 4.2 Working-Day Selection
 
 1. Collect all dates where there is at least one entry with `duration > 0`.
 2. Sort them ascending, then reverse for **most recent first**.
@@ -153,7 +234,7 @@ Each entry has at least:
 
 All main dashboard metrics are based on `last30WorkingDays`. Trends compare 7-day values to 30-day values.
 
-### 4.2 Metrics per 30/7 Working Days
+### 4.3 Metrics per 30/7 Working Days
 
 For a given set of working days:
 
@@ -220,7 +301,7 @@ The function returns a structure like:
 }
 ```
 
-### 4.3 Trends
+### 4.4 Trends (legacy `processRawData`)
 
 Trends are computed by comparing 7-day values to 30-day values:
 
@@ -235,7 +316,10 @@ Rules:
   - `trend = 'down'` if recent < baseline.
 - For numeric values (hours), `difference` is in hours; for times, it is in minutes.
 
-The UI converts these into arrows (↗️, ↘️, →) and human-readable labels.
+The UI converts these into arrows (↗, ↘, →) and human-readable labels.
+
+`processWithTimeframe` uses the same rules but with a different baseline:
+**last 10 working days** (recent) vs **the selected timeframe** (baseline).
 
 ---
 
@@ -244,11 +328,47 @@ The UI converts these into arrows (↗️, ↘️, →) and human-readable label
 `script.js` is responsible for:
 
 - Managing loading / error / dashboard states.
-- Fetching `./data/raw_data.json`.
-- Calling `DebateSettlerMetrics.processRawData(rawData)`.
+- Fetching `./data/raw_history.json`.
+- Rendering the **timeframe selector** (pill buttons) and tracking the active
+  timeframe in memory.
+- Calling `DebateSettlerMetrics.processWithTimeframe(rawData, spec)` whenever
+  the data loads or the user clicks a different timeframe pill — no re-fetch
+  is needed; everything is recomputed from the in-memory raw history.
 - Populating and updating DOM elements with the metrics result.
 
 It does **not** know any of the detailed calculation rules; those live in `metrics_engine.js`.
+
+### 5.1 Timeframes
+
+Timeframes are constructed in `buildTimeframeSpec(id, today)` from a small set
+of ids. They map to the spec object understood by
+`metrics_engine.js → selectWorkingDays`:
+
+| Timeframe id    | Spec produced                                                        | Semantics |
+|-----------------|----------------------------------------------------------------------|-----------|
+| `current_week`  | `{type: 'calendar_range', start: <Mon UTC>, end: <today UTC>}`       | This week so far (Mon-based, ISO 8601) |
+| `last_week`     | `{type: 'calendar_range', start: <prev Mon>, end: <prev Sun>}`        | The previous full Mon–Sun |
+| `current_month` | `{type: 'calendar_range', start: <1st of month>, end: <today>}`      | Current month, partial |
+| `last_month`    | `{type: 'calendar_range', start: <prev 1st>, end: <prev last day>}`   | Previous full calendar month |
+| `last_30`       | `{type: 'last_n_working_days', n: 30}`                                | Default — matches the original dashboard |
+| `last_100`      | `{type: 'last_n_working_days', n: 100}`                               |  |
+| `full`          | `{type: 'full'}`                                                      | Every working day in `raw_history.json` |
+
+**Date convention**: dates are computed in UTC, matching how
+`metrics_engine.js` bucketizes entry dates (`new Date(entry.start).toISOString().split('T')[0]`).
+This is consistent across all functions but means an entry started right
+after midnight local time *might* fall into the previous UTC date — a
+pre-existing behavior of the engine that we have not changed.
+
+### 5.2 Trends card
+
+Trends always compare the **last 10 working days** (taken from the full
+history, regardless of selected timeframe) to the **selected timeframe**.
+This gives the trends card a single, consistent meaning across all
+timeframes: *"how does my recent rhythm compare to this period?"*
+
+The card's footer text is updated dynamically to reflect the active
+timeframe ("Last 10 working days vs *Full history*", etc.).
 
 ---
 
@@ -256,7 +376,8 @@ It does **not** know any of the detailed calculation rules; those live in `metri
 
 Two Node scripts help keep your refactors safe:
 
-1. **Generate baseline** (run once, or whenever you intentionally change logic):
+1. **Generate baseline** (run once, or whenever you intentionally change logic
+   or the underlying data has changed):
 
 ```bash
 node scripts/generate_metrics_snapshot.js
@@ -270,7 +391,11 @@ node scripts/test_metrics_engine.js
 # exits with code 0 if metrics match, non-zero otherwise
 ```
 
-These tests read the real `data/raw_data.json` in the repo, so they always compare against actual Toggl data.
+These tests read the real `data/raw_history.json` in the repo, so they always
+compare against actual Toggl data. Note: the baseline snapshot reflects a
+specific point in time. After a normal daily run the underlying data changes,
+so a once-stale baseline is expected and not a code regression — regenerate it
+intentionally when convenient.
 
 ---
 
@@ -289,6 +414,12 @@ When adding a new metric or UI feature:
 4. **Run regression tests**:
    - If the change is intentional and breaks the baseline, regenerate the snapshot after manually confirming numbers.
 
+When adding **history-based** features (e.g. long-range charts):
+
+- Read `data/raw_history.json` directly — it's the single source of truth.
+- Don't change its shape. New computed series should live in the JS layer
+  (or, if precomputed, in a new file under `data/`).
+
 ---
 
 ## 8. Handoff Notes for Other Agents (Human or AI)
@@ -297,7 +428,14 @@ If you are taking over this project:
 
 1. **Assume no build tool** – treat `/app` as the deployable root.
 2. **Serve statically** – any HTTP static server that serves the files as-is will work.
-3. **Do not introduce hashed filenames** unless you also update `index.html` and keep the public API (`window.DebateSettlerMetrics.processRawData`, `data/raw_data.json`) intact.
+3. **Do not introduce hashed filenames** unless you also update `index.html` and keep the public API (`window.DebateSettlerMetrics.processWithTimeframe`, `data/raw_history.json`) intact.
 4. **Use the regression scripts** before and after significant changes to ensure metrics behavior is preserved.
+5. **Treat `data/raw_history.json` as append-only outside the recent 30-day
+   window.** Only the daily script's "replace last 30 days" rule is allowed to
+   mutate older entries. Anything else should call the backfill (additive
+   merge) to be safe.
+6. **Toggl API specifics** are documented in §3.4 — if a future change calls
+   the Toggl API, re-read those notes before touching pagination or
+   date-window logic.
 
 Following these constraints ensures DebateSettler remains simple to host on GitHub Pages and easy to evolve without surprises.

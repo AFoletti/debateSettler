@@ -8,7 +8,15 @@ It is a **pure static site**: just HTML, CSS, and JavaScript, designed to be hos
 
 ## What the dashboard shows
 
-Using the last **30 working days** (days with any tracked time), DebateSettler displays:
+The dashboard lets you pick the **timeframe** the statistics are computed for:
+
+- **This week** / **Last week** — calendar weeks (Monday → Sunday, ISO 8601)
+- **This month** / **Last month** — calendar months
+- **Last 30 working days** — the original behavior, default selection
+- **Last 100 working days**
+- **Full history** — every working day stored in `data/raw_history.json`
+
+For the chosen timeframe, DebateSettler displays:
 
 - **Total billable hours** and **average billable hours per working day**
 - **Time away from home** (non‑HomeOffice time) with daily averages
@@ -17,30 +25,50 @@ Using the last **30 working days** (days with any tracked time), DebateSettler d
 - **HomeOffice end times** for days that are pure HomeOffice (no commuting or mixed patterns)
 - **Late work frequency** – percentage of working days with activity at or after 20:00
 - **Summary counts**
-  - Number of time entries in the 30‑day window
-  - Total raw entries in the 90‑day window
-  - Number of working days analyzed
-- **Recent trends card** comparing the last **7 working days** to the 30‑day baseline:
-  - Trend in daily billable hours
-  - Trend in back‑home times
+  - Time entries in the selected timeframe
+  - Total entries in the cumulative history
+  - Working days analyzed
+- **Recent trends card** comparing the **last 10 working days** to the selected
+  timeframe, for:
+  - Daily billable hours
+  - Back‑home times
 
-All calculations happen **in your browser** using the raw data file.
+All calculations happen **in your browser** using the raw history file.
 
 ---
 
 ## How it works
 
-1. A scheduled GitHub Action (in your repository) runs `scripts/fetch-toggl-data.py` every day.
-2. The script:
-   - Reads your Toggl Track API token from a GitHub Secret
-   - Fetches the last **90 days** of time entries (excluding today)
-   - Removes the `description` field from each entry
-   - Writes `data/raw_data.json` into the repository
-3. The static site (served by GitHub Pages):
-   - Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
-   - `script.js` fetches `./data/raw_data.json`
-   - `metrics_engine.js` computes all metrics in the browser
-   - The page updates to show your latest numbers
+DebateSettler keeps a single cumulative JSON file in `data/`:
+
+- **`data/raw_history.json`** — the **cumulative source of truth**. Every Toggl
+  entry ever tracked, deduped by `id` and stored in the `v9` shape used by the
+  metrics engine. It grows over time but is also fully self-contained, so any
+  new metric or chart can be re-derived from it.
+
+### Two GitHub Actions keep the file current
+
+1. **`Fetch Toggl Data Daily`** runs every day:
+   - Fetches the **last 30 days** via the Toggl v9 `/me/time_entries` endpoint
+   - Replaces that window inside `raw_history.json` (so edits and deletions
+     made in the recent past are picked up correctly)
+   - Commits the updated file
+
+2. **`Backfill Toggl History (manual)`** runs only when you trigger it manually
+   from the GitHub Actions tab:
+   - Walks back through your Toggl history via the **Reports API v3**
+     (the only Toggl endpoint that can reach data older than ~3 months)
+   - Merges new entries into `raw_history.json` without touching anything
+     already stored
+   - Useful **once at the beginning** to pull years of past data, and any time
+     later if you want to refresh the long history
+
+The static site (served by GitHub Pages):
+- Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
+- `script.js` fetches `./data/raw_history.json`
+- `metrics_engine.js` computes all metrics in the browser **for the timeframe
+  the user has selected** in the dashboard's pill selector
+- The page updates instantly when the timeframe changes — no re-fetch
 
 There is **no backend server** and no client‑side dependencies beyond the browser.
 
@@ -49,11 +77,19 @@ There is **no backend server** and no client‑side dependencies beyond the brow
 ## Deploying on GitHub Pages
 
 1. **Create or reuse a repository** containing the contents of this project at the root.
-2. **Add your Toggl API token** as a repository secret (e.g. `TOGGL_API_TOKEN`).
-3. **Set up a GitHub Action** that runs `scripts/fetch-toggl-data.py` on a schedule (for example, daily at 06:00 UTC) and commits the updated `data/raw_data.json` back to the repo.
-4. In **Settings → Pages**, configure GitHub Pages to serve from the branch where these static files live (typically `main`, root folder).
-5. Visit your GitHub Pages URL; the dashboard will:
-   - Show a loading screen while it fetches `data/raw_data.json`
+2. **Add your Toggl API token** as a repository secret named `TOGGL_API_TOKEN`.
+3. The repository already ships with two workflows under `.github/workflows/`:
+   - `fetch-toggl-data.yml` — runs daily on a cron schedule.
+   - `backfill-toggl-history.yml` — manual trigger only (`workflow_dispatch`).
+4. **(Recommended on first deploy)** Go to the **Actions** tab → pick
+   *Backfill Toggl History (manual)* → **Run workflow**. You can leave the
+   inputs empty (defaults walk back to 2010-01-01 and stop automatically when
+   no more data is found) or set a specific `start_date` like `2025-01-01`.
+   The workflow commits the resulting `data/raw_history.json` back to the repo.
+5. In **Settings → Pages**, configure GitHub Pages to serve from the branch
+   where these static files live (typically `main`, root folder).
+6. Visit your GitHub Pages URL; the dashboard will:
+   - Show a loading screen while it fetches `data/raw_history.json`
    - Render your metrics once data is loaded
 
 If no data is available or the JSON cannot be loaded, an error message is shown with a button to retry.

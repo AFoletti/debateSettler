@@ -5,11 +5,11 @@ const path = require('path');
 const { processRawData } = require('../metrics_engine');
 
 function main() {
-  const rawPath = path.join(__dirname, '..', 'data', 'raw_data.json');
+  const rawPath = path.join(__dirname, '..', 'data', 'raw_history.json');
   const snapshotPath = path.join(__dirname, '..', 'data', 'metrics_snapshot_baseline.json');
 
   if (!fs.existsSync(rawPath)) {
-    console.error('❌ raw_data.json not found at', rawPath);
+    console.error('❌ raw_history.json not found at', rawPath);
     process.exit(1);
   }
 

@@ -106,11 +106,22 @@
                 <p class="status-main">Data automatically updated daily at 6:00 AM UTC</p>
                 <p id="last-updated" class="status-sub">Last updated: Unknown</p>
                 <p id="data-info" class="status-detail">
-                  Raw data from 90 days • Statistics from last 30 working days • Client-side calculations
+                  Statistics for: selected timeframe · client-side calculations
                 </p>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- Timeframe Selector -->
+        <section class="timeframe-section" aria-label="Choose timeframe">
+          <p class="timeframe-label">Show stats for</p>
+          <div
+            id="timeframe-selector"
+            class="timeframe-selector"
+            role="tablist"
+            data-testid="timeframe-selector"
+          ></div>
         </section>
 
         <!-- Metrics Grid -->
@@ -130,7 +141,7 @@
             </div>
             <div class="metric-content">
               <div id="billable-hours" class="metric-value">0h</div>
-              <div class="metric-label">Last 30 working days</div>
+              <div id="billable-window-label" class="metric-label">Last 30 working days</div>
               <div id="billable-avg" class="daily-avg">Daily average: 0h</div>
             </div>
           </article>
@@ -156,7 +167,7 @@
             </div>
             <div class="metric-content">
               <div id="away-hours" class="metric-value">0h</div>
-              <div class="metric-label">Non-HomeOffice hours</div>
+              <div id="away-window-label" class="metric-label">Non-HomeOffice hours</div>
               <div id="away-avg" class="daily-avg">Daily average: 0h</div>
             </div>
           </article>
@@ -195,7 +206,7 @@
             </div>
             <div class="metric-content">
               <div id="back-home-count" class="metric-value">0</div>
-              <div class="metric-label">Days with commuting tracked</div>
+              <div id="back-home-window-label" class="metric-label">Days with commuting tracked</div>
               <div class="stats-grid" aria-label="Back home time statistics">
                 <div class="stat-item">
                   <div class="stat-label">Average</div>
@@ -232,7 +243,7 @@
             </div>
             <div class="metric-content">
               <div id="home-office-count" class="metric-value">0</div>
-              <div class="metric-label">Pure HomeOffice days analyzed</div>
+              <div id="home-office-window-label" class="metric-label">Pure HomeOffice days analyzed</div>
               <div class="stats-grid" aria-label="HomeOffice end time statistics">
                 <div class="stat-item">
                   <div class="stat-label">Average</div>
@@ -293,7 +304,7 @@
                   </div>
                 </div>
 
-                <div class="trend-footer">7-day vs 30-day averages</div>
+                <div id="trend-footer-text" class="trend-footer">Last 10 working days vs selected timeframe</div>
               </div>
             </div>
           </article>
@@ -304,16 +315,16 @@
           <h2 class="summary-title">Data Summary</h2>
           <div class="summary-grid">
             <div class="summary-stat">
-              <div id="total-entries-30" class="summary-value">0</div>
-              <div class="summary-label">Time Entries (30 days)</div>
+              <div id="total-entries-selected" class="summary-value">0</div>
+              <div class="summary-label">Time entries (selected timeframe)</div>
             </div>
             <div class="summary-stat">
-              <div id="total-entries-60" class="summary-value">0</div>
-              <div class="summary-label">Total Raw Entries (90 days)</div>
+              <div id="total-entries-history" class="summary-value">0</div>
+              <div class="summary-label">Total entries in history</div>
             </div>
             <div class="summary-stat">
               <div id="working-days" class="summary-value">0</div>
-              <div class="summary-label">Working Days Analyzed</div>
+              <div class="summary-label">Working days analyzed</div>
             </div>
           </div>
         </section>

@@ -8,12 +8,19 @@ yarn-error.log*
 /build
 /dist
 
-# Environment variables
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment & credential files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials
 
 # IDE
 .vscode/
@@ -33,31 +40,13 @@ Thumbs.db
 *.temp
 
 # Cache
-.cache/-e 
-# Environment files
-*.env
-*.env.*
+.cache/
 -e 
-# Environment files
+# Environment and credential files
+.env
+.env.*
 *.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+credentials.json
+*.pem
+*.key
+.credentials
