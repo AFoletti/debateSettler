@@ -30,17 +30,40 @@ All calculations happen **in your browser** using the raw data file.
 
 ## How it works
 
-1. A scheduled GitHub Action (in your repository) runs `scripts/fetch-toggl-data.py` every day.
-2. The script:
-   - Reads your Toggl Track API token from a GitHub Secret
-   - Fetches the last **90 days** of time entries (excluding today)
-   - Removes the `description` field from each entry
-   - Writes `data/raw_data.json` into the repository
-3. The static site (served by GitHub Pages):
-   - Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
-   - `script.js` fetches `./data/raw_data.json`
-   - `metrics_engine.js` computes all metrics in the browser
-   - The page updates to show your latest numbers
+DebateSettler keeps **two** JSON files in `data/` to power the dashboard and (in the
+future) historical charts:
+
+- **`data/raw_history.json`** — the **cumulative source of truth**. Every Toggl
+  entry ever tracked, deduped by `id` and stored in the `v9` shape used by the
+  metrics engine. It grows over time but is also fully self-contained, so any
+  new metric can be re-derived from it.
+- **`data/raw_data.json`** — a **derived** file containing the last 90 days
+  sliced from the history. This is the file the dashboard actually reads, and
+  it preserves the exact format the original site has always used.
+
+### Two GitHub Actions keep these files current
+
+1. **`Fetch Toggl Data Daily`** runs every day:
+   - Fetches the **last 30 days** via the Toggl v9 `/me/time_entries` endpoint
+   - Replaces that window inside `raw_history.json` (so edits and deletions
+     made in the recent past are picked up correctly)
+   - Re-derives `raw_data.json` from the updated history
+   - Commits both files
+
+2. **`Backfill Toggl History (manual)`** runs only when you trigger it manually
+   from the GitHub Actions tab:
+   - Walks back through your Toggl history via the **Reports API v3**
+     (the only Toggl endpoint that can reach data older than ~3 months)
+   - Merges new entries into `raw_history.json` without touching anything
+     already stored
+   - Useful **once at the beginning** to pull years of past data, and any time
+     later if you want to refresh the long history
+
+The static site (served by GitHub Pages):
+- Loads `index.html`, `style.css`, `metrics_engine.js`, and `script.js`
+- `script.js` fetches `./data/raw_data.json`
+- `metrics_engine.js` computes all metrics in the browser
+- The page updates to show your latest numbers
 
 There is **no backend server** and no client‑side dependencies beyond the browser.
 
@@ -49,10 +72,18 @@ There is **no backend server** and no client‑side dependencies beyond the brow
 ## Deploying on GitHub Pages
 
 1. **Create or reuse a repository** containing the contents of this project at the root.
-2. **Add your Toggl API token** as a repository secret (e.g. `TOGGL_API_TOKEN`).
-3. **Set up a GitHub Action** that runs `scripts/fetch-toggl-data.py` on a schedule (for example, daily at 06:00 UTC) and commits the updated `data/raw_data.json` back to the repo.
-4. In **Settings → Pages**, configure GitHub Pages to serve from the branch where these static files live (typically `main`, root folder).
-5. Visit your GitHub Pages URL; the dashboard will:
+2. **Add your Toggl API token** as a repository secret named `TOGGL_API_TOKEN`.
+3. The repository already ships with two workflows under `.github/workflows/`:
+   - `fetch-toggl-data.yml` — runs daily on a cron schedule.
+   - `backfill-toggl-history.yml` — manual trigger only (`workflow_dispatch`).
+4. **(Recommended on first deploy)** Go to the **Actions** tab → pick
+   *Backfill Toggl History (manual)* → **Run workflow**. You can leave the
+   inputs empty (defaults walk back to 2010-01-01 and stop automatically when
+   no more data is found) or set a specific `start_date` like `2025-01-01`.
+   The workflow commits the resulting `data/raw_history.json` back to the repo.
+5. In **Settings → Pages**, configure GitHub Pages to serve from the branch
+   where these static files live (typically `main`, root folder).
+6. Visit your GitHub Pages URL; the dashboard will:
    - Show a loading screen while it fetches `data/raw_data.json`
    - Render your metrics once data is loaded
 
