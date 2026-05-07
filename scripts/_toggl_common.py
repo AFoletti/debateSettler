@@ -105,14 +105,23 @@ def fetch_reports_v3_window(
     workspace_id: int,
     start_date: datetime,
     end_date: datetime,
-    page_size: int = 200,
+    page_size: int = 1000,
     sleep_between_pages: float = 0.4,
 ) -> list:
     """
-    Fetch ALL entries in [start_date, end_date] from Reports API v3,
-    paginating via X-Next-ID / X-Next-Row-Number headers.
+    Fetch ALL entries in [start_date, end_date] from Reports API v3.
 
-    Returns a list of entries in the **Reports API v3 shape**
+    Notes on Toggl quirks (validated empirically against the live API):
+      • The API has a hard ~1000-row cap per single search.
+      • Cursor pagination via X-Next-Id / X-Next-Row-Number is unreliable when
+        a page fills exactly to `page_size`: the next page can return 0 rows
+        even when more data exists. We therefore prefer `page_size=1000`
+        (the API max) so a single page usually covers the window.
+      • If a single page returns exactly `page_size` rows AND `page_size`
+        equals the API cap (1000), the caller MUST split the window further —
+        this function raises `WindowCappedError` to signal that case.
+
+    Returns a list of entries in the **Reports API v3 row shape**
     (must be normalized to v9 shape afterwards).
     """
     url = f"{REPORTS_V3_BASE}/workspace/{workspace_id}/search/time_entries"
@@ -121,7 +130,10 @@ def fetch_reports_v3_window(
         "end_date": end_date.strftime("%Y-%m-%d"),
         "page_size": page_size,
         "order_by": "date",
-        "order_dir": "ASC",
+        # DESC: most-recent entries come back first. Combined with small
+        # walk-back windows in the caller, this keeps each search well below
+        # the Reports API's ~1000-row-per-search cap.
+        "order_dir": "DESC",
     }
 
     all_entries: list = []
@@ -156,7 +168,7 @@ def fetch_reports_v3_window(
 
         all_entries.extend(entries)
 
-        next_id = r.headers.get("X-Next-ID")
+        next_id = r.headers.get("X-Next-Id") or r.headers.get("X-Next-ID")
         next_row = r.headers.get("X-Next-Row-Number")
         if not next_id or not next_row:
             break
@@ -173,7 +185,22 @@ def fetch_reports_v3_window(
         if page > 5000:
             raise RuntimeError("Pagination safety limit hit (5000 pages)")
 
+    # Cap detection: if we got exactly the API ceiling, the window almost
+    # certainly contains MORE data that wasn't returned. Signal the caller.
+    REPORTS_V3_HARD_CAP = 1000
+    if len(all_entries) >= REPORTS_V3_HARD_CAP and page_size >= REPORTS_V3_HARD_CAP:
+        raise WindowCappedError(
+            f"Window {start_date.date()}→{end_date.date()} returned "
+            f"{len(all_entries)} rows (API cap = {REPORTS_V3_HARD_CAP}). "
+            "Split the window and retry."
+        )
+
     return all_entries
+
+
+class WindowCappedError(RuntimeError):
+    """Raised when a Reports API search returns the API's hard row cap,
+    indicating the window should be split and retried."""
 
 
 # ---------------------------------------------------------------------------

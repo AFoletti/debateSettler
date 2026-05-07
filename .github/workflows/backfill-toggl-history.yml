@@ -11,9 +11,9 @@ on:
         required: false
         default: ''
       page_size:
-        description: 'Reports API page size (50–1000, default 200).'
+        description: 'Reports API page size (50–1000, default 1000).'
         required: false
-        default: '200'
+        default: '1000'
 
 jobs:
   backfill:
