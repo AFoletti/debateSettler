@@ -29,7 +29,7 @@ For the chosen timeframe, DebateSettler displays:
   - Time entries in the selected timeframe
   - Total entries in the cumulative history
   - Working days analyzed
-- **Recent trends card** comparing the **selected timeframe** to your
+- **vs Recent Baseline card** comparing the **selected timeframe** to your
   **usual rhythm** (the last 10 working days of the full history — always the
   same baseline window), for:
   - Daily billable hours
