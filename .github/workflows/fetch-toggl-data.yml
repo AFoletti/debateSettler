@@ -3,7 +3,7 @@ name: Fetch Toggl Data Daily
 on:
   schedule:
     # Run daily at 00:45 UTC
-    - cron: '45 22 * * *'
+    - cron: '45 1 * * *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
