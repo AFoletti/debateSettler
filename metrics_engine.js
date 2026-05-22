@@ -328,33 +328,50 @@
   }
 
   // New API: compute metrics for an arbitrary timeframe (working-day-based or
-  // calendar-based). Trends are always recent (last 10 working days from the
-  // entire history) vs the selected timeframe.
+  // calendar-based). Trends compare the SELECTED timeframe (recent focus)
+  // against the user's "usual rhythm" — defined as the last 10 working days
+  // of the full history (always the same baseline window, regardless of what
+  // is selected). This way:
+  //   - "Longer / Later" = "in the selected period I worked more / came back
+  //     home later than my recent baseline"
+  //   - "Shorter / Earlier" = the opposite
+  //   - When the selected timeframe IS the last 10 working days, the diff is
+  //     exactly 0.
+  // If the full history has fewer than 1 working day, trends are returned as
+  // null and the UI hides the comparison.
   //
   // Usage:
   //   processWithTimeframe(rawData, { type: 'last_n_working_days', n: 30 })
   //   processWithTimeframe(rawData, { type: 'calendar_range', start: '2025-11-01', end: '2025-11-30' })
   //   processWithTimeframe(rawData, { type: 'full' })
+  const BASELINE_WINDOW_DAYS = 10;
+
   function processWithTimeframe(rawData, timeframeSpec) {
     const entries = rawData.raw_entries || [];
     const datesAsc = computeAllWorkingDaysAsc(entries);
     const selectedDays = selectWorkingDays(datesAsc, timeframeSpec || { type: "full" });
-    // Trend baseline: last 10 working days across the full history.
-    const last10WorkingDays = datesAsc.slice(-10);
+
+    // Baseline: last N working days of the full history. Always the same
+    // window — does NOT exclude the selected timeframe — so when the selected
+    // timeframe equals the baseline window, the trends naturally show 0.
+    const baselineDays = datesAsc.slice(-BASELINE_WINDOW_DAYS);
 
     const selectedMetrics = calculateMetricsForDays(entries, selectedDays);
-    const last10Metrics = calculateMetricsForDays(entries, last10WorkingDays);
+    const baselineMetrics = calculateMetricsForDays(entries, baselineDays);
 
-    const trends = {
-      billable_hours: calculateTrend(
-        last10Metrics.daily_billable_avg,
-        selectedMetrics.daily_billable_avg,
-      ),
-      back_home_time: calculateTrend(
-        last10Metrics.back_home_stats.mean,
-        selectedMetrics.back_home_stats.mean,
-      ),
-    };
+    const hasBaseline = baselineDays.length > 0;
+    const trends = hasBaseline
+      ? {
+          billable_hours: calculateTrend(
+            selectedMetrics.daily_billable_avg,
+            baselineMetrics.daily_billable_avg,
+          ),
+          back_home_time: calculateTrend(
+            selectedMetrics.back_home_stats.mean,
+            baselineMetrics.back_home_stats.mean,
+          ),
+        }
+      : null;
 
     return {
       ...selectedMetrics,
@@ -363,7 +380,15 @@
         start: selectedDays[0] || "N/A",
         end: selectedDays[selectedDays.length - 1] || "N/A",
       },
-      last_10_days: last10Metrics,
+      baseline: {
+        metrics: baselineMetrics,
+        working_days: baselineDays.length,
+        date_range: {
+          start: baselineDays[0] || "N/A",
+          end: baselineDays[baselineDays.length - 1] || "N/A",
+        },
+        window_size: BASELINE_WINDOW_DAYS,
+      },
       trends: trends,
     };
   }

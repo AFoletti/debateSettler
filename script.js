@@ -7,11 +7,14 @@
  * Timeframes:
  *   - Current week / Last week              (calendar, ISO Mon-Sun)
  *   - Current month / Last month            (calendar)
- *   - Last 30 / 100 working days            (working-days)
+ *   - Last 10 / 30 / 100 working days       (working-days)
  *   - Full history                          (everything we have)
  *
- * Trends card always compares the **last 10 working days** to the
- * **currently selected timeframe**.
+ * Trends card always compares the **selected timeframe** against the user's
+ * "usual rhythm" — the last 10 working days of the full history (always the
+ * same baseline window, regardless of what is selected). Selecting "Last 10
+ * working days" therefore yields a 0 difference. If the history has no
+ * working days at all, the trends card is hidden.
  */
 
 // ---------------------------------------------------------------------------
@@ -66,6 +69,8 @@ function buildTimeframeSpec(id, today) {
       return { type: "last_n_working_days", n: 100, label: "Last 100 working days" };
     case "last_30":
       return { type: "last_n_working_days", n: 30, label: "Last 30 working days" };
+    case "last_10":
+      return { type: "last_n_working_days", n: 10, label: "Last 10 working days" };
     case "current_month": {
       const start = new Date(Date.UTC(y, m, 1));
       const end = new Date(Date.UTC(y, m, d));
@@ -119,6 +124,7 @@ const TIMEFRAME_BUTTONS = [
   { id: "last_week",     label: "Last week" },
   { id: "current_month", label: "This month" },
   { id: "last_month",    label: "Last month" },
+  { id: "last_10",       label: "10 working days" },
   { id: "last_30",       label: "30 working days" },
   { id: "last_100",      label: "100 working days" },
   { id: "full",          label: "Full history" },
@@ -283,8 +289,15 @@ function setText(id, text) {
 }
 
 function updateTrends() {
-  if (!metrics || !metrics.trends) return;
+  if (!metrics) return;
   const trendsCard = document.getElementById("trends-card");
+
+  // No baseline available (e.g. "Full history" selected → all working days
+  // are in the selected timeframe, leaving nothing for the baseline).
+  if (!metrics.trends) {
+    trendsCard.style.display = "none";
+    return;
+  }
   trendsCard.style.display = "block";
 
   const billableTrend = metrics.trends.billable_hours;
@@ -346,9 +359,14 @@ function updateTrends() {
     homeDiff.style.display = "none";
   }
 
-  // Trend footer reflects the new comparison (last 10 wd vs selected)
+  // Footer: explain what the comparison is (selected vs usual rhythm).
   const tfLabel = (metrics.timeframe && metrics.timeframe.label) || "selected timeframe";
-  setText("trend-footer-text", `Last 10 working days vs ${tfLabel}`);
+  const baseline = metrics.baseline || {};
+  const baselineDays = baseline.working_days || 0;
+  const baselineWindow = baseline.window_size || 10;
+  const effectiveWindow = Math.min(baselineWindow, baselineDays);
+  const baselineLabel = `usual rhythm (last ${effectiveWindow} working day${effectiveWindow === 1 ? "" : "s"})`;
+  setText("trend-footer-text", `${tfLabel} vs ${baselineLabel}`);
 }
 
 function updateSummary() {

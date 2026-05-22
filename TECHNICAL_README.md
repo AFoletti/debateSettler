@@ -188,7 +188,7 @@ workflow afterwards to extend the history backward in time as far as it goes.
 ```js
 const {
   processRawData,         // legacy: 30-day window with 7-vs-30 trends (kept for the regression test)
-  processWithTimeframe,   // current: arbitrary timeframe, last-10-vs-selected trends (used by the dashboard)
+  processWithTimeframe,   // current: arbitrary timeframe, selected-vs-baseline trends (used by the dashboard)
 } = require('./metrics_engine');
 // or in browser: window.DebateSettlerMetrics.processWithTimeframe(rawData, spec);
 ```
@@ -206,9 +206,13 @@ const {
 It returns the same metric object as `processRawData` plus:
 
 - `timeframe` — the spec it was called with (echoed back, with optional `label`)
-- `last_10_days` — metrics for the last 10 working days from the FULL history
-  (used as the trends baseline)
-- `trends` — `last 10 working days` compared to the selected timeframe
+- `baseline` — `{ metrics, working_days, date_range, window_size }` for the
+  user's "usual rhythm": the last 10 working days of the FULL history. The
+  baseline window is always the same set, regardless of what is selected, so
+  selecting "Last 10 working days" yields a 0 difference by construction.
+  `window_size` is the configured cap (currently 10).
+- `trends` — comparison of the **selected timeframe** vs the **baseline**.
+  `null` only when the full history has no working days at all.
 
 ### 4.1 `processRawData(rawData)` — legacy API
 
@@ -318,8 +322,23 @@ Rules:
 
 The UI converts these into arrows (↗, ↘, →) and human-readable labels.
 
-`processWithTimeframe` uses the same rules but with a different baseline:
-**last 10 working days** (recent) vs **the selected timeframe** (baseline).
+`processWithTimeframe` uses the same rules but with a different framing:
+**selected timeframe** (recent focus) vs the user's **usual rhythm** (baseline =
+the last 10 working days of the full history — always the same set of days,
+no exclusion). With this framing:
+
+- `trend = 'up'` ("Longer" / "Later") means the selected period had higher
+  values than the recent baseline.
+- `trend = 'down'` ("Shorter" / "Earlier") means the selected period had
+  lower values than the recent baseline.
+- Selecting "Last 10 working days" trivially yields `difference = 0` because
+  the selected and baseline windows are identical.
+- For broader selections (e.g. "Last 30 working days", "Full history") the
+  baseline is a subset of the selected period; this is intentional — the
+  baseline always represents "what I've been doing recently" and the trend
+  tells the user how the broader period compares to that recent rhythm.
+- If the history has no working days at all, `trends` is `null` and the UI
+  hides the trends card.
 
 ---
 
@@ -351,6 +370,7 @@ of ids. They map to the spec object understood by
 | `current_month` | `{type: 'calendar_range', start: <1st of month>, end: <today>}`      | Current month, partial |
 | `last_month`    | `{type: 'calendar_range', start: <prev 1st>, end: <prev last day>}`   | Previous full calendar month |
 | `last_30`       | `{type: 'last_n_working_days', n: 30}`                                | Default — matches the original dashboard |
+| `last_10`       | `{type: 'last_n_working_days', n: 10}`                                |  |
 | `last_100`      | `{type: 'last_n_working_days', n: 100}`                               |  |
 | `full`          | `{type: 'full'}`                                                      | Every working day in `raw_history.json` |
 
@@ -362,13 +382,19 @@ pre-existing behavior of the engine that we have not changed.
 
 ### 5.2 Trends card
 
-Trends always compare the **last 10 working days** (taken from the full
-history, regardless of selected timeframe) to the **selected timeframe**.
-This gives the trends card a single, consistent meaning across all
-timeframes: *"how does my recent rhythm compare to this period?"*
+Trends compare the **selected timeframe** to the user's **usual rhythm** —
+the last 10 working days of the full history, always the same baseline set.
+This gives a consistent semantic across all timeframes:
+*"how does this period compare to my recent rhythm?"* "Longer" / "Later"
+means the selected period was above the recent baseline; "Shorter" /
+"Earlier" means below. Selecting "Last 10 working days" yields a 0
+difference by construction.
 
-The card's footer text is updated dynamically to reflect the active
-timeframe ("Last 10 working days vs *Full history*", etc.).
+The card's footer text is updated dynamically (e.g. `"This week vs usual
+rhythm (last 10 working days)"`).
+
+When the history has no working days at all, `metrics.trends` is `null`
+and the trends card is hidden.
 
 ---
 

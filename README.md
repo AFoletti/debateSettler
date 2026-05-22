@@ -12,6 +12,7 @@ The dashboard lets you pick the **timeframe** the statistics are computed for:
 
 - **This week** / **Last week** — calendar weeks (Monday → Sunday, ISO 8601)
 - **This month** / **Last month** — calendar months
+- **Last 10 working days**
 - **Last 30 working days** — the original behavior, default selection
 - **Last 100 working days**
 - **Full history** — every working day stored in `data/raw_history.json`
@@ -28,10 +29,12 @@ For the chosen timeframe, DebateSettler displays:
   - Time entries in the selected timeframe
   - Total entries in the cumulative history
   - Working days analyzed
-- **Recent trends card** comparing the **last 10 working days** to the selected
-  timeframe, for:
+- **Vs. 10wd Baseline card** comparing the **selected timeframe** to your
+  **usual rhythm** (the last 10 working days of the full history — always the
+  same baseline window), for:
   - Daily billable hours
   - Back‑home times
+  Selecting "Last 10 working days" yields a 0 difference by construction.
 
 All calculations happen **in your browser** using the raw history file.
 
