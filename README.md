@@ -12,6 +12,7 @@ The dashboard lets you pick the **timeframe** the statistics are computed for:
 
 - **This week** / **Last week** — calendar weeks (Monday → Sunday, ISO 8601)
 - **This month** / **Last month** — calendar months
+- **Last 10 working days**
 - **Last 30 working days** — the original behavior, default selection
 - **Last 100 working days**
 - **Full history** — every working day stored in `data/raw_history.json`

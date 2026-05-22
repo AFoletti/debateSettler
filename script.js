@@ -7,7 +7,7 @@
  * Timeframes:
  *   - Current week / Last week              (calendar, ISO Mon-Sun)
  *   - Current month / Last month            (calendar)
- *   - Last 30 / 100 working days            (working-days)
+ *   - Last 10 / 30 / 100 working days       (working-days)
  *   - Full history                          (everything we have)
  *
  * Trends card always compares the **last 10 working days** to the
@@ -66,6 +66,8 @@ function buildTimeframeSpec(id, today) {
       return { type: "last_n_working_days", n: 100, label: "Last 100 working days" };
     case "last_30":
       return { type: "last_n_working_days", n: 30, label: "Last 30 working days" };
+    case "last_10":
+      return { type: "last_n_working_days", n: 10, label: "Last 10 working days" };
     case "current_month": {
       const start = new Date(Date.UTC(y, m, 1));
       const end = new Date(Date.UTC(y, m, d));
@@ -119,6 +121,7 @@ const TIMEFRAME_BUTTONS = [
   { id: "last_week",     label: "Last week" },
   { id: "current_month", label: "This month" },
   { id: "last_month",    label: "Last month" },
+  { id: "last_10",       label: "10 working days" },
   { id: "last_30",       label: "30 working days" },
   { id: "last_100",      label: "100 working days" },
   { id: "full",          label: "Full history" },

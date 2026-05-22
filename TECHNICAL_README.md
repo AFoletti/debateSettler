@@ -351,6 +351,7 @@ of ids. They map to the spec object understood by
 | `current_month` | `{type: 'calendar_range', start: <1st of month>, end: <today>}`      | Current month, partial |
 | `last_month`    | `{type: 'calendar_range', start: <prev 1st>, end: <prev last day>}`   | Previous full calendar month |
 | `last_30`       | `{type: 'last_n_working_days', n: 30}`                                | Default — matches the original dashboard |
+| `last_10`       | `{type: 'last_n_working_days', n: 10}`                                |  |
 | `last_100`      | `{type: 'last_n_working_days', n: 100}`                               |  |
 | `full`          | `{type: 'full'}`                                                      | Every working day in `raw_history.json` |
 
