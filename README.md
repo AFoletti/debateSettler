@@ -30,11 +30,11 @@ For the chosen timeframe, DebateSettler displays:
   - Total entries in the cumulative history
   - Working days analyzed
 - **Recent trends card** comparing the **selected timeframe** to your
-  **usual rhythm** (last 30 working days outside the selected period), for:
+  **usual rhythm** (the last 10 working days of the full history — always the
+  same baseline window), for:
   - Daily billable hours
   - Back‑home times
-  When the selected timeframe covers all the history, the trends card is
-  hidden because no baseline can be computed.
+  Selecting "Last 10 working days" yields a 0 difference by construction.
 
 All calculations happen **in your browser** using the raw history file.
 

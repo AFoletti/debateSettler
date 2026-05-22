@@ -11,9 +11,10 @@
  *   - Full history                          (everything we have)
  *
  * Trends card always compares the **selected timeframe** against the user's
- * "usual rhythm" — the last 30 working days **outside** the selected period.
- * If the selected timeframe covers everything (e.g. Full history), the
- * baseline is empty and the trends card is hidden.
+ * "usual rhythm" — the last 10 working days of the full history (always the
+ * same baseline window, regardless of what is selected). Selecting "Last 10
+ * working days" therefore yields a 0 difference. If the history has no
+ * working days at all, the trends card is hidden.
  */
 
 // ---------------------------------------------------------------------------
@@ -362,11 +363,9 @@ function updateTrends() {
   const tfLabel = (metrics.timeframe && metrics.timeframe.label) || "selected timeframe";
   const baseline = metrics.baseline || {};
   const baselineDays = baseline.working_days || 0;
-  const baselineWindow = baseline.window_size || 30;
-  const baselineLabel =
-    baselineDays >= baselineWindow
-      ? `usual rhythm (last ${baselineWindow} working days outside this period)`
-      : `usual rhythm (${baselineDays} working day${baselineDays === 1 ? "" : "s"} outside this period)`;
+  const baselineWindow = baseline.window_size || 10;
+  const effectiveWindow = Math.min(baselineWindow, baselineDays);
+  const baselineLabel = `usual rhythm (last ${effectiveWindow} working day${effectiveWindow === 1 ? "" : "s"})`;
   setText("trend-footer-text", `${tfLabel} vs ${baselineLabel}`);
 }
 

@@ -329,33 +329,32 @@
 
   // New API: compute metrics for an arbitrary timeframe (working-day-based or
   // calendar-based). Trends compare the SELECTED timeframe (recent focus)
-  // against the user's "usual rhythm" — defined as the last 30 working days
-  // EXCLUDING the days that fall inside the selected timeframe. This way:
+  // against the user's "usual rhythm" — defined as the last 10 working days
+  // of the full history (always the same baseline window, regardless of what
+  // is selected). This way:
   //   - "Longer / Later" = "in the selected period I worked more / came back
-  //     home later than usual"
+  //     home later than my recent baseline"
   //   - "Shorter / Earlier" = the opposite
-  //   - The two windows never overlap, regardless of how the timeframe is
-  //     selected.
-  // If the baseline ends up empty (e.g. selected = "Full history"), trends are
-  // returned as null and the UI hides the comparison.
+  //   - When the selected timeframe IS the last 10 working days, the diff is
+  //     exactly 0.
+  // If the full history has fewer than 1 working day, trends are returned as
+  // null and the UI hides the comparison.
   //
   // Usage:
   //   processWithTimeframe(rawData, { type: 'last_n_working_days', n: 30 })
   //   processWithTimeframe(rawData, { type: 'calendar_range', start: '2025-11-01', end: '2025-11-30' })
   //   processWithTimeframe(rawData, { type: 'full' })
-  const BASELINE_WINDOW_DAYS = 30;
+  const BASELINE_WINDOW_DAYS = 10;
 
   function processWithTimeframe(rawData, timeframeSpec) {
     const entries = rawData.raw_entries || [];
     const datesAsc = computeAllWorkingDaysAsc(entries);
     const selectedDays = selectWorkingDays(datesAsc, timeframeSpec || { type: "full" });
 
-    // Baseline: most recent BASELINE_WINDOW_DAYS working days that are NOT in
-    // the selected timeframe. Guarantees no overlap with `selectedDays`.
-    const selectedSet = new Set(selectedDays);
-    const baselineDays = datesAsc
-      .filter((d) => !selectedSet.has(d))
-      .slice(-BASELINE_WINDOW_DAYS);
+    // Baseline: last N working days of the full history. Always the same
+    // window — does NOT exclude the selected timeframe — so when the selected
+    // timeframe equals the baseline window, the trends naturally show 0.
+    const baselineDays = datesAsc.slice(-BASELINE_WINDOW_DAYS);
 
     const selectedMetrics = calculateMetricsForDays(entries, selectedDays);
     const baselineMetrics = calculateMetricsForDays(entries, baselineDays);
