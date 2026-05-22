@@ -10,8 +10,10 @@
  *   - Last 10 / 30 / 100 working days       (working-days)
  *   - Full history                          (everything we have)
  *
- * Trends card always compares the **last 10 working days** to the
- * **currently selected timeframe**.
+ * Trends card always compares the **selected timeframe** against the user's
+ * "usual rhythm" — the last 30 working days **outside** the selected period.
+ * If the selected timeframe covers everything (e.g. Full history), the
+ * baseline is empty and the trends card is hidden.
  */
 
 // ---------------------------------------------------------------------------
@@ -286,8 +288,15 @@ function setText(id, text) {
 }
 
 function updateTrends() {
-  if (!metrics || !metrics.trends) return;
+  if (!metrics) return;
   const trendsCard = document.getElementById("trends-card");
+
+  // No baseline available (e.g. "Full history" selected → all working days
+  // are in the selected timeframe, leaving nothing for the baseline).
+  if (!metrics.trends) {
+    trendsCard.style.display = "none";
+    return;
+  }
   trendsCard.style.display = "block";
 
   const billableTrend = metrics.trends.billable_hours;
@@ -349,9 +358,16 @@ function updateTrends() {
     homeDiff.style.display = "none";
   }
 
-  // Trend footer reflects the new comparison (last 10 wd vs selected)
+  // Footer: explain what the comparison is (selected vs usual rhythm).
   const tfLabel = (metrics.timeframe && metrics.timeframe.label) || "selected timeframe";
-  setText("trend-footer-text", `Last 10 working days vs ${tfLabel}`);
+  const baseline = metrics.baseline || {};
+  const baselineDays = baseline.working_days || 0;
+  const baselineWindow = baseline.window_size || 30;
+  const baselineLabel =
+    baselineDays >= baselineWindow
+      ? `usual rhythm (last ${baselineWindow} working days outside this period)`
+      : `usual rhythm (${baselineDays} working day${baselineDays === 1 ? "" : "s"} outside this period)`;
+  setText("trend-footer-text", `${tfLabel} vs ${baselineLabel}`);
 }
 
 function updateSummary() {
