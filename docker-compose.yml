@@ -10,7 +10,7 @@ services:
       - "127.0.0.1:8080:80"
     volumes:
       - ./:/usr/share/nginx/html:ro
-      - debatesettler_data:/usr/share/nginx/html/data:ro
+      - ./data:/usr/share/nginx/html/data:rw
       - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
   fetcher:
@@ -22,9 +22,5 @@ services:
     env_file:
       - .env
     volumes:
-      - debatesettler_data:/data
+      - ./data:/data
       - ./scripts:/scripts:ro
-
-volumes:
-  debatesettler_data:
-    driver: local
