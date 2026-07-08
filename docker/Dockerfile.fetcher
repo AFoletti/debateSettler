@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+RUN pip install --no-cache-dir requests python-dateutil
+
+# supercronic: reliable cron inside a non-root container, logs to stdout
+ADD https://github.com/aptible/supercronic/releases/download/v0.2.29/supercronic-linux-amd64 \
+    /usr/local/bin/supercronic
+RUN chmod +x /usr/local/bin/supercronic
+
+COPY docker/crontab /etc/crontab.fetcher
+
+CMD ["supercronic", "/etc/crontab.fetcher"]
