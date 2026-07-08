@@ -31,7 +31,9 @@ import requests
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-DATA_DIR = Path("data")
+import os
+_data_dir_env = os.environ.get("DATA_DIR")
+DATA_DIR = Path(_data_dir_env) if _data_dir_env else Path("data")
 HISTORY_FILE = DATA_DIR / "raw_history.json"
 
 HISTORY_VERSION = 1

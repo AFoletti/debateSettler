@@ -1,0 +1,2 @@
+# Daily incremental Toggl fetch — 01:45 Europe/Zurich (matches the GitHub Actions schedule)
+45 1 * * * DATA_DIR=/data python /scripts/fetch-toggl-data.py
