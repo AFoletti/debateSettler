@@ -3,10 +3,10 @@
   "workspace_name": "DRE-P",
   "workspace_id": 4536519,
   "first_entry_start": "2025-06-05T05:15:00+02:00",
-  "last_entry_start": "2026-09-08T14:05:45+00:00",
+  "last_entry_start": "2026-09-09T14:05:26+00:00",
   "last_backfill_at": "2026-05-07T05:36:11.313245",
-  "last_incremental_at": "2026-09-09T01:33:58.010512",
-  "total_entries": 4101,
+  "last_incremental_at": "2026-09-10T01:29:01.907414",
+  "total_entries": 4114,
   "raw_entries": [
     {
       "id": 3965178538,
@@ -90775,7 +90775,7 @@
     {
       "id": 4537116185,
       "workspace_id": 4536519,
-      "project_id": null,
+      "project_id": 211755736,
       "task_id": null,
       "billable": true,
       "start": "2026-09-01T07:14:26+00:00",
@@ -90784,11 +90784,12 @@
       "tags": [],
       "tag_ids": [],
       "duronly": true,
-      "at": "2026-09-01T09:26:33.701134Z",
+      "at": "2026-09-09T14:06:52.725512Z",
       "server_deleted_at": null,
       "user_id": 548836,
       "uid": 548836,
-      "wid": 4536519
+      "wid": 4536519,
+      "pid": 211755736
     },
     {
       "id": 4537188085,
@@ -92546,6 +92547,317 @@
       "uid": 548836,
       "wid": 4536519,
       "pid": 211755753
+    },
+    {
+      "id": 4546550466,
+      "workspace_id": 4536519,
+      "project_id": 211755804,
+      "task_id": 238138454,
+      "billable": true,
+      "start": "2026-09-09T03:51:29+00:00",
+      "stop": "2026-09-09T04:01:54+00:00",
+      "duration": 625,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.751632Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755804,
+      "tid": 238138454
+    },
+    {
+      "id": 4546556257,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 243677262,
+      "billable": true,
+      "start": "2026-09-09T04:01:53+00:00",
+      "stop": "2026-09-09T05:09:06+00:00",
+      "duration": 4033,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.677949Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 243677262
+    },
+    {
+      "id": 4546591280,
+      "workspace_id": 4536519,
+      "project_id": 216573207,
+      "task_id": 243649555,
+      "billable": true,
+      "start": "2026-09-09T05:09:06+00:00",
+      "stop": "2026-09-09T05:17:26+00:00",
+      "duration": 500,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.641858Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 216573207,
+      "tid": 243649555
+    },
+    {
+      "id": 4546596290,
+      "workspace_id": 4536519,
+      "project_id": 215161153,
+      "task_id": 243677587,
+      "billable": true,
+      "start": "2026-09-09T05:17:26+00:00",
+      "stop": "2026-09-09T05:54:58+00:00",
+      "duration": 2252,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.603766Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 215161153,
+      "tid": 243677587
+    },
+    {
+      "id": 4546621454,
+      "workspace_id": 4536519,
+      "project_id": 211755734,
+      "task_id": 242080457,
+      "billable": true,
+      "start": "2026-09-09T05:54:58+00:00",
+      "stop": "2026-09-09T07:08:51+00:00",
+      "duration": 4433,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.560687Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755734,
+      "tid": 242080457
+    },
+    {
+      "id": 4546698510,
+      "workspace_id": 4536519,
+      "project_id": 215161153,
+      "task_id": 239765425,
+      "billable": true,
+      "start": "2026-09-09T07:08:51+00:00",
+      "stop": "2026-09-09T08:23:45+00:00",
+      "duration": 4494,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.71312Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 215161153,
+      "tid": 239765425
+    },
+    {
+      "id": 4546796201,
+      "workspace_id": 4536519,
+      "project_id": 211755736,
+      "task_id": 243677219,
+      "billable": true,
+      "start": "2026-09-09T08:23:45+00:00",
+      "stop": "2026-09-09T09:36:46+00:00",
+      "duration": 4381,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.65365Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755736,
+      "tid": 243677219
+    },
+    {
+      "id": 4546891933,
+      "workspace_id": 4536519,
+      "project_id": 216573207,
+      "task_id": 243649555,
+      "billable": true,
+      "start": "2026-09-09T09:36:46+00:00",
+      "stop": "2026-09-09T09:58:47+00:00",
+      "duration": 1321,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.625159Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 216573207,
+      "tid": 243649555
+    },
+    {
+      "id": 4546918653,
+      "workspace_id": 4536519,
+      "project_id": 211755753,
+      "task_id": null,
+      "billable": false,
+      "start": "2026-09-09T09:58:48+00:00",
+      "stop": "2026-09-09T11:07:07+00:00",
+      "duration": 4099,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:09.554335Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755753
+    },
+    {
+      "id": 4547000413,
+      "workspace_id": 4536519,
+      "project_id": 216573207,
+      "task_id": 243649555,
+      "billable": true,
+      "start": "2026-09-09T11:07:07+00:00",
+      "stop": "2026-09-09T11:59:44+00:00",
+      "duration": 3157,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:08.508792Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 216573207,
+      "tid": 243649555
+    },
+    {
+      "id": 4547067511,
+      "workspace_id": 4536519,
+      "project_id": 215161153,
+      "task_id": 243677222,
+      "billable": true,
+      "start": "2026-09-09T11:59:44+00:00",
+      "stop": "2026-09-09T12:40:13+00:00",
+      "duration": 2429,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:08.470769Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 215161153,
+      "tid": 243677222
+    },
+    {
+      "id": 4547127218,
+      "workspace_id": 4536519,
+      "project_id": 216573207,
+      "task_id": 243649555,
+      "billable": true,
+      "start": "2026-09-09T12:40:13+00:00",
+      "stop": "2026-09-09T14:05:26+00:00",
+      "duration": 5113,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:08.434791Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 216573207,
+      "tid": 243649555
+    },
+    {
+      "id": 4547274796,
+      "workspace_id": 4536519,
+      "project_id": 211755813,
+      "task_id": 238138473,
+      "billable": true,
+      "start": "2026-09-09T14:05:26+00:00",
+      "stop": "2026-09-09T14:29:46+00:00",
+      "duration": 1460,
+      "tags": [
+        "HomeOffice"
+      ],
+      "tag_ids": [
+        18307839
+      ],
+      "duronly": true,
+      "at": "2026-09-09T14:30:07.344734Z",
+      "server_deleted_at": null,
+      "user_id": 548836,
+      "uid": 548836,
+      "wid": 4536519,
+      "pid": 211755813,
+      "tid": 238138473
     }
   ]
 }
