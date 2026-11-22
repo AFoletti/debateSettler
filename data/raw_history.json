@@ -5,7 +5,7 @@
   "first_entry_start": "2025-06-05T05:15:00+02:00",
   "last_entry_start": "2026-11-20T14:02:33+00:00",
   "last_backfill_at": "2026-05-07T05:36:11.313245",
-  "last_incremental_at": "2026-11-21T07:43:16.515565",
+  "last_incremental_at": "2026-11-22T07:28:57.321205",
   "total_entries": 4720,
   "raw_entries": [
     {
